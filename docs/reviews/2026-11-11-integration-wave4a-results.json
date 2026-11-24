@@ -1,0 +1,820 @@
+{
+  "date": "2026-11-11",
+  "branch": "t3/integration-wave4a",
+  "base": "e5c08291098bc6c8f903ebcdb3245bd96d3ddeaa",
+  "runtime_head": "08ab79421087e8dc728a33deffa817219d771eff",
+  "runs": [
+    {
+      "name": "d-library-tests",
+      "command": "pnpm --filter @opentenant/auth test && pnpm --filter @opentenant/database exec vitest run src/credential-cipher.test.ts && pnpm --filter @opentenant/security exec vitest run src/checkpoint-sinks.test.ts && pnpm --filter @opentenant/brain exec vitest run src/embeddings.test.ts && node --test tooling/ci/runtime-env.test.mjs",
+      "exit": 0,
+      "seconds": 8.65,
+      "passed": 175,
+      "failed": 0,
+      "skipped": 0,
+      "log": "d-library-tests.log",
+      "unit": "tests"
+    },
+    {
+      "name": "packed-adopter",
+      "command": "pnpm module:adopter-proof",
+      "exit": 1,
+      "seconds": 21.19,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packed-adopter.log",
+      "unit": "command"
+    },
+    {
+      "name": "b-migrations-final",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/migrations test",
+      "exit": 0,
+      "seconds": 56.07,
+      "passed": 178,
+      "failed": 0,
+      "skipped": 0,
+      "log": "b-migrations-final.log",
+      "unit": "tests"
+    },
+    {
+      "name": "packed-adopter-2",
+      "command": "pnpm module:adopter-proof",
+      "exit": 1,
+      "seconds": 19.28,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packed-adopter-2.log",
+      "unit": "command"
+    },
+    {
+      "name": "build",
+      "command": "pnpm turbo build",
+      "exit": 1,
+      "seconds": 52.58,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build.log",
+      "unit": "command",
+      "tasks": {
+        "passed": 23,
+        "total": 24
+      }
+    },
+    {
+      "name": "install-final",
+      "command": "pnpm install --frozen-lockfile",
+      "exit": 0,
+      "seconds": 0.57,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "install-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "packed-adopter-3",
+      "command": "pnpm module:adopter-proof",
+      "exit": 1,
+      "seconds": 40.19,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packed-adopter-3.log",
+      "unit": "command"
+    },
+    {
+      "name": "matrix",
+      "command": "pnpm quality:matrix",
+      "exit": 0,
+      "seconds": 2.67,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "matrix.log",
+      "unit": "command"
+    },
+    {
+      "name": "docs",
+      "command": "pnpm docs:links",
+      "exit": 1,
+      "seconds": 4.36,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "docs.log",
+      "unit": "command"
+    },
+    {
+      "name": "changesets",
+      "command": "pnpm changeset status",
+      "exit": 0,
+      "seconds": 2.32,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "changesets.log",
+      "unit": "command"
+    },
+    {
+      "name": "audit",
+      "command": "pnpm audit --audit-level high",
+      "exit": 0,
+      "seconds": 1.79,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "audit.log",
+      "unit": "command"
+    },
+    {
+      "name": "rls",
+      "command": "pnpm db:ephemeral -- pnpm rls:proof",
+      "exit": 0,
+      "seconds": 16.99,
+      "passed": 314,
+      "failed": 0,
+      "skipped": 0,
+      "log": "rls.log",
+      "unit": "checks"
+    },
+    {
+      "name": "stores",
+      "command": "pnpm db:ephemeral -- pnpm database:store-proof",
+      "exit": 0,
+      "seconds": 52.57,
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0,
+      "log": "stores.log",
+      "unit": "assertions"
+    },
+    {
+      "name": "provisioning",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/provisioning.integration.test.ts lib/provisioning-postgres.integration.test.ts",
+      "exit": 0,
+      "seconds": 27.71,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "log": "provisioning.log",
+      "unit": "tests"
+    },
+    {
+      "name": "packed-adopter-4",
+      "command": "pnpm module:adopter-proof",
+      "exit": 1,
+      "seconds": 65.9,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packed-adopter-4.log",
+      "unit": "command"
+    },
+    {
+      "name": "worker",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/tenant-worker.integration.test.ts",
+      "exit": 0,
+      "seconds": 33.43,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0,
+      "log": "worker.log",
+      "unit": "tests"
+    },
+    {
+      "name": "build-2",
+      "command": "pnpm turbo build",
+      "exit": 0,
+      "seconds": 151.04,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build-2.log",
+      "unit": "command",
+      "tasks": {
+        "passed": 24,
+        "total": 24
+      }
+    },
+    {
+      "name": "registry-extras-tests",
+      "command": "pnpm --filter @opentenant/platform exec vitest run lib/helpdesk.test.ts lib/module-capability-broker.test.ts lib/connections.test.ts lib/server-config.test.ts && pnpm --filter @opentenant/module-sdk test",
+      "exit": 0,
+      "seconds": 8.83,
+      "passed": 64,
+      "failed": 0,
+      "skipped": 0,
+      "log": "registry-extras-tests.log",
+      "unit": "tests"
+    },
+    {
+      "name": "docs-final",
+      "command": "pnpm docs:links",
+      "exit": 0,
+      "seconds": 4.82,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "docs-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "packed-adopter-5",
+      "command": "pnpm module:adopter-proof",
+      "exit": 1,
+      "seconds": 89.26,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packed-adopter-5.log",
+      "unit": "command"
+    },
+    {
+      "name": "gitleaks",
+      "command": "cd /tmp/opentenant-wave4a-source && gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 0,
+      "seconds": 3.55,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "gitleaks.log",
+      "unit": "command"
+    },
+    {
+      "name": "isolation",
+      "command": "pnpm db:ephemeral -- env ISOLATION_FUZZ_SEED=20261111 node packages/testing/scripts/isolation-proof.mjs",
+      "exit": 0,
+      "seconds": 182.81,
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "log": "isolation.log",
+      "unit": "tests"
+    },
+    {
+      "name": "package-final",
+      "command": "pnpm package:check",
+      "exit": 0,
+      "seconds": 233.15,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "log": "package-final.log",
+      "unit": "packages"
+    },
+    {
+      "name": "registry-contract-tests",
+      "command": "pnpm --filter @opentenant/module-sdk test",
+      "exit": 0,
+      "seconds": 5.37,
+      "passed": 18,
+      "failed": 0,
+      "skipped": 0,
+      "log": "registry-contract-tests.log",
+      "unit": "tests"
+    },
+    {
+      "name": "ripwire-contract",
+      "command": "ripwire . --edit-check=defineModule --legend=compact",
+      "exit": 0,
+      "seconds": 13.19,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "ripwire-contract.log",
+      "unit": "command"
+    },
+    {
+      "name": "semgrep",
+      "command": "EIO_BACKEND=posix semgrep scan --jobs 1 --timeout 30 --config packages/usage-export/testing/security-rules.yml --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --error --exclude graphify-out --exclude node_modules --exclude .next --exclude .agents .",
+      "exit": 0,
+      "seconds": 105.39,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "semgrep.log",
+      "unit": "command"
+    },
+    {
+      "name": "ripwire-quality",
+      "command": "ripwire . --quality-delta --legend=compact",
+      "exit": 2,
+      "seconds": 74.41,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "ripwire-quality.log",
+      "unit": "command"
+    },
+    {
+      "name": "trivy",
+      "command": "trivy fs --offline-scan --skip-db-update --skip-check-update --skip-version-check --scanners vuln,misconfig --severity HIGH,CRITICAL --exit-code 1 --skip-dirs node_modules --skip-dirs .git --skip-dirs graphify-out --skip-dirs .agents --skip-dirs apps/platform/.next .",
+      "exit": 0,
+      "seconds": 74.66,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "trivy.log",
+      "unit": "command"
+    },
+    {
+      "name": "restore",
+      "command": "pnpm restore:drill",
+      "exit": 0,
+      "seconds": 139.75,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "restore.log",
+      "unit": "command"
+    },
+    {
+      "name": "quality",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 2,
+      "seconds": 440.29,
+      "passed": 1391,
+      "failed": 0,
+      "skipped": 20,
+      "log": "quality.log",
+      "unit": "tests",
+      "tasks": {
+        "passed": 94,
+        "total": 97
+      }
+    },
+    {
+      "name": "packed-adopter-6",
+      "command": "pnpm module:adopter-proof",
+      "exit": 0,
+      "seconds": 398.75,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packed-adopter-6.log",
+      "unit": "tests",
+      "tasks": {
+        "passed": 18,
+        "total": 18
+      }
+    },
+    {
+      "name": "module-config-tests",
+      "command": "pnpm --filter @opentenant/platform exec vitest run lib/module-services.test.ts lib/module-third-party-access.test.tsx lib/tenant-suspension-access.test.ts app/\\[...modulePath\\]/page.test.tsx",
+      "exit": 0,
+      "seconds": 2.77,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "log": "module-config-tests.log",
+      "unit": "tests"
+    },
+    {
+      "name": "residual-database",
+      "command": "pnpm db:ephemeral -- sh -c 'CUSTOM_DOMAINS_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" pnpm --filter @opentenant/platform exec vitest run lib/custom-domains.integration.test.ts && KEY_ROTATION_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" pnpm --filter @opentenant/database exec vitest run src/credential-cipher-rotation.postgres.test.ts && pnpm --filter @opentenant/usage-export test'",
+      "exit": 0,
+      "seconds": 41.9,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "log": "residual-database.log",
+      "unit": "tests"
+    },
+    {
+      "name": "database-audit",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/database exec vitest run src/audit-truncate.integration.test.ts src/audit-checkpoints.integration.test.ts",
+      "exit": 0,
+      "seconds": 27.99,
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "log": "database-audit.log",
+      "unit": "tests"
+    },
+    {
+      "name": "limiter",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/rate-limit.integration.test.ts",
+      "exit": 0,
+      "seconds": 33.36,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "log": "limiter.log",
+      "unit": "tests"
+    },
+    {
+      "name": "migrations-final",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/migrations test",
+      "exit": 0,
+      "seconds": 119.42,
+      "passed": 178,
+      "failed": 0,
+      "skipped": 0,
+      "log": "migrations-final.log",
+      "unit": "tests"
+    },
+    {
+      "name": "packed-adopter-final",
+      "command": "pnpm module:adopter-proof",
+      "exit": 0,
+      "seconds": 385.15,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packed-adopter-final.log",
+      "unit": "tests",
+      "tasks": {
+        "passed": 18,
+        "total": 18
+      }
+    },
+    {
+      "name": "quality-2",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 1,
+      "seconds": 461.82,
+      "passed": 2011,
+      "failed": 12,
+      "skipped": 52,
+      "log": "quality-2.log",
+      "unit": "tests",
+      "tasks": {
+        "passed": 105,
+        "total": 107
+      }
+    },
+    {
+      "name": "gitleaks-final",
+      "command": "cd /tmp/opentenant-wave4a-source-final && gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 0,
+      "seconds": 2.17,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "gitleaks-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "package-complete",
+      "command": "pnpm package:check",
+      "exit": 0,
+      "seconds": 121.36,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "log": "package-complete.log",
+      "unit": "packages"
+    },
+    {
+      "name": "semgrep-final",
+      "command": "EIO_BACKEND=posix semgrep scan --jobs 1 --timeout 30 --config packages/usage-export/testing/security-rules.yml --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --error --exclude graphify-out --exclude node_modules --exclude .next --exclude .agents .",
+      "exit": 0,
+      "seconds": 12.5,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "semgrep-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "graph",
+      "command": "graphify update .",
+      "exit": 0,
+      "seconds": 19.55,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "graph.log",
+      "unit": "command"
+    },
+    {
+      "name": "smoke",
+      "command": "SMOKE_BUILD_NETWORK=host SMOKE_APP_PORT=3494 SMOKE_POSTGRES_PORT=55494 node scripts/smoke-deploy.mjs",
+      "exit": 0,
+      "seconds": 880.25,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "smoke.log",
+      "unit": "command",
+      "tasks": {
+        "passed": 22,
+        "total": 22
+      }
+    },
+    {
+      "name": "shared-platform-tests",
+      "command": "pnpm --filter @opentenant/platform test",
+      "exit": 1,
+      "seconds": 15.96,
+      "passed": 496,
+      "failed": 1,
+      "skipped": 9,
+      "log": "shared-platform-tests.log",
+      "unit": "tests"
+    },
+    {
+      "name": "shared-library-tests",
+      "command": "pnpm --filter @opentenant/observability test && pnpm --filter @opentenant/auth test && pnpm --filter @opentenant/security test",
+      "exit": 1,
+      "seconds": 4.73,
+      "passed": 185,
+      "failed": 1,
+      "skipped": 0,
+      "log": "shared-library-tests.log",
+      "unit": "tests"
+    },
+    {
+      "name": "identity",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/testing exec vitest run src/identity-adapters.test.ts src/better-auth.integration.test.ts",
+      "exit": 0,
+      "seconds": 35.02,
+      "passed": 65,
+      "failed": 0,
+      "skipped": 0,
+      "log": "identity.log",
+      "unit": "tests"
+    },
+    {
+      "name": "shared-platform-tests-2",
+      "command": "pnpm --filter @opentenant/platform test",
+      "exit": 0,
+      "seconds": 18.42,
+      "passed": 497,
+      "failed": 0,
+      "skipped": 9,
+      "log": "shared-platform-tests-2.log",
+      "unit": "tests"
+    },
+    {
+      "name": "shared-library-tests-2",
+      "command": "pnpm --filter @opentenant/observability test && pnpm --filter @opentenant/auth test && pnpm --filter @opentenant/security test",
+      "exit": 0,
+      "seconds": 7.35,
+      "passed": 251,
+      "failed": 0,
+      "skipped": 0,
+      "log": "shared-library-tests-2.log",
+      "unit": "tests"
+    },
+    {
+      "name": "shared-regression-tests",
+      "command": "pnpm --filter @opentenant/platform exec vitest run app/api/telemetry/route.test.ts app/api/module-access/\\[module\\]/route.test.ts app/api/mcp/developer-mcp-surface.test.ts lib/tenant-activity.test.ts && pnpm --filter @opentenant/auth exec vitest run src/local/gateway.test.ts && pnpm --filter @opentenant/security exec vitest run src/tenant-activity.test.ts && pnpm --filter @opentenant/observability exec vitest run src/index.test.ts && pnpm --filter @opentenant/module-sdk test",
+      "exit": 0,
+      "seconds": 8.44,
+      "passed": 77,
+      "failed": 0,
+      "skipped": 0,
+      "log": "shared-regression-tests.log",
+      "unit": "tests"
+    },
+    {
+      "name": "quality-3",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 0,
+      "seconds": 255.75,
+      "passed": 2027,
+      "failed": 0,
+      "skipped": 52,
+      "log": "quality-3.log",
+      "unit": "tests",
+      "tasks": {
+        "passed": 108,
+        "total": 108
+      }
+    },
+    {
+      "name": "install-complete",
+      "command": "pnpm install --frozen-lockfile",
+      "exit": 0,
+      "seconds": 0.67,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "install-complete.log",
+      "unit": "command"
+    },
+    {
+      "name": "platform-final",
+      "command": "pnpm --filter @opentenant/platform build",
+      "exit": 0,
+      "seconds": 84.26,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "platform-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "packages-final",
+      "command": "pnpm package:check",
+      "exit": 0,
+      "seconds": 90.43,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "log": "packages-final.log",
+      "unit": "packages"
+    },
+    {
+      "name": "changesets-final",
+      "command": "pnpm changeset status",
+      "exit": 0,
+      "seconds": 1.23,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "changesets-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "audit-final",
+      "command": "pnpm audit --audit-level high",
+      "exit": 0,
+      "seconds": 1.18,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "audit-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "matrix-final",
+      "command": "pnpm quality:matrix",
+      "exit": 0,
+      "seconds": 2.76,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "matrix-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "observability-database",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/observability test",
+      "exit": 0,
+      "seconds": 18.34,
+      "passed": 34,
+      "failed": 0,
+      "skipped": 0,
+      "log": "observability-database.log",
+      "unit": "tests"
+    },
+    {
+      "name": "module-audit",
+      "command": "pnpm module:audit",
+      "exit": 0,
+      "seconds": 1.06,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "module-audit.log",
+      "unit": "command"
+    },
+    {
+      "name": "gitleaks-complete",
+      "command": "cd /tmp/opentenant-wave4a-source-final && gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 0,
+      "seconds": 1.94,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "gitleaks-complete.log",
+      "unit": "command"
+    },
+    {
+      "name": "structure-final",
+      "command": "ripwire . --quality-delta --legend=compact",
+      "exit": 0,
+      "seconds": 5.94,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "structure-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "graph-final",
+      "command": "graphify update .",
+      "exit": 0,
+      "seconds": 17.97,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "graph-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "security-final",
+      "command": "EIO_BACKEND=posix semgrep scan --jobs 1 --timeout 30 --config packages/usage-export/testing/security-rules.yml --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --error --exclude graphify-out --exclude node_modules --exclude .next --exclude .agents .",
+      "exit": 0,
+      "seconds": 11.34,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "security-final.log",
+      "unit": "command"
+    },
+    {
+      "name": "e2e",
+      "command": "pnpm e2e",
+      "exit": 0,
+      "seconds": 130.17,
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "log": "e2e.log",
+      "unit": "tests"
+    },
+    {
+      "name": "build-complete",
+      "command": "pnpm turbo build",
+      "exit": 0,
+      "seconds": 1.94,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "build-complete.log",
+      "unit": "command",
+      "tasks": {
+        "passed": 24,
+        "total": 24
+      }
+    },
+    {
+      "name": "docs-complete",
+      "command": "pnpm docs:links",
+      "exit": 0,
+      "seconds": 2.07,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "docs-complete.log",
+      "unit": "command"
+    },
+    {
+      "name": "smoke-final",
+      "command": "SMOKE_BUILD_NETWORK=host SMOKE_APP_PORT=3495 SMOKE_POSTGRES_PORT=55495 node scripts/smoke-deploy.mjs",
+      "exit": 0,
+      "seconds": 555.7,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "smoke-final.log",
+      "unit": "command",
+      "tasks": {
+        "passed": 22,
+        "total": 22
+      }
+    },
+    {
+      "name": "source-env",
+      "command": "pnpm exec eslint apps/platform packages modules",
+      "exit": 0,
+      "seconds": 10.61,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "source-env.log",
+      "unit": "command"
+    },
+    {
+      "name": "docs-handoff",
+      "command": "pnpm docs:links",
+      "exit": 0,
+      "seconds": 1.87,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "docs-handoff.log",
+      "unit": "command"
+    },
+    {
+      "name": "diff-before-handoff",
+      "command": "git diff --check e5c0829 HEAD",
+      "exit": 0,
+      "seconds": 0.16,
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "log": "diff-before-handoff.log",
+      "unit": "command"
+    }
+  ],
+  "special_cases": {
+    "specialCases": 0,
+    "exclusions": [
+      "apps/platform/app/api/admin/support-policy/route.ts:17:  const limited = await enforceRateLimit(req, { tenantId: \"installation\", userId: owner.context.authority.userId, routeClass: \"support\" }); if (limited) return limited;",
+      "apps/platform/app/api/admin/support-sessions/exit/route.ts:19:  const limited = await enforceRateLimit(req, { tenantId: \"installation\", userId: operator.userId, routeClass: \"support\" }); if (limited) return limited;",
+      "apps/platform/app/api/admin/support-sessions/route.ts:23:  const limited = await enforceRateLimit(req, { tenantId: tenant.tenantId, userId: owner.context.authority.userId, routeClass: \"support\" }); if (limited) return limited;",
+      "apps/platform/lib/rate-limit.ts:11:export type RouteClass = \"settings\" | \"members\" | \"identity-portal\" | \"support\" | \"brand-proposal\" | \"tenant-creation\" | \"passcode\" | \"module-access\";",
+      "apps/platform/lib/rate-limit.ts:24:  if (path.startsWith(\"/api/admin/support-\") || path.startsWith(\"/api/module-broker/\")) return \"support\";",
+      "apps/platform/package.json:19:    \"@opentenant/assessment\": \"workspace:*\",",
+      "packages/module-sdk/src/registry.ts:29:  rateLimitClass?: \"support\" | \"module-access\";"
+    ],
+    "matches": []
+  }
+}

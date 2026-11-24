@@ -1,0 +1,3397 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-07T01:29:06.000Z",
+  "tasks": [
+    {
+      "id": "OPS-01",
+      "priority": 10,
+      "title": "Installation-owner terminology and permission seam",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Introduce installation-owner contracts and permissions while preserving current tenant behavior.",
+      "source": "docs/architecture/multi-tenant-operations.md#18-delivery-sequence",
+      "acceptanceCriteria": [
+        "Installation-owner authority is distinct from tenant membership and support context.",
+        "Existing tenant behavior remains covered through public entry points.",
+        "Unknown or ambiguous installation authority fails closed and privileged actions are auditable."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/auth/",
+        "packages/database/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-02",
+      "priority": 20,
+      "title": "Managed-support context",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add managed-support policy, sessions, audit evidence, visible context, routine configuration writes, and sensitive-action separation.",
+      "source": "docs/architecture/multi-tenant-operations.md#6-managed-support-and-tenant-context",
+      "acceptanceCriteria": [
+        "Managed support retains and displays the real operator identity and reason.",
+        "Routine branding, module, domain, and integration configuration can be written when policy permits.",
+        "Customer data, credentials, exports, deletion, billing, and identity changes require separate authority and fail closed."
+      ],
+      "dependencies": [
+        "OPS-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/auth/",
+        "packages/database/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-03",
+      "priority": 30,
+      "title": "Tenant onboarding and empty-brand path",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Deliver owner-led tenant onboarding with an optional reviewed brand proposal and an empty-values path when no URL is supplied.",
+      "source": "docs/architecture/multi-tenant-operations.md#5-tenant-creation-and-brand-seeding",
+      "acceptanceCriteria": [
+        "Tenant creation succeeds without a website URL.",
+        "Optional brand values remain empty when no URL is supplied.",
+        "Any brand seed is provenance-backed, reviewable, inactive by default, and safe to discard."
+      ],
+      "dependencies": [
+        "OPS-02"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/platform-core/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-04",
+      "priority": 40,
+      "title": "Module ownership boundaries",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add platform, installation-owner, and tenant-private module ownership with immutable promotion boundaries.",
+      "source": "docs/architecture/multi-tenant-operations.md#8-module-ownership-and-sharing",
+      "acceptanceCriteria": [
+        "Tenant-created modules remain tenant private by default.",
+        "Owner-shared modules cannot silently widen tenant-private ownership.",
+        "Promotion creates a reviewed immutable copy and never rewrites the source artifact."
+      ],
+      "dependencies": [
+        "OPS-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/module-sdk/",
+        "packages/platform-core/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-05",
+      "priority": 50,
+      "title": "Brokered module capabilities",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add denial-first module capability grants and one narrow broker before any broad database capability.",
+      "source": "docs/architecture/multi-tenant-operations.md#9-module-data-access",
+      "acceptanceCriteria": [
+        "Creator and runtime authority both cap module access.",
+        "Remote modules receive scoped brokered operations rather than database or provider credentials.",
+        "Unknown scope, tenant binding, or permission fails closed with audit evidence."
+      ],
+      "dependencies": [
+        "OPS-04"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/auth/",
+        "packages/database/",
+        "packages/module-sdk/",
+        "packages/security/",
+        "modules/support/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "SEC-01",
+      "priority": 55,
+      "title": "Restore the production dependency audit",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Apply the smallest compatible dependency repair for the reproduced Next.js, PostCSS, and brace-expansion advisories without bundling unrelated major upgrades.",
+      "source": "docs/HANDOFF.md",
+      "acceptanceCriteria": [
+        "The Node 22 production audit passes in the monorepo and isolated tenant starter.",
+        "Next.js remains on the supported 15.x line unless a separate reviewed migration approves Next 16.",
+        "The repair preserves frozen installs, supply-chain policy, the sharp runtime probe, tests, builds, and public dependency notices."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/package.json",
+        "package.json",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "templates/tenant-module-nextjs/",
+        "docs/",
+        "CHANGELOG.md",
+        "THIRD_PARTY_NOTICES.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "install",
+          "--frozen-lockfile"
+        ],
+        [
+          "pnpm",
+          "audit",
+          "--prod",
+          "--audit-level",
+          "high"
+        ],
+        [
+          "pnpm",
+          "--dir",
+          "templates/tenant-module-nextjs",
+          "install",
+          "--frozen-lockfile"
+        ],
+        [
+          "pnpm",
+          "--dir",
+          "templates/tenant-module-nextjs",
+          "audit",
+          "--prod",
+          "--audit-level",
+          "high"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-06",
+      "priority": 60,
+      "title": "Helpdesk core and owner projection",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Harden tenant support with permissions, versioned events, transactional outbox, and a minimal rebuildable owner projection.",
+      "source": "docs/architecture/multi-tenant-operations.md#11-support-as-a-first-class-feature",
+      "acceptanceCriteria": [
+        "Canonical ticket state and outbox event commit atomically.",
+        "Owner projection is rebuildable and never becomes authority.",
+        "Projection failure cannot corrupt tenant ticket state or leak ticket bodies across tenants."
+      ],
+      "dependencies": [
+        "OPS-02",
+        "SEC-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "modules/support/",
+        "packages/database/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/support",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-07",
+      "priority": 70,
+      "title": "Owner and tenant helpdesk experience",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Build owner queues and improve tenant requester and tenant-administrator support workflows.",
+      "source": "docs/architecture/multi-tenant-operations.md#12-helpdesk-permissions-and-experience",
+      "acceptanceCriteria": [
+        "Owner queues use projections for discovery and reauthorize against canonical tenant state before content access.",
+        "Requester and tenant-admin permissions remain distinct.",
+        "The UI exposes status, assignment, priority, history, and delivery failures accessibly."
+      ],
+      "dependencies": [
+        "OPS-06"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "modules/support/",
+        "packages/design-system/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-08",
+      "priority": 80,
+      "title": "Local Slack delivery adapter",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Implement encrypted one-way Slack delivery, safe message projection, retries, health, and synthetic local adapter tests without a provider call.",
+      "source": "docs/architecture/multi-tenant-operations.md#18-delivery-sequence",
+      "acceptanceCriteria": [
+        "Slack receives only allowlisted synthetic-safe ticket fields.",
+        "Webhook secrets use the credential boundary and never reach logs or messages.",
+        "Delivery is retryable and cannot mutate canonical ticket state."
+      ],
+      "dependencies": [
+        "OPS-06"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "modules/support/",
+        "packages/database/",
+        "packages/security/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/support",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-09",
+      "priority": 90,
+      "title": "Support depth and delivery contracts",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Extend deterministic support with in-app and email delivery contracts, attachment guardrails, SLA state, CSAT, and tenant-safe operational analytics.",
+      "source": "docs/architecture/multi-tenant-operations.md#18-delivery-sequence",
+      "acceptanceCriteria": [
+        "Delivery preferences, attempts, safe destination references, and idempotency remain canonical and tenant bound.",
+        "Attachment access, SLA clocks, CSAT, and analytics enforce requester, tenant-admin, owner, and managed-support permissions.",
+        "Provider-independent tests cover delivery failure, tenant denial, audit evidence, and recovery without genuine tenant data or external calls."
+      ],
+      "dependencies": [
+        "OPS-07",
+        "OPS-08"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "modules/support/",
+        "packages/database/",
+        "packages/design-system/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/support",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-10",
+      "priority": 100,
+      "title": "Provider-independent Slack app contracts",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add tenant-bound Slack app connection, channel, thread, signed-action, and identity-mapping contracts with synthetic adapters only.",
+      "source": "docs/architecture/multi-tenant-operations.md#18-delivery-sequence",
+      "acceptanceCriteria": [
+        "Every workspace, channel, thread, action, and identity mapping is installation and tenant scoped.",
+        "Signed actions reauthorize against canonical ticket state and cannot widen requester or operator authority.",
+        "Tests use synthetic adapters and no provider credential, OAuth exchange, or external Slack call."
+      ],
+      "dependencies": [
+        "OPS-08"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "modules/support/",
+        "packages/database/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/support",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-11",
+      "priority": 110,
+      "title": "Compliance evidence export contracts",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add bounded, redacted, integrity-verifiable evidence export and provider-independent installation-owner and tenant adapter scopes.",
+      "source": "docs/architecture/multi-tenant-operations.md#15-soc-2-readiness-and-vanta",
+      "acceptanceCriteria": [
+        "Evidence export is explicitly authorized, bounded, redacted, tenant scoped, and integrity verifiable.",
+        "Installation-owner aggregate scope and tenant scope are immutable versions that cannot expand automatically.",
+        "Synthetic adapter tests cover revocation, cross-tenant denial, idempotency, and reconciliation without making a compliance claim or provider call."
+      ],
+      "dependencies": [
+        "OPS-01",
+        "OPS-06"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/platform-core/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-12",
+      "priority": 120,
+      "title": "Scoped support AI assistance",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add reviewed ticket suggestions and provenance-backed knowledge within the approved provider, privacy, evaluation, and ownership boundary.",
+      "source": "docs/architecture/multi-tenant-operations.md#18-delivery-sequence",
+      "acceptanceCriteria": [
+        "Suggestions never send, resolve, disclose cross-tenant content, or block deterministic support work by default.",
+        "Installation-owner shared and tenant-private knowledge retain provenance, redaction, review, and publication boundaries.",
+        "Offline evaluations cover privacy, prompt injection, tenant denial, human review, failure behavior, and the owner-approved thresholds."
+      ],
+      "dependencies": [
+        "OPS-09",
+        "OPS-11",
+        "OWNER-AI-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "modules/support/",
+        "packages/database/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/support",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OPS-13",
+      "priority": 130,
+      "title": "Model selection, provider routing, and residency binding",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add the provider-neutral model resolution contract: an installation-owner allowlist of (provider, model, region, retention posture), per-tenant selection keyed on (moduleId, useCase) with primary and secondary slots, and residency plus retention enforced as filters that can only narrow. Synthetic adapters only.",
+      "source": "docs/architecture/adr-006-model-selection-and-residency.md",
+      "acceptanceCriteria": [
+        "Resolution follows the ADR cascade and every candidate is filtered by the owner allowlist, then residency, then retention, before it can match.",
+        "A residency or retention mismatch fails the call; it never silently substitutes a conforming model, and an unresolvable slot is an error rather than an implicit platform default.",
+        "Coarse residency is derived from the tenant record and never accepted from a caller argument, and an unverified retention posture is treated as retaining.",
+        "Cross-border consent is stored with actor, timestamp, policy version, and the specific provider and region pairs it covers; withdrawal stops out-of-region slots resolving.",
+        "Module code never receives a provider credential; keys resolve tenant-first then installation-fallback through the existing credential cipher.",
+        "Every resolution records tenant, module, use case, resolved provider and model, key origin, region served, retention posture, and allowlist version.",
+        "Tests use synthetic provider adapters with no provider credential, network call, or genuine tenant data."
+      ],
+      "dependencies": [
+        "OPS-05",
+        "OPS-11"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/platform-core/",
+        "packages/security/",
+        "packages/module-sdk/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-APPLY-01",
+      "priority": 140,
+      "title": "Transactional brand proposal apply",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Complete the reviewed brand-proposal pipeline with one atomic write into brand_policies, explicit per-key lock rejection, optimistic version protection, and canonical audit evidence.",
+      "source": "docs/CODEX-HANDOFF.md#6-definition-of-done-for-your-first-task",
+      "acceptanceCriteria": [
+        "Applying a reviewed proposal merges only unlocked values into brand_policies.overrides, increments version by exactly one, updates updated_at, makes the proposal terminal, and appends exactly one audit event carrying actor, reason, and policy version in the same transaction.",
+        "Two real PostgreSQL connections concurrently applying the same reviewed proposal produce exactly one success, one policy-version bump, and one audit row; version drift after review fails without clobbering newer policy state.",
+        "A proposal containing one locked key and two unlocked keys applies the unlocked values and reports the locked key with a stable reason before confirmation.",
+        "Every new database constraint is proved by an executed PostgreSQL behavior test, and no substring-only migration assertion is introduced."
+      ],
+      "dependencies": [
+        "OPS-03"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/platform-core/",
+        "packages/security/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-APPLY-02",
+      "priority": 141,
+      "title": "Enforce reviewed policy-version pin",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Close the PostgreSQL CHECK-semantics gap that permits a reviewed or applied brand proposal to carry a null reviewed_policy_version.",
+      "source": "Live PostgreSQL verification of BRAND-APPLY-01 on 2026-07-29",
+      "acceptanceCriteria": [
+        "PostgreSQL rejects a draft-to-reviewed transition when reviewed_policy_version is null.",
+        "PostgreSQL rejects an applied proposal when reviewed_policy_version is null while preserving valid reviewed and applied transitions.",
+        "The existing executed PostgreSQL behavior test passes without replacing it with a migration-text substring assertion."
+      ],
+      "dependencies": [
+        "BRAND-APPLY-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 45,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-APPLY-03",
+      "priority": 142,
+      "title": "Isolate brand apply PostgreSQL fixtures",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Make the brand proposal store's live PostgreSQL tests clean only their synthetic tenant so they can run against a migrated control-plane database containing unrelated tenant dependencies.",
+      "source": "Live PostgreSQL verification of BRAND-APPLY-01 on 2026-07-29",
+      "acceptanceCriteria": [
+        "The brand proposal integration fixture never deletes unrelated tenants or their dependent control-plane records.",
+        "The live two-connection apply race passes against a control-plane database that already contains an unrelated tenant_modules row.",
+        "The live policy-version drift test passes without weakening the transactional apply assertions."
+      ],
+      "dependencies": [
+        "BRAND-APPLY-02"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/database/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 45,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-PERM-01",
+      "priority": 143,
+      "title": "Bind brand proposal permissions to the active tenant",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Introduce a closed six-operation brand proposal permission vocabulary and move every existing proposal mutation from ambient installation-owner authority to a verified active-tenant authority boundary.",
+      "source": "docs/CODEX-HANDOFF.md#2 item 3; docs/product/brand-and-voice-documents.md#authorisation; claude -p plan review 2026-07-30",
+      "acceptanceCriteria": [
+        "The closed permission set is brand.proposal.upload, brand.proposal.review, brand.proposal.edit, brand.proposal.apply, brand.proposal.supersede and brand.proposal.revoke; one permission never implies another and unknown values fail closed.",
+        "Existing upload, review, apply and discard operations require the exact corresponding active-tenant permission and bind the target tenant to the verified active tenant before any database mutation.",
+        "Installation-owner or platform-admin authority alone is not tenant-admin authority, a managed-support actor cannot perform these writes, and a submitted cross-tenant tenantId is refused.",
+        "The review transition uses the public brand-proposal domain or store seam rather than route-local raw status SQL.",
+        "Successful privileged transitions retain canonical actor, reason and tenant audit evidence without duplicating the brand apply audit event.",
+        "Tests prove exact-permission denials, cross-tenant denial and positive tenant-admin paths; live PostgreSQL coverage proves the rejected cross-tenant request changes no proposal, policy or audit row."
+      ],
+      "dependencies": [
+        "BRAND-APPLY-03"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/auth/",
+        "packages/database/",
+        "packages/platform-core/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/auth",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-PARSER-02",
+      "priority": 144,
+      "title": "Persist immutable brand parser versions",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Replace the parser-version constant-only convention with an immutable registry and per-proposal persistence that preserves the parser used at upload time.",
+      "source": "docs/CODEX-HANDOFF.md#2 item 4; docs/product/brand-and-voice-documents.md#build-order; claude -p plan review 2026-07-30",
+      "acceptanceCriteria": [
+        "A seeded v1 parser registry is insert-only: existing version rows cannot be updated or deleted, while a later distinct version may be inserted.",
+        "Every upload-backed proposal records a known parser version at creation and that value cannot change; non-upload proposals retain the explicit no-parser representation.",
+        "Unknown parser versions are rejected and adding a later parser version never rewrites an existing proposal or its proposed values.",
+        "Parser output and storage round-trip the exact parser version without fabricating URL provenance.",
+        "Executed PostgreSQL behavior tests prove registry and proposal immutability; migration-text substring assertions are not accepted as substitutes."
+      ],
+      "dependencies": [
+        "BRAND-PERM-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/platform-core/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-EDIT-03",
+      "priority": 145,
+      "title": "Add provenance-preserving brand proposal edits",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add the tenant-operator edit transition while preserving upload provenance, invalidating prior review and preventing stale reviewed values from being applied.",
+      "source": "docs/product/brand-and-voice-documents.md#authorisation; docs/CODEX-HANDOFF.md#2; claude -p plan review 2026-07-30",
+      "acceptanceCriteria": [
+        "An authorized edit preserves request, parser-version and upload provenance, records actor and reason, returns the proposal to draft and clears all prior review evidence.",
+        "Direct mutation of reviewed proposed_values without the review-invalidation transition is rejected by PostgreSQL.",
+        "Applied and superseded proposals cannot be edited, and the exact brand.proposal.edit permission plus active-tenant binding is enforced.",
+        "A successful edit appends exactly one canonical audit event without weakening the existing exactly-once apply event.",
+        "A live edit-versus-apply race has one coherent winner and an unreviewed edited proposal is never applied."
+      ],
+      "dependencies": [
+        "BRAND-PARSER-02"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/platform-core/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-VOICE-04",
+      "priority": 146,
+      "title": "Store immutable tenant voice profiles",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add validated, versioned, tenant-private voice-profile storage with append-only evidence and no generation or prompt integration.",
+      "source": "docs/product/brand-and-voice-documents.md#5.1 and #8; docs/plans/2026-07-30-brand-voice-storage.md; docs/CODEX-HANDOFF.md#2; claude -p plan review 2026-07-30",
+      "acceptanceCriteria": [
+        "Each tenant may have a current validated voice profile plus immutable historical versions, with exact tenant isolation and optimistic publication semantics.",
+        "Preferred and banned terms are canonicalized before comparison; contradictions and unusable rewrite rules are rejected rather than stored.",
+        "Published versions cannot be mutated or deleted, and revocation is recorded without destroying evidence that references the version.",
+        "Executed PostgreSQL behavior tests prove tenant isolation, concurrent publication, immutability and revocation evidence.",
+        "No ModelRouter, prompt assembly, provider adapter, generation route or customer-facing conditioning is added."
+      ],
+      "dependencies": [
+        "BRAND-EDIT-03"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/database/",
+        "packages/platform-core/",
+        "tooling/migrations/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "DEV-MCP-01",
+      "priority": 206,
+      "title": "Executable Developer MCP authority vocabulary",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Encode the accepted Developer MCP slugs, profiles, authority intersection, revocation policy, tool descriptors, deterministic discovery data, and audit vocabulary without adding a protocol route or executable tool.",
+      "source": "docs/plans/2026-07-31-developer-mcp-authority-vocabulary.md",
+      "acceptanceCriteria": [
+        "The exact ten frozen slugs are partitioned into seven assignable and three unassignable values; immutable @1 profiles contain only assignable slugs, eligibility without an explicit assignment yields empty authority, and unassignable slugs fail closed.",
+        "Effective authority is the intersection of the assigned profile, token scopes, and consented client scopes.",
+        "High-risk grants require synchronous revocation checks and no authority or discovery cache policy exceeds 60 seconds.",
+        "Twelve non-callable tool descriptors use bounded closed fields, accept no tenant identifier, and form a total surjection onto the seven assignable tool slugs.",
+        "Permission-filtered discovery is name-sorted and byte-stable for the same authority, returns an empty private list for empty authority, and never widens the revocation bound.",
+        "The closed audit vocabulary rejects extra fields and excludes hostile MCP request metadata.",
+        "A route-surface test proves apps/platform neither imports the package nor exposes a Developer MCP route.",
+        "No MCP SDK, provider call, sandbox execution, deployment, or genuine tenant data is introduced."
+      ],
+      "dependencies": [
+        "OWNER-DEVELOPER-MCP-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/developer-mcp/",
+        "apps/platform/app/api/mcp/",
+        "docs/HANDOFF.md",
+        "docs/SHIPLOG.md",
+        "docs/plans/unattended-backlog.json",
+        "pnpm-lock.yaml",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json",
+        "graphify-out/wiki/"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "typecheck"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "DEV-MCP-02",
+      "priority": 207,
+      "title": "Strict modern Developer MCP protocol contract",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Encode the modern-only MCP 2026-07-28 request, transport-header, tenant-invariant discovery, and permission-filtered tool-list contracts as pure dependency-free package code without adding a route or executable tool.",
+      "source": "docs/plans/2026-07-31-developer-mcp-modern-protocol.md; claude -p architecture and security review 2026-07-31",
+      "acceptanceCriteria": [
+        "Closed JSON-RPC request validation accepts only server/discover and tools/list with exact 2.0 framing, bounded IDs and params, required per-request protocol metadata, and no security authority from client metadata.",
+        "Pure duplicate-preserving Streamable HTTP header validation enforces JSON content, JSON plus SSE acceptance, exact modern protocol and method mirroring, case rules, the plan's frozen first-error precedence, bounded protocol errors, and no legacy session semantics.",
+        "Tenant-invariant server/discover serialization advertises only MCP 2026-07-28 and the tools capability, is byte-stable, and exposes no tenant, tool, template, profile, provider, route, or environment enumeration.",
+        "Permission-filtered tools/list serialization is exact-name sorted, byte-stable, private, complete in one response, capped at the 60-second revocation bound, and empty for empty authority.",
+        "Every descriptor gains a frozen 1-280 character factual description; wire tools contain only name, description, and explicit self-contained JSON Schema 2020-12 input schemas, while internal authority fields are absent and every descriptor with an unresolved empty server-owned enum is omitted.",
+        "Conformance fixtures cover valid discovery/list requests, malformed framing and metadata, header mismatch and unsupported versions, method denial, legacy-header irrelevance, authority variation, schema projection, and unresolved-catalogue omission.",
+        "The platform route-surface proof remains green: no package import or new Developer MCP route exists, and tools/call cannot succeed.",
+        "No MCP SDK, route, auth-provider composition, protected-resource metadata, handler, sandbox/provider operation, network I/O, MRTR, legacy protocol fallback, deployment, or genuine tenant data is introduced."
+      ],
+      "dependencies": [
+        "DEV-MCP-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/developer-mcp/",
+        "apps/platform/app/api/mcp/",
+        "docs/HANDOFF.md",
+        "docs/SHIPLOG.md",
+        "docs/plans/unattended-backlog.json",
+        "pnpm-lock.yaml",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json",
+        "graphify-out/wiki/"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "typecheck"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "DEV-MCP-03",
+      "priority": 208,
+      "title": "Per-call Developer MCP authorization",
+      "lane": "spec",
+      "status": "completed",
+      "objective": "Add a named dependency-free call-authorization enforcement point with bounded authority freshness, per-call revocation, synchronous high-risk revalidation, and provider-neutral resource authorization without adding a route or executable tool.",
+      "source": "docs/plans/2026-07-31-developer-mcp-call-authorization.md; two-pass claude -p architecture and security review 2026-07-31",
+      "acceptanceCriteria": [
+        "The gate accepts bounded raw authority sources plus resolvedAtMs, rejects future or more-than-60-second-old snapshots, and calls resolveEffectiveAuthority itself rather than accepting a caller-built AuthorityDecision.",
+        "Every otherwise-authorizable tool revalidates active membership, registered-client consent, and session/token authority before resource lookup; high-risk tools revalidate a second time with live synchronous evidence immediately before allow.",
+        "Provider-neutral revocation and resource adapters return closed evidence only, cannot mint a slug or profile, and fail closed without exposing provider errors or hostile values.",
+        "The immutable local reference adapter authorizes exact grants and same-tenant project-to-workspace inheritance using compound resource-type and opaque-ID keys, while cross-tenant, wrong-user, wrong-parent, wrong-slug, dangling, duplicate, and prefix-confusion cases deny.",
+        "Revoked principals never reach the resource adapter, and resource-type, nonexistent, foreign, malformed-relation, and ungranted failures produce indistinguishable bounded decisions so opaque IDs are not ownership oracles.",
+        "All decisions and local snapshot values are defensively copied and deeply immutable, and no result contains a token, provider value, handler, callback, durable grant, or executable capability.",
+        "The platform route-surface proof remains green: apps/platform does not import the package, no Developer MCP route exists, and tools/call cannot succeed.",
+        "README, HANDOFF, and SHIPLOG record exact evidence, keep OWNER-DEVELOPER-MCP-02 pending, classify marketing impact as truth, and preserve foundation-only maturity with zero successful tool routes.",
+        "No MCP SDK, route, handler registry, workspace persistence, database migration, protected-resource metadata, provider call, audit append, sandbox operation, deployment, or genuine tenant data is introduced."
+      ],
+      "dependencies": [
+        "DEV-MCP-02"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/developer-mcp/",
+        "apps/platform/app/api/mcp/",
+        "README.md",
+        "docs/HANDOFF.md",
+        "docs/SHIPLOG.md",
+        "docs/plans/unattended-backlog.json",
+        "pnpm-lock.yaml",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json",
+        "graphify-out/wiki/"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "typecheck"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "typecheck",
+          "lint",
+          "test",
+          "--force"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "build",
+          "--filter=@opentenant/platform",
+          "--force"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OWNER-SLACK-01",
+      "priority": 900,
+      "title": "Approve development Slack provider probe",
+      "lane": "owner",
+      "status": "pending",
+      "objective": "Nominate the development workspace/channel and approve the exact synthetic probe and cleanup boundary.",
+      "source": "docs/OWNER-TASKS.md#before-hosted-slack-support-or-vanta-testing",
+      "acceptanceCriteria": [
+        "Owner supplies the workspace/channel and scope decision.",
+        "Only synthetic ticket metadata may leave OpenTenant.",
+        "Provider-side cleanup and evidence requirements are explicit."
+      ],
+      "dependencies": [
+        "OPS-08"
+      ],
+      "ownerGate": true,
+      "allowedPaths": [
+        "docs/OWNER-TASKS.md"
+      ],
+      "timeoutMinutes": 5,
+      "verification": [
+        [
+          "git",
+          "diff",
+          "--check"
+        ]
+      ]
+    },
+    {
+      "id": "OWNER-DEVELOPER-MCP-01",
+      "priority": 910,
+      "title": "Freeze initial Developer MCP authority and schemas",
+      "lane": "owner",
+      "status": "completed",
+      "objective": "Approve the authority vocabulary freeze: permission slugs, versioned profiles and group mapping, tool schemas with field lists, template registry, identity and consent model, and audit vocabulary. Route enablement is OWNER-DEVELOPER-MCP-02.",
+      "source": "docs/product/developer-mcp-authority-freeze.md",
+      "acceptanceCriteria": [
+        "Permission slugs and versioned tool schemas with complete field lists are frozen.",
+        "Profiles are versioned immutable objects and the profile map is the only grant path.",
+        "Server-owned template identifiers are approved and are never mutated in place.",
+        "Effective authority is the intersection of profile slugs, token scope, and client consent.",
+        "Approving this does not enable any Developer MCP route."
+      ],
+      "dependencies": [],
+      "ownerGate": true,
+      "allowedPaths": [
+        "docs/OWNER-TASKS.md"
+      ],
+      "timeoutMinutes": 5,
+      "verification": [
+        [
+          "git",
+          "diff",
+          "--check"
+        ]
+      ]
+    },
+    {
+      "id": "OWNER-DEVELOPER-MCP-02",
+      "priority": 205,
+      "title": "Enable the first Developer MCP route",
+      "lane": "owner",
+      "status": "pending",
+      "objective": "Verify every route-enablement prerequisite with linked evidence before any Developer MCP tool route is exposed. Vocabulary alone does not authorize a route.",
+      "source": "docs/product/developer-mcp-authority-freeze.md#9-owner-developer-mcp-02-route-enablement",
+      "acceptanceCriteria": [
+        "TM-001 protected-resource metadata published, resource URL bound exactly, token never forwarded.",
+        "TM-007 per-call membership recheck with a stated revocation bound in seconds and a capped job authority lifetime.",
+        "TM-009 atomic audit append on the tool-call path using the closed field vocabulary.",
+        "Sandbox egress denies link-local, loopback, private ranges and provider metadata endpoints at connect time, with v1 templates pinning deny-all and DNS rebinding/resolved-address behavior proven rather than asserted.",
+        "No ambient credentials asserted by a conformance test rather than inferred from an absent field.",
+        "Per-call resource ownership authorization at a named enforcement point, comparing workspace as well as tenant.",
+        "TM-008 concurrency, duration, spend, rate and size limits with idempotency.",
+        "TM-005 one-time preview exchange, frame protections, revoke-on-terminate, raw origin never revealed.",
+        "TM-002 prefix-confusion and cross-tenant conformance tests pass.",
+        "TM-011 client confirmation for consequential calls and untrusted labelling of tool output.",
+        "A kill switch independent of module health that can never satisfy an authorization check."
+      ],
+      "dependencies": [
+        "OWNER-DEVELOPER-MCP-01"
+      ],
+      "ownerGate": true,
+      "allowedPaths": [
+        "docs/OWNER-TASKS.md"
+      ],
+      "timeoutMinutes": 5,
+      "verification": [
+        [
+          "git",
+          "diff",
+          "--check"
+        ]
+      ]
+    },
+    {
+      "id": "OWNER-COMPLIANCE-01",
+      "priority": 920,
+      "title": "Select SOC 2 and Vanta programme boundary",
+      "lane": "owner",
+      "status": "pending",
+      "objective": "Select the legal entity, system boundary, controls, owners, auditor, evidence period, and Vanta development scope before provider claims or probes.",
+      "source": "docs/OWNER-TASKS.md#before-hosted-slack-support-or-vanta-testing",
+      "acceptanceCriteria": [
+        "Organisational SOC 2 scope and claim boundary are recorded.",
+        "Vanta account, API availability, region, and evidence scope are approved.",
+        "No implementation claim substitutes for an audit or certification."
+      ],
+      "dependencies": [],
+      "ownerGate": true,
+      "allowedPaths": [
+        "docs/OWNER-TASKS.md"
+      ],
+      "timeoutMinutes": 5,
+      "verification": [
+        [
+          "git",
+          "diff",
+          "--check"
+        ]
+      ]
+    },
+    {
+      "id": "OWNER-AI-01",
+      "priority": 930,
+      "title": "Approve scoped support AI boundary",
+      "lane": "owner",
+      "status": "completed",
+      "objective": "Freeze the first support-assistance provider, privacy boundary, knowledge scopes, evaluation gates, and human-review contract before model-backed implementation.",
+      "source": "docs/product/support-ai-boundary.md",
+      "acceptanceCriteria": [
+        "Allowed ticket fields, attachment handling, retention, provider, and regional policy are approved.",
+        "Installation-owner shared and tenant-private knowledge boundaries and provenance rules are frozen.",
+        "Offline evaluation thresholds, human review, failure behavior, and prohibited automatic actions are recorded."
+      ],
+      "dependencies": [
+        "OPS-09",
+        "OPS-11"
+      ],
+      "ownerGate": true,
+      "allowedPaths": [
+        "docs/OWNER-TASKS.md",
+        "docs/architecture/multi-tenant-operations.md"
+      ],
+      "timeoutMinutes": 5,
+      "verification": [
+        [
+          "git",
+          "diff",
+          "--check"
+        ]
+      ]
+    },
+    {
+      "id": "BRAND-LOCK-05",
+      "priority": 940,
+      "title": "Move the brand lock reason into platform-core and use it at resolve time",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "One vocabulary for a policy-locked brand key. BRAND_POLICY_LOCK_REASON currently lives in packages/database/src/brand-proposal-store.ts, which platform-core cannot import because database depends on platform-core and not the reverse. Move the constant to packages/platform-core/src/branding.ts, re-export it from the database module so its existing consumers are unaffected, and make resolveBrandSnapshot report each rejected override as a key with that reason. Before changing anything, confirm by inspection that database depends on platform-core, that brand-proposal-store.ts is the constant's only definition, and that every consumer of BrandResolution or rejectedOverrideKeys found by grep across packages, apps and modules reads only the snapshot field, so no caller observes the shape change. Stop and report if any premise is false. Verification commands run as argv arrays without a shell, so quoting is not a concern. Confirm as a fourth premise that RejectedBrandProposalKey exists in the apply path with a { key, reason } shape; if it does not, stop and report.",
+      "source": "docs/CODEX-HANDOFF.md",
+      "acceptanceCriteria": [
+        "The lock reason is assigned in exactly one file across packages, apps and modules: packages/platform-core/src/branding.ts. The scan command proves it, and it also fails on a second constant assigned the same literal under a different name, so a renamed duplicate cannot escape.",
+        "A test asserts the constant's value is the literal string \"locked_by_policy\", so changing the value fails rather than silently passing a comparison against itself.",
+        "The rejection list has the shape { key, reason }[] with key a BrandTokenKey and reason the constant's type, matching RejectedBrandProposalKey in the apply path. BrandResolution's exported type says so.",
+        "A test asserts that a policy with one locked and one unlocked override resolves the unlocked value AND leaves the locked key at its default, proving the locked override was rejected from the snapshot rather than merely listed.",
+        "That test asserts exactly one rejection, carrying the locked key and a reason equal to the literal \"locked_by_policy\".",
+        "A test with two locked keys and one unlocked override asserts the rejection list equals, by deep equality, both locked keys each paired with the reason, in the order the keys appear in the policy's overrides. Deep equality on the whole list is what makes it exhaustive; asserting membership would not.",
+        "A test asserts a policy whose overrides are all unlocked reports an empty rejection list and resolves every override.",
+        "A test asserts that for a policy with no locked keys, every field of the resolved snapshot equals values written literally into the test rather than computed from the implementation.",
+        "A test in packages/database/src/brand-proposal-store.test.ts asserts the value the apply path attaches to a rejected key is the literal \"locked_by_policy\", so a stale duplicate constant with a different value would fail even though a comparison against the imported symbol would not.",
+        "The existing brand-proposal-store tests pass unchanged, proving the apply path's behaviour is untouched by the move.",
+        "No comment or docstring in any changed file claims a consumer, caller, or behaviour that grep cannot confirm. The claim at resolve-brand.ts that the rejection list lets admin UI explain an ignored override names a consumer that does not exist; delete it or rewrite it to describe only what the function returns. Creating that consumer is out of scope.",
+        "The task report names, with file and line, each premise in the objective and whether it held. This criterion and the one above are judged by the work reviewer, not by a verification command; no command can check them and pretending otherwise would be the defect this task exists to remove.",
+        "RejectedBrandProposalKey.key keeps its existing type. Narrowing it changes classify() in brand-proposal-store.ts so a locked key that is not a valid brand token key is silently dropped from rejectedKeys instead of reported, which is a behaviour regression the task does not ask for.",
+        "Every test that existed in resolve-brand.test.ts before this change still exists and still asserts what it asserted. Cases may be added; none may be replaced. The empty-policy case that fills every token from platform defaults is specifically retained."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/platform-core/src/branding.ts",
+        "packages/platform-core/src/resolve-brand.ts",
+        "packages/platform-core/src/resolve-brand.test.ts",
+        "packages/platform-core/src/index.ts",
+        "packages/database/src/brand-proposal-store.ts",
+        "packages/database/src/brand-proposal-store.test.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 45,
+      "verification": [
+        [
+          "node",
+          "-e",
+          "const {readdirSync,readFileSync,statSync}=require('fs');const {join}=require('path');const want='packages/platform-core/src/branding.ts';const bad=[];const walk=(p)=>{let es;try{es=readdirSync(p)}catch{return}for(const e of es){if(e==='node_modules')continue;const f=join(p,e);if(statSync(f).isDirectory())walk(f);else if(/\\.tsx?$/.test(f)){const s=readFileSync(f,'utf8');if((/BRAND_POLICY_LOCK_REASON\\s*=/.test(s)||/=\\s*[\"'`]locked_by_policy[\"'`]/.test(s))&&f!==want)bad.push(f);}}};for(const r of ['packages','apps','modules'])walk(r);const home=readFileSync(want,'utf8');if(!/BRAND_POLICY_LOCK_REASON\\s*=/.test(home)){console.error('no assignment in '+want);process.exit(1);}if(bad.length){console.error('lock reason assigned outside '+want+': '+bad.join(', '));process.exit(1);}console.log('one lock-reason vocabulary, defined in '+want);"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "VOICE-BAN-06",
+      "priority": 950,
+      "title": "Add banned-word refusal and voice-profile pinning to the support AI library",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Add the capability, not the activation. SupportAiService has no production caller anywhere in this repository: grep finds SupportAiService and suggest() only inside modules/support and its tests. Nothing customer-facing will change as a result of this task, and no criterion below pretends otherwise; wiring a caller is separate work that does not exist yet. Confirm four premises by inspection before changing anything: that support-ai.ts composes replies from cited claims and frozen scaffold only; that voice-profile.ts exports validateVoiceProfile; that recordInference already pins promptTemplateVersion and a scaffold version; and that no file outside modules/support calls SupportAiService.suggest. Stop and report if any premise is false. preferredWords is deliberately out of scope: no position in a composed reply can hold one, because every character comes from a cited span or the frozen scaffold table, so wiring it would be inert.",
+      "source": "docs/product/support-ai-boundary.md",
+      "acceptanceCriteria": [
+        "SupportAiService.suggest accepts an optional applied voice profile carrying bannedWords, version and digest. Omitting it leaves every existing behaviour unchanged, proven by every pre-existing support test passing with no edit to its assertions.",
+        "A draft whose rendered reply contains a banned word is refused with outcome kind \"unavailable\" and reason \"invalid_output\", and a test asserts that exact outcome object.",
+        "A test asserts case-insensitive matching: banning \"utilise\" refuses a reply containing \"Utilise\".",
+        "A separate test asserts whole-word matching: banning \"use\" does NOT refuse a reply containing \"used\" or \"because\".",
+        "A test asserts a banned word is caught when adjacent to punctuation: banning \"utilise\" refuses a reply ending \"...we utilise.\" and one containing \"(utilise)\". Whole-word matching must not mean whitespace-delimited only.",
+        "A test asserts the check covers scaffold text as well as cited claims, by banning a word that appears only in a SUPPORT_SCAFFOLD phrase and asserting refusal.",
+        "A test asserts an empty bannedWords list refuses nothing.",
+        "The inference record pins the voice profile version and digest when a profile was supplied, and records their absence when none was, with one test asserting each case.",
+        "No comment or docstring in any changed file claims a consumer, caller or behaviour that grep cannot confirm, and none claims preferredWords takes effect or that this task changes customer-facing output.",
+        "Every test that existed in support-ai.test.ts before this change still exists and still asserts what it asserted. Cases may be added; none may be replaced.",
+        "Criteria about comments and test preservation are judged by the work reviewer, not by a verification command. No command can check them, and adding one that appears to would be worse than stating this."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "modules/support/src/support-ai.ts",
+        "modules/support/src/support-ai.test.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 45,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/support",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "DEV-MCP-AUDIT-SCHEMA-08",
+      "priority": 955,
+      "title": "Version Developer MCP audit records for staged trusted context",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Repair the contract conflict exposed by DEV-MCP-TM009-07 run 1 before retrying the append. At immutable seed commit 83eee2fa6537d1659359b8555f5f38638977ab6d, the sixteen-field v1 schema requires non-null tool, slug, actor, resource and risk identity, so early denials cannot be represented without inventing identity. Before launching the restricted implementation agent, the trusted controller runs the first two verification entries in its independent sandbox. Together they must prove the seed exists; the seed field/type shape is v1; the exact direct TypeScript consumers under packages/developer-mcp/src; the exact code-root consumer of DeveloperMcpCallDenialCode at the seed and its bounded current consumer set; and the absence of dependencies, optionalDependencies, peerDependencies and bundledDependencies in both manifests. The agent must not rerun those premise commands and the controller must stop before launch if either fails. DeveloperMcpAuditRecord and assertDeveloperMcpAuditRecord remain directly referenced only by audit.ts and contracts.test.ts throughout this schema-only task; call-authorization derives only the shared decision-code type and call-authorization.test adds its compile-time equality proof. Replace schema v1 with the closed v2 tagged union recorded by the 2026-08-05 owner plan: contextResolution is unresolved, principal or complete; decisionCode is allowed or one of the exact call-denial codes; and each stage retains exactly the identity already validated at that decision point. This amendment adds neither append nor route behavior.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "DEVELOPER_MCP_AUDIT_FIELDS is snapshotted as one exact closed list containing the original sixteen names plus contextResolution and decisionCode. schemaVersion accepts only the literal \"2\"; a v1 record is rejected so two meanings never share one version.",
+        "DeveloperMcpAuditDecisionCode is the single exported vocabulary for \"allowed\", \"invalid_context\", \"unknown_tool\", \"authority_missing\", \"resource_denied\" and \"revoked\". DeveloperMcpCallDenialCode derives from it rather than repeating a second hand-maintained union, and a compile-time exhaustive test fails when either side drifts.",
+        "DeveloperMcpAuditRecord is exported as a compile-time discriminated union over contextResolution and decisionCode, not as one object type with optional fields. Compile-time assertions cover every identity field at every stage: toolName, slug, profileVersion, clientId, userId, tenantId, resourceType, resourceId and riskClass. Unresolved makes all nine exactly null; principal makes toolName, slug, profileVersion and riskClass exactly null and the five actor/resource fields non-null; complete makes every field except profileVersion non-null, with profileVersion narrowed per decision.",
+        "The unresolved stage is legal only for invalid_context, authorizationDecision deny, outcome denied, revocationCheckResult not_required and profileVersion null. Its toolName, slug, clientId, userId, tenantId, resourceType, resourceId and riskClass are all null, so malformed input cannot leak untrusted raw values or acquire fabricated identity.",
+        "The principal stage is legal only for invalid_context after principal/resource validation but failed authority-timestamp validation, unknown_tool, or authority_missing before descriptor resolution. clientId, userId and tenantId must each be non-empty, at most 128 code units, already trimmed, and contain only printable ASCII bytes 0x20 through 0x7e, exactly matching call-authorization.ts boundedString. resourceType must be exactly module_project or module_workspace and resourceId exactly 32 lowercase hexadecimal characters, matching call-authorization.ts validResource. toolName, slug, profileVersion and riskClass are null; authorization is deny, revocation is not_required and outcome is denied. This retains attributable validated actor/resource identity without copying an unvalidated raw tool name.",
+        "The complete stage is legal only for allowed, authority_missing, resource_denied or revoked. clientId, userId and tenantId obey the exact call-authorization.ts boundedString grammar; resourceType and resourceId obey the exact call-authorization.ts validResource grammar, including 32 lowercase hexadecimal resourceId. toolName, slug and riskClass are non-null and agree with the frozen descriptor. resourceType records the validated requested resource. It may differ from the descriptor for authority_missing because effective-authority denial precedes the comparison, or for resource_denied when that comparison caused denial; allowed and revoked require an exact match.",
+        "Descriptor agreement is load-bearing for all twelve tools. A literal table in contracts.test.ts lists every toolName with its exact slug, riskClass and descriptor resourceType; an assertion against the frozen catalogue fails if a descriptor is added, removed or reordered without a literal row. For every row, an otherwise-valid complete record validates, then independently changing slug or riskClass to another valid enum rejects. Changing requested resourceType rejects for allowed and revoked, while authority_missing and resource_denied follow their explicitly permitted mismatch rules.",
+        "Complete-stage evidence is decision-specific. allowed requires a non-null profileVersion, authorizationDecision allow, revocationCheckResult passed, and outcome authorized. authority_missing permits a null or known non-null profileVersion, and requires deny, not_required and denied. resource_denied requires a non-null profileVersion, deny and denied; descriptor-mismatched resource_denied requires not_required revocation while descriptor-matched resource_denied requires passed revocation. revoked requires a non-null profileVersion, deny, failed and denied. No other combination validates.",
+        "Schema v2 outcome accepts exactly authorized or denied. This record captures the authorization decision before tool execution: an allow is authorized, never succeeded or failed, and a denial is denied. V1 execution-shaped outcome literals are rejected; a later execution result requires a separate event rather than mutating the chained authorization record.",
+        "decisionCode, contextResolution and authorizationDecision agree in every direction. A literal full code x stage x authorizationDecision x outcome matrix derives expected validity independently in the test and proves only the specified tuples validate. Complete-stage evidence is proven by one exhaustive literal matrix in contracts.test.ts: every complete decisionCode (allowed, authority_missing, resource_denied, revoked) x every revocationCheckResult (passed, failed, not_required) x profileVersion in {null, developer.readonly@1} x requested resourceType in {descriptor-matched, descriptor-mismatched}. The 48 candidates each start from one otherwise-valid literal complete fixture, set authorizationDecision and outcome to the literal pair the candidate decisionCode requires (allow and authorized for allowed; deny and denied for every denial code), and change nothing else beyond those four axes; expected validity comes from literal rules independent of the validator. Exactly eight tuples validate and the test pins both 48 candidates and eight acceptances: allowed/passed/non-null/matched; authority_missing/not_required with both profile states and both resource states (four tuples); resource_denied/passed/non-null/matched; resource_denied/not_required/non-null/mismatched; and revoked/failed/non-null/matched. Every other tuple rejects. The decision table is an exhaustive object literal declared with satisfies Record<DeveloperMcpAuditDecisionCode, ...>; an array assertion such as satisfies readonly DeveloperMcpAuditDecisionCode[] is insufficient because it does not prove every union member is present.",
+        "The validator still rejects extra, hidden, symbol, accessor, inherited, control-character, overlong and wrong-enum values and returns a frozen defensive copy. Every pre-existing hostile-object assertion remains present.",
+        "Literal tests built entirely in the test file, without calling a production record builder or copying production constant values, prove that schema v2 can represent the audit projection for every authorization branch of authorizeDeveloperMcpCall enumerated in this criterion: unresolved malformed invalid_context; principal timestamp-invalid invalid_context, unknown_tool and stale authority_missing; complete authority_missing with null and non-null profile and with matching and mismatching requested resource type; resource mismatch before revocation; adapter denial after passed revocation; revoked; and allowed. Each expected decision, resolution, slug, risk and resource value is a literal rather than derived from production maps. These fixtures prove schema representability and validator invariants only; they do not claim to execute real authorization branches. Existing call-authorization tests exercise authorization behavior separately, and the compile-time denial-code equality proof keeps the two vocabularies aligned without adding a production record builder.",
+        "Mutation tables prove every field that must be null at each stage rejects a real-looking value and every field that must be attributable rejects null. Principal and complete records each reject leading whitespace, trailing whitespace, non-ASCII actor identifiers, and uppercase, short or long resourceIds. Every matrix row starts from a literal fixture that is otherwise valid and changes only the axis under test, so an unrelated invalid field cannot make a broken decision invariant appear protected.",
+        "correlationId keeps the exact seed v1 grammar and is validated independently of the actor-identifier grammar: it is valid if and only if it is a string of 1 to 128 UTF-16 code units containing no character in U+0000 through U+001F or U+007F through U+009F; there is no trim requirement and no ASCII requirement. The trimmed printable-ASCII grammar (bytes 0x20 through 0x7e, already trimmed, 1 to 128 code units) applies to clientId, userId and tenantId only. contracts.test.ts proves the grammars are distinct with literal fixtures applied to one otherwise-valid record at each of unresolved, principal and complete, changing only correlationId per case: each of ' leading', 'trailing ', 'nonascii_£', 'λ-trace' and 'x'.repeat(128) is accepted as correlationId, while each of '', 'x'.repeat(129), 'corr\\nid', 'corr\\u0000id' and 'corr\\u009fid' is rejected; the same leading-space, trailing-space, 'nonascii_£' and 'λ-trace' values remain rejected for clientId, userId and tenantId on principal and complete fixtures. Apart from fields this task explicitly redefines (schemaVersion, outcome, contextResolution, decisionCode, profileVersion narrowing, resourceType, resourceId, the actor identifiers, and the null literals the unresolved and principal stages assign to toolName, slug and riskClass), no v2 field may accept a value the seed v1 validator's per-field grammar rejected or reject a value it accepted; where a stage requires toolName, slug or riskClass to be non-null, their non-null grammars remain exactly the seed v1 grammars.",
+        "call-authorization.test.ts contains a compile-time equality assertion that DeveloperMcpCallDenialCode is exactly Exclude<DeveloperMcpAuditDecisionCode, \"allowed\">. The pre-edit verifier permits only call-authorization.ts as the existing code-root denial-code consumer; after the task marks itself not_verified it requires call-authorization.test.ts as the only additional consumer, so the proof cannot be omitted or moved out of scope.",
+        "Section 6 of developer-mcp-authority-freeze.md documents v2, the two new fields, all three resolution stages, and the decision-specific profile and revocation invariants. It continues to forbid caller-supplied fields and states that null means a named identity was not validated at that stage, never an unknown, default or fallback tenant.",
+        "No route, persistence adapter, audit append, provider integration, runtime-bearing manifest dependency section, successful tool call or production data is added by this task. Section 6 records the immutable seed commit and the mechanically verified baseline reproduced by the first two controller commands: exact scoped symbol consumers, exact seed v1 field/type shape, and dependencies, optionalDependencies, peerDependencies and bundledDependencies at both the seed and current tree. It explicitly limits that evidence to these checks rather than claiming the absence of every imaginable structural persistence implementation.",
+        "docs/plans/unattended-backlog.json is allowed only because the unattended protocol requires the agent to change this task from pending to not_verified and update updatedAt after implementation. No objective, criterion, dependency, path, timeout or verification command may change during the task."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/developer-mcp/src/audit.ts",
+        "packages/developer-mcp/src/contracts.test.ts",
+        "packages/developer-mcp/src/call-authorization.ts",
+        "packages/developer-mcp/src/call-authorization.test.ts",
+        "docs/product/developer-mcp-authority-freeze.md",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 45,
+      "premiseVerificationCount": 2,
+      "verification": [
+        [
+          "node",
+          "-e",
+          "const{execFileSync}=require('node:child_process');const seed='83eee2fa6537d1659359b8555f5f38638977ab6d';const lines=value=>value.trim().split('\\n').filter(Boolean).sort();execFileSync('git',['cat-file','-e',seed+'^{commit}']);const auditExpected=['packages/developer-mcp/src/audit.ts','packages/developer-mcp/src/contracts.test.ts'];for(const term of ['DeveloperMcpAuditRecord','assertDeveloperMcpAuditRecord']){const actual=lines(execFileSync('git',['grep','-l',term,seed,'--','packages/developer-mcp/src'],{encoding:'utf8'})).map(value=>value.slice(seed.length+1));if(JSON.stringify(actual)!==JSON.stringify(auditExpected))throw new Error(term+' seed consumers: '+actual.join(', '));}const denial=lines(execFileSync('git',['grep','-l','DeveloperMcpCallDenialCode',seed,'--','apps','modules','packages','templates','tooling'],{encoding:'utf8'})).map(value=>value.slice(seed.length+1));if(JSON.stringify(denial)!==JSON.stringify(['packages/developer-mcp/src/call-authorization.ts']))throw new Error('seed denial-code consumers: '+denial.join(', '));const source=execFileSync('git',['show',seed+':packages/developer-mcp/src/audit.ts'],{encoding:'utf8'});const match=source.match(/DEVELOPER_MCP_AUDIT_FIELDS = Object\\.freeze\\(\\[([\\s\\S]*?)\\] as const\\)/);if(!match)throw new Error('seed field list missing');const fields=[...match[1].matchAll(/\"([^\"]+)\"/g)].map(value=>value[1]);const expectedFields=['toolName','schemaVersion','slug','profileVersion','clientId','userId','tenantId','resourceType','resourceId','riskClass','authorizationDecision','revocationCheckResult','outcome','correlationId','priorDigest','currentDigest'];if(JSON.stringify(fields)!==JSON.stringify(expectedFields))throw new Error('seed fields changed');for(const literal of ['schemaVersion: \"1\";','toolName: string;','slug: DeveloperPermissionSlug;','clientId: string;','userId: string;','tenantId: string;','resourceType: DeveloperResourceType;','resourceId: string;','riskClass: DeveloperRiskClass;'])if(!source.includes(literal))throw new Error('seed v1 type premise missing: '+literal);const manifest=JSON.parse(execFileSync('git',['show',seed+':packages/developer-mcp/package.json'],{encoding:'utf8'}));for(const key of ['dependencies','optionalDependencies','peerDependencies','bundledDependencies'])if(manifest[key]!==undefined&&(Array.isArray(manifest[key])?manifest[key].length:Object.keys(manifest[key]).length)>0)throw new Error('seed manifest has '+key);console.log('immutable seed audit premises verified');"
+        ],
+        [
+          "node",
+          "-e",
+          "const{readdirSync,readFileSync}=require('node:fs');const{join}=require('node:path');const skip=new Set(['.git','.next','.opentenant','.turbo','dist','node_modules']);const files=[];function visit(dir){for(const entry of readdirSync(dir,{withFileTypes:true})){if(entry.isDirectory()){if(!skip.has(entry.name))visit(join(dir,entry.name));}else if(entry.isFile()&&/\\.tsx?$/.test(entry.name))files.push(join(dir,entry.name));}}for(const root of ['apps','modules','packages','templates','tooling'])visit(root);const matching=(term)=>files.filter(file=>readFileSync(file,'utf8').includes(term)).sort();const auditExpected=['packages/developer-mcp/src/audit.ts','packages/developer-mcp/src/contracts.test.ts'];for(const term of ['DeveloperMcpAuditRecord','assertDeveloperMcpAuditRecord']){const actual=matching(term);if(JSON.stringify(actual)!==JSON.stringify(auditExpected))throw new Error(term+' current consumers: '+actual.join(', '));}const backlog=JSON.parse(readFileSync('docs/plans/unattended-backlog.json','utf8'));const status=backlog.tasks.find(task=>task.id==='DEV-MCP-AUDIT-SCHEMA-08')?.status;const denialExpected=status==='pending'?['packages/developer-mcp/src/call-authorization.ts']:status==='not_verified'?['packages/developer-mcp/src/call-authorization.test.ts','packages/developer-mcp/src/call-authorization.ts']:null;if(denialExpected===null)throw new Error('unexpected task status during premise check: '+status);const denialActual=matching('DeveloperMcpCallDenialCode');if(JSON.stringify(denialActual)!==JSON.stringify(denialExpected))throw new Error('current denial-code consumers: '+denialActual.join(', '));const manifest=JSON.parse(readFileSync('packages/developer-mcp/package.json','utf8'));for(const key of ['dependencies','optionalDependencies','peerDependencies','bundledDependencies'])if(manifest[key]!==undefined&&(Array.isArray(manifest[key])?manifest[key].length:Object.keys(manifest[key]).length)>0)throw new Error('current manifest has '+key);console.log('current working-tree audit premises verified');"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "DEV-MCP-TM009-07",
+      "priority": 960,
+      "title": "Append an audit record atomically with every Developer MCP authorization decision",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Retry the append half of TM-009 from clean main after DEV-MCP-AUDIT-SCHEMA-08 merged in PR 58 and run 2 was rejected by blocking review. audit.ts validates the versioned record but does not persist it, authorizeDeveloperMcpCall is the only enforcement point that produces a decision, and priorDigest/currentDigest have no producer. Confirm those premises by inspection and stop if any is false. Add one append port whose contract owns the linearizable digest-chain commit: authorization supplies a validated record with both digest fields null, the adapter atomically assigns priorDigest/currentDigest and either commits exactly one record and resolves with that committed record or rejects without publishing a decision. The call boundary must await that result before returning any allow or denial. Storage is out of scope: this package must add neither a database/filesystem dependency nor production imports of either. Provide an in-memory adapter for tests. No route file is in scope.",
+      "source": "docs/plans/2026-08-03-developer-mcp-route-enablement.md",
+      "acceptanceCriteria": [
+        "An audit append port is defined as an interface with one async append method. Its input is a validated DeveloperMcpAuditRecord narrowed so priorDigest and currentDigest are both null; its resolved value is the exact validated committed DeveloperMcpAuditRecord with the adapter-assigned chain fields. The port contract requires serialized chain assignment plus commit as one adapter operation: resolve only after one record is committed, or reject without claiming a decision. audit.ts defines and exports both computeDeveloperMcpAuditDigest(record) and the in-memory adapter factory; index.ts re-exports them. The in-memory production adapter exposes immutable committed records for tests. The contract must not imply that an arbitrary void-returning append owns a chain it cannot report or permit a test-local implementation to stand in for the required export.",
+        "authorizeDeveloperMcpCall accepts the append port and, whenever append resolves, commits exactly one record per invocation for allow and for every denial code. A rejected append may commit no record and returns no decision. An exhaustive typed test counts one committed record for each of invalid_context, unknown_tool, authority_missing, resource_denied and revoked, plus allowed; separate rejection tests cover the zero-decision case so 'one record per invocation' never conflicts with append failure.",
+        "The record written for a denial carries authorizationDecision deny and outcome denied; the record for an allow carries allow, outcome authorized and a non-null profileVersion. It never claims tool execution succeeded or failed because append occurs before execution. Tests assert both paths and revalidate the records.",
+        "correlationId is generated inside the authorization/audit boundary for every invocation as a lowercase RFC 4122 UUIDv4, whose grammar is pinned by a literal regular expression in the test, and is never derived from caller input. Two invocations with byte-identical valid input append records with different correlationIds. Valid caller fields clientId, userId, tenantId and assignedProfile are each exercised with UUID-shaped lookalike values and the appended correlationId equals none of them. A separate extra correlationId key is rejected as unresolved invalid_context while the resulting audit record still carries a fresh generated correlationId.",
+        "A denial record NEVER carries identity the call did not establish and NEVER discards identity established after the combined top-level/principal/resource/authoritySource shape gate has passed. Any failure of that combined gate, including a malformed authoritySource beside otherwise well-shaped principal/resource values, uses unresolved because the boundary has not established any identity yet. Timestamp-invalid invalid_context, unknown_tool and stale authority_missing use principal with validated principal/resource and null descriptor fields; post-descriptor authority_missing uses complete and preserves a resolved profile when one exists; resource_denied and revoked use complete. Tests exercise malformed authoritySource plus both named invalid_context stages, both authority_missing branches, and both resource_denied branches: descriptor resource-type mismatch before any revocation call records not_required, while resource-adapter denial after a passed per-call check records passed. Each branch's appended record is revalidated, and the two resource_denied records are asserted to differ in revocationCheckResult. No fallback descriptor, principal, tenant or resource is permitted.",
+        "auditAppendAdapter is the required eighth enumerable data property of DeveloperMcpCallAuthorizationInput. Before applying the whole-input exact-key and nested-shape gate, authorizeDeveloperMcpCall first proves input is a non-null object, then locates only that own property with Object.getOwnPropertyDescriptor: it must be an enumerable data property, never an accessor. It validates append without invoking a getter, resolving a callable data-method descriptor through the adapter's prototype chain so object literals and class instances both work. This per-property safe sink lookup is independent of the later whole-input gate: an extra ordinary top-level key still appends one unresolved invalid_context record and returns that denial. A non-object input or an absent, accessor-backed or otherwise unsafe auditAppendAdapter rejects without exposing an allow or denial. Tests prove non-object input, the preserved extra-key case, a class adapter, a top-level auditAppendAdapter getter, and an adapter append getter; neither getter is invoked during validation.",
+        "Every appended record passes assertDeveloperMcpAuditRecord. A test asserts this by appending through the real path and re-validating what the adapter received, not by trusting the builder.",
+        "Decision publication and append have one observable gate: authorizeDeveloperMcpCall starts exactly one append, awaits it, and returns its allow or denial only after the append resolves. A deferred-append test proves the decision promise remains pending until append is released. Rejection tests on one otherwise-allowable and one denied call prove rejection yields no decision. The in-memory adapter contract additionally proves rejection before commit leaves records unchanged; no claim is made that a later tool mutation is part of this pre-execution transaction.",
+        "The digest chain has a producer owned by the adapter: before each commit it replaces the two null digest fields, setting priorDigest to genesis for the first record or the previous committed currentDigest thereafter, then computes currentDigest and commits. A three-record test reads committed records from the adapter and asserts every link. The append method resolves with the same frozen committed object exposed in records, and every returned/stored record is revalidated.",
+        "The normative digest preimage is UTF-8 JSON.stringify of an array of [fieldName, value] pairs in the exact DEVELOPER_MCP_AUDIT_FIELDS order with currentDigest omitted and priorDigest already assigned. The output is lowercase `sha256:` plus the 64-hex SHA-256 digest. A field name is included, not values alone, so field-set or order changes alter the digest. A fixed-record test contains the full literal preimage string and a literal expected digest, verifies the literal independently with node:crypto rather than computeDeveloperMcpAuditDigest, and then requires the implementation and stored adapter result to equal that oracle.",
+        "Tamper coverage is exhaustive over the digest preimage, not a single example: for every included field the test changes that field to another schema-valid value where possible, or proves the field's literal name/order is present in the pinned preimage, and requires recomputation to differ from the stored currentDigest. currentDigest itself is excluded by definition and tested as such.",
+        "Concurrency: two authorization calls racing against one adapter produce two records whose chain is intact, or the second fails. A test runs both with Promise.all and asserts either a valid chain or an explicit failure, never two records claiming the same priorDigest. A hash chain with unserialised appends is silently broken, and nothing else in this task would reveal it.",
+        "The digest oracle must not be implementation-derived: its literal preimage and literal hash are asserted directly with node:crypto before computeDeveloperMcpAuditDigest is called. The test report records the exact preimage and expected digest so a later field-set/order change fails visibly.",
+        "Denial-code exhaustiveness is enforced by the type system, not by a hand-written list: the test that counts one record per denial code is driven by a value that fails to typecheck if a new DeveloperMcpCallDenialCode is added without a case.",
+        "Every test that existed in call-authorization.test.ts before this change still exists and still asserts what it asserted. Cases may be added; none may be replaced.",
+        "No comment or docstring claims a consumer, caller, storage backend or guarantee that grep cannot confirm in this repository, and none claims TM-009 closes any criterion beyond the audit append itself. The implementation must not reintroduce a moving current-tree consumer claim; the authority-freeze evidence is already time-scoped to the merged schema checkpoint and is outside this task's write scope.",
+        "The atomicity guard is proven load-bearing: the task report names the guard, states that disabling it was tried, and names which test failed as a result.",
+        "The concurrency test must reject an implementation that simply fails both calls. It asserts that two racing calls yield either two records with an intact chain, or exactly one success and one explicit failure. Both-fail is not an acceptable outcome and run 1's test accepted it.",
+        "The digest test must prove the adapter stored the computed digest, by reading the record back out of the in-memory adapter and comparing with the independent literal oracle, not by comparing the builder's output to itself.",
+        "No database or filesystem surface is added. The controller verifies package.json and pnpm-lock.yaml are unchanged and scans production files under packages/developer-mcp/src, excluding tests, for node:fs, node:fs/promises, @opentenant/database, pg, postgres and filesystem persistence calls. node:crypto is permitted only for UUIDv4 and SHA-256."
+      ],
+      "dependencies": [
+        "DEV-MCP-AUDIT-SCHEMA-08"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/developer-mcp/src/audit.ts",
+        "packages/developer-mcp/src/audit.test.ts",
+        "packages/developer-mcp/src/call-authorization.ts",
+        "packages/developer-mcp/src/call-authorization.test.ts",
+        "packages/developer-mcp/src/index.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 60,
+      "premiseVerificationCount": 1,
+      "verification": [
+        [
+          "node",
+          "-e",
+          "const{readFileSync,readdirSync}=require('node:fs');const{join}=require('node:path');const root='packages/developer-mcp/src';const audit=readFileSync(join(root,'audit.ts'),'utf8');const authorization=readFileSync(join(root,'call-authorization.ts'),'utf8');for(const forbidden of ['DeveloperMcpAuditAppendAdapter','computeDeveloperMcpAuditDigest','createInMemoryDeveloperMcpAuditAppendAdapter'])if(audit.includes(forbidden))throw new Error('audit append premise changed: '+forbidden);for(const forbidden of ['auditAppendAdapter','appendDecision','randomUUID'])if(authorization.includes(forbidden))throw new Error('authorization premise changed: '+forbidden);const production=readdirSync(root).filter(name=>name.endsWith('.ts')&&!name.endsWith('.test.ts'));const decisionConsumers=production.filter(name=>readFileSync(join(root,name),'utf8').includes('authorizeDeveloperMcpCall'));if(JSON.stringify(decisionConsumers)!==JSON.stringify(['call-authorization.ts']))throw new Error('authorization decision consumers: '+decisionConsumers.join(', '));for(const field of ['priorDigest','currentDigest']){const count=[...audit.matchAll(new RegExp('\\\\b'+field+'\\\\b','g'))].length;if(count!==5)throw new Error(field+' producer premise changed: '+count);}console.log('TM-009 clean-base premises verified')"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/developer-mcp",
+          "test"
+        ],
+        [
+          "node",
+          "-e",
+          "const{readFileSync}=require('node:fs');const{execFileSync}=require('node:child_process');const manifest=JSON.parse(readFileSync('packages/developer-mcp/package.json','utf8'));for(const key of ['dependencies','optionalDependencies','peerDependencies','bundledDependencies'])if(manifest[key]!==undefined&&(Array.isArray(manifest[key])?manifest[key].length:Object.keys(manifest[key]).length)>0)throw new Error('manifest has '+key);const changed=execFileSync('git',['diff-tree','--no-commit-id','--name-only','-r','HEAD'],{encoding:'utf8'}).trim().split('\\n').filter(Boolean);for(const forbidden of ['packages/developer-mcp/package.json','pnpm-lock.yaml'])if(changed.includes(forbidden))throw new Error('task checkpoint changed '+forbidden);console.log('manifest and task-checkpoint dependency surfaces verified')"
+        ],
+        [
+          "node",
+          "-e",
+          "const fs=require('node:fs');const path=require('node:path');const root='packages/developer-mcp/src';const files=fs.readdirSync(root).filter((name)=>name.endsWith('.ts')&&!name.endsWith('.test.ts'));const banned=/(?:node:fs(?:\\/promises)?|@opentenant\\/database|from ['\"](?:pg|postgres)['\"]|\\b(?:readFile|writeFile|appendFile|createWriteStream)\\s*\\()/;const hits=files.filter((name)=>banned.test(fs.readFileSync(path.join(root,name),'utf8')));if(hits.length){console.error(hits.join('\\n'));process.exit(1)}"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "PLATFORM-ADMISSION-09",
+      "priority": 970,
+      "title": "Define provider-neutral admission and idempotency contracts",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Create the reusable admission layer needed by endpoint rate limits and later Developer MCP TM-008 work without coupling it to billing, Redis, or any provider. This amendment resolves the pre-implementation blocking reviews before any code run: it fixes scope, request, policy, decision, lease, fixed-window, evaluation-order, replay, retention, expiry, release, clock, identifier and race semantics so tests cannot define the contract by accident. Supply a deterministic in-memory reference adapter whose async clock, lease-id factory and pre-commit interleaving hook are injected. A controller-owned verifier outside allowedPaths independently loads and mutates the implementation in memory; the implementation agent cannot alter its oracle and should rehearse with the platform-core test command. The adapter is an executable contract for later PostgreSQL composition, not production persistence. This task changes no route, makes no endpoint callable, and does not claim to close TM-008.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "platform-core directly exports closed AdmissionScope, AdmissionRequest, AdmissionPolicy, AdmissionDenialCode, AdmissionDecision, AdmissionLease, AdmissionReleaseRequest, AdmissionReleaseResult, AdmissionClock, AdmissionLeaseIdFactory, AdmissionAdapter, InMemoryAdmissionAdapterOptions, AdmissionSnapshot and InMemoryAdmissionAdapter declarations plus an exported function declaration createInMemoryAdmissionAdapter from admission.ts through the exact index.ts line export * from \"./admission\";. AdmissionAdapter exposes async admit(request, policy) and async release(request) only; InMemoryAdmissionAdapter extends it with required synchronous snapshot(scope). AdmissionClock is exactly nowMs(): number | Promise<number>; AdmissionLeaseIdFactory is exactly nextLeaseId(): string | Promise<string>; options is exactly clock, leaseIdFactory and optional beforeCommit(request): void | Promise<void>, whose default is a no-op and whose request argument is a frozen copy.",
+        "Scope is exactly tenantId, principalId and operation. Scope fields, idempotencyKey and fingerprint must already equal their trimmed form and contain 1..128 code units whose code points are each U+0020 through U+007E inclusive; admission never trims or mutates them. idempotencyKey and fingerprint are opaque caller-supplied values compared byte-for-byte with no canonicalization. Counters, clocks, lease IDs and idempotency use the full tenantId + principalId + operation tuple deliberately; tenant-wide aggregate limits are out of scope rather than silently sharing state. A leading-space scope value is invalid_request.",
+        "AdmissionRequest is exactly scope, idempotencyKey, fingerprint and sizeBytes. AdmissionPolicy is exactly maxRequests, windowMs, maxConcurrent, leaseMs, idempotencyTtlMs, maxIdempotencyEntriesPerScope and maxSizeBytes. sizeBytes is a caller-supplied non-negative safe integer byte count measured from an already-read payload; admission never reads a body. The first six policy fields are positive safe integers, maxSizeBytes is a non-negative safe integer, and idempotencyTtlMs is greater than or equal to leaseMs. Malformed direct requests or policies return typed invalid_request and never throw.",
+        "One frozen policy epoch governs a full scope while that scope has a current rate window, retained idempotency record, or live/retained lease. Every one of the seven incoming policy fields must equal that epoch; drift returns invalid_request before replay and mutates no rate, concurrency, lease or idempotency state. Reclamation and expiry always use the frozen policy captured when state was admitted, never a later caller's policy. Once the old window has ended and every retained record has expired, the scope epoch is removed and a new policy may start. The named test 'rejects policy drift while live state is retained' admits under policy A, calls with policy B, and proves A controls TTL, cap and window behavior.",
+        "Rate limiting uses an epoch-aligned fixed half-open window whose windowStartMs is Math.floor(nowMs / windowMs) * windowMs for the active frozen policy. The window is derived, never moved by a request, and admits while the committed count is strictly less than maxRequests, so exactly maxRequests decisions may commit per window. A denied request never creates or moves a window, increments rate, or acquires concurrency. Literal tests cover windowStartMs + windowMs - 1 and windowStartMs + windowMs, counts maxRequests - 1, maxRequests and maxRequests + 1, maxSizeBytes equal to sizeBytes, maxSizeBytes + 1, and zero bytes under maxSizeBytes zero. size_exceeded occurs only when sizeBytes is strictly greater than maxSizeBytes.",
+        "Evaluation order is exact inside the scope serialization chain: validate request and policy; read and validate the injected clock; lazily reclaim this scope using captured policy; reject a still-live policy mismatch; lookup full-scope idempotencyKey and return replay or idempotency_conflict; check size; check whether one admitted record can be retained; check rate; check concurrency; request and validate a lease ID; await beforeCommit; then atomically commit one admission. Denials are exactly invalid_request, idempotency_conflict, idempotency_capacity, size_exceeded, rate_limited and concurrency_limited, expose no counters or foreign-scope state, acquire no lease and are never stored for replay.",
+        "AdmissionDenialCode directly inlines exactly the literal union invalid_request, idempotency_conflict, idempotency_capacity, size_exceeded, rate_limited or concurrency_limited. AdmissionDecision is exactly the union { admitted: true; replayed: boolean; lease: AdmissionLease } or { admitted: false; code: AdmissionDenialCode }. Only admitted decisions create idempotency records. An unexpired full-scope key with byte-identical fingerprint returns a frozen replay decision carrying the original lease and replayed true without incrementing rate or concurrency and without authorizing a second execution; different fingerprint returns idempotency_conflict. The same key in another tenant, principal or operation is independent and never returns another scope's lease. Release never clears the record. Expiry is nowMs greater than or equal to admittedAtMs + the idempotencyTtlMs captured at admission.",
+        "AdmissionClock has exactly nowMs(): number | Promise<number>. Admit, replay and every valid-shape release each read it inside the full-scope chain. A per-full-scope last-observed value permits equality and rejects a strictly lesser, non-finite, negative or non-safe-integer value as invalid_request without changing counters or the last-observed marker; a decreasing read in scope A cannot affect scope B. The marker is discarded when and only when that scope has no current window or retained record, including after an unknown or foreign release leaves the scope empty. PostgreSQL composition may implement the same port from database time. The named test 'isolates monotonic clocks and lease identifiers by full scope' proves the scope boundary and no-mutation behavior.",
+        "An admitted decision carries replayed false and an AdmissionLease exactly containing leaseId, scope, admittedAtMs, expiresAtMs and policy. leaseId is 32 lowercase hexadecimal characters from AdmissionLeaseIdFactory, scope is the exact frozen scope, expiresAtMs equals admittedAtMs + leaseMs, and policy is the frozen epoch. The async factory is invoked inside serialization only after all other eligibility checks pass; its result is validated before beforeCommit, and beforeCommit runs only for a decision that will commit. A thrown/rejected factory call or invalid/non-string result is normalized to invalid_request without throwing, calling beforeCommit or mutating state. Duplicate detection covers retained lease records in the same full scope only; a collision returns invalid_request without beforeCommit or counter mutation, the same ID in another scope is independent, and an ID is reusable after its record is evicted. No denied path before the ID step invokes the factory. The named test 'calls the lease-id factory only for otherwise eligible admissions' covers denial and live-collision paths.",
+        "AdmissionReleaseRequest is exactly scope and leaseId; leaseId must already equal its trimmed form and be 32 lowercase hexadecimal characters. AdmissionReleaseResult is exactly { status } and directly inlines the literal status union released, already_released, expired, not_found or invalid_request. Release is the single completion operation: it frees concurrency at most once and never restores rate budget or removes idempotency evidence. Malformed input never throws, and unknown and foreign-scope leases are indistinguishable not_found no-ops. Expiry is nowMs greater than or equal to expiresAtMs. Lazy reclamation frees concurrency and marks the retained lease expired without deleting it; release returns expired until TTL eviction and not_found afterward. already_released takes precedence over expired when release occurred before expiry. Active count never becomes negative.",
+        "Retention is bounded per full scope. Each admission creates one idempotency record and one lease record retained together until captured idempotency TTL; no active lease or unexpired record is evicted. When the frozen maxIdempotencyEntriesPerScope is full, admission returns idempotency_capacity without calling the ID factory or mutating counters. Unique denied keys are not retained. AdmissionSnapshot is exactly scope, policy, windowStartMs, windowCount, activeLeaseCount, retainedIdempotencyCount and retainedLeaseCount; policy and windowStartMs are null when the scope has no current window or retained record, and all counts are zero. Literal cap tests prove neither retained map exceeds the policy bound. Total scope cardinality is deliberately not bounded; completed scope state is released on the next touch, while an untouched completed scope may remain resident because sweeping is out of scope.",
+        "The in-memory adapter linearizes every valid-shape admit and release, including unknown/foreign not_found release paths, through one per-full-scope Promise chain while different scopes remain independent. Source contains exactly one load-bearing serialization token return enqueueScopeOperation(scopeKey, operation);. A chain entry may be deleted only after its operation settles and only by compare-and-delete when the map's stored tail is identical to that operation's tail Promise; a queued successor prevents deletion. beforeCommit is awaited after an accepted lease ID and the complete eligibility read but before commit. Tests create every racing Promise, then release manual clock and beforeCommit barriers unconditionally after bounded microtask yields; release never waits for an arrival count, and the named race has a two-second test timeout. The named test 'serializes interleaved admissions at the concurrency limit' covers both a live scope and an emptied-then-immediately-raced scope with maxConcurrent + 1 calls and proves exactly maxConcurrent commit.",
+        "Every caller-supplied request, scope and policy retained by the adapter is copied and deeply frozen on ingress without freezing or mutating the caller's objects. Every returned decision, lease, release result, nested scope, nested policy and AdmissionSnapshot is a separate defensive deeply frozen copy. Mutating an original caller object after admit or attempting to mutate any returned nested value cannot change retained counters, leases, policy, idempotency records or subsequent decisions. The named test 'deep-freezes returned decisions and snapshots' covers both inbound aliasing and outbound mutation.",
+        "No price, currency, subscription, plan, payment provider, network client, environment variable, wall clock, timer, filesystem or database adapter is introduced. The normative textual ban list for both changed production files is dynamic import; Date.now, new Date(, performance.now and Date bracket access; process.hrtime, process.nextTick, process.env and process bracket access; setTimeout, setInterval and setImmediate; globalThis bracket access; Math.random; global crypto member access; fetch calls; @opentenant/database; pg/postgres imports or requires; and fs, crypto or timers imports/requires with or without node: and /promises. Comments must avoid the tokens because the scan is syntax-independent. Tests do not sleep or use timer-based waiting. Module comments state without banned spellings that admission evidence is neither an exact usage ledger nor authorization and that composition must bind scope, clock and identifiers server-side.",
+        "Mutation proof is executable in admission.test.ts and independently repeated by tooling/unattended/verifiers/verify-platform-admission.mjs. Source contains exactly one serialization token return enqueueScopeOperation(scopeKey, operation); replaced by return operation(); and exactly one fingerprint token existing.fingerprint === request.fingerprint replaced by existing.fingerprint !== request.fingerprint. Each oracle transpiles and evaluates both mutants in memory with TypeScript and node:vm or a data URL, writes no file, and proves the concurrency mutant oversubscribes and the fingerprint mutant admits a mismatched fingerprint. The controller-owned verifier is outside allowedPaths and also exercises all contract boundaries independently of agent-authored assertions. The agent test verifier rejects skipped/only/todo or empty required tests, local factory substitutes, file-write APIs and missing JSON-reported passes, and positively requires an in-memory evaluation API.",
+        "The exact required Vitest titles are: 'serializes interleaved admissions at the concurrency limit', 'replays only matching admitted decisions within the full scope', 'uses half-open fixed windows and expires leases at the boundary', 'honors inclusive request and size limits', 'rejects policy drift while live state is retained', 'isolates monotonic clocks and lease identifiers by full scope', 'calls the lease-id factory only for otherwise eligible admissions', 'bounds retention without evicting live state', 'returns typed no-ops for malformed and foreign release requests', 'rejects malformed inputs without mutation', 'keeps denied idempotency keys out of retention', 'cleans empty scope tails with compare-and-delete', 'mutation proof fails without serialization and fingerprint guards', and 'deep-freezes returned decisions and snapshots'. Before returning, the implementation agent runs pnpm --filter @opentenant/platform-core test and may run node tooling/unattended/verifiers/verify-platform-admission.mjs without a report to rehearse the immutable static, behavioral and mutant oracle. The trusted controller deletes any old report, writes a fresh JSON report to its root cache and passes its path to the same oracle for provenance and named-pass checks.",
+        "This plan, backlog, source-plan retrospective and controller verifier amendment merge with a clean worktree before the implementation run. The later implementation task preserves scope: only admission.ts, admission.test.ts, index.ts and its own backlog status/timestamp may change. No HANDOFF, SHIPLOG or OWNER-TASKS update is required because the isolated contract adds no route, provider, deployment or owner decision; the controller owns later durable release records. Marketing classification remains planned/none until a production consumer merges."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/platform-core/src/admission.ts",
+        "packages/platform-core/src/admission.test.ts",
+        "packages/platform-core/src/index.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 60,
+      "verification": [
+        [
+          "node",
+          "-e",
+          "const fs=require('node:fs'),path='node_modules/.cache/admission-vitest.json';if(fs.existsSync(path))fs.unlinkSync(path)"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "exec",
+          "vitest",
+          "run",
+          "src/admission.test.ts",
+          "--reporter=json",
+          "--outputFile=../../node_modules/.cache/admission-vitest.json"
+        ],
+        [
+          "node",
+          "tooling/unattended/verifiers/verify-platform-admission.mjs",
+          "node_modules/.cache/admission-vitest.json"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "PLATFORM-ADMISSION-PG-10",
+      "priority": 980,
+      "title": "Persist shared admission limits atomically in PostgreSQL",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Implement migration 0026 and one atomic PostgreSQL adapter for PLATFORM-ADMISSION-09. The database, not an application instance, owns counters, active leases and idempotency replay. The plan-reviewed trusted local PostgreSQL proof now runs the two exact integration suites through the deny-network unattended sandbox and independently verifies the identified cluster afterward. Production route composition is a separate dependent task.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "Before this task becomes pending, its verification array is amended with a non-skipping PostgreSQL proof that works inside the unattended verification sandbox, and that amendment is plan-reviewed. Merely setting CONTROL_PLANE_INTEGRATION_DATABASE_URL outside the controller or relying on hosted CI not represented in the task contract is insufficient.",
+        "The trusted proof command is node tooling/ci/run-local-postgres-proof.mjs admission. The required executed test titles are 'serializes concurrent admissions without exceeding the tenant limit', 'rolls back leases and idempotency when the transaction fails', 'replays the original decision across store instances and rejects fingerprint conflicts', and 'ignores expired replay evidence without deleting live records'. When OPENTENANT_LOCAL_POSTGRES_PROOF=admission, either suite throws instead of skipping if its controller-supplied database URL is absent.",
+        "Migration 0026 uses the exact tables admission_policies, admission_windows, admission_leases and admission_idempotency_records. admission_windows records tenant_id, scope_key, window_started_at, admitted_count and limit_count so the controller can independently prove no committed race exceeded its persisted ceiling. Migration evidence is timestamped after the controller-recorded proof start. Both integration suites leave representative committed proof rows after their final named test; work review still owns intent verification and the controller SQL does not claim to replace it.",
+        "Migration 0026 creates tenant-scoped admission policies, windows, leases and idempotency records with bounded keys, non-negative counters, expiry checks, tenant foreign keys where applicable, and no mutable price or authorization fields.",
+        "The migration is exercised against PostgreSQL, not asserted by SQL substring. A two-connection test races beyond a limit and proves committed admissions never exceed it; rollback leaves no consumed lease or idempotency result.",
+        "PgAdmissionStore implements the platform-core contract in one transaction using database time or the explicitly supplied test time consistently. It never performs a read-then-write sequence without a lock or equivalent atomic statement.",
+        "Idempotent replay returns the original persisted decision across two store instances. A conflicting fingerprint fails closed, and expired records are pruned or ignored without deleting still-live evidence.",
+        "The adapter does not meter billable usage, grant module entitlement, or make a Developer MCP route callable. No Redis dependency or provider-selection abstraction is added.",
+        "The task report includes the executed, non-skipped PostgreSQL output and names the concurrency test that fails when the database serialization guard is removed."
+      ],
+      "dependencies": [
+        "PLATFORM-ADMISSION-09"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "tooling/migrations/sql/control-plane/0026_admission.sql",
+        "tooling/migrations/src/control-plane-admission.integration.test.ts",
+        "packages/database/src/admission-store.ts",
+        "packages/database/src/admission-store.test.ts",
+        "packages/database/src/admission-store.integration.test.ts",
+        "packages/database/src/index.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 60,
+      "verification": [
+        [
+          "node",
+          "tooling/ci/run-local-postgres-proof.mjs",
+          "admission"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "PLATFORM-ADMISSION-ROUTES-10A",
+      "priority": 985,
+      "title": "Replace route-local limits with the shared admission store",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "After PLATFORM-ADMISSION-PG-10 has executable PostgreSQL proof, replace the process-local rate-limit maps in assessment-readout, telemetry and assessment module-access. Confirm by inspection that these are still the only three module-level rate-limit maps under apps/platform/app/api and stop if the premise is false. Compose the verified store through one platform helper, with each route retaining its current public status, response shape and redaction behavior.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "A pre-edit scan records every module-level rate-limit Map under apps/platform/app/api and finds exactly assessment-readout, telemetry and assessment module-access. The task stops rather than silently leaving a fourth implementation behind if the premise changes.",
+        "One apps/platform admission composition helper constructs the PostgreSQL adapter and accepts an explicit literal policy from each route. It does not read tenant or principal identity from caller-controlled request headers, query parameters or body fields.",
+        "All three routes remove their module-level Map and scope admission by trusted tenant, principal and operation values. A fresh route module instance cannot reset the effective limit because persisted adapter state is external.",
+        "Route tests prove same-scope limiting, cross-tenant and cross-principal separation, exact idempotent replay, fingerprint conflict, size denial and unchanged response redaction.",
+        "Existing success, validation, authentication, tenant-resolution and upstream-error tests remain present and unchanged in meaning. The shared limiter cannot grant module entitlement or authorization.",
+        "No route creates a billable usage event, plan decision, payment-provider call, Developer MCP route or generic feature flag.",
+        "The task report includes the pre-edit scan and names the route test that fails when the shared adapter is replaced by a fresh process-local instance."
+      ],
+      "dependencies": [
+        "PLATFORM-ADMISSION-PG-10"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/lib/admission.ts",
+        "apps/platform/lib/admission.test.ts",
+        "apps/platform/app/api/assessment-readout/route.ts",
+        "apps/platform/app/api/assessment-readout/route.test.ts",
+        "apps/platform/app/api/telemetry/route.ts",
+        "apps/platform/app/api/telemetry/route.test.ts",
+        "apps/platform/app/api/module-access/assessment/route.ts",
+        "apps/platform/app/api/module-access/assessment/route.test.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 60,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "build"
+        ]
+      ]
+    },
+    {
+      "id": "TENANT-ACTIVITY-11",
+      "priority": 990,
+      "title": "Define a tenant-safe activity projection and redaction policy",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Create the visibility boundary for a tenant-facing activity center before adding UI. Project canonical audit events into a closed display record for the requested tenant, with an explicit action allowlist and per-action detail allowlists. Unknown actions and arbitrary detail never flow through by default. This task is a pure policy/read-model slice and does not add a route or weaken append-only audit storage.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "security exports a closed TenantActivityRecord containing only sequence, occurredAt, actor display, action, subject, summary and a bounded metadata object whose keys are selected by server-owned policy.",
+        "Projection requires the requested tenantId and rejects or omits every event with a different tenantId or null platform scope. A mixed-tenant fixture proves no other tenant's subject, actor, detail or event count appears in output.",
+        "The action policy is default-deny. A literal exhaustive test snapshots every tenant-visible action and its allowed detail keys; an unknown action with credential-like and secret-like detail produces no activity record.",
+        "Allowed actions copy only their explicit scalar fields. Nested objects, URLs, connection locators, provider identifiers, tokens, prompts, model output, raw errors and caller-supplied free text are never serialized merely because they exist in audit detail.",
+        "Actor display distinguishes user, system and support activity without exposing provider subjects, email addresses or cross-tenant identifiers. Missing or malformed actor data produces a bounded generic label.",
+        "Output is deterministically newest-first with a maximum of 100 records. Limits below one and above 100 clamp to the documented bounds, and identical input produces byte-stable JSON.",
+        "Every returned record and metadata object is defensively frozen. Mutation of input after projection cannot change prior output.",
+        "Tests include tenant settings, membership, domain, module, brand and support actions already present in the repository, plus hostile unknown-action and oversized-detail fixtures. No test asserts arbitrary audit detail passthrough."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/security/src/tenant-activity.ts",
+        "packages/security/src/tenant-activity.test.ts",
+        "packages/security/src/index.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 60,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/security",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "TENANT-ACTIVITY-UI-12",
+      "priority": 1000,
+      "title": "Add an admin-only tenant activity settings page",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Expose TENANT-ACTIVITY-11 at /settings/activity for the active tenant's tenant_owner and tenant_admin memberships. Read canonical events through PgAuditStore, project them through the shared policy, and render a bounded accessible timeline. Tenant selection comes only from currentTenant plus the verified admin membership; query parameters, headers and audit subjects cannot select another tenant.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "The settings navigation contains Activity and the page refuses unauthenticated, non-member and ordinary-member sessions using the same tenantAdminContext boundary as the other administrative settings pages.",
+        "The data loader calls listForTenant with exactly the tenantId returned by currentTenant/tenantAdminContext. A hostile tenant query parameter, header and cookie are ignored and a test proves none reaches the store call.",
+        "Every event is passed through projectTenantActivity before rendering. The page never imports or prints raw audit detail and a hostile fixture proves secrets, provider ids, URLs and another tenant's event are absent from rendered output.",
+        "The timeline has a real heading, semantic list, machine-readable time element, visible action summary and actor label. Empty and unavailable states are actionable but do not reveal whether another tenant has events.",
+        "Pagination is not invented. The first slice is capped at 100 newest events and says that it is recent activity; no copy claims a complete compliance log or billing record.",
+        "Page and loader tests cover allowed owner/admin access, ordinary-member denial, null tenant, empty state, mixed visible/hidden actions and stable newest-first rendering.",
+        "No audit mutation, export, deletion, filter by arbitrary tenant, provider call, feature flag, custom role or production deployment is added."
+      ],
+      "dependencies": [
+        "TENANT-ACTIVITY-11"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/lib/tenant-activity.ts",
+        "apps/platform/lib/tenant-activity.test.ts",
+        "apps/platform/app/settings/activity/page.tsx",
+        "apps/platform/app/settings/activity/page.test.tsx",
+        "apps/platform/app/settings/layout.tsx",
+        "apps/platform/app/settings/layout.test.tsx",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 60,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "build"
+        ]
+      ]
+    },
+    {
+      "id": "PLATFORM-USAGE-13",
+      "priority": 1010,
+      "title": "Add append-only exact usage evidence without billing policy",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Build a provider-neutral exact-usage ledger that is deliberately separate from admission counters and commercial entitlements. A server-owned metric definition produces immutable tenant-scoped usage events with integer quantity, occurrence time, source reference, fingerprint and idempotency key. PostgreSQL owns append and replay semantics. The plan-reviewed trusted local PostgreSQL proof now executes both exact suites without network access and independently verifies the identified cluster afterward. No price, plan, invoice, checkout, webhook or payment-provider code is in scope.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "Before this task becomes pending, its verification array is amended with a sandbox-compatible command that fails when either usage-ledger PostgreSQL suite is skipped and includes the executed test count in output.",
+        "The trusted proof command is node tooling/ci/run-local-postgres-proof.mjs usage. The required executed test titles are 'rejects update, delete, and truncate while preserving correction evidence', 'isolates corrections by tenant and metric', 'commits one event when two stores race the same idempotency key', and 'commits distinct keys and aggregates half-open windows with corrections exactly once'. When OPENTENANT_LOCAL_POSTGRES_PROOF=usage, either suite throws instead of skipping if its controller-supplied database URL is absent.",
+        "Migration 0027 uses the exact tables usage_metric_definitions and exact_usage_events. exact_usage_events has correction_of_event_id and idempotency_key columns, an executed immutability trigger covering update/delete/truncate, and a tenant-scoped uniqueness boundary for non-null idempotency keys. Migration evidence is timestamped after the controller-recorded proof start. Both integration suites leave representative committed proof rows after their final named test; work review still owns intent verification and the controller SQL does not claim to replace it.",
+        "platform-core defines a bounded server-owned UsageMetricDefinition and immutable ExactUsageEvent contract. Metric ids are registered by trusted composition code; callers cannot turn an arbitrary request string into a billable metric.",
+        "Migration 0027 creates append-only tenant-scoped metric definitions and usage events. Quantity is a positive safe integer, occurredAt and recordedAt are distinct, and update/delete/truncate of evidence is rejected by executed PostgreSQL tests.",
+        "PgUsageLedger.append is idempotent for the same tenant, key and canonical fingerprint across store instances and returns the original event. Reusing a key with a different fingerprint fails closed and never changes the original event.",
+        "Two connections racing the same key commit exactly one event. Two distinct keys commit two events even when every other field matches, proving deduplication is explicit rather than heuristic.",
+        "Corrections are new linked events with a signed integer delta and reason, never mutation. An aggregate includes corrections exactly once and rejects a correction that references another tenant or unknown metric.",
+        "Aggregation requires tenantId, metricId and a bounded half-open time window. Tests prove tenant, metric and boundary isolation and use database values rather than process-local counters.",
+        "Admission denial or replay does not automatically become usage, and an admitted lease does not automatically imply billable usage. Tests and comments keep the layers separate.",
+        "No currency, unit price, plan name, subscription state, entitlement decision, Stripe symbol, provider SDK, webhook route, environment variable or customer-facing claim is added.",
+        "The task report names the PostgreSQL concurrency and immutability tests and records which test fails when idempotency serialization is removed."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/platform-core/src/usage.ts",
+        "packages/platform-core/src/usage.test.ts",
+        "packages/platform-core/src/index.ts",
+        "tooling/migrations/sql/control-plane/0027_usage_ledger.sql",
+        "tooling/migrations/src/control-plane-usage-ledger.integration.test.ts",
+        "packages/database/src/usage-ledger.ts",
+        "packages/database/src/usage-ledger.test.ts",
+        "packages/database/src/usage-ledger.integration.test.ts",
+        "packages/database/src/index.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 90,
+      "verification": [
+        [
+          "node",
+          "tooling/ci/run-local-postgres-proof.mjs",
+          "usage"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform-core",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "PLATFORM-ADMISSION-HARDEN-15",
+      "priority": 1011,
+      "title": "Close admission replay, lease and passcode integrity gaps",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Make every admitted platform route treat an idempotency replay as non-executable, release live leases after the protected side effect finishes, distinguish control-plane failure from customer rate limiting, and persist only a server-keyed passcode fingerprint. Extend the disposable PostgreSQL proof with a real two-store, distinct-key concurrency race.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "Assessment readout, telemetry and module-passcode routes never execute their side effect for an admitted replay, and route tests prove the protected provider call, log write or passcode verification is not repeated.",
+        "Every non-replayed admitted route releases its exact returned scope and lease id in a finally path. Streaming readout releases only after the provider stream completes or fails; pre-stream failures also release.",
+        "A control-plane admission failure returns a redacted 503 rather than a false 429, while actual policy denials retain their existing redacted 413, 409 or 429 contract.",
+        "The passcode admission fingerprint is a deterministic HMAC keyed by the existing server-only module-access secret and bound to tenant plus module. Neither plaintext passcodes nor an unkeyed low-entropy digest is persisted or returned.",
+        "Routes use the branded TenantId contract and document the deliberately shared server-owned anonymous bucket without trusting caller-supplied network identifiers.",
+        "The platform admission composition test proves fresh imports share one PgAdmissionStore and forwards release calls to it.",
+        "The PostgreSQL store suite runs two store instances against the same scope with maxConcurrent one, holds the first transaction before commit, and proves a distinct second key is concurrency-limited after serialization.",
+        "The trusted admission proof executes all named migration and store cases with zero skipped tests, and the full platform, database and repository checks pass."
+      ],
+      "dependencies": [
+        "PLATFORM-ADMISSION-PG-10",
+        "PLATFORM-ADMISSION-ROUTES-10A"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/lib/admission.ts",
+        "apps/platform/lib/admission.test.ts",
+        "apps/platform/lib/module-access.ts",
+        "apps/platform/lib/module-access.test.ts",
+        "apps/platform/app/api/assessment-readout/route.ts",
+        "apps/platform/app/api/assessment-readout/route.test.ts",
+        "apps/platform/app/api/telemetry/route.ts",
+        "apps/platform/app/api/telemetry/route.test.ts",
+        "apps/platform/app/api/module-access/assessment/route.ts",
+        "apps/platform/app/api/module-access/assessment/route.test.ts",
+        "packages/database/src/admission-store.integration.test.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 90,
+      "verification": [
+        [
+          "node",
+          "tooling/ci/run-local-postgres-proof.mjs",
+          "admission"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "build"
+        ]
+      ]
+    },
+    {
+      "id": "PLATFORM-USAGE-HARDEN-16",
+      "priority": 1012,
+      "title": "Close exact-usage replay and correction-window gaps",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Make exact-usage replay validate the complete immutable event identity, force corrections into the original event's occurrence window, and prove tenant, metric and half-open boundary isolation against PostgreSQL without adding commercial billing policy.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "Reusing a tenant idempotency key returns the original event only when metric, quantity, occurrence time, source reference, fingerprint, correction target and correction reason all match exactly; every mismatch fails closed.",
+        "PostgreSQL rejects a correction whose tenant, metric or occurrence timestamp differs from the original, and still rejects corrections of corrections.",
+        "Store integration tests prove aggregate isolation across two tenants and two registered metrics, plus exclusion of events at the half-open end boundary.",
+        "The same-key race test is order-independent and does not contribute data to the aggregate-isolation window.",
+        "Correction tests prove an unknown metric and a cross-window correction fail without changing the original event or aggregate.",
+        "The trusted usage proof executes all four named migration and store cases with zero skipped tests, and the full database, migration and repository checks pass.",
+        "No currency, price, plan, subscription, entitlement or payment-provider behavior is added."
+      ],
+      "dependencies": [
+        "PLATFORM-USAGE-13"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "tooling/migrations/sql/control-plane/0027_usage_ledger.sql",
+        "tooling/migrations/src/control-plane-usage-ledger.integration.test.ts",
+        "packages/database/src/usage-ledger.ts",
+        "packages/database/src/usage-ledger.test.ts",
+        "packages/database/src/usage-ledger.integration.test.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 90,
+      "verification": [
+        [
+          "node",
+          "tooling/ci/run-local-postgres-proof.mjs",
+          "usage"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/migrations",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ]
+      ]
+    },
+    {
+      "id": "OWNER-BILLING-01",
+      "priority": 1020,
+      "title": "Freeze commercial billing metrics and provider scope",
+      "lane": "owner",
+      "status": "pending",
+      "objective": "Decide whether OpenTenant should commercialize any exact usage metric, which limits are hard entitlements versus informational usage, the plan-change and proration semantics, the inbound event replay window, and whether Stripe is the first payment adapter. This gate authorizes a specification only; it does not authorize provider credentials, live products, prices, checkout, invoices or webhook deployment.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "Each commercial metric is named with its source event, unit, aggregation window, correction policy and customer-visible explanation, or explicitly rejected as non-billable.",
+        "The decision distinguishes admission limits, module entitlement, exact usage evidence and monetary billing so none is allowed to grant another implicitly.",
+        "Plan upgrade, downgrade, cancellation, grace, proration and over-limit behavior are each decided or explicitly deferred.",
+        "Inbound provider events have a maximum age, timestamp tolerance, idempotency key, payload fingerprint, signature policy and replay behavior before any webhook is built.",
+        "The provider choice is recorded as Stripe, another adapter, or no provider. A choice of Stripe names test-mode account ownership and secret-handling boundaries without placing credentials in the repository.",
+        "The decision is recorded in docs/OWNER-TASKS.md and converted into separate bounded contract, persistence, adapter and UI tasks; no single task combines all layers."
+      ],
+      "dependencies": [
+        "PLATFORM-USAGE-13"
+      ],
+      "ownerGate": true,
+      "allowedPaths": [
+        "docs/OWNER-TASKS.md",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 30,
+      "verification": [
+        [
+          "git",
+          "diff",
+          "--check"
+        ]
+      ]
+    },
+    {
+      "id": "TENANT-LAUNCHER-14",
+      "priority": 1030,
+      "title": "Launch accessible tenants from verified memberships and hosts",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Add a signed-in tenant launcher that derives its cards and links from IdentityGateway memberships plus control-plane tenant/domain state. Only active memberships to active tenants with an active, verified opentenant_subdomain are launchable. The link is the HTTPS host itself; arriving at that host causes the existing currentTenant resolver to bind tenant context. No header, cookie, query parameter, form value or provider organization id may establish active tenant authority.",
+      "source": "docs/plans/2026-08-05-starter-inspired-platform-features.md",
+      "acceptanceCriteria": [
+        "A tenant-launcher data function accepts the verified current session, asks IdentityGateway for that session's memberships, keeps only active memberships and joins by internal tenantId to active tenant rows and active verified opentenant_subdomain rows.",
+        "Provider organization ids, membership ids, query parameters, headers and cookies never become tenant selectors. A hostile fixture supplies each and proves the database query and links are unchanged.",
+        "A tenant with several eligible domain rows resolves deterministically to one opentenant_subdomain using an explicit order. Custom, pending, unverified and inactive domains never appear, and absence produces an unavailable card rather than a guessed host.",
+        "The output contains only tenantId, displayName, role, availability and an HTTPS launch URL for available tenants. It contains no provider subject, external organization id, connection locator, credential or membership mutation handle.",
+        "The /tenants page requires a valid session, renders an accessible list with role and unavailable states, and links directly to the verified host without an open-redirect target parameter.",
+        "Tests cover no memberships, removed membership, suspended tenant, pending domain, custom-domain-only tenant, duplicate membership records, two tenants and stable ordering. No result includes a tenant absent from the gateway response.",
+        "Following a launch URL is proven in a resolver-level test to bind by host through currentTenant/PgTenantResolver. The launcher itself does not set active-tenant state.",
+        "No tenant switch API, activeTenant cookie, x-tenant header, generic custom role, billing gate, provider call, production domain mutation or deployment is added."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/lib/tenant-launcher.ts",
+        "apps/platform/lib/tenant-launcher.test.ts",
+        "apps/platform/app/tenants/page.tsx",
+        "apps/platform/app/tenants/page.test.tsx",
+        "apps/platform/lib/tenant.test.ts",
+        "docs/plans/unattended-backlog.json"
+      ],
+      "timeoutMinutes": 60,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "turbo",
+          "run",
+          "typecheck",
+          "lint",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "build"
+        ]
+      ]
+    },
+    {
+      "id": "SIMPLIFY-01",
+      "priority": 1040,
+      "title": "Replace duplicate TypeScript lint work with a distinct quality pipeline",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Make lint, typecheck and test distinct parallel monorepo tasks by replacing every fake lint alias with one root ESLint flat configuration and removing build dependencies that the source-exporting workspaces do not need.",
+      "source": "docs/plans/2026-08-07-balanced-simplification.md#simplify-01-quality-pipeline",
+      "acceptanceCriteria": [
+        "All 21 workspaces run ESLint for lint with non-type-aware TypeScript recommendations; the Next.js platform also applies Core Web Vitals rules, and no workspace maps lint to tsc.",
+        "Each workspace keeps exactly one explicit tsc --noEmit typecheck task.",
+        "Turbo typecheck and test no longer depend on upstream builds, while build keeps its existing dependency and output contract.",
+        "A deterministic pipeline assertion proves the Turbo dry run contains exactly 21 lint, 21 typecheck and 21 test tasks, contains no build task, and does not double-count TypeScript checks.",
+        "The full 63-task check and the production build pass under Node 22 without weakening compiler, test, or framework coverage.",
+        "No runtime behavior, database schema, permission vocabulary, package API, or public product claim changes."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "eslint.config.mjs",
+        "package.json",
+        "pnpm-lock.yaml",
+        "turbo.json",
+        "scripts/assert-quality-pipeline.mjs",
+        "apps/platform/package.json",
+        "modules/",
+        "packages/",
+        "templates/tenant-module-nextjs/package.json",
+        "tooling/ci/package.json",
+        "tooling/migrations/package.json",
+        "tooling/provisioning/package.json",
+        "tooling/unattended/package.json",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "node",
+          "scripts/assert-quality-pipeline.mjs"
+        ],
+        [
+          "pnpm",
+          "check"
+        ],
+        [
+          "pnpm",
+          "build"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "SIMPLIFY-02",
+      "priority": 1050,
+      "title": "Centralize request context and reusable control-plane database pools",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Use one observable bounded control-plane pool and one same-client transaction helper across reusable consumers, while request-scoping Server Component identity and tenant reads without changing Route Handler semantics.",
+      "source": "docs/plans/2026-08-07-balanced-simplification.md#simplify-02-request-context-and-database-pools",
+      "acceptanceCriteria": [
+        "controlPlanePool() is a globalThis-backed singleton across module reloads, attaches database observability, and configures max 5, 30-second idle timeout, and five-second connection and query timeouts.",
+        "withControlPlaneTransaction(work) uses one checked-out client for BEGIN, work, COMMIT or ROLLBACK, propagates errors, and releases broken clients correctly.",
+        "Every reusable control-plane consumer uses the singleton; tenant RLS pools, provisioning's one-shot tenant pool, and the workflow heartbeat pool remain separately instantiated and covered by tests.",
+        "currentTenant and currentSession preserve their signatures and use module-level React cache only for Server Component render deduplication; Route Handlers do not depend on memoization.",
+        "Tests prove singleton reuse, physical pool separation, same-client transactions, release behavior, rollback on audit failure, no mutation after authorization denial, and atomic domain-write/audit behavior.",
+        "No database migration, persistent cache, permission change, package API change, or external provider operation is introduced."
+      ],
+      "dependencies": [
+        "SIMPLIFY-01"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "packages/observability/",
+        "tooling/provisioning/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "rls:proof"
+        ],
+        [
+          "pnpm",
+          "check"
+        ],
+        [
+          "pnpm",
+          "build"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "SIMPLIFY-03",
+      "priority": 1060,
+      "title": "Move HTTP persistence into explicit domain boundaries",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Remove raw SQL from production routes and pages, make audited mutations atomic through domain services or stores, and centralize shared request-security facts without concealing route authorization.",
+      "source": "docs/plans/2026-08-07-balanced-simplification.md#simplify-03-sharper-http-and-data-boundaries",
+      "acceptanceCriteria": [
+        "All eleven identified production route and page files contain no raw SQL; each query lives in an existing domain service or a narrowly named domain store.",
+        "Every mutation whose domain write and audit append form one operation uses withControlPlaneTransaction so either both commit or neither commits.",
+        "Assessment uses the hardened shared sameOrigin implementation and has no local duplicate.",
+        "Every affected route still shows its explicit permission, explicit gate result, and explicit failure response; no decorator or generic handler wrapper hides tenant binding or authorization.",
+        "TenantAdminContext exposes one derived audit actor used consistently by managed support and ordinary tenant administrators.",
+        "Tests preserve status codes, redirects, validation, managed-support restrictions, audit detail, denial-before-mutation, and rollback on audit failure.",
+        "No migration, feature removal, permission-vocabulary change, external API change, provider operation, or genuine tenant data is introduced."
+      ],
+      "dependencies": [
+        "SIMPLIFY-02"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/",
+        "packages/database/",
+        "modules/assessment/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/database",
+          "test"
+        ],
+        [
+          "pnpm",
+          "rls:proof"
+        ],
+        [
+          "pnpm",
+          "check"
+        ],
+        [
+          "pnpm",
+          "build"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "SIMPLIFY-04",
+      "priority": 1070,
+      "title": "Split true monoliths behind stable compatibility facades",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Turn the unattended runner, Support AI, and Support Depth monoliths into small stable facades over focused policy, adapter, service, Git, sandbox, verification, and orchestration modules without changing any existing export.",
+      "source": "docs/plans/2026-08-07-balanced-simplification.md#simplify-04-stable-facades",
+      "acceptanceCriteria": [
+        "Facade contract tests capture every existing exported symbol and representative service outcome before implementations move.",
+        "The unattended runner becomes a compatibility facade under 100 lines over agent/sandbox setup, Git state, verification/PostgreSQL proof, and orchestration-state modules.",
+        "Support AI and Support Depth each expose their unchanged package surface through facades under 100 lines over pure policy, store/adapter, and service layers.",
+        "No new service module exceeds 450 lines, and each layer has focused behavioral tests rather than only source-shape assertions.",
+        "Existing unattended recovery, sandbox denial, Git integrity, PostgreSQL proof, Support authorization, audit, citation, and tenant-isolation outcomes remain unchanged.",
+        "No migration, feature removal, permission change, package API change, provider operation, deployment, or genuine tenant data is introduced."
+      ],
+      "dependencies": [
+        "SIMPLIFY-03"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "tooling/unattended/src/",
+        "tooling/unattended/package.json",
+        "modules/support/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/unattended",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/support",
+          "test"
+        ],
+        [
+          "pnpm",
+          "check"
+        ],
+        [
+          "pnpm",
+          "build"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "SIMPLIFY-05",
+      "priority": 1080,
+      "title": "Polish Assessment workflows and compress operational documentation",
+      "lane": "fix",
+      "status": "completed",
+      "objective": "Reduce AssessmentApp to a focused coordinator, improve progress, roster, matrix, and export usability, and leave one concise operational handoff while preserving every Assessment capability.",
+      "source": "docs/plans/2026-08-07-balanced-simplification.md#simplify-05-assessment-polish-and-operational-docs",
+      "acceptanceCriteria": [
+        "AssessmentApp is a coordinator below 250 lines with separate shell, questionnaire, responses, results, and export modules.",
+        "Scoring, evidence, demo data, respondent save/edit/remove, consolidation, AI readout, PDF, CSV, JSON, and sign-out remain covered through stable entrypoints.",
+        "The interface has one demo banner and no duplicate demo badges, visible completion progress, respondent roster and score matrix tabs, one PDF action, and one CSV/JSON export menu.",
+        "Keyboard navigation and responsive layouts at 375, 768, and 1440 pixels pass browser verification, and PDF, CSV, and JSON controls produce actual downloads.",
+        "docs/HANDOFF.md is a sub-250-line operational resume document; historical delivery evidence remains in docs/SHIPLOG.md and release history remains in CHANGELOG.md.",
+        "The README roadmap is not marked available during this task; that wording changes only in a post-production follow-up after all five task PRs merge and production smoke verification passes.",
+        "No capability, migration, permission vocabulary, external package API, provider operation, production enablement, or genuine tenant data is removed or added."
+      ],
+      "dependencies": [
+        "SIMPLIFY-04"
+      ],
+      "ownerGate": false,
+      "allowedPaths": [
+        "modules/assessment/",
+        "apps/platform/app/assessment/",
+        "docs/",
+        "CHANGELOG.md",
+        "graphify-out/GRAPH_REPORT.md",
+        "graphify-out/graph.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/assessment",
+          "test"
+        ],
+        [
+          "pnpm",
+          "--filter",
+          "@opentenant/platform",
+          "test"
+        ],
+        [
+          "pnpm",
+          "check"
+        ],
+        [
+          "pnpm",
+          "build"
+        ],
+        [
+          "git",
+          "diff",
+          "--check"
+        ],
+        [
+          "graphify",
+          "check-update",
+          "."
+        ]
+      ]
+    },
+    {
+      "id": "OT-R01",
+      "priority": 1100,
+      "title": "Enforce Assessment access at page and API boundaries",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Use one tenant-bound Assessment access decision for the page and readout API, and reject invalid or oversized readout input before admission or model work.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-r01-enforce-assessment-access-at-page-and-api-boundaries",
+      "acceptanceCriteria": [
+        "One trusted result carries tenant identity, access mode, and the authorized identity or signed passcode principal; disabled or missing entitlement is unavailable.",
+        "The page preserves its redirects and unavailable UI, while the API returns bounded no-store denials before admission, credentials, or provider work.",
+        "The API validates unknown JSON, rejects malformed structure or types with 400, rejects over-limit bytes with 413, and does not trust Content-Length as its only bound.",
+        "Behavior tests cover allowed identity and passcode access, revoked or disabled access, malformed input, and zero downstream model calls on rejection.",
+        "A synthetic local browser check covers login and passcode entry, Assessment display, and denied readout without a real model call.",
+        "The existing policy default and sensitive managed-support restrictions remain intact."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/lib/module-access.ts",
+        "apps/platform/lib/module-access.test.ts",
+        "apps/platform/lib/assessment-access.ts",
+        "apps/platform/lib/assessment-access.test.ts",
+        "apps/platform/app/assessment/layout.tsx",
+        "apps/platform/app/assessment/layout.test.tsx",
+        "apps/platform/app/api/assessment-readout/route.ts",
+        "apps/platform/app/api/assessment-readout/route.test.ts"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/platform", "test"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-R02",
+      "priority": 1110,
+      "title": "Make telemetry canonical and server-attributed",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Canonicalize telemetry to the accepted closed shape and bind emitted tenant attribution to the server-resolved tenant.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-r02-make-telemetry-canonical-and-server-attributed",
+      "acceptanceCriteria": [
+        "Telemetry accepts only the exact top-level fields in TelemetryEvent and validates bounded identities, event and module consistency, timestamps, and event-specific property types.",
+        "Validation returns a newly constructed canonical value, and the emitted record replaces client tenant attribution with the server-resolved tenant.",
+        "The null-tenant browser sender remains compatible but never supplies authority; raw content and arbitrary fields do not reach logs or errors.",
+        "Tests inspect emitted keys and trusted tenant attribution for valid page and export events and rejected invalid shapes without changing admission or replay behavior."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/observability/src/index.ts",
+        "packages/observability/src/index.test.ts",
+        "apps/platform/app/api/telemetry/route.ts",
+        "apps/platform/app/api/telemetry/route.test.ts"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/observability", "test"],
+        ["pnpm", "--filter", "@opentenant/platform", "test"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-R03",
+      "priority": 1120,
+      "title": "Preserve respondent identity and evidence through edits",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Edit a saved Assessment respondent through the original identifier without losing scores, evidence, or notes.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-r03-preserve-respondent-identity-and-evidence-through-edits",
+      "acceptanceCriteria": [
+        "An explicit edit operation carries the saved respondent ID, scores, evidence, and editable client fields instead of using score-only loading.",
+        "Edits save against the original ID; new-assessment, removal, and demo-state transitions reset edit identity without changing new-respondent duplicate behavior.",
+        "Tests prove role, name, and company changes update one respondent, preserve notes through reload and export, and keep cancel, new-assessment, and demo behavior isolated.",
+        "A synthetic browser check proves note-preserving edit and reload, one visible respondent, and evidence retained in the JSON download.",
+        "Scoring, consolidation, and the existing roster are not rewritten on mount."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "modules/assessment/src/store.tsx",
+        "modules/assessment/src/store.test.tsx",
+        "modules/assessment/src/assessment-shell.tsx",
+        "modules/assessment/src/respondents.ts",
+        "modules/assessment/src/respondents.test.ts"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/assessment", "test"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-R04",
+      "priority": 1130,
+      "title": "Disable development tenant fallback in production",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Make production tenant resolution ignore development cookies, suffixes, and defaults while preserving verified domains and explicit local behavior.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-r04-disable-development-tenant-fallback-in-production",
+      "acceptanceCriteria": [
+        "The fallback boundary checks runtime mode; production uses verified active domains and ignores every development override or default.",
+        "Verified-domain resolution remains first in every mode, and configured development suffixes match only complete hostname-label boundaries.",
+        "Synthetic resolver and middleware tests distinguish production from local operation, including an accidentally retained development setting.",
+        "The task changes no identity, database privilege, or hosted environment value."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/lib/tenant.ts",
+        "apps/platform/lib/tenant.test.ts",
+        "apps/platform/middleware.test.ts"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/platform", "test"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-R05",
+      "priority": 1140,
+      "title": "Restore both dependency audit gates",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Repair the root and standalone tenant-starter production dependency graphs with the smallest compatible updates and reproducible pnpm 11.13.1 lockfiles.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-r05-restore-both-dependency-audit-gates",
+      "acceptanceCriteria": [
+        "Fresh root and standalone production audits use current primary advisory evidence and identify the reverse dependency paths before versions change.",
+        "The smallest compatible upstream dependency set clears high-severity findings without forcing nanoid 3 consumers to version 5 or opportunistically upgrading the framework.",
+        "Both lockfiles are regenerated with pnpm 11.13.1, and a disposable standalone starter consumer installs from the frozen lockfile and builds.",
+        "Both high-severity production audits exit 0; any remaining moderate findings and delivered versions are reported explicitly.",
+        "Licence and provenance rules remain unchanged, and manifests and lockfiles roll back together."
+      ],
+      "dependencies": [],
+      "ownerGate": false,
+      "allowedPaths": [
+        "package.json",
+        "pnpm-workspace.yaml",
+        "pnpm-lock.yaml",
+        "apps/platform/package.json",
+        "modules/assessment/package.json",
+        "modules/brain/package.json",
+        "modules/support/package.json",
+        "packages/auth/package.json",
+        "packages/database/package.json",
+        "packages/design-system/package.json",
+        "packages/developer-mcp/package.json",
+        "packages/domains/package.json",
+        "packages/module-sdk/package.json",
+        "packages/observability/package.json",
+        "packages/platform-core/package.json",
+        "packages/quality-contract/package.json",
+        "packages/sandbox/package.json",
+        "packages/security/package.json",
+        "packages/testing/package.json",
+        "templates/tenant-module-nextjs/package.json",
+        "templates/tenant-module-nextjs/pnpm-workspace.yaml",
+        "templates/tenant-module-nextjs/pnpm-lock.yaml",
+        "tooling/ci/package.json",
+        "tooling/migrations/package.json",
+        "tooling/provisioning/package.json",
+        "tooling/unattended/package.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "install", "--frozen-lockfile"],
+        ["pnpm", "audit", "--prod", "--audit-level", "high"],
+        ["pnpm", "--dir", "templates/tenant-module-nextjs", "install", "--frozen-lockfile"],
+        ["pnpm", "--dir", "templates/tenant-module-nextjs", "audit", "--prod", "--audit-level", "high"],
+        ["pnpm", "--dir", "templates/tenant-module-nextjs", "build"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-R06",
+      "priority": 1150,
+      "title": "Execute database store proofs in normal CI",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Add a PostgreSQL 17 CI job that runs every database store integration suite against isolated synthetic databases and fails on skipped suites.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-r06-execute-database-store-proofs-in-normal-ci",
+      "acceptanceCriteria": [
+        "Every packages/database integration suite and database shape is inventoried; schema-resetting suites use separate disposable databases or a serialized recreated lifecycle.",
+        "A Linux PostgreSQL 17 and pgvector job creates guarded synthetic databases and runs admission and usage stores as well as the remaining named suites.",
+        "Structured reports prove every named suite executed with zero skipped tests and reconcile suite and assertion counts; missing tools, URLs, suites, or results fail the job.",
+        "The accepted quality-matrix assertion remains wired without inventing packages merely to preserve a historic count.",
+        "The CI helper tests, actual local database job, migrations, and RLS proof run; absent PostgreSQL execution leaves the task blocked on verification."
+      ],
+      "dependencies": ["OT-R05"],
+      "ownerGate": false,
+      "allowedPaths": [
+        ".github/workflows/ci.yml",
+        "tooling/ci/create-integration-databases.mjs",
+        "tooling/ci/run-database-store-tests.mjs",
+        "tooling/ci/run-database-store-tests.test.mjs",
+        "tooling/ci/package.json",
+        "package.json",
+        "packages/database/package.json",
+        "tooling/migrations/package.json"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/ci", "test"],
+        ["node", "tooling/ci/run-database-store-tests.mjs"],
+        ["pnpm", "--filter", "@opentenant/migrations", "test"],
+        ["pnpm", "rls:proof"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-I01",
+      "priority": 1160,
+      "title": "Persist and extend the model policy contract for streaming",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Implement the accepted model-routing store and a brokered, cancellable streaming contract with durable policy and attempt evidence.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-i01-persist-and-extend-the-model-policy-contract-for-streaming",
+      "acceptanceCriteria": [
+        "Every ModelRoutingStore method maps to the accepted tenant policy, selection, consent, allowlist, and attribution schema; missing fields use a forward migration.",
+        "A brokered streaming method applies existing policy and credential checks, forwards cancellation to an injected adapter, and exposes only content chunks and safe terminal state.",
+        "Resolved-attempt, completion, and failure evidence have distinct meanings, exclude content, and do not create billing policy from client values.",
+        "Deterministic tests cover tenant binding, policy and consent changes, residency and retention refusal, missing broker, audit failure, cancellation, and terminal cleanup.",
+        "Database-backed tests execute without skips before Assessment composition begins."
+      ],
+      "dependencies": ["OT-R01", "OT-R02", "OT-R03", "OT-R04", "OT-R05", "OT-R06"],
+      "ownerGate": false,
+      "allowedPaths": [
+        ".github/workflows/ci.yml",
+        "packages/database/src/model-routing-store.ts",
+        "packages/database/src/model-routing-store.test.ts",
+        "packages/database/src/model-routing-store.integration.test.ts",
+        "packages/database/src/index.ts",
+        "packages/platform-core/src/model-routing.ts",
+        "packages/platform-core/src/model-routing.test.ts",
+        "packages/platform-core/src/index.ts",
+        "tooling/ci/create-integration-databases.mjs",
+        "tooling/ci/create-integration-databases.test.mjs",
+        "tooling/ci/run-database-store-tests.mjs",
+        "tooling/ci/run-database-store-tests.test.mjs",
+        "tooling/migrations/sql/control-plane/0029_model_routing_store.sql",
+        "tooling/migrations/src/control-plane-model-routing.integration.test.ts",
+        "tooling/migrations/src/control-plane-model-routing-store.integration.test.ts"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/platform-core", "test"],
+        ["pnpm", "--filter", "@opentenant/database", "test"],
+        ["pnpm", "--filter", "@opentenant/migrations", "test"],
+        ["node", "tooling/ci/run-database-store-tests.mjs"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-I02",
+      "priority": 1170,
+      "title": "Compose Assessment readouts through model policy",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Route Assessment readout streaming through the tenant-bound model policy and broker contract without request or environment provider fallback.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-i02-compose-assessment-readouts-through-model-policy",
+      "acceptanceCriteria": [
+        "The route derives tenant and principal from OT-R01, binds module and use case to server constants, and preserves SSE, admission, idempotency, and deadline behavior.",
+        "Request and environment provider fallback is removed; missing accepted policy fails safely without switching providers.",
+        "Client provider and model hints carry no authority, and retry fingerprints account for the resolved policy without replaying inference.",
+        "The passcode journey uses an equivalent tenant-bound signed-grant principal and never derives tenant identity from submitted content.",
+        "Synthetic route and browser tests cover timeout, disconnect, unavailable configuration, and exact attribution without live provider calls."
+      ],
+      "dependencies": ["OT-I01", "OT-R01"],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/app/api/assessment-readout/route.ts",
+        "apps/platform/app/api/assessment-readout/route.test.ts",
+        "apps/platform/lib/assessment-readout.ts",
+        "apps/platform/lib/assessment-readout.test.ts",
+        "modules/assessment/src/ai.ts",
+        "modules/assessment/src/ai.test.ts",
+        "packages/platform-core/src/model-routing.ts",
+        "packages/platform-core/src/model-routing.test.ts"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/platform", "test"],
+        ["pnpm", "--filter", "@opentenant/assessment", "test"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-I03",
+      "priority": 1180,
+      "title": "Connect brand upload to the existing proposal store",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Add a bounded tenant-authorized brand document upload transaction that preserves byte provenance and creates a reviewable proposal without auto-approval or apply.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-i03-connect-brand-upload-to-the-existing-proposal-store",
+      "acceptanceCriteria": [
+        "A distinct same-origin upload action enforces brand.proposal.upload, requires separate same-tenant brand.proposal.supersede authority before replacing a live draft, bounds bytes before materializing the file, and applies the parser's 256 KiB, 64-key, media, and encoding rules.",
+        "The transaction computes provenance from original bytes, uses the registered parser version, stores recognized values for review, and never fetches embedded URLs, renders HTML, or invokes a model.",
+        "Duplicate, re-upload, superseded, tenant-scope, immutable-digest, parser-failure, lock, and transactional audit semantics match the accepted PRD.",
+        "Tests use disposable PostgreSQL fixtures for success, invalid files, races, audit rollback, and lock handling; upload never auto-approves or auto-applies.",
+        "The page read model returns bounded typed source kind, original digest, parser version, and attribution for uploads and legacy URL proposals without raw document content."
+      ],
+      "dependencies": ["OT-R06"],
+      "ownerGate": false,
+      "allowedPaths": [
+        "packages/database/src/brand-proposal-store.ts",
+        "packages/database/src/brand-proposal-store.test.ts",
+        "packages/database/src/brand-proposal-store.integration.test.ts",
+        "apps/platform/lib/brand-proposal-read-model.ts",
+        "apps/platform/lib/brand-proposal-read-model.test.ts",
+        "apps/platform/lib/brand-document-upload.ts",
+        "apps/platform/lib/brand-document-upload.test.ts",
+        "apps/platform/app/api/admin/brand-proposals/route.ts",
+        "apps/platform/app/api/admin/brand-proposals/route.test.ts",
+        "tooling/ci/run-database-store-tests.mjs",
+        "tooling/ci/run-database-store-tests.test.mjs"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/platform-core", "test"],
+        ["pnpm", "--filter", "@opentenant/database", "test"],
+        ["pnpm", "--filter", "@opentenant/platform", "test"],
+        ["node", "tooling/ci/run-database-store-tests.mjs"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-I04",
+      "priority": 1190,
+      "title": "Deliver the brand upload and review journey",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Expose the accepted brand file upload, provenance, review, edit, and apply flow in the tenant administrator page.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-i04-deliver-the-brand-upload-and-review-journey",
+      "acceptanceCriteria": [
+        "The administrator page accepts the OT-I03 file contract, shows constraints and recovery errors, and displays source kind, digest, parser version, draft status, and locked-field rejection.",
+        "Edit, review, apply, and discard stay explicit human actions with their existing reason requirements; upload never applies automatically.",
+        "Browser tests cover keyboard upload, invalid recovery, draft creation, review, apply, resulting tenant branding, responsive layouts, and denial for unauthorized roles.",
+        "The page never renders raw uploaded prose or HTML, and server-side authorization remains effective."
+      ],
+      "dependencies": ["OT-I03"],
+      "ownerGate": false,
+      "allowedPaths": [
+        "apps/platform/app/admin/tenants/[tenantId]/brand-proposals/"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/platform", "test"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    },
+    {
+      "id": "OT-I05",
+      "priority": 1200,
+      "title": "Unify Assessment save, restore, and export",
+      "lane": "fix",
+      "executionMode": "supervised",
+      "status": "completed",
+      "objective": "Use one versioned tenant-scoped Assessment document for live persistence, explicit restore, report export, respondents, and stale-aware readouts while preserving legacy data.",
+      "source": "docs/plans/2026-09-06-implementation-packets.md#ot-i05-unify-assessment-save-restore-and-export",
+      "acceptanceCriteria": [
+        "The versioned mapping validates client fields, scores, evidence, respondents, progress, and readout and clearly separates report JSON from a restorable engagement document.",
+        "Readout state persists with its input binding, restores without a model call, becomes visibly stale after relevant edits, and is replaced only by explicit successful regeneration.",
+        "The repository becomes the live provider persistence boundary; legacy blobs remain until validated conversion is saved and corrupt or ambiguous data keeps a recovery path.",
+        "New storage uses server-supplied tenant context, while passcode mode retains documented browser-local ownership and does not invent a durable user identity.",
+        "Import validates before replacing state, and tests cover conversion, reload, round trip, evidence, full storage, demo isolation, same-origin tenant switching, invalid input, and failed generation.",
+        "Browser evidence proves actual downloads and restored state. Rollback preserves readable legacy backups and new documents."
+      ],
+      "dependencies": ["OT-R03"],
+      "ownerGate": false,
+      "allowedPaths": [
+        "modules/assessment/src/store.tsx",
+        "modules/assessment/src/store.test.tsx",
+        "modules/assessment/src/persistence/assessment-repository.ts",
+        "modules/assessment/src/persistence/assessment-repository.test.ts",
+        "modules/assessment/src/persistence/engagement-schema.ts",
+        "modules/assessment/src/persistence/engagement-schema.test.ts",
+        "modules/assessment/src/assessment-exports.ts",
+        "modules/assessment/src/assessment-exports.test.ts",
+        "modules/assessment/src/assessment-shell.tsx",
+        "modules/assessment/src/assessment-primitives.tsx",
+        "modules/assessment/src/assessment-ui-contract.test.ts",
+        "modules/assessment/src/components/charts.tsx",
+        "modules/assessment/src/assessment-results.tsx",
+        "modules/assessment/src/assessment-results.test.tsx",
+        "modules/assessment/src/runtime.ts",
+        "modules/assessment/src/runtime.test.ts",
+        "modules/assessment/src/README.md",
+        "apps/platform/app/assessment/page.tsx",
+        "apps/platform/app/assessment/assessment-mount.tsx"
+      ],
+      "timeoutMinutes": 120,
+      "verification": [
+        ["pnpm", "--filter", "@opentenant/assessment", "test"],
+        ["pnpm", "--filter", "@opentenant/platform", "test"],
+        ["pnpm", "check"],
+        ["pnpm", "turbo", "build", "--filter=@opentenant/platform"],
+        ["git", "diff", "--check"],
+        ["graphify", "check-update", "."]
+      ]
+    }
+  ],
+  "fog": [
+    {
+      "id": "FOG-COMPOSED-REPLY",
+      "question": "What evidence would justify replacing exact-citation concatenation with composed replies, given that the trade is a gate that structurally cannot recombine for one that can?",
+      "raisedAt": "2026-08-02",
+      "notes": [
+        "Blocks all voice conditioning; see docs/product/support-ai-boundary.md section 3.8.",
+        "Needs a product judgement about draft readability before any engineering."
+      ]
+    },
+    {
+      "id": "FOG-PG-VERSION-GAP",
+      "question": "Does any migration behave differently on local PostgreSQL 17.10 than on the pg17 image CI uses, and how would we notice?",
+      "raisedAt": "2026-08-02",
+      "notes": [
+        "Local integration runs are now the first execution of a migration rather than CI.",
+        "Nothing in 0025 looks version sensitive, but that was asserted rather than proven."
+      ]
+    },
+    {
+      "id": "FOG-REVIEW-TASKS",
+      "question": "What shape of backlog task would have caught the two real defects this session, a false claim in a handoff and a citation-boundary hole, both of which passed every existing gate?",
+      "raisedAt": "2026-08-02",
+      "notes": [
+        "Both were found by an independent model reviewing the work, not by verification commands.",
+        "Unattended throughput multiplies this class of error rather than catching it."
+      ]
+    }
+  ]
+}

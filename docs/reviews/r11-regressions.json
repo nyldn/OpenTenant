@@ -1,0 +1,269 @@
+{
+  "R11-01": {
+    "status": "fixed",
+    "commits": [
+      "ea39bc8"
+    ],
+    "tests": [
+      {
+        "file": "packages/testing/src/dependency-security.test.ts",
+        "name": "keeps platform and starter Next releases above the reviewed RCE floor"
+      }
+    ]
+  },
+  "R11-02": {
+    "status": "fixed",
+    "commits": [
+      "8f577da"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/lib/server-config.test.ts",
+        "name": "defaults the tenant domain only outside production"
+      },
+      {
+        "file": "apps/platform/lib/tenant-worker.integration.test.ts",
+        "name": "queues provider-free HTTP work and provisions from a real durable queue"
+      }
+    ]
+  },
+  "R11-03": {
+    "status": "fixed",
+    "commits": [
+      "009e52a"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/lib/provisioning.integration.test.ts",
+        "name": "provisions all schemas, resumes without credential rotation, and enforces restricted support writes"
+      }
+    ]
+  },
+  "R11-04": {
+    "status": "fixed",
+    "commits": [
+      "76dc414"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/lib/tenant-worker.integration.test.ts",
+        "name": "reissues, revokes the prior token, rejects expiry, consumes exactly once, and audits the grant"
+      }
+    ]
+  },
+  "R11-05": {
+    "status": "fixed",
+    "commits": [
+      "4cd5927"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/app/m/[module]/[[...path]]/route.test.ts",
+        "name": "allows only content metadata and forces private caching"
+      }
+    ]
+  },
+  "R11-06": {
+    "status": "fixed",
+    "commits": [
+      "4cd5927"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/app/m/[module]/[[...path]]/route.test.ts",
+        "name": "allows only content metadata and forces private caching"
+      },
+      {
+        "file": "apps/platform/app/m/[module]/[[...path]]/route.test.ts",
+        "name": "does not cache gate redirects or denials"
+      }
+    ]
+  },
+  "R11-07": {
+    "status": "fixed",
+    "commits": [
+      "87ab246"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/app/api/settings/identity-portal/route.test.ts",
+        "name": "denies tenant admins the %s portal before audit or provider work"
+      }
+    ]
+  },
+  "R11-08": {
+    "status": "fixed",
+    "commits": [
+      "4cd5927"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/app/m/[module]/[[...path]]/route.test.ts",
+        "name": "rejects mutating requests from %s before signing"
+      }
+    ]
+  },
+  "R11-09": {
+    "status": "fixed",
+    "commits": [
+      "87ab246"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/lib/member-mutation-lock.test.ts",
+        "name": "completes five serialized mutations when all pool connections hold or await the lock"
+      }
+    ]
+  },
+  "R11-10": {
+    "status": "fixed",
+    "commits": [
+      "87ab246",
+      "5114bf9"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/app/api/settings/members/route.test.ts",
+        "name": "normalizes provider invite errors without exposing provider details"
+      },
+      {
+        "file": "apps/platform/app/api/settings/members/route.test.ts",
+        "name": "records the invite attempt before contacting the provider"
+      },
+      {
+        "file": "tooling/e2e/specs/better-auth.spec.ts",
+        "name": "Better Auth browser signs up, accepts an invitation, logs out, signs in and revokes its session"
+      }
+    ]
+  },
+  "R11-11": {
+    "status": "fixed",
+    "commits": [
+      "4cd5927",
+      "f9aebda"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/next.config.test.ts",
+        "name": "protects platform pages from cross-origin framing"
+      },
+      {
+        "file": "apps/platform/app/m/[module]/[[...path]]/route.test.ts",
+        "name": "drops unsafe redirect %s"
+      },
+      {
+        "file": "apps/platform/app/dev/tenant/route.test.ts",
+        "name": "returns 404 in production on %s"
+      },
+      {
+        "file": "apps/platform/app/dev/tenant/route.test.ts",
+        "name": "rejects suffix confusion %s"
+      },
+      {
+        "file": "apps/platform/lib/module-access.test.ts",
+        "name": "rejects missing dedicated secret %s despite a cookie secret"
+      },
+      {
+        "file": "apps/platform/lib/connections-secret.test.ts",
+        "name": "fails closed in production without its dedicated secret %s"
+      }
+    ]
+  },
+  "R11-12": {
+    "status": "fixed",
+    "tests": [
+      {
+        "file": "apps/platform/app/api/admin/tenants/route.test.ts",
+        "name": "accepts ap as an operator-declared Postgres region"
+      }
+    ],
+    "commits": [
+      "7c7108b"
+    ]
+  },
+  "R11-13": {
+    "status": "fixed",
+    "commits": [
+      "76dc414"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/lib/tenant-worker.integration.test.ts",
+        "name": "schedules and idempotently applies a helpdesk projection per tenant"
+      }
+    ]
+  },
+  "R11-14": {
+    "status": "fixed",
+    "commits": [
+      "76dc414",
+      "1c14419"
+    ],
+    "tests": [
+      {
+        "file": "packages/testing/src/r11-regressions.test.ts",
+        "name": "keeps worker schema creation in migrations"
+      }
+    ]
+  },
+  "R11-15": {
+    "status": "fixed",
+    "commits": [
+      "378c98c"
+    ],
+    "tests": [
+      {
+        "file": "tooling/migrations/src/audit-truncate.integration.test.ts",
+        "name": "blocks owner TRUNCATE on %s, including empty tables"
+      },
+      {
+        "file": "packages/database/src/audit-checkpoints.integration.test.ts",
+        "name": "detects a fully rewritten self-consistent chain against its external head"
+      }
+    ]
+  },
+  "R11-16": {
+    "status": "fixed",
+    "commits": [
+      "378c98c"
+    ],
+    "tests": [
+      {
+        "file": "apps/platform/next.config.test.ts",
+        "name": "never applies the platform CSP to module proxy paths, which carry their own sandbox"
+      }
+    ]
+  },
+  "R11-17": {
+    "status": "fixed",
+    "commits": [
+      "378c98c"
+    ],
+    "tests": [
+      {
+        "file": "tooling/migrations/src/tenant-modules.test.ts",
+        "name": "lists every ${scope} SQL file in order"
+      }
+    ]
+  },
+  "R11-18": {
+    "status": "fixed",
+    "tests": [
+      {
+        "file": "apps/platform/lib/server-config.test.ts",
+        "name": "requires only the selected production provisioning provider"
+      },
+      {
+        "file": "apps/platform/lib/provisioning-postgres.integration.test.ts",
+        "name": "provisions a self-hosted database, preserves credentials on resume, and enforces RLS"
+      },
+      {
+        "file": "apps/platform/lib/provisioning-postgres.integration.test.ts",
+        "name": "keeps runtime credentials independent and denies cross-database connections"
+      }
+    ],
+    "commits": [
+      "d5a208f"
+    ]
+  }
+}

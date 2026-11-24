@@ -1,0 +1,151 @@
+apps/platform/next.config.ts:31:  transpilePackages: ["@opentenant/domains", "@opentenant/auth", "@opentenant/platform-core", "@opentenant/assessment", "@opentenant/brain", "@opentenant/design-system", "@opentenant/module-sdk", "@opentenant/observability", "@opentenant/database", "@opentenant/security", "@opentenant/provisioning", "@opentenant/migrations", "@opentenant/support"],
+apps/platform/package.json:19:    "@opentenant/assessment": "workspace:*",
+apps/platform/lib/module-access.test.ts:15:  key: "brain", version: "1.0.0", runtime: "native", navigation: [],
+apps/platform/lib/module-access.test.ts:30:    const fingerprint = passcodeAdmissionFingerprint(tenant, "assessment", "1234");
+apps/platform/lib/module-access.test.ts:33:    expect(passcodeAdmissionFingerprint(tenant, "assessment", "1234")).toBe(fingerprint);
+apps/platform/lib/module-access.test.ts:34:    expect(passcodeAdmissionFingerprint(tenant, "assessment", "1235")).not.toBe(fingerprint);
+apps/platform/lib/module-access.test.ts:35:    expect(passcodeAdmissionFingerprint("ten_b" as TenantId, "assessment", "1234")).not.toBe(fingerprint);
+apps/platform/lib/module-access.test.ts:36:    expect(passcodeAdmissionFingerprint(tenant, "brain", "1234")).not.toBe(fingerprint);
+apps/platform/lib/module-access.test.ts:40:    expect(passcodeAdmissionFingerprint(tenant, "assessment", "1234")).not.toBe(fingerprint);
+apps/platform/lib/module-access.test.ts:50:      moduleKey: "assessment",
+apps/platform/lib/module-access.test.ts:61:    expect(verifiedPasscodePrincipal(token, tenantId, "assessment", passcodeHash)).toEqual({
+apps/platform/lib/module-access.test.ts:63:      principalId: "passcode:assessment",
+apps/platform/lib/module-access.test.ts:65:      moduleKey: "assessment",
+apps/platform/lib/module-access.test.ts:67:    expect(verifiedPasscodePrincipal(token, "ten_b" as TenantId, "assessment", passcodeHash)).toBeNull();
+apps/platform/lib/module-access.test.ts:68:    expect(verifiedPasscodePrincipal(undefined, tenantId, "assessment", passcodeHash)).toBeNull();
+apps/platform/lib/module-access.test.ts:69:    expect(verifiedPasscodePrincipal(grant({ expiresAt: Date.now() - 1 }), tenantId, "assessment", passcodeHash))
+apps/platform/lib/module-access.test.ts:78:    expect(verifiedPasscodePrincipal(token, tenantId, "assessment", "scrypt$rotated$hash")).toBeNull();
+apps/platform/lib/module-access.test.ts:79:    expect(verifiedPasscodePrincipal(token, tenantId, "assessment", null)).toBeNull();
+apps/platform/lib/module-access.test.ts:99:    await expect(resolvePermissions(session(), "ten_a", "brain")).resolves.toEqual(["brain.use"]);
+apps/platform/lib/module-access.test.ts:103:    const s = session({ activeRole: "tenant_admin", permissions: ["brain.promote", "brain.admin", "assessment.use", "support.admin"] });
+apps/platform/lib/module-access.test.ts:104:    await expect(resolvePermissions(s, "ten_a", "brain")).resolves.toEqual([
+apps/platform/lib/module-access.test.ts:113:    await expect(resolvePermissions(s, "ten_a", "brain")).resolves.toEqual([
+apps/platform/lib/module-access.test.ts:121:    await expect(resolvePermissions(s, "ten_a", "brain")).resolves.toEqual(["brain.use"]);
+apps/platform/lib/module-access.test.ts:125:    await expect(resolvePermissions(session({ permissions: ["brain.forged", "brain.admin"] }), "ten_a", "brain"))
+apps/platform/lib/module-access.test.ts:127:    await expect(resolvePermissions(session({ activeRole: "tenant_admin", permissions: ["brain.forged"] }), "ten_a", "brain"))
+apps/platform/lib/module-access.test.ts:134:      await expect(resolvePermissions(session(), "ten_a", "brain")).resolves.toEqual([]);
+apps/platform/lib/module-access.test.ts:137:    await expect(resolvePermissions(session(), "ten_a", "brain")).resolves.toEqual([]);
+apps/platform/lib/module-access.test.ts:141:    await expect(resolvePermissions(session({ activeRole: null }), "ten_a", "brain")).resolves.toEqual([]);
+apps/platform/lib/module-access.test.ts:142:    await expect(resolvePermissions(session({ expiresAt: new Date(0) }), "ten_a", "brain")).resolves.toEqual([]);
+apps/platform/lib/module-access.test.ts:144:    await expect(resolvePermissions(session(), "ten_a", "brain")).resolves.toEqual([]);
+apps/platform/lib/module-access.test.ts:149:    await expect(resolvePermissions(session({ permissions: ["brain.legacy"] }), "ten_a", "brain"))
+apps/platform/lib/module-access.test.ts:155:    await expect(resolvePermissions(session(), "ten_a", "brain")).resolves.toEqual([]);
+apps/platform/lib/module-access.test.ts:160:    await expect(resolvePermissions(s, "ten_a", "brain")).resolves.toEqual([]);
+apps/platform/lib/module-access.test.ts:165:    await expect(resolvePermissions(s, "ten_a", "brain")).resolves.toEqual(["brain.use"]);
+apps/platform/lib/module-access.test.ts:174:    await expect(resolvePermissions(s, "ten_a", "brain")).resolves.toEqual(["brain.use"]);
+apps/platform/lib/module-access.test.ts:183:    expect(() => passcodeAdmissionFingerprint("ten_a" as TenantId, "assessment", "1234")).toThrow("MODULE_ACCESS_SECRET");
+apps/platform/lib/module-access.test.ts:188:    expect(passcodeAdmissionFingerprint("ten_a" as TenantId, "assessment", "1234")).toMatch(/^[a-f0-9]{64}$/);
+apps/platform/lib/module-registry.test.ts:87:    await expect(nativeModuleEnabled("ten_beta", "assessment")).resolves.toBe(true);
+apps/platform/lib/module-registry.test.ts:94:    await expect(nativeModuleEnabled("ten_beta", "assessment")).resolves.toBe(false);
+apps/platform/lib/control-plane-boundaries.test.ts:71:    const assessment = source("app/api/assessment-readout/route.ts");
+apps/platform/lib/control-plane-boundaries.test.ts:72:    expect(assessment).toContain('from "../../../lib/settings-guard"');
+apps/platform/lib/control-plane-boundaries.test.ts:73:    expect(assessment).not.toMatch(/function\s+sameOrigin|const\s+sameOrigin/);
+apps/platform/lib/assessment-access.test.ts:3:import type { AssessmentAccessDependencies } from "./assessment-access";
+apps/platform/lib/assessment-access.test.ts:4:import { resolveAssessmentAccess } from "./assessment-access";
+apps/platform/lib/assessment-access.test.ts:6:const tenantId = "ten_assessment" as TenantId;
+apps/platform/lib/assessment-access.test.ts:30:      principalId: "passcode:assessment",
+apps/platform/lib/assessment-access.test.ts:32:      moduleKey: "assessment",
+apps/platform/lib/assessment-access.test.ts:75:        principalId: "passcode:assessment",
+apps/platform/lib/assessment-access.test.ts:77:        moduleKey: "assessment",
+apps/platform/lib/assessment-access.test.ts:83:      "assessment",
+apps/platform/lib/assessment-readout.ts:21:export const ASSESSMENT_MODULE_ID = "assessment";
+apps/platform/lib/assessment-readout.ts:57:const SERVICE_KEY = Symbol.for("opentenant.platform.assessment-readout");
+apps/platform/lib/assessment-readout.ts:62:    super("assessment readout authority is invalid");
+apps/platform/lib/assessment-readout.ts:140:      yield "Local model-policy routing is active. No external provider received this assessment.";
+apps/platform/lib/assessment-readout.ts:163:export function assessmentReadout(): AssessmentReadoutService {
+apps/platform/lib/rate-limit.ts:9:export type RouteClass = "settings" | "members" | "identity-portal" | "support" | "brand-proposal" | "tenant-creation" | "passcode" | "module-access";
+apps/platform/lib/rate-limit.ts:21:  if (path.startsWith("/api/support/") || path.startsWith("/api/admin/support-") || path.startsWith("/api/module-broker/")) return "support";
+apps/platform/app/access/assessment/page.tsx:7: * in /api/module-access/assessment; this page is presentation only.
+apps/platform/app/access/assessment/page.tsx:19:        action="/api/module-access/assessment"
+apps/platform/lib/rate-limit.test.ts:26:    ["/api/settings/branding", "settings"], ["/api/support/tickets", "support"],
+apps/platform/lib/rate-limit.test.ts:28:    ["/api/module-access/assessment", "passcode"], ["/m/sample/resource", "module-access"],
+apps/platform/lib/assessment-readout.test.ts:15:} from "./assessment-readout";
+apps/platform/lib/assessment-readout.test.ts:31:        model: "assessment-local",
+apps/platform/lib/assessment-readout.test.ts:37:      moduleUseCase: { primary: { provider: "synthetic", model: "assessment-local" } },
+apps/platform/lib/assessment-readout.test.ts:77:      summary: "Synthetic assessment summary",
+apps/platform/lib/assessment-readout.test.ts:83:      model: "assessment-local",
+apps/platform/lib/assessment-readout.test.ts:104:      model: "assessment-local",
+apps/platform/lib/assessment-readout.test.ts:112:      model: "assessment-local",
+apps/platform/lib/assessment-readout.test.ts:122:      model: "assessment-local",
+apps/platform/lib/assessment-readout.test.ts:144:      summary: "Synthetic assessment summary",
+apps/platform/lib/assessment-readout.test.ts:204:      summary: "Synthetic assessment summary",
+apps/platform/lib/assessment-readout.test.ts:219:        principalId: "passcode:assessment",
+apps/platform/lib/assessment-readout.test.ts:221:        moduleKey: "assessment",
+apps/platform/lib/assessment-readout.test.ts:223:      summary: "Synthetic assessment summary",
+apps/platform/lib/assessment-readout.test.ts:229:        principalId: "passcode:assessment",
+apps/platform/lib/assessment-readout.test.ts:231:        moduleKey: "support",
+apps/platform/lib/assessment-readout.test.ts:233:      summary: "Synthetic assessment summary",
+apps/platform/app/globals.css:6:@source "../../../modules/assessment/src";
+apps/platform/app/globals.css:148:[data-brand="opentenant"] .assessment-root {
+apps/platform/app/assessment/layout.tsx:4:import { resolveAssessmentAccess } from "../../lib/assessment-access";
+apps/platform/app/assessment/layout.tsx:19:  const grant = cookieStore.get(accessCookieName("assessment"))?.value;
+apps/platform/app/assessment/layout.tsx:23:    if (access.reason === "anonymous") redirect("/auth/login?return=/assessment");
+apps/platform/app/assessment/layout.tsx:24:    if (access.reason === "passcode_required") redirect("/access/assessment");
+apps/platform/app/assessment/page.tsx:4:import { AssessmentMount } from "./assessment-mount";
+apps/platform/app/assessment/page.test.tsx:14:vi.mock("./assessment-mount", () => ({ AssessmentMount: mocks.mount }));
+apps/platform/lib/support.ts:41:  if (!(await nativeModuleEnabled(tenant.tenantId, "support"))) {
+apps/platform/lib/support.ts:49:  const granted = await resolvePermissions(session, tenant.tenantId, "support");
+apps/platform/app/assessment/assessment-mount.tsx:9:} from "@opentenant/assessment/runtime";
+apps/platform/app/assessment/assessment-mount.tsx:13:const AssessmentSurface = dynamic(() => import("@opentenant/assessment/surface"), { ssr: false });
+apps/platform/app/assessment/assessment-mount.tsx:27:    readoutEndpoint: "/api/assessment-readout",
+apps/platform/app/assessment/assessment-mount.tsx:29:    exportSuffix: exportSuffix ?? "assessment",
+apps/platform/app/assessment/assessment-mount.tsx:39:        name: "assessment.page.viewed",
+apps/platform/app/assessment/assessment-mount.tsx:41:        moduleKey: "assessment",
+apps/platform/app/api/mcp/brain/route.test.ts:73:        moduleKey: "assessment",
+apps/platform/app/api/assessment-readout/route.ts:5:import { resolveAssessmentAccess, type AssessmentAccessResult } from "../../../lib/assessment-access";
+apps/platform/app/api/assessment-readout/route.ts:6:import { assessmentReadout } from "../../../lib/assessment-readout";
+apps/platform/app/api/assessment-readout/route.ts:127:  const grant = cookieStore.get(accessCookieName("assessment"))?.value;
+apps/platform/app/api/assessment-readout/route.ts:150:    prepared = await assessmentReadout().prepare({
+apps/platform/app/api/assessment-readout/route.ts:163:      operation: "assessment.readout.generate",
+apps/platform/app/assessment/layout.test.tsx:17:vi.mock("../../lib/assessment-access", () => ({ resolveAssessmentAccess: mocks.access }));
+apps/platform/app/assessment/layout.test.tsx:20:vi.mock("../../lib/module-access", () => ({ accessCookieName: () => "assessment-access" }));
+apps/platform/app/assessment/layout.test.tsx:31:    tenantId: "ten_assessment",
+apps/platform/app/assessment/layout.test.tsx:36:      session: { activeTenantId: "ten_assessment" },
+apps/platform/app/assessment/layout.test.tsx:52:  ["anonymous", "/auth/login?return=/assessment"],
+apps/platform/app/assessment/layout.test.tsx:54:  ["passcode_required", "/access/assessment"],
+apps/platform/app/assessment/layout.test.tsx:67:    tenantId: "ten_assessment",
+apps/platform/app/page.test.tsx:28:  resolvePermissions: async () => ["assessment.use"],
+apps/platform/app/api/telemetry/route.test.ts:11:  name: "assessment.readout.completed",
+apps/platform/app/api/telemetry/route.test.ts:13:  moduleKey: "assessment",
+apps/platform/app/api/telemetry/route.test.ts:82:      name: "assessment.page.viewed",
+apps/platform/app/api/telemetry/route.test.ts:84:      moduleKey: "assessment",
+apps/platform/app/api/telemetry/route.test.ts:92:      name: "assessment.export.completed",
+apps/platform/app/api/telemetry/route.test.ts:94:      moduleKey: "assessment",
+apps/platform/app/api/telemetry/route.test.ts:110:      name: "assessment.page.viewed",
+apps/platform/app/api/telemetry/route.test.ts:112:      moduleKey: "assessment",
+apps/platform/app/auth/logout/route.ts:49:  headers.append("Set-Cookie", "opentenant_module_access_assessment=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0");
+apps/platform/app/api/admin/support-policy/route.ts:16:  const limited = await enforceRateLimit(req, { tenantId: "installation", userId: owner.context.authority.userId, routeClass: "support" }); if (limited) return limited;
+apps/platform/app/auth/logout/route.test.ts:39:    expect(response.headers.get("set-cookie")).toContain("opentenant_module_access_assessment=");
+apps/platform/app/auth/logout/route.test.ts:67:    expect(response.headers.get("set-cookie")).toContain("opentenant_module_access_assessment=");
+apps/platform/app/auth/logout/route.test.ts:78:    expect(response.headers.get("set-cookie")).toContain("opentenant_module_access_assessment=");
+apps/platform/app/api/admin/support-sessions/route.ts:22:  const limited = await enforceRateLimit(req, { tenantId: tenant.tenantId, userId: owner.context.authority.userId, routeClass: "support" }); if (limited) return limited;
+apps/platform/lib/rate-limit.integration.test.ts:51:    const req = new Request("https://example.test/api/module-access/assessment", { method: "POST", headers: { "x-ingress-ip": "192.0.2.10" } });
+apps/platform/app/api/module-access/[module]/route.test.ts:9:  accessCookieName: () => "assessment_access",
+apps/platform/app/api/module-access/[module]/route.test.ts:18:  return new Request("https://app.example.test/api/module-access/assessment", { method: "POST", headers, body });
+apps/platform/app/api/module-access/[module]/route.test.ts:21:describe("assessment module-access admission", () => {
+apps/platform/app/api/module-access/[module]/route.test.ts:26:    h.admit.mockResolvedValue({ admitted: true, replayed: false, lease: { leaseId: "a".repeat(32), scope: { tenantId: "tenant_alpha", principalId: "user_alpha", operation: "assessment.module-access.verify" } } });
+apps/platform/app/api/module-access/[module]/route.test.ts:37:      scope: { tenantId: "tenant_alpha", principalId: "user_alpha", operation: "assessment.module-access.verify" },
+apps/platform/app/api/module-access/[module]/route.test.ts:39:    expect(h.verify).toHaveBeenCalledWith("tenant_alpha", "assessment", "wrong");
+apps/platform/app/api/module-access/[module]/route.test.ts:40:    expect(h.fingerprint).toHaveBeenCalledWith("tenant_alpha", "assessment", "wrong");
+apps/platform/app/api/module-access/[module]/route.test.ts:45:      scope: { tenantId: "tenant_alpha", principalId: "user_alpha", operation: "assessment.module-access.verify" },
+apps/platform/app/api/module-access/[module]/route.test.ts:54:      scope: { tenantId: "tenant_alpha", principalId: "user_alpha", operation: "assessment.module-access.verify" },
+apps/platform/app/api/module-access/[module]/route.test.ts:85:    expect(granted.headers.get("set-cookie")).toContain("assessment_access=sealed-synthetic-value");
+apps/platform/app/api/module-access/[module]/route.test.ts:102:function POST(req: Request) { return handler(req, { params: Promise.resolve({ module: "assessment" }) }); }
+apps/platform/app/api/admin/support-sessions/exit/route.ts:18:  const limited = await enforceRateLimit(req, { tenantId: "installation", userId: operator.userId, routeClass: "support" }); if (limited) return limited;
+apps/platform/app/api/settings/routine-configuration/route.test.ts:99:        resourceKey: "assessment",
+apps/platform/app/api/settings/routine-configuration/route.test.ts:109:      ["ten_example", "assessment", true, "AI readiness", true, "Configured for the leadership team"],
+apps/platform/app/api/settings/routine-configuration/route.test.ts:125:        resourceKey: "assessment",
+apps/platform/app/api/assessment-readout/route.test.ts:17:vi.mock("../../../lib/assessment-access", () => ({
+apps/platform/app/api/assessment-readout/route.test.ts:20:vi.mock("../../../lib/assessment-readout", () => ({
+apps/platform/app/api/assessment-readout/route.test.ts:21:  assessmentReadout: () => ({ prepare: dependencies.prepare }),
+apps/platform/app/api/assessment-readout/route.test.ts:27:const summary = "A synthetic assessment summary";
+apps/platform/app/api/assessment-readout/route.test.ts:30:  model: "assessment-local",
+apps/platform/app/api/assessment-readout/route.test.ts:41:    operation: "assessment.readout.generate",
+apps/platform/app/api/assessment-readout/route.test.ts:57:  return new Request("https://app.example.test/api/assessment-readout", {
+apps/platform/app/api/assessment-readout/route.test.ts:72:describe("assessment readout route", () => {
+apps/platform/app/api/assessment-readout/route.test.ts:129:      principalId: "passcode:assessment",
+apps/platform/app/api/assessment-readout/route.test.ts:131:      moduleKey: "assessment",
+apps/platform/app/api/assessment-readout/route.test.ts:150:        principalId: "passcode:assessment",
+apps/platform/app/api/assessment-readout/route.test.ts:151:        operation: "assessment.readout.generate",
+apps/platform/app/api/assessment-readout/route.test.ts:184:    const overTransportLimit = new Request("https://app.example.test/api/assessment-readout", {
+apps/platform/app/api/settings/module-access/route.test.ts:23:      body: new URLSearchParams({ moduleKey: "assessment", mode: "passcode", passcode: "example" }),

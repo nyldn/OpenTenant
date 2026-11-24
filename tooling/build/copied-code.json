@@ -1,0 +1,17 @@
+[
+  {
+    "path": "tooling/migrations/sql/control-plane/0050_request_rate_limits.sql",
+    "license": "ISC",
+    "source": "https://github.com/animir/node-rate-limiter-flexible/blob/9f744dca08d58b270c4c64593a3c92e56f2e8bfb/lib/RateLimiterPostgres.js",
+    "commit": "9f744dca08d58b270c4c64593a3c92e56f2e8bfb",
+    "header": "Adapted from rate-limiter-flexible (ISC), Copyright 2019 Roman Voloboev."
+  },
+  {
+    "path": "tooling/migrations/sql/tenant-support/0001_init.sql",
+    "origin": "first-party",
+    "header": "ported from the engage help-desk",
+    "attestedBy": "owner",
+    "attestedOn": "2026-11-17",
+    "reason": "Engage is the owner's own project; the Support schema design was ported first-party and no third-party licence applies."
+  }
+]

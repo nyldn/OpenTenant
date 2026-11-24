@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "runId": "synthetic-example",
+  "mode": "dev",
+  "adminHost": "http://admin.localhost:31001/admin",
+  "mailpitUrl": "http://127.0.0.1:31002",
+  "ports": {
+    "app": 31001,
+    "next": 31006,
+    "mailpit": 31002,
+    "smtp": 31003,
+    "postgres": 31004,
+    "dns": 31005,
+    "upstream": 31007
+  },
+  "tenants": [
+    {
+      "slug": "workspace",
+      "tenantId": "tenant_example_workspace",
+      "displayName": "Example workspace",
+      "status": "active",
+      "empty": false,
+      "url": "http://workspace.localhost:31001/"
+    },
+    {
+      "slug": "alpha",
+      "tenantId": "tenant_example_alpha",
+      "displayName": "Example alpha",
+      "status": "active",
+      "empty": false,
+      "url": "http://alpha.localhost:31001/"
+    },
+    {
+      "slug": "beta",
+      "tenantId": "tenant_example_beta",
+      "displayName": "Example beta",
+      "status": "active",
+      "empty": false,
+      "url": "http://beta.localhost:31001/"
+    },
+    {
+      "slug": "hostile",
+      "tenantId": "tenant_example_hostile",
+      "displayName": "Example hostile",
+      "status": "active",
+      "empty": false,
+      "url": "http://hostile.localhost:31001/"
+    },
+    {
+      "slug": "fresh",
+      "tenantId": "tenant_example_fresh",
+      "displayName": "Example fresh",
+      "status": "active",
+      "empty": true,
+      "url": "http://fresh.localhost:31001/"
+    },
+    {
+      "slug": "pending",
+      "tenantId": "tenant_example_pending",
+      "displayName": "Example pending",
+      "status": "active",
+      "empty": false,
+      "url": "http://pending.localhost:31001/"
+    },
+    {
+      "slug": "suspended",
+      "tenantId": "tenant_example_suspended",
+      "displayName": "Example suspended",
+      "status": "suspended",
+      "empty": false,
+      "url": "http://suspended.localhost:31001/"
+    }
+  ],
+  "personas": [
+    {
+      "id": "installation-owner",
+      "email": "workspace@example.test",
+      "role": "tenant_owner",
+      "tenantId": "tenant_example_workspace",
+      "isPlatformAdmin": true,
+      "signInUrl": "http://admin.localhost:31001/__uat/sign-in?token=synthetic-workspace-owner-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-workspace-owner-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "alpha-owner",
+      "email": "alpha@example.test",
+      "role": "tenant_owner",
+      "tenantId": "tenant_example_alpha",
+      "isPlatformAdmin": false,
+      "signInUrl": "http://alpha.localhost:31001/__uat/sign-in?token=synthetic-alpha-owner-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-alpha-owner-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "beta-owner",
+      "email": "beta@example.test",
+      "role": "tenant_owner",
+      "tenantId": "tenant_example_beta",
+      "isPlatformAdmin": false,
+      "signInUrl": "http://beta.localhost:31001/__uat/sign-in?token=synthetic-beta-owner-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-beta-owner-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "hostile-owner",
+      "email": "hostile@example.test",
+      "role": "tenant_owner",
+      "tenantId": "tenant_example_hostile",
+      "isPlatformAdmin": false,
+      "signInUrl": "http://hostile.localhost:31001/__uat/sign-in?token=synthetic-hostile-owner-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-hostile-owner-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "fresh-owner",
+      "email": "fresh@example.test",
+      "role": "tenant_owner",
+      "tenantId": "tenant_example_fresh",
+      "isPlatformAdmin": false,
+      "signInUrl": "http://fresh.localhost:31001/__uat/sign-in?token=synthetic-fresh-owner-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-fresh-owner-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "suspended-owner",
+      "email": "suspended@example.test",
+      "role": "tenant_owner",
+      "tenantId": "tenant_example_suspended",
+      "isPlatformAdmin": false,
+      "signInUrl": "http://suspended.localhost:31001/__uat/sign-in?token=synthetic-suspended-owner-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-suspended-owner-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "tenant-admin",
+      "email": "tenant-admin@example.test",
+      "role": "tenant_admin",
+      "tenantId": "tenant_example_alpha",
+      "isPlatformAdmin": false,
+      "signInUrl": "http://alpha.localhost:31001/__uat/sign-in?token=synthetic-tenant-admin-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-tenant-admin-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "tenant-member",
+      "email": "tenant-member@example.test",
+      "role": "tenant_member",
+      "tenantId": "tenant_example_alpha",
+      "isPlatformAdmin": false,
+      "signInUrl": "http://alpha.localhost:31001/__uat/sign-in?token=synthetic-tenant-member-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-tenant-member-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "managed-support",
+      "email": "managed-support@example.test",
+      "role": null,
+      "tenantId": null,
+      "isPlatformAdmin": true,
+      "signInUrl": "http://alpha.localhost:31001/__uat/sign-in?token=synthetic-managed-support-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-managed-support-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    },
+    {
+      "id": "no-memberships",
+      "email": "no-memberships@example.test",
+      "role": null,
+      "tenantId": null,
+      "isPlatformAdmin": false,
+      "signInUrl": "http://alpha.localhost:31001/__uat/sign-in?token=synthetic-no-memberships-only",
+      "cookie": {
+        "name": "opentenant_session",
+        "secure": false,
+        "value": "synthetic-no-memberships-only",
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/"
+      }
+    }
+  ],
+  "ssh": {
+    "ports": [
+      31001,
+      31002
+    ],
+    "command": "ssh -N -L 31001:127.0.0.1:31001 -L 31002:127.0.0.1:31002 USER@HOST"
+  },
+  "identityProvider": "local"
+}

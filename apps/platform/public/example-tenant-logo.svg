@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="250" height="48" viewBox="0 0 250 48" role="img" aria-labelledby="title">
+  <title id="title">Example Organisation</title>
+  <rect width="48" height="48" rx="12" fill="#111827"/>
+  <circle cx="24" cy="24" r="9" fill="#00cccc"/>
+  <text x="60" y="31" fill="currentColor" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700">Example Organisation</text>
+</svg>

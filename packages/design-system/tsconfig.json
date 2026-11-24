@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "noEmit": true,
+    "verbatimModuleSyntax": false,
+    "noUncheckedIndexedAccess": false,
+    "exactOptionalPropertyTypes": false
+  },
+  "include": [
+    "src/index.ts",
+    "src/import-meta.d.ts",
+    "src/components/**/*.tsx",
+    "src/hooks/**/*.ts",
+    "src/lib/brand.ts",
+    "src/lib/utils.ts"
+  ]
+}

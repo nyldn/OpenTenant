@@ -1,0 +1,286 @@
+{
+  "date": "2026-11-11",
+  "node": "v22.23.2",
+  "pnpm": "11.13.1",
+  "marketing_impact": "none",
+  "commands": [
+    {
+      "command": "pnpm turbo typecheck lint test --concurrency=2",
+      "tasks_passed": 81,
+      "tasks_total": 81,
+      "passed": 2011,
+      "failed": 0,
+      "skipped": 51,
+      "note": "Default optional integration skips are reported, not counted as passes. Dedicated database and browser proofs below execute without skips."
+    },
+    {
+      "command": "pnpm db:ephemeral -- pnpm ci:db-sequence",
+      "passed": 139,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "pnpm e2e",
+      "passed": 16,
+      "failed": 0,
+      "skipped": 0,
+      "phases": {
+        "legacy": 11,
+        "journeys": 5
+      }
+    },
+    {
+      "command": "pnpm turbo build --filter=@opentenant/platform --force",
+      "tasks_passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "database_steps": [
+    {
+      "step": "stores",
+      "passed": 40,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "step": "provisioning-neon",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "step": "provisioning-postgres",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "step": "identity",
+      "passed": 65,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "step": "worker",
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "step": "usage-export",
+      "passed": 14,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "step": "isolation-fuzz",
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "browser_cases": [
+    {
+      "phase": "legacy",
+      "file": "custom-domains.e2e.spec.ts",
+      "title": "owner adds, verifies with stub DNS, resolves, then removes a custom domain",
+      "status": "passed",
+      "duration_ms": 11541
+    },
+    {
+      "phase": "legacy",
+      "file": "proxy.spec.ts",
+      "title": "module proxy enforces a sandbox CSP against the local upstream",
+      "status": "passed",
+      "duration_ms": 6241
+    },
+    {
+      "phase": "legacy",
+      "file": "proxy.spec.ts",
+      "title": "module proxy disables shared caching",
+      "status": "passed",
+      "duration_ms": 2005
+    },
+    {
+      "phase": "legacy",
+      "file": "settings.spec.ts",
+      "title": "admin branding settings render",
+      "status": "passed",
+      "duration_ms": 7309
+    },
+    {
+      "phase": "legacy",
+      "file": "settings.spec.ts",
+      "title": "admin members settings render the local owner",
+      "status": "passed",
+      "duration_ms": 3237
+    },
+    {
+      "phase": "legacy",
+      "file": "support.spec.ts",
+      "title": "support list and ticket creation use the tenant support schema",
+      "status": "passed",
+      "duration_ms": 10484
+    },
+    {
+      "phase": "legacy",
+      "file": "tenant.spec.ts",
+      "title": "unknown host is rejected without tenant data, even with a local session",
+      "status": "passed",
+      "duration_ms": 3064
+    },
+    {
+      "phase": "legacy",
+      "file": "tenant.spec.ts",
+      "title": "local sign-in and sign-out",
+      "status": "passed",
+      "duration_ms": 5781
+    },
+    {
+      "phase": "legacy",
+      "file": "tenant.spec.ts",
+      "title": "tenant home and launcher show the synthetic membership",
+      "status": "passed",
+      "duration_ms": 6285
+    },
+    {
+      "phase": "legacy",
+      "file": "theming.e2e.spec.ts",
+      "title": "every tenant route inherits its tenant's applied tokens",
+      "status": "passed",
+      "duration_ms": 7756
+    },
+    {
+      "phase": "legacy",
+      "file": "theming.e2e.spec.ts",
+      "title": "hostile persisted values cannot inject CSS or HTML",
+      "status": "passed",
+      "duration_ms": 1526
+    },
+    {
+      "phase": "journeys",
+      "file": "assessment.spec.ts",
+      "title": "complete Assessment, save a response, review results and export JSON, CSV and PDF",
+      "status": "passed",
+      "duration_ms": 18973
+    },
+    {
+      "phase": "journeys",
+      "file": "lifecycle.spec.ts",
+      "title": "suspension blocks tenant pages and APIs with 423, then resume restores access",
+      "status": "passed",
+      "duration_ms": 15598
+    },
+    {
+      "phase": "journeys",
+      "file": "managed-support.spec.ts",
+      "title": "managed support shows the operator and reason, restricts members, and exits",
+      "status": "passed",
+      "duration_ms": 19269
+    },
+    {
+      "phase": "journeys",
+      "file": "members.spec.ts",
+      "title": "owner invites and removes a member, but cannot remove the last owner",
+      "status": "passed",
+      "duration_ms": 11392
+    },
+    {
+      "phase": "journeys",
+      "file": "onboarding.spec.ts",
+      "title": "installation owner provisions a tenant, invitee claims ownership, and modules load",
+      "status": "passed",
+      "duration_ms": 56480
+    }
+  ],
+  "reruns": [
+    {
+      "scope": "database sequence",
+      "first_complete_run": {
+        "passed": 139,
+        "failed": 0,
+        "skipped": 0
+      },
+      "later_run": "Postgres suite exited nonzero although both assertions passed; JSON had no suite error message.",
+      "correction": "Added console reporting and 120-second test/hook budgets.",
+      "final": {
+        "passed": 139,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "scope": "Assessment",
+      "first": "120-second cold-page timeout",
+      "correction": "Compile routes during setup.",
+      "final": "passed"
+    },
+    {
+      "scope": "members",
+      "first": "60-second timeout",
+      "second": "180-second timeout",
+      "cause": "Exact wrapped-label lookup did not match the Role select.",
+      "correction": "Use the combobox accessible role.",
+      "final": "passed"
+    },
+    {
+      "scope": "onboarding",
+      "first": "180-second response.json timeout after UI navigation",
+      "later": "180-second total budget exhausted after provisioning and owner grant during extra branding setup",
+      "previous_full_command": {
+        "passed": 15,
+        "failed": 1,
+        "skipped": 0
+      },
+      "correction": "Follow Location and persisted job ID, omit unrelated branding step, authenticate readiness requests, allow 300 seconds for the full journey.",
+      "focused_command": "E2E_PHASE=journeys node tooling/e2e/run-phase.mjs onboarding.spec.ts",
+      "focused_result": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0
+      },
+      "final": "passed"
+    },
+    {
+      "scope": "dev server",
+      "observation": "The Next dev CLI restarted at its heap threshold and interrupted requests.",
+      "correction": "Use the public Next custom-server API with a bounded heap and deterministic shutdown."
+    }
+  ],
+  "security": {
+    "gitleaks_leaks": 0,
+    "semgrep_rules": 7,
+    "semgrep_findings": 0,
+    "pnpm_audit_prod": {
+      "high": 0,
+      "critical": 0,
+      "moderate": 5,
+      "low": 1
+    },
+    "trivy_cached_offline": {
+      "high": 0,
+      "critical": 2,
+      "package": "tinypool@1.1.1",
+      "advisories": [
+        "CVE-2026-104848",
+        "CVE-2026-104849"
+      ],
+      "status": "existing dependency findings; dependencies unchanged"
+    },
+    "pre_commit": "not configured",
+    "promptfoo": "not configured"
+  },
+  "boundaries": [
+    "Every baseline tenant uses production Postgres provisioning, canonical tenant migrations, role grants, encrypted bindings and Graphile owner grant jobs.",
+    "Module catalog availability and tenant entitlements are explicit installation fixture configuration, not tenant database provisioning shortcuts.",
+    "Brain has no browser page in this revision. The proof checks its canonical schema and the non-superuser, non-bypass-RLS runtime role; Assessment and Support screens load through their real routes.",
+    "The original 11 local-identity specs are unchanged. The five new journeys use a separate database/server with real Better Auth signed sessions and HTTP invitation acceptance.",
+    "During adapter exploration, the Better Auth browser form emitted Origin:null and /auth/logout returned 404 in the harness. Those unowned routes remain unchanged.",
+    "No push, PR, hosted provider operation or production deployment was performed. Graphify output was refreshed but is not committed."
+  ]
+}

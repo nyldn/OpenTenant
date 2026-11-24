@@ -1,0 +1,848 @@
+{
+  "base": "f078c8d",
+  "branch": "t3/integration-wave4b",
+  "runtime_head": "750aba535f9b7e345644303be51f0ce507752611",
+  "runs": [
+    {
+      "label": "install-frozen",
+      "command": "pnpm install --frozen-lockfile",
+      "exit": 0,
+      "duration_seconds": 0.482,
+      "log": "install-frozen.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "quality",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 2,
+      "duration_seconds": 94.496,
+      "log": "quality.log",
+      "counts": [
+        "@opentenant/db-ephemeral:test: # tests 5",
+        "@opentenant/db-ephemeral:test: # pass 5",
+        "@opentenant/db-ephemeral:test: # fail 0",
+        "@opentenant/db-ephemeral:test: # skipped 0",
+        "@opentenant/observability:test:  Test Files  4 passed | 1 skipped (5)",
+        "@opentenant/observability:test:       Tests  33 passed (33)",
+        "@opentenant/domains:test:  Test Files  3 passed (3)",
+        "@opentenant/domains:test:       Tests  45 passed (45)",
+        "@opentenant/security:test:  Test Files  7 passed (7)",
+        "@opentenant/security:test:       Tests  66 passed (66)",
+        "@opentenant/usage-export:test:  Test Files  1 passed | 1 skipped (2)",
+        "@opentenant/usage-export:test:       Tests  8 passed | 6 skipped (14)",
+        "@opentenant/sandbox:test:  Test Files  11 passed | 1 skipped (12)",
+        "@opentenant/sandbox:test:       Tests  146 passed | 1 skipped (147)",
+        "@opentenant/unattended:test: # tests 106",
+        "@opentenant/unattended:test: # pass 106",
+        "@opentenant/unattended:test: # fail 0",
+        "@opentenant/unattended:test: # skipped 0",
+        "@opentenant/auth:test:  Test Files  13 passed (13)",
+        "@opentenant/auth:test:       Tests  155 passed (155)",
+        "@opentenant/module-sdk:test:  Test Files  2 passed (2)",
+        "@opentenant/module-sdk:test:       Tests  19 passed (19)",
+        "@opentenant/design-system:test:  Test Files  1 passed (1)",
+        "@opentenant/design-system:test:       Tests  4 passed (4)",
+        "@opentenant/notifications:test:  Test Files  2 passed (2)",
+        "@opentenant/notifications:test:       Tests  8 passed | 1 skipped (9)",
+        "create-opentenant:test:  Test Files  1 passed (1)",
+        "create-opentenant:test:       Tests  3 passed (3)"
+      ],
+      "test_counts": {
+        "passed": 598,
+        "failed": 0,
+        "skipped": 8
+      }
+    },
+    {
+      "label": "matrix",
+      "command": "pnpm quality:matrix",
+      "exit": 0,
+      "duration_seconds": 2.15,
+      "log": "matrix.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "module-audit",
+      "command": "pnpm module:audit",
+      "exit": 0,
+      "duration_seconds": 0.764,
+      "log": "module-audit.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "database-sequence",
+      "command": "pnpm db:ephemeral -- pnpm ci:db-sequence",
+      "exit": 1,
+      "duration_seconds": 29.383,
+      "log": "database-sequence.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "rls",
+      "command": "pnpm db:ephemeral -- pnpm rls:proof",
+      "exit": 0,
+      "duration_seconds": 18.051,
+      "log": "rls.log",
+      "counts": [],
+      "test_counts": null,
+      "check_counts": {
+        "passed": 314,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "mcp-brain",
+      "command": "pnpm db:ephemeral -- node tooling/ci/mcp-brain-proof.mjs",
+      "exit": 0,
+      "duration_seconds": 31.392,
+      "log": "mcp-brain.log",
+      "counts": [
+        "Test Files  9 passed (9)",
+        "Tests  140 passed (140)",
+        "Test Files  6 passed (6)",
+        "Tests  22 passed (22)"
+      ],
+      "test_counts": {
+        "passed": 162,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "restore",
+      "command": "pnpm restore:drill",
+      "exit": 0,
+      "duration_seconds": 37.8,
+      "log": "restore.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "audit",
+      "command": "pnpm audit --audit-level high",
+      "exit": 0,
+      "duration_seconds": 2.001,
+      "log": "audit.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "gitleaks",
+      "command": "cd /tmp/opentenant-wave4b-source && gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 0,
+      "duration_seconds": 2.576,
+      "log": "gitleaks.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "semgrep",
+      "command": "EIO_BACKEND=posix semgrep scan --jobs 1 --timeout 30 --config packages/usage-export/testing/security-rules.yml --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --error --exclude graphify-out --exclude node_modules --exclude .next --exclude .agents .",
+      "exit": 0,
+      "duration_seconds": 14.136,
+      "log": "semgrep.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "trivy",
+      "command": "trivy fs --offline-scan --skip-db-update --skip-check-update --skip-version-check --scanners vuln,misconfig --severity HIGH,CRITICAL --exit-code 1 --skip-dirs node_modules --skip-dirs .git --skip-dirs graphify-out --skip-dirs .agents --skip-dirs apps/platform/.next .",
+      "exit": 0,
+      "duration_seconds": 3.653,
+      "log": "trivy.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "ripwire-quality",
+      "command": "ripwire . --quality-delta --legend=compact",
+      "exit": 2,
+      "duration_seconds": 12.657,
+      "log": "ripwire-quality.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "ripwire-contract",
+      "command": "ripwire . --edit-check=handleBrainRequest --legend=compact",
+      "exit": 0,
+      "duration_seconds": 0.57,
+      "log": "ripwire-contract.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "quality-2",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 1,
+      "duration_seconds": 146.381,
+      "log": "quality-2.log",
+      "counts": [
+        "create-opentenant:test:  Test Files  1 passed (1)",
+        "create-opentenant:test:       Tests  3 passed (3)",
+        "@opentenant/auth:test:  Test Files  13 passed (13)",
+        "@opentenant/auth:test:       Tests  155 passed (155)",
+        "@opentenant/db-ephemeral:test: # tests 5",
+        "@opentenant/db-ephemeral:test: # pass 5",
+        "@opentenant/db-ephemeral:test: # fail 0",
+        "@opentenant/db-ephemeral:test: # skipped 0",
+        "@opentenant/tenant-module-nextjs-template:test:  Test Files  2 passed (2)",
+        "@opentenant/tenant-module-nextjs-template:test:       Tests  3 passed (3)",
+        "@opentenant/module-sdk:test:  Test Files  2 passed (2)",
+        "@opentenant/module-sdk:test:       Tests  19 passed (19)",
+        "@opentenant/domains:test:  Test Files  3 passed (3)",
+        "@opentenant/domains:test:       Tests  45 passed (45)",
+        "@opentenant/ci:test: # tests 42",
+        "@opentenant/ci:test: # pass 42",
+        "@opentenant/ci:test: # fail 0",
+        "@opentenant/ci:test: # skipped 0",
+        "@opentenant/notifications:test:  Test Files  2 passed (2)",
+        "@opentenant/notifications:test:       Tests  8 passed | 1 skipped (9)",
+        "@opentenant/usage-export:test:  Test Files  1 passed | 1 skipped (2)",
+        "@opentenant/usage-export:test:       Tests  8 passed | 6 skipped (14)",
+        "@opentenant/security:test:  Test Files  7 passed (7)",
+        "@opentenant/security:test:       Tests  66 passed (66)",
+        "@opentenant/observability:test:  Test Files  4 passed | 1 skipped (5)",
+        "@opentenant/observability:test:       Tests  33 passed (33)",
+        "@opentenant/design-system:test:  Test Files  1 passed (1)",
+        "@opentenant/design-system:test:       Tests  4 passed (4)",
+        "@opentenant/sandbox:test:  Test Files  11 passed | 1 skipped (12)",
+        "@opentenant/sandbox:test:       Tests  146 passed | 1 skipped (147)",
+        "@opentenant/unattended:test: # tests 106",
+        "@opentenant/unattended:test: # pass 106",
+        "@opentenant/unattended:test: # fail 0",
+        "@opentenant/unattended:test: # skipped 0",
+        "@opentenant/authz:test:  Test Files  2 passed (2)",
+        "@opentenant/authz:test:       Tests  38 passed (38)",
+        "@opentenant/platform-core:test:  Test Files  10 passed (10)",
+        "@opentenant/platform-core:test:       Tests  118 passed (118)"
+      ],
+      "test_counts": {
+        "passed": 799,
+        "failed": 0,
+        "skipped": 8
+      }
+    },
+    {
+      "label": "mcp-brain-final",
+      "command": "pnpm db:ephemeral -- node tooling/ci/mcp-brain-proof.mjs",
+      "exit": 0,
+      "duration_seconds": 22.344,
+      "log": "mcp-brain-final.log",
+      "counts": [
+        "Test Files  9 passed (9)",
+        "Tests  141 passed (141)",
+        "Test Files  7 passed (7)",
+        "Tests  25 passed (25)"
+      ],
+      "test_counts": {
+        "passed": 166,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "ab-unit",
+      "command": "pnpm --filter @opentenant/platform exec vitest run app/api/mcp/developer-mcp-surface.test.ts app/auth/logout/route.test.ts lib/server-config.test.ts",
+      "exit": 0,
+      "duration_seconds": 2.2,
+      "log": "ab-unit.log",
+      "counts": [
+        "Test Files  3 passed (3)",
+        "Tests  36 passed (36)"
+      ],
+      "test_counts": {
+        "passed": 36,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "cli-unit",
+      "command": "pnpm --filter create-opentenant test",
+      "exit": 0,
+      "duration_seconds": 1.38,
+      "log": "cli-unit.log",
+      "counts": [
+        "Test Files  1 passed (1)",
+        "Tests  3 passed (3)"
+      ],
+      "test_counts": {
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "database-sequence-2",
+      "command": "pnpm db:ephemeral -- pnpm ci:db-sequence",
+      "exit": 0,
+      "duration_seconds": 362.765,
+      "log": "database-sequence-2.log",
+      "counts": [
+        "Test Files  1 passed (1)",
+        "Tests  1 passed (1)",
+        "Test Files  1 passed (1)",
+        "Tests  2 passed (2)",
+        "Test Files  2 passed (2)",
+        "Tests  65 passed (65)",
+        "Test Files  1 passed (1)",
+        "Tests  8 passed (8)",
+        "Test Files  2 passed (2)",
+        "Tests  14 passed (14)",
+        "Test Files  1 passed (1)",
+        "Tests  9 passed (9)"
+      ],
+      "test_counts": {
+        "passed": 139,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "migrations",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/migrations test --testTimeout=120000 --hookTimeout=120000",
+      "exit": 1,
+      "duration_seconds": 60.285,
+      "log": "migrations.log",
+      "counts": [
+        "Test Files  1 failed | 25 passed (26)",
+        "Tests  1 failed | 177 passed (178)"
+      ],
+      "test_counts": {
+        "passed": 177,
+        "failed": 1,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "install-final",
+      "command": "pnpm install --frozen-lockfile",
+      "exit": 0,
+      "duration_seconds": 12.796,
+      "log": "install-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "build",
+      "command": "pnpm turbo build",
+      "exit": 0,
+      "duration_seconds": 93.657,
+      "log": "build.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "quality-3",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 1,
+      "duration_seconds": 213.164,
+      "log": "quality-3.log",
+      "counts": [
+        "@opentenant/observability:test:  Test Files  4 passed | 1 skipped (5)",
+        "@opentenant/observability:test:       Tests  33 passed (33)",
+        "@opentenant/usage-export:test:  Test Files  1 passed | 1 skipped (2)",
+        "@opentenant/usage-export:test:       Tests  8 passed | 6 skipped (14)",
+        "@opentenant/db-ephemeral:test: # tests 5",
+        "@opentenant/db-ephemeral:test: # pass 5",
+        "@opentenant/db-ephemeral:test: # fail 0",
+        "@opentenant/db-ephemeral:test: # skipped 0",
+        "@opentenant/auth:test:  Test Files  13 passed (13)",
+        "@opentenant/auth:test:       Tests  155 passed (155)",
+        "@opentenant/sandbox:test:  Test Files  11 passed | 1 skipped (12)",
+        "@opentenant/sandbox:test:       Tests  146 passed | 1 skipped (147)",
+        "@opentenant/module-sdk:test:  Test Files  2 passed (2)",
+        "@opentenant/module-sdk:test:       Tests  19 passed (19)",
+        "@opentenant/ci:test: # tests 42",
+        "@opentenant/ci:test: # pass 42",
+        "@opentenant/ci:test: # fail 0",
+        "@opentenant/ci:test: # skipped 0",
+        "@opentenant/security:test:  Test Files  7 passed (7)",
+        "@opentenant/security:test:       Tests  66 passed (66)",
+        "@opentenant/design-system:test:  Test Files  1 passed (1)",
+        "@opentenant/design-system:test:       Tests  4 passed (4)",
+        "@opentenant/notifications:test:  Test Files  2 passed (2)",
+        "@opentenant/notifications:test:       Tests  8 passed | 1 skipped (9)",
+        "@opentenant/domains:test:  Test Files  3 passed (3)",
+        "@opentenant/domains:test:       Tests  45 passed (45)",
+        "@opentenant/tenant-module-nextjs-template:test:  Test Files  2 passed (2)",
+        "@opentenant/tenant-module-nextjs-template:test:       Tests  3 passed (3)",
+        "create-opentenant:test:  Test Files  1 passed (1)",
+        "create-opentenant:test:       Tests  3 passed (3)",
+        "@opentenant/authz:test:  Test Files  2 passed (2)",
+        "@opentenant/authz:test:       Tests  38 passed (38)",
+        "@opentenant/platform-core:test:  Test Files  10 passed (10)",
+        "@opentenant/platform-core:test:       Tests  118 passed (118)",
+        "@opentenant/unattended:test: # tests 106",
+        "@opentenant/unattended:test: # pass 106",
+        "@opentenant/unattended:test: # fail 0",
+        "@opentenant/unattended:test: # skipped 0",
+        "@opentenant/quality-contract:test:  Test Files  3 passed (3)",
+        "@opentenant/quality-contract:test:       Tests  54 passed (54)",
+        "@opentenant/database:test:  Test Files  15 passed | 9 skipped (24)",
+        "@opentenant/database:test:       Tests  114 passed | 12 skipped (126)",
+        "@opentenant/brain:test:  Test Files  7 passed (7)",
+        "@opentenant/brain:test:       Tests  25 passed (25)",
+        "@opentenant/auth-better-auth:test:  Test Files  1 passed (1)",
+        "@opentenant/auth-better-auth:test:       Tests  1 passed (1)",
+        "@opentenant/support:test:  Test Files  12 passed (12)",
+        "@opentenant/support:test:       Tests  86 passed (86)",
+        "@opentenant/assessment:test:  Test Files  17 passed (17)",
+        "@opentenant/assessment:test:       Tests  211 passed (211)",
+        "@opentenant/migrations:test:  Test Files  11 passed | 15 skipped (26)",
+        "@opentenant/migrations:test:       Tests  51 passed | 23 skipped (74)",
+        "@opentenant/provisioning:test:  Test Files  3 passed (3)",
+        "@opentenant/provisioning:test:       Tests  15 passed (15)",
+        "@opentenant/developer-mcp:test:  Test Files  6 passed | 3 skipped (9)",
+        "@opentenant/developer-mcp:test:       Tests  118 passed | 23 skipped (141)",
+        "@opentenant/e2e:test: # tests 3",
+        "@opentenant/e2e:test: # pass 3",
+        "@opentenant/e2e:test: # fail 0",
+        "@opentenant/e2e:test: # skipped 0",
+        "@opentenant/testing:test:  Test Files  5 passed | 1 skipped (6)",
+        "@opentenant/testing:test:       Tests  67 passed (67)",
+        "@opentenant/platform:test:  Test Files  1 failed | 84 passed | 5 skipped (90)",
+        "@opentenant/platform:test:       Tests  1 failed | 499 passed | 9 skipped (509)"
+      ],
+      "test_counts": {
+        "passed": 2043,
+        "failed": 1,
+        "skipped": 75
+      }
+    },
+    {
+      "label": "matrix-final",
+      "command": "pnpm quality:matrix",
+      "exit": 0,
+      "duration_seconds": 1.795,
+      "log": "matrix-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "package-check",
+      "command": "pnpm package:check",
+      "exit": 0,
+      "duration_seconds": 68.928,
+      "log": "package-check.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "module-audit-final",
+      "command": "pnpm module:audit",
+      "exit": 0,
+      "duration_seconds": 0.52,
+      "log": "module-audit-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "residual-db",
+      "command": "pnpm db:ephemeral -- sh -c 'CUSTOM_DOMAINS_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" pnpm --filter @opentenant/platform exec vitest run lib/custom-domains.integration.test.ts && KEY_ROTATION_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" pnpm --filter @opentenant/database exec vitest run src/credential-cipher-rotation.postgres.test.ts && pnpm --filter @opentenant/observability test && pnpm --filter @opentenant/platform exec vitest run lib/rate-limit.integration.test.ts'",
+      "exit": 0,
+      "duration_seconds": 25.714,
+      "log": "residual-db.log",
+      "counts": [
+        "Test Files  1 passed (1)",
+        "Tests  6 passed (6)",
+        "Test Files  1 passed (1)",
+        "Tests  2 passed (2)",
+        "Test Files  5 passed (5)",
+        "Tests  34 passed (34)",
+        "Test Files  1 passed (1)",
+        "Tests  3 passed (3)"
+      ],
+      "test_counts": {
+        "passed": 45,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "graph",
+      "command": "graphify update .",
+      "exit": 0,
+      "duration_seconds": 17.755,
+      "log": "graph.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "ripwire-final",
+      "command": "ripwire . --quality-delta --legend=compact",
+      "exit": 0,
+      "duration_seconds": 4.327,
+      "log": "ripwire-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "r11-final",
+      "command": "pnpm --filter @opentenant/testing exec vitest run src/r11-regressions.test.ts",
+      "exit": 0,
+      "duration_seconds": 1.233,
+      "log": "r11-final.log",
+      "counts": [
+        "Test Files  1 passed (1)",
+        "Tests  20 passed (20)"
+      ],
+      "test_counts": {
+        "passed": 20,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "changeset",
+      "command": "pnpm changeset status",
+      "exit": 0,
+      "duration_seconds": 0.759,
+      "log": "changeset.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "diff",
+      "command": "git diff --check f078c8d HEAD",
+      "exit": 0,
+      "duration_seconds": 0.024,
+      "log": "diff.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "packed-adopter",
+      "command": "pnpm module:adopter-proof",
+      "exit": 0,
+      "duration_seconds": 158.004,
+      "log": "packed-adopter.log",
+      "counts": [
+        "Test Files  1 passed (1)",
+        "Tests  3 passed (3)"
+      ],
+      "test_counts": {
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "gitleaks-final",
+      "command": "cd /tmp/opentenant-wave4b-source-final && gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 0,
+      "duration_seconds": 0.995,
+      "log": "gitleaks-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "semgrep-final",
+      "command": "EIO_BACKEND=posix semgrep scan --jobs 1 --timeout 30 --config packages/usage-export/testing/security-rules.yml --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --error --exclude graphify-out --exclude node_modules --exclude .next --exclude .agents .",
+      "exit": 0,
+      "duration_seconds": 8.795,
+      "log": "semgrep-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "trivy-final",
+      "command": "trivy fs --offline-scan --skip-db-update --skip-check-update --skip-version-check --scanners vuln,misconfig --severity HIGH,CRITICAL --exit-code 1 --skip-dirs node_modules --skip-dirs .git --skip-dirs graphify-out --skip-dirs .agents --skip-dirs apps/platform/.next .",
+      "exit": 0,
+      "duration_seconds": 1.916,
+      "log": "trivy-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "platform-build",
+      "command": "pnpm --filter @opentenant/platform build",
+      "exit": 0,
+      "duration_seconds": 62.966,
+      "log": "platform-build.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "mcp-brain-built",
+      "command": "pnpm db:ephemeral -- node tooling/ci/mcp-brain-proof.mjs",
+      "exit": 0,
+      "duration_seconds": 21.128,
+      "log": "mcp-brain-built.log",
+      "counts": [
+        "Test Files  9 passed (9)",
+        "Tests  141 passed (141)",
+        "Test Files  7 passed (7)",
+        "Tests  25 passed (25)"
+      ],
+      "test_counts": {
+        "passed": 166,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "migrations-2",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/migrations test --testTimeout=120000 --hookTimeout=120000",
+      "exit": 0,
+      "duration_seconds": 53.506,
+      "log": "migrations-2.log",
+      "counts": [
+        "Test Files  26 passed (26)",
+        "Tests  178 passed (178)"
+      ],
+      "test_counts": {
+        "passed": 178,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "e2e",
+      "command": "pnpm e2e",
+      "exit": 0,
+      "duration_seconds": 274.208,
+      "log": "e2e.log",
+      "counts": [
+        "11 passed (1.5m)",
+        "8 passed (2.8m)"
+      ],
+      "test_counts": {
+        "passed": 19,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "dx-final-local",
+      "command": "DX_TIMED_REPORT=/tmp/opentenant-wave4b-evidence/dx-final-local.json pnpm dx:timed",
+      "exit": 0,
+      "duration_seconds": 41.399,
+      "log": "dx-final-local.log",
+      "counts": [],
+      "test_counts": null,
+      "measurement": {
+        "command": "pnpm dx:timed",
+        "image": "node:22",
+        "identity": "local",
+        "duration_seconds": 40.463,
+        "limit_seconds": 600,
+        "passed": true
+      }
+    },
+    {
+      "label": "dx-final-better-auth",
+      "command": "DX_IDENTITY=better-auth DX_TIMED_REPORT=/tmp/opentenant-wave4b-evidence/dx-final-better-auth.json pnpm dx:timed",
+      "exit": 0,
+      "duration_seconds": 42.227,
+      "log": "dx-final-better-auth.log",
+      "counts": [],
+      "test_counts": null,
+      "measurement": {
+        "command": "pnpm dx:timed",
+        "image": "node:22",
+        "identity": "better-auth",
+        "duration_seconds": 41.278,
+        "limit_seconds": 600,
+        "passed": true
+      }
+    },
+    {
+      "label": "smoke",
+      "command": "SMOKE_BUILD_NETWORK=host SMOKE_APP_PORT=3496 SMOKE_POSTGRES_PORT=55496 node scripts/smoke-deploy.mjs",
+      "exit": 0,
+      "duration_seconds": 283.051,
+      "log": "smoke.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "docs-final",
+      "command": "pnpm docs:links",
+      "exit": 0,
+      "duration_seconds": 1.816,
+      "log": "docs-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "audit-final",
+      "command": "pnpm audit --audit-level high",
+      "exit": 0,
+      "duration_seconds": 0.724,
+      "log": "audit-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "docs-complete",
+      "command": "pnpm docs:links",
+      "exit": 0,
+      "duration_seconds": 2.691,
+      "log": "docs-complete.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "r11-complete",
+      "command": "pnpm --filter @opentenant/testing exec vitest run src/r11-regressions.test.ts",
+      "exit": 0,
+      "duration_seconds": 1.409,
+      "log": "r11-complete.log",
+      "counts": [
+        "Test Files  1 passed (1)",
+        "Tests  20 passed (20)"
+      ],
+      "test_counts": {
+        "passed": 20,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "diff-final",
+      "command": "git diff --check f078c8d HEAD",
+      "exit": 0,
+      "duration_seconds": 0.026,
+      "log": "diff-final.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "quality-final",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 0,
+      "duration_seconds": 212.41,
+      "log": "quality-final.log",
+      "counts": [
+        "@opentenant/usage-export:test:  Test Files  1 passed | 1 skipped (2)",
+        "@opentenant/usage-export:test:       Tests  8 passed | 6 skipped (14)",
+        "create-opentenant:test:  Test Files  1 passed (1)",
+        "create-opentenant:test:       Tests  3 passed (3)",
+        "@opentenant/domains:test:  Test Files  3 passed (3)",
+        "@opentenant/domains:test:       Tests  45 passed (45)",
+        "@opentenant/ci:test: # tests 42",
+        "@opentenant/ci:test: # pass 42",
+        "@opentenant/ci:test: # fail 0",
+        "@opentenant/ci:test: # skipped 0",
+        "@opentenant/db-ephemeral:test: # tests 5",
+        "@opentenant/db-ephemeral:test: # pass 5",
+        "@opentenant/db-ephemeral:test: # fail 0",
+        "@opentenant/db-ephemeral:test: # skipped 0",
+        "@opentenant/notifications:test:  Test Files  2 passed (2)",
+        "@opentenant/notifications:test:       Tests  8 passed | 1 skipped (9)",
+        "@opentenant/tenant-module-nextjs-template:test:  Test Files  2 passed (2)",
+        "@opentenant/tenant-module-nextjs-template:test:       Tests  3 passed (3)",
+        "@opentenant/design-system:test:  Test Files  1 passed (1)",
+        "@opentenant/design-system:test:       Tests  4 passed (4)",
+        "@opentenant/auth:test:  Test Files  13 passed (13)",
+        "@opentenant/auth:test:       Tests  155 passed (155)",
+        "@opentenant/observability:test:  Test Files  4 passed | 1 skipped (5)",
+        "@opentenant/observability:test:       Tests  33 passed (33)",
+        "@opentenant/unattended:test: # tests 106",
+        "@opentenant/unattended:test: # pass 106",
+        "@opentenant/unattended:test: # fail 0",
+        "@opentenant/unattended:test: # skipped 0",
+        "@opentenant/sandbox:test:  Test Files  11 passed | 1 skipped (12)",
+        "@opentenant/sandbox:test:       Tests  146 passed | 1 skipped (147)",
+        "@opentenant/security:test:  Test Files  7 passed (7)",
+        "@opentenant/security:test:       Tests  66 passed (66)",
+        "@opentenant/module-sdk:test:  Test Files  2 passed (2)",
+        "@opentenant/module-sdk:test:       Tests  19 passed (19)",
+        "@opentenant/quality-contract:test:  Test Files  3 passed (3)",
+        "@opentenant/quality-contract:test:       Tests  54 passed (54)",
+        "@opentenant/authz:test:  Test Files  2 passed (2)",
+        "@opentenant/authz:test:       Tests  38 passed (38)",
+        "@opentenant/platform-core:test:  Test Files  10 passed (10)",
+        "@opentenant/platform-core:test:       Tests  118 passed (118)",
+        "@opentenant/database:test:  Test Files  15 passed | 9 skipped (24)",
+        "@opentenant/database:test:       Tests  114 passed | 12 skipped (126)",
+        "@opentenant/support:test:  Test Files  12 passed (12)",
+        "@opentenant/support:test:       Tests  86 passed (86)",
+        "@opentenant/auth-better-auth:test:  Test Files  1 passed (1)",
+        "@opentenant/auth-better-auth:test:       Tests  1 passed (1)",
+        "@opentenant/assessment:test:  Test Files  17 passed (17)",
+        "@opentenant/assessment:test:       Tests  211 passed (211)",
+        "@opentenant/brain:test:  Test Files  7 passed (7)",
+        "@opentenant/brain:test:       Tests  25 passed (25)",
+        "@opentenant/migrations:test:  Test Files  11 passed | 15 skipped (26)",
+        "@opentenant/migrations:test:       Tests  51 passed | 23 skipped (74)",
+        "@opentenant/provisioning:test:  Test Files  3 passed (3)",
+        "@opentenant/provisioning:test:       Tests  15 passed (15)",
+        "@opentenant/e2e:test: # tests 3",
+        "@opentenant/e2e:test: # pass 3",
+        "@opentenant/e2e:test: # fail 0",
+        "@opentenant/e2e:test: # skipped 0",
+        "@opentenant/developer-mcp:test:  Test Files  6 passed | 3 skipped (9)",
+        "@opentenant/developer-mcp:test:       Tests  118 passed | 23 skipped (141)",
+        "@opentenant/testing:test:  Test Files  5 passed | 1 skipped (6)",
+        "@opentenant/testing:test:       Tests  67 passed (67)",
+        "@opentenant/platform:test:  Test Files  85 passed | 5 skipped (90)",
+        "@opentenant/platform:test:       Tests  500 passed | 9 skipped (509)"
+      ],
+      "test_counts": {
+        "passed": 2044,
+        "failed": 0,
+        "skipped": 75
+      }
+    },
+    {
+      "label": "install-complete",
+      "command": "pnpm install --frozen-lockfile",
+      "exit": 0,
+      "duration_seconds": 0.465,
+      "log": "install-complete.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "module-audit-complete",
+      "command": "pnpm module:audit",
+      "exit": 0,
+      "duration_seconds": 0.484,
+      "log": "module-audit-complete.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "docs-complete",
+      "command": "pnpm docs:links",
+      "exit": 0,
+      "duration_seconds": 1.738,
+      "log": "docs-complete.log",
+      "counts": [],
+      "test_counts": null
+    },
+    {
+      "label": "r11-complete",
+      "command": "pnpm --filter @opentenant/testing exec vitest run src/r11-regressions.test.ts",
+      "exit": 0,
+      "duration_seconds": 1.199,
+      "log": "r11-complete.log",
+      "counts": [
+        "Test Files  1 passed (1)",
+        "Tests  20 passed (20)"
+      ],
+      "test_counts": {
+        "passed": 20,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "label": "diff-final",
+      "command": "git diff --check f078c8d HEAD",
+      "exit": 0,
+      "duration_seconds": 0.027,
+      "log": "diff-final.log",
+      "counts": [],
+      "test_counts": null
+    }
+  ]
+}

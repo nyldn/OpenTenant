@@ -1,0 +1,12 @@
+diff --git a/tooling/migrations/src/control-plane-model-routing-store.integration.test.ts b/tooling/migrations/src/control-plane-model-routing-store.integration.test.ts
+--- a/tooling/migrations/src/control-plane-model-routing-store.integration.test.ts
++++ b/tooling/migrations/src/control-plane-model-routing-store.integration.test.ts
+@@ -47,7 +47,7 @@ describeIntegration("model routing store schema against PostgreSQL", () => {
+     if (!modelRoutingStoreMigration) throw new Error("0029 model routing store migration is missing");
+     await applyMigrations(
+       pool,
+-      allMigrations.filter((migration) => migration.id !== modelRoutingStoreMigration.id),
++      allMigrations.filter((migration) => migration.id < modelRoutingStoreMigration.id),
+     );
+     await pool.query(
+       `insert into tenants (tenant_id, slug, display_name, status, data_region)

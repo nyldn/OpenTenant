@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "historicalCells": 630,
+  "currentCells": 702,
+  "oldId": "persona|canonical route|width",
+  "newId": "persona|scenario|widthxheight",
+  "retained": [
+    {
+      "historicalRoute": "/",
+      "scenario": "home"
+    },
+    {
+      "historicalRoute": "/tenants",
+      "scenario": "tenants"
+    },
+    {
+      "historicalRoute": "/settings",
+      "scenario": "settings"
+    },
+    {
+      "historicalRoute": "/settings/activity",
+      "scenario": "settings-activity"
+    },
+    {
+      "historicalRoute": "/settings/branding",
+      "scenario": "settings-branding"
+    },
+    {
+      "historicalRoute": "/settings/connections",
+      "scenario": "settings-connections"
+    },
+    {
+      "historicalRoute": "/settings/domains",
+      "scenario": "settings-domains"
+    },
+    {
+      "historicalRoute": "/settings/identity",
+      "scenario": "settings-identity"
+    },
+    {
+      "historicalRoute": "/settings/members",
+      "scenario": "settings-members"
+    },
+    {
+      "historicalRoute": "/settings/modules",
+      "scenario": "settings-modules"
+    },
+    {
+      "historicalRoute": "/settings/navigation",
+      "scenario": "settings-navigation"
+    },
+    {
+      "historicalRoute": "/admin",
+      "scenario": "admin"
+    },
+    {
+      "historicalRoute": "/admin/audit",
+      "scenario": "admin-audit"
+    },
+    {
+      "historicalRoute": "/admin/helpdesk",
+      "scenario": "admin-helpdesk"
+    },
+    {
+      "historicalRoute": "/admin/support",
+      "scenario": "admin-support"
+    },
+    {
+      "historicalRoute": "/admin/tenants/new",
+      "scenario": "admin-tenants-new"
+    },
+    {
+      "historicalRoute": "/admin/tenants/tenant_e2e",
+      "scenario": "admin-tenants-{tenant}"
+    },
+    {
+      "historicalRoute": "/admin/tenants/tenant_e2e/brand-proposals",
+      "scenario": "admin-tenants-{tenant}-brand-proposals"
+    },
+    {
+      "historicalRoute": "/admin/tenants/tenant_e2e/owner-claim",
+      "scenario": "admin-tenants-{tenant}-owner-claim"
+    },
+    {
+      "historicalRoute": "/assessment",
+      "scenario": "assessment"
+    },
+    {
+      "historicalRoute": "/brain",
+      "scenario": "knowledge"
+    },
+    {
+      "historicalRoute": "/support",
+      "scenario": "support"
+    },
+    {
+      "historicalRoute": "/support/{ticket}",
+      "scenario": "support-ticket"
+    },
+    {
+      "historicalRoute": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "scenario": "helpdesk-workspace-ticket"
+    },
+    {
+      "historicalRoute": "/access/e2e-stub",
+      "scenario": "access-remote-fixture"
+    },
+    {
+      "historicalRoute": "/m/e2e-stub/",
+      "scenario": "remote-fixture"
+    },
+    {
+      "historicalRoute": "/auth/login",
+      "scenario": "auth-login"
+    },
+    {
+      "historicalRoute": "/sign-in",
+      "scenario": "sign-in"
+    },
+    {
+      "historicalRoute": "/sign-up",
+      "scenario": "sign-up"
+    },
+    {
+      "historicalRoute": "/assessment?uatStage=dimensions",
+      "scenario": "assessment-dimensions"
+    },
+    {
+      "historicalRoute": "/assessment?uatStage=results",
+      "scenario": "assessment-results"
+    },
+    {
+      "historicalRoute": "/access/assessment",
+      "scenario": "access-assessment"
+    },
+    {
+      "historicalRoute": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "scenario": "helpdesk-alpha-ticket"
+    },
+    {
+      "historicalRoute": "/api/mcp/developer/confirm",
+      "scenario": "mcp-confirm"
+    },
+    {
+      "historicalRoute": "/api/mcp/developer/authorize",
+      "scenario": "mcp-authorize"
+    }
+  ],
+  "added": [
+    {
+      "id": "beta-home",
+      "route": "/",
+      "host": "beta"
+    },
+    {
+      "id": "hostile-home",
+      "route": "/",
+      "host": "hostile"
+    },
+    {
+      "id": "fresh-home",
+      "route": "/",
+      "host": "fresh"
+    },
+    {
+      "id": "pending-claim",
+      "route": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "host": "pending"
+    }
+  ],
+  "contexts": {
+    "hosts": "verified tenant.localhost instead of shared localhost plus tenant override cookie",
+    "tenantOwner": "Alpha normally; the explicit beta/hostile/fresh home probes use that host's seeded owner",
+    "admin": "Alpha instead of workspace",
+    "member": "Alpha instead of workspace",
+    "managedSupport": "dedicated installation operator without tenant membership instead of workspace owner",
+    "assessment": "partial seeded draft instead of complete keyboard journey",
+    "supportTicket": "visible seeded SUP-000001 ticket per persona instead of a workspace-created UUID",
+    "rawApiDenials": "Non-HTML MCP and remote-proxy 403/404 responses are HTTP receipts instead of product axe documents"
+  }
+}

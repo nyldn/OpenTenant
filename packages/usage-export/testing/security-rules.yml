@@ -1,0 +1,36 @@
+rules:
+  - id: no-dynamic-eval
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Dynamic code execution requires an isolation boundary.
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)
+  - id: no-disabled-tls-verification
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: TLS certificate verification must remain enabled.
+    pattern: '{..., rejectUnauthorized: false, ...}'
+  - id: no-environment-secret-logging
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Do not log environment values.
+    pattern-either:
+      - pattern: console.log(process.env.$KEY)
+      - pattern: console.error(process.env.$KEY)
+  - id: no-sql-string-concatenation
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Use parameterized queries for dynamic values.
+    pattern: $DB.query($SQL + $VALUE, ...)
+  - id: no-shell-child-process-exec
+    languages: [typescript, javascript]
+    severity: WARNING
+    message: Review host shell execution and prefer structured argv.
+    patterns:
+      - pattern-either:
+          - pattern: $CP.exec($CMD, ...)
+          - pattern: $CP.execSync($CMD, ...)
+      - pattern-inside: |
+          import $CP from "node:child_process";
+          ...

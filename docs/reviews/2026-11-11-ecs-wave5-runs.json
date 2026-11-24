@@ -1,0 +1,591 @@
+{
+  "base": "6ee5574eede954f7922692a68d657f2ea323d17b",
+  "branch": "t3/ecs-wave5",
+  "timing": "subprocess wall time, including cleanup; runner-specific clocks are also retained",
+  "runs": [
+    {
+      "name": "install",
+      "command": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "exit": 0,
+      "seconds": 19.058,
+      "stdout_sha256": "7a8afa2cf303182d369315981962def0da7cc698a44eb3a5bd88136ede5c309e",
+      "stdout_bytes": 121136,
+      "result": "installation succeeded"
+    },
+    {
+      "name": "rls-purity",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "rls:proof"
+      ],
+      "exit": 0,
+      "seconds": 14.515
+    },
+    {
+      "name": "e2e-list",
+      "command": [
+        "pnpm",
+        "e2e",
+        "--list"
+      ],
+      "exit": 0,
+      "seconds": 5.094,
+      "stdout_sha256": "e295e0b1d1aee4b51028cda0988ef99646b5cff201b45775f77bf1a4e158c81f",
+      "stdout_bytes": 2238,
+      "result": "19 listed; 0 executed; listing exit 0"
+    },
+    {
+      "name": "legacy-upgrade",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "bash",
+        "-c",
+        "node tooling/ci/create-integration-databases.mjs && TENANT_CORE_INTEGRATION_DATABASE_URL=\"${ADMIN_DATABASE_URL%/*}/opentenant_it_tenant_core\" pnpm --filter @opentenant/migrations exec vitest run src/tenant-core.integration.test.ts"
+      ],
+      "exit": 1,
+      "seconds": 19.923
+    },
+    {
+      "name": "legacy-upgrade-rerun",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "bash",
+        "-c",
+        "node --input-type=module -e 'import {createIntegrationDatabases} from \"./tooling/ci/create-integration-databases.mjs\"; await createIntegrationDatabases(process.env.ADMIN_DATABASE_URL, {allowUnixSocketServer: true});' && TENANT_CORE_INTEGRATION_DATABASE_URL=\"${ADMIN_DATABASE_URL%/*}/opentenant_it_tenant_core\" pnpm --filter @opentenant/migrations exec vitest run src/tenant-core.integration.test.ts"
+      ],
+      "exit": 0,
+      "seconds": 26.977
+    },
+    {
+      "name": "build",
+      "command": [
+        "pnpm",
+        "turbo",
+        "build",
+        "--force"
+      ],
+      "exit": 0,
+      "seconds": 142.701
+    },
+    {
+      "name": "release-local",
+      "command": [
+        "pnpm",
+        "release:local-proof"
+      ],
+      "exit": 1,
+      "seconds": 18.678
+    },
+    {
+      "name": "release-local-rerun",
+      "command": [
+        "pnpm",
+        "release:local-proof"
+      ],
+      "exit": 1,
+      "seconds": 32.813
+    },
+    {
+      "name": "db-sequence",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "ci:db-sequence"
+      ],
+      "exit": 1,
+      "seconds": 66.609
+    },
+    {
+      "name": "dx-local",
+      "command": [
+        "env",
+        "DX_IDENTITY=local",
+        "DX_TIMED_REPORT=/tmp/ecs-wave5-evidence/dx-local.json",
+        "pnpm",
+        "dx:timed"
+      ],
+      "exit": 0,
+      "seconds": 145.604
+    },
+    {
+      "name": "quality",
+      "command": [
+        "pnpm",
+        "turbo",
+        "typecheck",
+        "lint",
+        "test",
+        "--force",
+        "--concurrency=2"
+      ],
+      "exit": 2,
+      "seconds": 199.677
+    },
+    {
+      "name": "dx-better-auth",
+      "command": [
+        "env",
+        "DX_IDENTITY=better-auth",
+        "DX_TIMED_REPORT=/tmp/ecs-wave5-evidence/dx-better-auth.json",
+        "pnpm",
+        "dx:timed"
+      ],
+      "exit": 0,
+      "seconds": 52.032
+    },
+    {
+      "name": "docs-links",
+      "command": [
+        "pnpm",
+        "docs:links"
+      ],
+      "exit": 0,
+      "seconds": 3.102
+    },
+    {
+      "name": "semgrep",
+      "command": [
+        "semgrep",
+        "scan",
+        "--config",
+        "packages/auth-better-auth/semgrep.yml",
+        "--metrics=off",
+        "--disable-version-check",
+        "--exclude",
+        "node_modules",
+        "--exclude",
+        "graphify-out",
+        "--exclude",
+        "**/dist/**",
+        "."
+      ],
+      "exit": 0,
+      "seconds": 14.363
+    },
+    {
+      "name": "db-sequence-rerun",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "ci:db-sequence"
+      ],
+      "exit": 1,
+      "seconds": 56.905
+    },
+    {
+      "name": "release-local-third",
+      "command": [
+        "pnpm",
+        "release:local-proof"
+      ],
+      "exit": 1,
+      "seconds": 210.165
+    },
+    {
+      "name": "gitleaks",
+      "command": [
+        "gitleaks",
+        "dir",
+        ".",
+        "--config",
+        "tooling/build/gitleaks.toml",
+        "--redact",
+        "--no-banner",
+        "--no-color"
+      ],
+      "exit": 1,
+      "seconds": 60.922
+    },
+    {
+      "name": "trivy",
+      "command": [
+        "trivy",
+        "fs",
+        "--scanners",
+        "vuln,misconfig",
+        "--skip-dirs",
+        "node_modules",
+        "--skip-dirs",
+        ".git",
+        "--skip-dirs",
+        "graphify-out",
+        "--skip-dirs",
+        ".next",
+        "--skip-dirs",
+        "artifacts",
+        "--skip-dirs",
+        ".turbo",
+        "--skip-dirs",
+        "dist",
+        "--disable-telemetry",
+        "--format",
+        "json",
+        "--output",
+        "/tmp/ecs-wave5-evidence/trivy.json",
+        "."
+      ],
+      "exit": 1,
+      "seconds": 5.651
+    },
+    {
+      "name": "gitleaks-source",
+      "command": [
+        "python3",
+        "/tmp/ecs-wave5-scan.py"
+      ],
+      "exit": 0,
+      "seconds": 7.099
+    },
+    {
+      "name": "package-forced",
+      "command": [
+        "pnpm",
+        "package:check"
+      ],
+      "exit": 0,
+      "seconds": 139.725
+    },
+    {
+      "name": "semgrep-rerun",
+      "command": [
+        "semgrep",
+        "scan",
+        "--config",
+        "packages/auth-better-auth/semgrep.yml",
+        "--metrics=off",
+        "--disable-version-check",
+        "--timeout",
+        "60",
+        "--exclude",
+        "node_modules",
+        "--exclude",
+        "graphify-out",
+        "--exclude",
+        "**/dist/**",
+        "."
+      ],
+      "exit": 0,
+      "seconds": 16.346
+    },
+    {
+      "name": "release-local-fourth",
+      "command": [
+        "env",
+        "RELEASE_LOCAL_REPORT=/tmp/ecs-wave5-evidence/release-local.json",
+        "pnpm",
+        "release:local-proof"
+      ],
+      "exit": 1,
+      "seconds": 288.376
+    },
+    {
+      "name": "trivy-source",
+      "command": [
+        "python3",
+        "/tmp/ecs-wave5-trivy.py"
+      ],
+      "exit": 0,
+      "seconds": 7.846,
+      "stdout_sha256": "1016de5268248bb3ecf724416dcbc2facb6d04baa91b0a12c7a49de1467e66f5",
+      "stdout_bytes": 1210,
+      "result": "3 medium advisories; 0 high/critical; 0 misconfigurations"
+    },
+    {
+      "name": "quality-rerun",
+      "command": [
+        "pnpm",
+        "turbo",
+        "typecheck",
+        "lint",
+        "test",
+        "--force",
+        "--concurrency=2"
+      ],
+      "exit": 0,
+      "seconds": 436.239,
+      "stdout_sha256": "3c3a090ad8f2b8911f2fdf471e9d3ff5723c8c2dc31a02ebf4b74c32026dcce1",
+      "stdout_bytes": 237866,
+      "result": "112 tasks passed; tests: 2050 passed / 0 failed / 75 skipped"
+    },
+    {
+      "name": "smoke",
+      "command": [
+        "node",
+        "scripts/smoke-deploy.mjs"
+      ],
+      "exit": 0,
+      "seconds": 768.857,
+      "stdout_sha256": "a52d0ef13586157e584a22ce867fe54853e1feb3b12c3a0094052e112c2e7a1d",
+      "stdout_bytes": 269708,
+      "result": "1 deployment proof passed / 0 failed / 0 skipped; cleanup succeeded"
+    },
+    {
+      "name": "build-final",
+      "command": [
+        "pnpm",
+        "turbo",
+        "build",
+        "--force"
+      ],
+      "exit": 0,
+      "seconds": 130.183,
+      "stdout_sha256": "517668c7e87f4e3aab3d59e761c15369984ae6fb1fc28f890c9a2dea847d8ec6",
+      "stdout_bytes": 127339,
+      "result": "25 build tasks passed; 0 failed; 0 skipped"
+    },
+    {
+      "name": "release-local-fifth",
+      "command": [
+        "env",
+        "RELEASE_LOCAL_REPORT=/tmp/ecs-wave5-evidence/release-local.json",
+        "pnpm",
+        "release:local-proof"
+      ],
+      "exit": 0,
+      "seconds": 229.424,
+      "stdout_sha256": "ec58309d40de8a08c0498154d0e96d682948182b7c25392d64abe62d7d8351e8",
+      "stdout_bytes": 159808,
+      "result": "23 packages published and matched; clean host passed; 0 failed / 0 skipped"
+    },
+    {
+      "name": "package-final",
+      "command": [
+        "pnpm",
+        "package:check"
+      ],
+      "exit": 0,
+      "seconds": 81.495,
+      "stdout_sha256": "51b6c3c359160b941c6d9a1d1542edaa7bcb85eabca58aad94b3a9cedd308215",
+      "stdout_bytes": 1550,
+      "result": "23 packages passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "rls-final",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "rls:proof"
+      ],
+      "exit": 0,
+      "seconds": 22.383,
+      "stdout_sha256": "7f1b1c47c9cd9286d506e0f3024fb99ebad6add42432cdcafeb1196e715727e1",
+      "stdout_bytes": 20145,
+      "result": "316 checks across 31 tables passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "cache-restored",
+      "command": [
+        "node",
+        "tooling/build/check-cache-restore.mjs"
+      ],
+      "exit": 0,
+      "seconds": 92.058,
+      "stdout_sha256": "dd0d79dccb1c70da6aba740daa99c77978d1a72c1e820948c60cf0b44dd45e59",
+      "stdout_bytes": 116169,
+      "result": "23 cache hits; package:check: 23 passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "mcp-brain-live",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "node",
+        "tooling/ci/mcp-brain-proof.mjs"
+      ],
+      "exit": 0,
+      "seconds": 37.273,
+      "stdout_sha256": "10bde7709954652ea72c267164ff10d442d388a901a49bbbc4cf13b7901882ea",
+      "stdout_bytes": 1738,
+      "result": "166 passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "migrations-live",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "--filter",
+        "@opentenant/migrations",
+        "test"
+      ],
+      "exit": 0,
+      "seconds": 105.589,
+      "stdout_sha256": "87aa18171bf397f857e33ed234da9d53d56f69800a9230c12e41772f8e7039e9",
+      "stdout_bytes": 10613,
+      "result": "178 passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "dx-local-final",
+      "command": [
+        "env",
+        "DX_IDENTITY=local",
+        "DX_TIMED_REPORT=/tmp/ecs-wave5-evidence/dx-local-final.json",
+        "pnpm",
+        "dx:timed"
+      ],
+      "exit": 0,
+      "seconds": 64.333,
+      "stdout_sha256": "8eaf9c1ecac343b5dfbe21890fd06b3deabc2fca20563f9ee03e512376043ec8",
+      "stdout_bytes": 136934,
+      "result": "1 clean-container proof passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "gitleaks-final",
+      "command": [
+        "python3",
+        "/tmp/ecs-wave5-scan.py"
+      ],
+      "exit": 0,
+      "seconds": 4.237,
+      "stdout_sha256": "b9fdde5227e2502a5709302b4b193cfba55ea5ccc6f1a11935175e8de2b4d9a6",
+      "stdout_bytes": 83,
+      "result": "0 leaks; source-only repository inventory"
+    },
+    {
+      "name": "semgrep-final",
+      "command": [
+        "semgrep",
+        "scan",
+        "--config",
+        "packages/auth-better-auth/semgrep.yml",
+        "--metrics=off",
+        "--disable-version-check",
+        "--timeout",
+        "60",
+        "--exclude",
+        "node_modules",
+        "--exclude",
+        "graphify-out",
+        "--exclude",
+        "**/dist/**",
+        "."
+      ],
+      "exit": 0,
+      "seconds": 8.447,
+      "stdout_sha256": "a262a8020d501bbda261a83b3d33e02f08c1f68f13571f6343e06981c1a59220",
+      "stdout_bytes": 1578,
+      "result": "2 rules; 880 files; 0 findings; 0 timeouts"
+    },
+    {
+      "name": "dx-better-auth-final",
+      "command": [
+        "env",
+        "DX_IDENTITY=better-auth",
+        "DX_TIMED_REPORT=/tmp/ecs-wave5-evidence/dx-better-auth-final.json",
+        "pnpm",
+        "dx:timed"
+      ],
+      "exit": 0,
+      "seconds": 49.678,
+      "stdout_sha256": "076893378ea5df3328dae325839d8698758c9ef29fd93cd749d58bda92e156ec",
+      "stdout_bytes": 136767,
+      "result": "1 clean-container proof passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "docs-links-final",
+      "command": [
+        "pnpm",
+        "docs:links"
+      ],
+      "exit": 0,
+      "seconds": 4.686
+    },
+    {
+      "name": "db-sequence-final",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "ci:db-sequence"
+      ],
+      "exit": 0,
+      "seconds": 331.096,
+      "stdout_sha256": "73ca434958e30d3a52dc074eefab7074e94a2ec984450b97aa53856ec328f67a",
+      "stdout_bytes": 13848,
+      "result": "139 passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "diff-working",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "6ee5574",
+        "HEAD"
+      ],
+      "exit": 0,
+      "seconds": 0.091,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "result": "clean diff"
+    },
+    {
+      "name": "e2e",
+      "command": [
+        "pnpm",
+        "e2e"
+      ],
+      "exit": 0,
+      "seconds": 412.792,
+      "stdout_sha256": "da66a95dbaf7a5e0a0190aba062129e8a1f0e2e36baee5ff7953b7ac9b50f217",
+      "stdout_bytes": 54285,
+      "result": "19 passed / 0 failed / 0 skipped"
+    },
+    {
+      "name": "docs-links-final",
+      "command": [
+        "pnpm",
+        "docs:links"
+      ],
+      "exit": 0,
+      "seconds": 2.524,
+      "stdout_sha256": "f7aff9cdc6c1181779c0c908f5b471c05a897b3c9ea3c400734dd00f7bcfe0cf",
+      "stdout_bytes": 207,
+      "result": "355 local links passed; 0 failed; 129 external URLs excluded"
+    }
+  ],
+  "dx_reports": {
+    "local": {
+      "command": "pnpm dx:timed",
+      "image": "node:22",
+      "identity": "local",
+      "duration_seconds": 58.653,
+      "limit_seconds": 600,
+      "passed": true
+    },
+    "better-auth": {
+      "command": "pnpm dx:timed",
+      "image": "node:22",
+      "identity": "better-auth",
+      "duration_seconds": 48.445,
+      "limit_seconds": 600,
+      "passed": true
+    }
+  },
+  "release_report": {
+    "passed": true,
+    "packages": 23,
+    "duration_seconds": 213.347,
+    "provenance": "Requires owner-gated GitHub OIDC release workflow; not verified locally"
+  }
+}

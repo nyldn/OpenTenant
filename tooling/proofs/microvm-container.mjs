@@ -1,0 +1,22 @@
+import { spawnSync } from "node:child_process";
+import { createConnection } from "node:net";
+import { createRequire } from "node:module";
+await new Promise((resolve, reject) => {
+  const socket = createConnection({ host: process.env.MICROSANDBOX_PROOF_HOST, port: Number(process.env.MICROSANDBOX_PROOF_HOST_PORT) });
+  socket.setTimeout(3000, () => socket.destroy(new Error("Host listener control timed out")));
+  socket.once("error", reject); socket.once("connect", () => { socket.destroy(); resolve(); });
+});
+console.log("Host listener reachable from Docker before NIC-disabled VM probe");
+const require = createRequire("/repo/packages/sandbox/package.json");
+const sdk = await import(require.resolve("microsandbox"));
+sdk.setDefaultBackend("local");
+const cli = require.resolve("microsandbox").replace(/dist\/index.js$/, "bin/microsandbox.cjs");
+const pulled = spawnSync(process.execPath, [cli, "image", "pull", process.env.MICROSANDBOX_TEST_IMAGE], { stdio: "inherit", timeout: 300_000 });
+if (pulled.error) throw pulled.error;
+if (pulled.status !== 0) throw new Error(`Local image pull failed: ${pulled.status}`);
+console.log("Local cached image:", await sdk.Image.get(process.env.MICROSANDBOX_TEST_IMAGE));
+const result = spawnSync(process.execPath, ["node_modules/vitest/vitest.mjs", "run", "src/providers/microsandbox/local.integration.test.ts", "--reporter=default", "--reporter=json", "--outputFile=/proof/vitest.json"], { stdio: "inherit", timeout: 180_000 });
+const remaining = await sdk.Sandbox.list();
+if (remaining.sandboxes.length) throw new Error(`VM records remain: ${remaining.sandboxes.map(s => s.name).join(",")}`);
+if (result.error) throw result.error;
+process.exitCode = result.status ?? 1;

@@ -1,0 +1,15 @@
+rules:
+  - id: no-auth-eval
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Dynamic evaluation in repository code
+    pattern-either:
+      - pattern: eval(...)
+      - pattern: new Function(...)
+  - id: no-auth-disabled-origin
+    languages: [typescript, javascript]
+    severity: ERROR
+    message: Do not disable identity origin and CSRF checks
+    pattern-either:
+      - pattern: '{ ..., disableCSRFCheck: true, ... }'
+      - pattern: '{ ..., disableOriginCheck: true, ... }'

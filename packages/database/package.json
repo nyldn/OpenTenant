@@ -1,0 +1,59 @@
+{
+  "name": "@opentenant/database",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./audit-checkpoints": {
+      "types": "./dist/audit-checkpoints.d.ts",
+      "import": "./dist/audit-checkpoints.js",
+      "default": "./dist/audit-checkpoints.js"
+    },
+    "./credential-config": {
+      "types": "./dist/credential-config.d.ts",
+      "import": "./dist/credential-config.js",
+      "default": "./dist/credential-config.js"
+    },
+    "./module-host": {
+      "types": "./dist/module-host.d.ts",
+      "import": "./dist/module-host.js",
+      "default": "./dist/module-host.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "audit:verify": "node --experimental-strip-types src/audit-cli.ts verify",
+    "audit:anchor": "node --experimental-strip-types src/audit-cli.ts anchor",
+    "keys:rotate": "vite-node src/credential-cipher-rotate.ts",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.20.3",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "vite-node": "3.2.4"
+  },
+  "dependencies": {
+    "pg": "^8.22.0",
+    "@opentenant/auth": "workspace:*",
+    "@opentenant/module-sdk": "workspace:*",
+    "@opentenant/platform-core": "workspace:*",
+    "@opentenant/security": "workspace:*"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

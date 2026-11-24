@@ -1,0 +1,59 @@
+{
+  "name": "@opentenant/notifications",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./email": {
+      "types": "./dist/email.d.ts",
+      "import": "./dist/email.js",
+      "default": "./dist/email.js"
+    },
+    "./smtp": {
+      "types": "./dist/smtp.d.ts",
+      "import": "./dist/smtp.js",
+      "default": "./dist/smtp.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:mailpit": "vitest run src/mailpit.integration.test.ts",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "dependencies": {
+    "@react-email/render": "1.0.5",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "@react-email/body": "0.0.11",
+    "@react-email/container": "0.0.15",
+    "@react-email/head": "0.0.12",
+    "@react-email/heading": "0.0.15",
+    "@react-email/html": "0.0.11",
+    "@react-email/preview": "0.0.12",
+    "@react-email/text": "0.1.1"
+  },
+  "optionalDependencies": {
+    "nodemailer": "10.0.10"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,264 @@
+$ pnpm install --frozen-lockfile
+exit=0; wall_seconds=19.058; installation succeeded
+. postinstall:  Tasks:    23 successful, 23 total
+. postinstall: Cached:    14 cached, 23 total
+. postinstall:   Time:    15.825s
+
+$ pnpm turbo build --force
+exit=0; wall_seconds=130.183; 25 build tasks passed; 0 failed; 0 skipped
+ Tasks:    25 successful, 25 total
+Cached:    0 cached, 25 total
+  Time:    2m7.598s
+
+$ pnpm turbo typecheck lint test --force --concurrency=2
+exit=0; wall_seconds=436.239; 112 tasks passed; tests: 2050 passed / 0 failed / 75 skipped
+@opentenant/ci:test: # pass 46
+@opentenant/ci:test: # fail 0
+@opentenant/ci:test: # skipped 0
+@opentenant/design-system:test:       Tests  4 passed (4)
+create-opentenant:test:       Tests  3 passed (3)
+@opentenant/observability:test:       Tests  33 passed (33)
+@opentenant/domains:test:       Tests  45 passed (45)
+@opentenant/sandbox:test:       Tests  146 passed | 1 skipped (147)
+@opentenant/usage-export:test:       Tests  8 passed | 6 skipped (14)
+@opentenant/auth:test:       Tests  155 passed (155)
+@opentenant/unattended:test: # pass 106
+@opentenant/unattended:test: # fail 0
+@opentenant/unattended:test: # skipped 0
+@opentenant/module-sdk:test:       Tests  19 passed (19)
+@opentenant/notifications:test:       Tests  8 passed | 1 skipped (9)
+@opentenant/security:test:       Tests  66 passed (66)
+@opentenant/db-ephemeral:test: # pass 5
+@opentenant/db-ephemeral:test: # fail 0
+@opentenant/db-ephemeral:test: # skipped 0
+@opentenant/tenant-module-nextjs-template:test:       Tests  3 passed (3)
+@opentenant/platform-core:test:       Tests  118 passed (118)
+@opentenant/quality-contract:test:       Tests  54 passed (54)
+@opentenant/authz:test:       Tests  38 passed (38)
+@opentenant/database:test:       Tests  115 passed | 12 skipped (127)
+@opentenant/auth-better-auth:test:       Tests  1 passed (1)
+@opentenant/support:test:       Tests  86 passed (86)
+@opentenant/brain:test:       Tests  25 passed (25)
+@opentenant/assessment:test:       Tests  211 passed (211)
+@opentenant/e2e:test: # pass 4
+@opentenant/e2e:test: # fail 0
+@opentenant/e2e:test: # skipped 0
+@opentenant/migrations:test:       Tests  51 passed | 23 skipped (74)
+@opentenant/developer-mcp:test:       Tests  118 passed | 23 skipped (141)
+@opentenant/provisioning:test:       Tests  15 passed (15)
+@opentenant/testing:test:       Tests  67 passed (67)
+@opentenant/platform:test:       Tests  500 passed | 9 skipped (509)
+ Tasks:    112 successful, 112 total
+Cached:    0 cached, 112 total
+  Time:    7m15.355s
+
+$ pnpm package:check
+exit=0; wall_seconds=81.495; 23 packages passed / 0 failed / 0 skipped
+PASS @opentenant/auth: licence, files, publint, ATTW
+PASS @opentenant/auth-better-auth: licence, files, publint, ATTW
+PASS @opentenant/authz: licence, files, publint, ATTW
+PASS create-opentenant: licence, files, publint, ATTW
+PASS @opentenant/database: licence, files, publint, ATTW
+PASS @opentenant/design-system: licence, files, publint, ATTW
+PASS @opentenant/developer-mcp: licence, files, publint, ATTW
+PASS @opentenant/domains: licence, files, publint, ATTW
+PASS @opentenant/module-sdk: licence, files, publint, ATTW
+PASS @opentenant/notifications: licence, files, publint, ATTW
+PASS @opentenant/observability: licence, files, publint, ATTW
+PASS @opentenant/platform-core: licence, files, publint, ATTW
+PASS @opentenant/quality-contract: licence, files, publint, ATTW
+PASS @opentenant/sandbox: licence, files, publint, ATTW
+PASS @opentenant/security: licence, files, publint, ATTW
+PASS @opentenant/testing: licence, files, publint, ATTW
+PASS @opentenant/usage-export: licence, files, publint, ATTW
+PASS @opentenant/assessment: licence, files, publint, ATTW
+PASS @opentenant/brain: licence, files, publint, ATTW
+PASS @opentenant/support: licence, files, publint, ATTW
+PASS @opentenant/migrations: licence, files, publint, ATTW
+PASS @opentenant/provisioning: licence, files, publint, ATTW
+PASS @example/module-hello: licence, files, publint, ATTW
+10:36PM INF no leaks found
+PASS 23 public packages; SQL catalog, secret scan and 631 SBOM licence entries
+
+$ node tooling/build/check-cache-restore.mjs
+exit=0; wall_seconds=92.058; 23 cache hits; package:check: 23 passed / 0 failed / 0 skipped
+  Tasks:    23 successful, 23 total
+ Cached:    23 cached, 23 total
+   Time:    430ms >>> FULL TURBO
+PASS @opentenant/auth: licence, files, publint, ATTW
+PASS @opentenant/auth-better-auth: licence, files, publint, ATTW
+PASS @opentenant/authz: licence, files, publint, ATTW
+PASS create-opentenant: licence, files, publint, ATTW
+PASS @opentenant/database: licence, files, publint, ATTW
+PASS @opentenant/design-system: licence, files, publint, ATTW
+PASS @opentenant/developer-mcp: licence, files, publint, ATTW
+PASS @opentenant/domains: licence, files, publint, ATTW
+PASS @opentenant/module-sdk: licence, files, publint, ATTW
+PASS @opentenant/notifications: licence, files, publint, ATTW
+PASS @opentenant/observability: licence, files, publint, ATTW
+PASS @opentenant/platform-core: licence, files, publint, ATTW
+PASS @opentenant/quality-contract: licence, files, publint, ATTW
+PASS @opentenant/sandbox: licence, files, publint, ATTW
+PASS @opentenant/security: licence, files, publint, ATTW
+PASS @opentenant/testing: licence, files, publint, ATTW
+PASS @opentenant/usage-export: licence, files, publint, ATTW
+PASS @opentenant/assessment: licence, files, publint, ATTW
+PASS @opentenant/brain: licence, files, publint, ATTW
+PASS @opentenant/support: licence, files, publint, ATTW
+PASS @opentenant/migrations: licence, files, publint, ATTW
+PASS @opentenant/provisioning: licence, files, publint, ATTW
+PASS @example/module-hello: licence, files, publint, ATTW
+10:38PM INF no leaks found
+PASS 23 public packages; SQL catalog, secret scan and 631 SBOM licence entries
+PASS cache restore: 23 cache hits; package:check passed after deleting generated dist/sql
+
+$ pnpm db:ephemeral -- pnpm ci:db-sequence
+exit=0; wall_seconds=331.096; 139 passed / 0 failed / 0 skipped
+admission: 3 executed, 0 skipped
+usage: 2 executed, 0 skipped
+model-routing: 4 executed, 0 skipped
+module-ownership: 1 executed, 0 skipped
+module-capability: 2 executed, 0 skipped
+brand-proposal: 11 executed, 0 skipped
+helpdesk-projection: 7 executed, 0 skipped
+audit-checkpoints: 10 executed, 0 skipped
+      Tests  1 passed (1)
+DB sequence provisioning-neon: 1 passed, 0 failed, 0 skipped
+      Tests  2 passed (2)
+DB sequence provisioning-postgres: 2 passed, 0 failed, 0 skipped
+      Tests  65 passed (65)
+DB sequence identity: 65 passed, 0 failed, 0 skipped
+      Tests  8 passed (8)
+DB sequence worker: 8 passed, 0 failed, 0 skipped
+      Tests  14 passed (14)
+DB sequence usage-export: 14 passed, 0 failed, 0 skipped
+      Tests  9 passed (9)
+isolation-fuzz: 9 executed, 0 skipped; 175 family sequences + 5 malformed-ID sequences
+
+$ pnpm db:ephemeral -- pnpm rls:proof
+exit=0; wall_seconds=22.383; 316 checks across 31 tables passed / 0 failed / 0 skipped
+All 316 RLS proof checks passed across 31 tenant tables
+
+$ pnpm e2e --list
+exit=0; wall_seconds=5.094; 19 listed; 0 executed; listing exit 0
+Total: 11 tests in 6 files
+Total: 8 tests in 7 files
+
+$ pnpm e2e
+exit=0; wall_seconds=412.792; 19 passed / 0 failed / 0 skipped
+E2E total: 19 passed, 0 failed, 0 skipped across 2 phases.
+
+$ env RELEASE_LOCAL_REPORT=/tmp/ecs-wave5-evidence/release-local.json pnpm release:local-proof
+exit=0; wall_seconds=229.424; 23 packages published and matched; clean host passed; 0 failed / 0 skipped
+ Tasks:    23 successful, 23 total
+Cached:    0 cached, 23 total
+  Time:    52.593s
+PASS @opentenant/auth: licence, files, publint, ATTW
+PASS @opentenant/auth-better-auth: licence, files, publint, ATTW
+PASS @opentenant/authz: licence, files, publint, ATTW
+PASS create-opentenant: licence, files, publint, ATTW
+PASS @opentenant/database: licence, files, publint, ATTW
+PASS @opentenant/design-system: licence, files, publint, ATTW
+PASS @opentenant/developer-mcp: licence, files, publint, ATTW
+PASS @opentenant/domains: licence, files, publint, ATTW
+PASS @opentenant/module-sdk: licence, files, publint, ATTW
+PASS @opentenant/notifications: licence, files, publint, ATTW
+PASS @opentenant/observability: licence, files, publint, ATTW
+PASS @opentenant/platform-core: licence, files, publint, ATTW
+PASS @opentenant/quality-contract: licence, files, publint, ATTW
+PASS @opentenant/sandbox: licence, files, publint, ATTW
+PASS @opentenant/security: licence, files, publint, ATTW
+PASS @opentenant/testing: licence, files, publint, ATTW
+PASS @opentenant/usage-export: licence, files, publint, ATTW
+PASS @opentenant/assessment: licence, files, publint, ATTW
+PASS @opentenant/brain: licence, files, publint, ATTW
+PASS @opentenant/support: licence, files, publint, ATTW
+PASS @opentenant/migrations: licence, files, publint, ATTW
+PASS @opentenant/provisioning: licence, files, publint, ATTW
+PASS @example/module-hello: licence, files, publint, ATTW
+10:34PM INF no leaks found
+PASS 23 public packages; SQL catalog, secret scan and 631 SBOM licence entries
+PASS registry tarball: @opentenant/auth@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/auth-better-auth@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/authz@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: create-opentenant@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/database@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/design-system@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/developer-mcp@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/domains@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/module-sdk@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/notifications@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/observability@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/platform-core@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/quality-contract@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/sandbox@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/security@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/testing@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/usage-export@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/assessment@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/brain@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/support@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/migrations@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @opentenant/provisioning@0.2.0; bytes, files and exports match package:check
+PASS registry tarball: @example/module-hello@0.2.0; bytes, files and exports match package:check
+PASS clean-container tenant home: 200; host typecheck passed
+{"passed":true,"packages":23,"duration_seconds":213.347,"provenance":"Requires owner-gated GitHub OIDC release workflow; not verified locally"}
+
+$ env DX_IDENTITY=local DX_TIMED_REPORT=/tmp/ecs-wave5-evidence/dx-local-final.json pnpm dx:timed
+exit=0; wall_seconds=64.333; 1 clean-container proof passed / 0 failed / 0 skipped
+ Tasks:    23 successful, 23 total
+Cached:    23 cached, 23 total
+  Time:    303ms >>> FULL TURBO
+PASS clean-container tenant home: 200; host typecheck passed
+{"command":"pnpm dx:timed","image":"node:22","identity":"local","duration_seconds":58.653,"limit_seconds":600,"passed":true}
+
+$ env DX_IDENTITY=better-auth DX_TIMED_REPORT=/tmp/ecs-wave5-evidence/dx-better-auth-final.json pnpm dx:timed
+exit=0; wall_seconds=49.678; 1 clean-container proof passed / 0 failed / 0 skipped
+ Tasks:    23 successful, 23 total
+Cached:    23 cached, 23 total
+  Time:    195ms >>> FULL TURBO
+PASS clean-container tenant home: 200; host typecheck passed
+{"command":"pnpm dx:timed","image":"node:22","identity":"better-auth","duration_seconds":48.445,"limit_seconds":600,"passed":true}
+
+$ node scripts/smoke-deploy.mjs
+exit=0; wall_seconds=768.857; 1 deployment proof passed / 0 failed / 0 skipped; cleanup succeeded
+. postinstall:  Tasks:    23 successful, 23 total
+. postinstall: Cached:    0 cached, 23 total
+. postinstall:   Time:    1m2.09s
+. postinstall:  Tasks:    23 successful, 23 total
+. postinstall: Cached:    0 cached, 23 total
+. postinstall:   Time:    39.313s
+Smoke health: /api/health 200; migration completed before app startup; non-root image user verified.
+Smoke tenant hosts: verified smoke.example.test 200; unknown.example.test and unknown.localhost 404; no tenant branding leaked.
+Smoke migration: second run succeeded with the canonical checksum/lock runner.
+Smoke PASS: local deployment only; no cloud calls or provider credentials.
+Smoke cleanup: containers, network, database volume and tagged images removed.
+
+$ pnpm db:ephemeral -- pnpm --filter @opentenant/migrations test
+exit=0; wall_seconds=105.589; 178 passed / 0 failed / 0 skipped
+      Tests  178 passed (178)
+
+$ pnpm db:ephemeral -- node tooling/ci/mcp-brain-proof.mjs
+exit=0; wall_seconds=37.273; 166 passed / 0 failed / 0 skipped
+      Tests  141 passed (141)
+PASS developer-mcp: 141 tests, zero failures/skips
+      Tests  25 passed (25)
+PASS brain: 25 tests, zero failures/skips
+
+$ pnpm docs:links
+exit=0; wall_seconds=2.524; 355 local links passed; 0 failed; 129 external URLs excluded
+docs-links: 157 files; 355 local links checked, including 9 cross-file anchors; 129 external URLs excluded; 0 failures
+
+$ git diff --check 6ee5574 HEAD
+exit=0; wall_seconds=0.091; clean diff
+
+$ python3 /tmp/ecs-wave5-scan.py
+exit=0; wall_seconds=4.237; 0 leaks; source-only repository inventory
+10:39PM INF no leaks found
+
+$ semgrep scan --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --timeout 60 --exclude node_modules --exclude graphify-out --exclude '**/dist/**' .
+exit=0; wall_seconds=8.447; 2 rules; 880 files; 0 findings; 0 timeouts
+Ran 2 rules on 880 files: 0 findings.
+
+$ python3 /tmp/ecs-wave5-trivy.py
+exit=0; wall_seconds=7.846; 3 medium advisories; 0 high/critical; 0 misconfigurations

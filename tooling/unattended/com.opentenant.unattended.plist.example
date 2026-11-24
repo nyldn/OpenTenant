@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Example launchd agent for the unattended loop. NOT installed by this
+  repository, and deliberately not executable as written.
+
+  It runs the loop WITHOUT --execute, so it reports what it would do and
+  changes nothing. Adding --execute lets an agent write code and lets the
+  controller create commits on your machine while you are not watching. Make
+  that change deliberately, on a branch you are willing to throw away, after
+  reading docs/tooling/unattended-development.md.
+
+  Install:
+    cp tooling/unattended/com.opentenant.unattended.plist.example \
+       ~/Library/LaunchAgents/com.opentenant.unattended.plist
+    # edit WorkingDirectory and the node path first
+    launchctl load ~/Library/LaunchAgents/com.opentenant.unattended.plist
+
+  Remove:
+    launchctl unload ~/Library/LaunchAgents/com.opentenant.unattended.plist
+
+  The loop holds the same single run lock as a manual invocation, so an
+  overlapping schedule cannot start a second controller. It stops on the first
+  failure and leaves the evidence in place.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.opentenant.unattended</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/opt/homebrew/opt/node@22/bin/node</string>
+    <string>tooling/unattended/src/cli.mjs</string>
+    <string>loop</string>
+    <string>--max-iterations</string>
+    <string>3</string>
+    <string>--budget-minutes</string>
+    <string>90</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/REPLACE/WITH/PATH/TO/A/CODEX/WORKTREE</string>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>2</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/opentenant-unattended.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/opentenant-unattended.err</string>
+
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

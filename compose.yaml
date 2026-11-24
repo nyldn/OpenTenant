@@ -1,0 +1,41 @@
+services:
+  # Apache-2.0. Disposable in-memory store; explicitly opt in for local development.
+  openfga:
+    profiles: ["authz"]
+    image: openfga/openfga:v1.11.0@sha256:4ae8bb77ddc1a064a241f049d724971e7c2075b6792b3c477abf0409d899b61a
+    command: ["run", "--datastore-engine", "memory", "--playground-enabled=false"]
+    ports:
+      - "127.0.0.1:58080:8080"
+
+  postgres:
+    image: pgvector/pgvector:0.8.2-pg17-bookworm
+    environment:
+      POSTGRES_DB: opentenant
+      POSTGRES_USER: opentenant
+      POSTGRES_PASSWORD: opentenant-local
+    ports:
+      - "127.0.0.1:55432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U opentenant -d opentenant"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - opentenant-postgres:/var/lib/postgresql/data
+
+  mailpit:
+    image: axllent/mailpit:v1.27.8@sha256:6abc8e633df15eaf785cfcf38bae48e66f64beecdc03121e249d0f9ec15f0707
+    ports:
+      - "127.0.0.1:11026:1025"
+      - "127.0.0.1:18026:8025"
+    environment:
+      MP_MAX_MESSAGES: 500
+      MP_SMTP_AUTH_ACCEPT_ANY: "false"
+    healthcheck:
+      test: ["CMD", "/mailpit", "readyz"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  opentenant-postgres:

@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 OpenTenant contributors.
+# Original optional Kamal 2 configuration. MIT terms: THIRD_PARTY_NOTICES.md.
+# Copy to an ignored operator config and replace every placeholder.
+service: replace-service-name
+image: replace-registry-namespace/replace-image-name
+servers:
+  web:
+    - replace-vps-host
+registry:
+  server: replace-registry-host
+  username: replace-registry-user
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+builder:
+  arch: amd64
+  context: .
+  dockerfile: apps/platform/Dockerfile
+  target: runner
+proxy:
+  ssl: false
+  host: replace-tenant-host
+  app_port: 3000
+  healthcheck:
+    path: /api/health
+env:
+  clear:
+    IDENTITY_PROVIDER: replace-workos-or-clerk
+    PLATFORM_PUBLIC_ORIGIN: replace-public-origin
+    PLATFORM_ADMIN_HOST: replace-admin-host
+  secret:
+    - CONTROL_PLANE_DATABASE_URL
+    - MODULE_ACCESS_SECRET
+    - CONNECTIONS_STATE_SECRET
+    # Replace with the selected provider's complete variable-name list.
+    - WORKOS_API_KEY
+    - WORKOS_CLIENT_ID
+    - WORKOS_COOKIE_PASSWORD
+    - WORKOS_REDIRECT_URI

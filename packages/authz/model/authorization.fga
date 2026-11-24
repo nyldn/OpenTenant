@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: Apache-2.0
+model
+  schema 1.1
+
+# Installation is metadata, never an installation-wide permission grant.
+type installation
+
+type member
+
+type tenant
+  relations
+    define tenant_owner: [member]
+    define tenant_admin: [member]
+    define tenant_member: [member]
+    define active: tenant_owner or tenant_admin or tenant_member
+
+type module
+  relations
+    define tenant: [tenant]
+    define entitled: [tenant#active]
+    define access: entitled and active from tenant
+
+type permission
+  relations
+    define module: [module]
+    define grantee: [tenant#tenant_owner, tenant#tenant_admin, tenant#tenant_member]
+    define granted: grantee and access from module

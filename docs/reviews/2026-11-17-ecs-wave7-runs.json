@@ -1,0 +1,511 @@
+{
+  "source_revision": "e76f37568e663a3078ec919b5bfc41ee6882b1be",
+  "runs": [
+    {
+      "name": "quality",
+      "command": [
+        "./node_modules/.bin/turbo",
+        "typecheck",
+        "lint",
+        "test",
+        "--force",
+        "--concurrency=2"
+      ],
+      "exit": 1,
+      "seconds": 3.133,
+      "stdout_sha256": "389fdad5ecd4d583420819be929b7d6adbc01d7b3d9034cca7c5392ed0c04110",
+      "unit": "forge-job-opentenant-e13-quality-5c23ff1b2855.service",
+      "unit_inactive": true,
+      "counts": {
+        "successful_tasks": 0,
+        "failed_tasks": 1
+      }
+    },
+    {
+      "name": "rls",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "rls:proof"
+      ],
+      "exit": 0,
+      "seconds": 19.227,
+      "stdout_sha256": "dae964bea25bdc4edb9c6527f3fe34504c869ca2d978bd590a5f0918fb2a888f",
+      "unit": "forge-job-opentenant-e13-rls-b9a75ca3d42d.service",
+      "unit_inactive": true,
+      "counts": {
+        "checks_passed": 406,
+        "checks_failed": 0,
+        "tenant_tables": 41,
+        "tenant_schemas": 3
+      }
+    },
+    {
+      "name": "tenant-whitelabel-e2e",
+      "command": [
+        "env",
+        "E2E_PHASE=legacy",
+        "npm_config_offline=true",
+        "node",
+        "tooling/e2e/run-phase.mjs",
+        "specs/tenant.spec.ts",
+        "specs/theming.e2e.spec.ts",
+        "specs/custom-domains.e2e.spec.ts"
+      ],
+      "exit": 1,
+      "seconds": 103.295,
+      "stdout_sha256": "a54b82abcd04463341010b54eee1644c0471af6a681cb8f554c53d2e74efcacf",
+      "unit": "forge-job-opentenant-e13-tenant-whitelabel-e2e-8adc35ab53b7.service",
+      "unit_inactive": true,
+      "counts": {
+        "executed": 0,
+        "successful_setup": 0
+      }
+    },
+    {
+      "name": "install",
+      "command": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile",
+        "--offline",
+        "--ignore-scripts"
+      ],
+      "exit": 0,
+      "counts": {
+        "successful_installs": 1,
+        "downloads": 0,
+        "workspace_projects": 31
+      },
+      "unit": "forge-job-opentenant-e13-install-81097f92b057.service",
+      "unit_inactive": true
+    },
+    {
+      "name": "build",
+      "command": [
+        "./node_modules/.bin/turbo",
+        "build",
+        "--filter=./packages/*",
+        "--filter=./modules/*",
+        "--filter=./examples/*",
+        "--filter=@opentenant/migrations",
+        "--filter=@opentenant/provisioning"
+      ],
+      "exit": 0,
+      "counts": {
+        "successful_tasks": 23,
+        "cached_tasks": 23
+      },
+      "unit": "forge-job-opentenant-e13-build-fccbe26dae23.service",
+      "unit_inactive": true
+    },
+    {
+      "name": "docs-links",
+      "command": [
+        "env",
+        "npm_config_offline=true",
+        "pnpm",
+        "docs:links"
+      ],
+      "exit": 0,
+      "seconds": 4.331,
+      "stdout_sha256": "3231cccdf813a87a2f55b6c48a7559215c123bea306a1469fff3820d64be6a08",
+      "unit": "forge-job-opentenant-e13-docs-links-d4025881a8f1.service",
+      "unit_inactive": true,
+      "counts": {
+        "files": 181,
+        "local_links_checked": 455,
+        "cross_file_anchors": 12,
+        "external_urls_excluded": 132,
+        "failed": 0,
+        "package_downloads_reported": 1
+      },
+      "offline_requested": true,
+      "zero_registry_contact_verified": false
+    },
+    {
+      "name": "quality-rerun",
+      "command": [
+        "env",
+        "npm_config_offline=true",
+        "pnpm",
+        "exec",
+        "turbo",
+        "typecheck",
+        "lint",
+        "test",
+        "--force",
+        "--concurrency=2"
+      ],
+      "exit": 0,
+      "seconds": 348.55,
+      "stdout_sha256": "46738de36606708c51f151672e06811c5818d25f833061a5a851f2cc10eb7abb",
+      "unit": "forge-job-opentenant-e13-quality-rerun-4b2f8087d241.service",
+      "unit_inactive": true,
+      "counts": {
+        "successful_tasks": 115,
+        "cached_tasks": 0,
+        "vitest_passed": 2296,
+        "vitest_failed": 0,
+        "vitest_skipped": 139,
+        "node_passed": 617,
+        "node_failed": 0,
+        "node_skipped": 0
+      }
+    },
+    {
+      "name": "restore-drill",
+      "command": [
+        "env",
+        "RESTORE_DRILL_REPORT=/tmp/opentenant-e13/restore-counts.json",
+        "pnpm",
+        "restore:drill"
+      ],
+      "exit": 0,
+      "seconds": 35.274,
+      "stdout_sha256": "8a7f4244ef427f5392714cdad1f65e4caf40480e04e8421390de26239730b5e0",
+      "unit": "forge-job-opentenant-e13-restore-drill-e6ac5eff24c4.service",
+      "unit_inactive": true,
+      "counts": {
+        "databases": 3,
+        "tickets": 8,
+        "auditEvents": 9,
+        "signedScopes": 3,
+        "migrationsChecked": 81,
+        "tablesChecked": 170,
+        "forcedRlsTables": 82,
+        "decryptedConnections": 2,
+        "lostRows": 0,
+        "measuredRpoSeconds": 0,
+        "measuredRtoSeconds": 14.349,
+        "recoveryPointAgeSeconds": 5.698
+      }
+    },
+    {
+      "name": "db-sequence",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "ci:db-sequence"
+      ],
+      "exit": 0,
+      "seconds": 444.565,
+      "stdout_sha256": "153d3e7e70f969a29a5a28b9a58baa8a1ff4205ae01ab4d2ca42633826b6f9a6",
+      "unit": "forge-job-opentenant-e13-db-sequence-003b8d308c9e.service",
+      "unit_inactive": true,
+      "counts": {
+        "steps": 17,
+        "suite_counters": 93,
+        "passed": 358,
+        "failed": 0,
+        "skipped": 0,
+        "identity_passed": 65,
+        "worker_lifecycle_passed": 13,
+        "audit_checkpoints_passed": 10,
+        "migration_passed": 129,
+        "mcp_integration_passed": 23,
+        "fuzz_passed": 9,
+        "fuzz_family_sequences": 175,
+        "fuzz_malformed_id_sequences": 5
+      }
+    },
+    {
+      "name": "package-check",
+      "command": [
+        "env",
+        "npm_config_offline=true",
+        "pnpm",
+        "package:check"
+      ],
+      "exit": 0,
+      "seconds": 79.319,
+      "stdout_sha256": "6dbce887078ad558140edc45cf5147a372d47d169462ed443af5d0f53bb2bc9f",
+      "unit": "forge-job-opentenant-e13-package-check-a948eac01629.service",
+      "unit_inactive": true,
+      "counts": {
+        "packages_passed": 23,
+        "packages_failed": 0,
+        "sbom_entries": 631,
+        "secret_findings": 0,
+        "copied_code_blockers": 0
+      }
+    },
+    {
+      "name": "packed-adopter",
+      "command": [
+        "env",
+        "npm_config_offline=true",
+        "pnpm",
+        "module:adopter-proof"
+      ],
+      "exit": 1,
+      "seconds": 47.241,
+      "stdout_sha256": "4c6d7f8bedd3aa7f27101b2169072a5bd14b1252e728ad7744e835362bcdec6e",
+      "unit": "forge-job-opentenant-e13-packed-adopter-155cccd538df.service",
+      "unit_inactive": true,
+      "counts": {
+        "successful_build_tasks": 0,
+        "failed_build_tasks": 1,
+        "adopter_tests_executed": 0
+      }
+    },
+    {
+      "name": "module-audit",
+      "command": [
+        "pnpm",
+        "module:audit"
+      ],
+      "exit": 0,
+      "seconds": 1.141,
+      "stdout_sha256": "df724a5fcc3f94c9635d9100a932c96b967b304fe834415ab9b79ce98434bd31",
+      "unit": "forge-job-opentenant-e13-module-audit-ee2907b29958.service",
+      "unit_inactive": true,
+      "counts": {
+        "unexcluded_special_cases": 0
+      }
+    },
+    {
+      "name": "readiness",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "node",
+        "--conditions=react-server",
+        "--import",
+        "./tooling/provisioning/register.mjs",
+        "--input-type=module",
+        "-e",
+        "import assert from \"node:assert/strict\"; import {GET} from \"./apps/platform/app/api/ready/route.ts\"; process.env.CONTROL_PLANE_DATABASE_URL=process.env.ADMIN_DATABASE_URL; const ready=await GET(); assert.equal(ready.status,200); assert.equal(ready.headers.get(\"cache-control\"),\"no-store\"); assert.deepEqual(await ready.json(),{status:\"ready\"}); delete process.env.CONTROL_PLANE_DATABASE_URL; const absent=await GET(); assert.equal(absent.status,503); assert.equal(absent.headers.get(\"cache-control\"),\"no-store\"); assert.deepEqual(await absent.json(),{status:\"unavailable\"}); console.log(\"PASS readiness: 6 assertions; real local PostgreSQL 200 and missing database 503\");"
+      ],
+      "exit": 0,
+      "seconds": 16.156,
+      "stdout_sha256": "08d114335fcfb518f153eacdfe79ca52699b37aa87a600dd23d885b02e843558",
+      "unit": "forge-job-opentenant-e13-readiness-c866d7bc398f.service",
+      "unit_inactive": true,
+      "counts": {
+        "assertions_passed": 6,
+        "assertions_failed": 0,
+        "http_ready": 200,
+        "http_unconfigured": 503
+      }
+    },
+    {
+      "name": "tenant-whitelabel-rerun",
+      "command": [
+        "env",
+        "E2E_PHASE=legacy",
+        "E2E_FILTERED=1",
+        "npm_config_offline=true",
+        "node",
+        "tooling/e2e/run-phase.mjs",
+        "specs/tenant.spec.ts",
+        "specs/theming.e2e.spec.ts",
+        "specs/custom-domains.e2e.spec.ts"
+      ],
+      "exit": 0,
+      "seconds": 126.338,
+      "stdout_sha256": "a96d6fcaa0b9a9b359b2f7e4adfcfeac5d38a29091681d12a053bb306c729c52",
+      "unit": "forge-job-opentenant-e13-tenant-whitelabel-rerun-55c2394dc0a5.service",
+      "unit_inactive": true,
+      "counts": {
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "name": "packed-adopter-rerun",
+      "command": [
+        "taskset",
+        "-c",
+        "0,1",
+        "env",
+        "npm_config_offline=true",
+        "pnpm",
+        "module:adopter-proof"
+      ],
+      "exit": 1,
+      "seconds": 57.211,
+      "stdout_sha256": "6a59a6e9eb07792c85cca01409cfaf0ed0474322d6ee4eed9bdf38ffe4f71904",
+      "unit": "forge-job-opentenant-e13-packed-adopter-rerun-e4068d6492a0.service",
+      "unit_inactive": true,
+      "counts": {
+        "successful_build_tasks": 0,
+        "failed_build_tasks": 1,
+        "adopter_tests_executed": 0
+      }
+    },
+    {
+      "name": "packed-adopter-bounded",
+      "command": [
+        "pnpm",
+        "module:adopter-proof"
+      ],
+      "exit": 0,
+      "seconds": 163.218,
+      "stdout_sha256": "8963ddcc12ff7374901df84aeecb7386dc4d6d35b8f50b4f5f4af11227562571",
+      "unit": "forge-job-opentenant-e13-packed-adopter-bounded-269dcf373c75.service",
+      "unit_inactive": true,
+      "execution_options": {
+        "turbo_build_concurrency": 2,
+        "turbo_env_mode": "loose",
+        "tokio_workers": 2,
+        "rayon_threads": 2,
+        "offline_requested": true
+      },
+      "counts": {
+        "dependency_build_tasks_passed": 21,
+        "adopter_tests_passed": 3,
+        "adopter_tests_failed": 0,
+        "adopter_tests_skipped": 0,
+        "changed_dispatch_or_policy_files": 0,
+        "changed_composition_lines": 1,
+        "package_downloads_reported": 0
+      }
+    },
+    {
+      "name": "docs-links-final",
+      "command": [
+        "env",
+        "pnpm_config_offline=true",
+        "strace",
+        "-f",
+        "-e",
+        "trace=connect,sendto,sendmsg",
+        "-e",
+        "inject=connect:error=EACCES",
+        "-e",
+        "inject=sendto:error=EACCES",
+        "-e",
+        "inject=sendmsg:error=EACCES",
+        "-o",
+        "/tmp/opentenant-e13/docs-links-final.network",
+        "pnpm",
+        "docs:links"
+      ],
+      "exit": 0,
+      "seconds": 3.138,
+      "stdout_sha256": "307fe7cdafc7ef91127c8416703058b8b5cff07f5212133ad4c1a9618b7f6bc5",
+      "unit": "forge-job-opentenant-e13-docs-links-final-d046b6ebea50.service",
+      "unit_inactive": true,
+      "counts": {
+        "files": 181,
+        "local_links_checked": 455,
+        "cross_file_anchors": 12,
+        "external_urls_excluded": 132,
+        "failed": 0,
+        "network_syscall_attempts": 0,
+        "successful_network_syscalls": 0
+      },
+      "network_syscalls_blocked": true
+    }
+  ],
+  "github": {
+    "recent_runs_sampled": 5,
+    "recent_sample_failures": 5,
+    "latest_run_id": 44137595220,
+    "latest_jobs": 17,
+    "latest_executed_steps": 0,
+    "billing_failure_annotations_verified": 1,
+    "wave7_runs": 0,
+    "registered_workflows": 2,
+    "registered_release_workflows": 0,
+    "release_workflow_runs_http_status": 404,
+    "dispatch_runs_sampled": 5,
+    "dispatch_release_runs": 0,
+    "deployment_records": 0
+  },
+  "r11": {
+    "findings": 18,
+    "verified_closures": 18,
+    "index_tests_passed": 20,
+    "cap_applied": false
+  },
+  "cached_deployment_base_image": {
+    "image_inspection_exit": 1,
+    "cached_matches": 0
+  },
+  "score": {
+    "weights_percent": [
+      20,
+      15,
+      15,
+      10,
+      20,
+      5,
+      5,
+      10
+    ],
+    "subscore_fractions": {
+      "isolation": [
+        10,
+        3
+      ],
+      "identity": [
+        5,
+        1
+      ],
+      "extensibility": [
+        5,
+        1
+      ],
+      "dx": [
+        10,
+        3
+      ],
+      "maturity": [
+        35,
+        12
+      ],
+      "ai": [
+        5,
+        1
+      ],
+      "white_label": [
+        5,
+        1
+      ],
+      "audit": [
+        5,
+        1
+      ]
+    },
+    "weighted_fraction": [
+      49,
+      12
+    ],
+    "weighted_rounded": 4.08,
+    "target": 4.8,
+    "gap_fraction": [
+      43,
+      60
+    ],
+    "gap_rounded": 0.72,
+    "subscores_below_four": 3,
+    "target_met": false
+  },
+  "cleanup": {
+    "recorded_units": 18,
+    "active_units": 0,
+    "inactive_or_unloaded_units": 18,
+    "listening_processes_in_review_worktree": 0,
+    "active_proof_or_mail_containers_created_during_review_runs": 0
+  },
+  "final_checks": {
+    "json_parse_passed": true,
+    "arithmetic_passed": true,
+    "evidence_tables": 8,
+    "r11_closure_rows": 18,
+    "valid_source_line_references": 81,
+    "changed_files": 2,
+    "outside_scope_changed_files": 0,
+    "diff_check_exit": 0,
+    "unmanaged_dev_servers": 0,
+    "initial_validation_count_false_positives": 1
+  }
+}

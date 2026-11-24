@@ -1,0 +1,57 @@
+{
+  "name": "@opentenant/security",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./audit-checkpoint": {
+      "types": "./dist/audit-checkpoint.d.ts",
+      "import": "./dist/audit-checkpoint.js",
+      "default": "./dist/audit-checkpoint.js"
+    },
+    "./checkpoint-sinks": {
+      "types": "./dist/checkpoint-sinks.d.ts",
+      "import": "./dist/checkpoint-sinks.js",
+      "default": "./dist/checkpoint-sinks.js"
+    },
+    "./audit-chain": {
+      "types": "./dist/audit-chain.d.ts",
+      "import": "./dist/audit-chain.js",
+      "default": "./dist/audit-chain.js"
+    },
+    "./canonical-json": {
+      "types": "./dist/canonical-json.d.ts",
+      "import": "./dist/canonical-json.js",
+      "default": "./dist/canonical-json.js"
+    },
+    "./subprocess": {
+      "types": "./dist/subprocess.d.ts",
+      "import": "./dist/subprocess.js",
+      "default": "./dist/subprocess.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

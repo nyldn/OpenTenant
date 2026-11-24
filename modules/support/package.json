@@ -1,0 +1,62 @@
+{
+  "name": "@opentenant/support",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./manifest": {
+      "types": "./dist/manifest.d.ts",
+      "import": "./dist/manifest.js",
+      "default": "./dist/manifest.js"
+    },
+    "./surface": {
+      "types": "./dist/SupportSurface.d.ts",
+      "import": "./dist/SupportSurface.js",
+      "default": "./dist/SupportSurface.js"
+    },
+    "./host-context": {
+      "types": "./dist/host-context.d.ts",
+      "import": "./dist/host-context.js",
+      "default": "./dist/host-context.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "dependencies": {
+    "@opentenant/design-system": "workspace:*",
+    "@opentenant/module-sdk": "workspace:*",
+    "@opentenant/security": "workspace:*",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "@opentenant/notifications": "workspace:*",
+    "@opentenant/database": "workspace:*",
+    "@opentenant/auth": "workspace:*",
+    "@opentenant/platform-core": "workspace:*",
+    "next": "15.5.29"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "sql"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@example/module-hello",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "dependencies": {
+    "@opentenant/module-sdk": "workspace:*"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "sql"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
+}

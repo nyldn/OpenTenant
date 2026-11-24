@@ -1,0 +1,67 @@
+{
+  "name": "@opentenant/assessment",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./runtime": {
+      "types": "./dist/runtime.d.ts",
+      "import": "./dist/runtime.js",
+      "default": "./dist/runtime.js"
+    },
+    "./surface": {
+      "types": "./dist/AssessmentSurface.d.ts",
+      "import": "./dist/AssessmentSurface.js",
+      "default": "./dist/AssessmentSurface.js"
+    },
+    "./manifest": {
+      "types": "./dist/manifest.d.ts",
+      "import": "./dist/manifest.js",
+      "default": "./dist/manifest.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/pdfmake": "^0.2.9",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@types/react-test-renderer": "19.1.0",
+    "react-test-renderer": "19.2.8",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "@opentenant/design-system": "workspace:*",
+    "@opentenant/module-sdk": "workspace:*",
+    "lucide-react": "^1.28.0",
+    "pdfmake": "^0.3.11",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "recharts": "^3.10.1",
+    "sonner": "^2.0.7",
+    "@opentenant/database": "workspace:*",
+    "@opentenant/auth": "workspace:*",
+    "@opentenant/platform-core": "workspace:*",
+    "next": "15.5.29"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

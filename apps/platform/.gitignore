@@ -1,0 +1,4 @@
+/.swc
+
+# clerk configuration (can include secrets)
+/.clerk/

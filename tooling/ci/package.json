@@ -1,0 +1,15 @@
+{
+  "name": "@opentenant/ci",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --allowImportingTsExtensions --allowJs --checkJs --module nodenext --moduleResolution nodenext --target es2022 --types node *.mjs",
+    "test": "node --check rls-proof.mjs && node --check run-database-store-tests.mjs && node --test *.test.mjs"
+  },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

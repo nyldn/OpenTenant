@@ -1,0 +1,30 @@
+{
+  "name": "@opentenant/e2e",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "e2e": "node run.mjs",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test safety.test.mjs audit/compare.test.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "@playwright/test": "1.61.1",
+    "@types/pg": "^8.20.3",
+    "next": "15.5.29",
+    "pg": "^8.13.0",
+    "undici": "7.30.1",
+    "unpdf": "1.4.0"
+  },
+  "dependencies": {
+    "@opentenant/platform-core": "workspace:*",
+    "@opentenant/module-sdk": "workspace:*",
+    "@opentenant/database": "workspace:*",
+    "@opentenant/auth-better-auth": "workspace:*",
+    "@opentenant/migrations": "workspace:*",
+    "@opentenant/assessment": "workspace:*"
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "branch": "t3/integration-round3",
+  "base": "a493f20",
+  "testedCode": "739c6af",
+  "identityFixtureHead": "fb5f476",
+  "environment": {
+    "node": "22.23.2",
+    "pnpm": "11.13.1",
+    "image": "pgvector/pgvector:0.8.2-pg17-bookworm",
+    "VITEST_MAX_FORKS": "2",
+    "VITEST_MIN_FORKS": "1",
+    "NEXT_TELEMETRY_DISABLED": "1",
+    "TURBO_TELEMETRY_DISABLED": "1"
+  },
+  "runs": [
+    {
+      "label": "audit",
+      "command": "pnpm audit --prod --audit-level high",
+      "exit": 0,
+      "seconds": 0.73,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/audit.log"
+    },
+    {
+      "label": "authz",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/authz test",
+      "exit": 0,
+      "seconds": 16.04,
+      "tests": {
+        "passed": 38,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/authz.log"
+    },
+    {
+      "label": "build",
+      "command": "taskset -c 0,1 pnpm turbo build --filter=@opentenant/platform",
+      "exit": 0,
+      "seconds": 150.91,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/build.log"
+    },
+    {
+      "label": "build-final",
+      "command": "taskset -c 0,1 pnpm turbo build --filter=@opentenant/platform",
+      "exit": 0,
+      "seconds": 103.28,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/build-final.log"
+    },
+    {
+      "label": "diff-check",
+      "command": "git diff --check a493f20 HEAD",
+      "exit": 0,
+      "seconds": 0.03,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/diff-check.log"
+    },
+    {
+      "label": "e2e-final",
+      "command": "pnpm e2e",
+      "exit": 0,
+      "seconds": 115.35,
+      "tests": {
+        "passed": 11,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/e2e-final.log"
+    },
+    {
+      "label": "gitleaks-inventory",
+      "command": "gitleaks dir . --redact --no-banner --config .gitleaks.toml --report-format json --report-path /tmp/opentenant-round3-evidence/gitleaks-tree.json",
+      "exit": 1,
+      "seconds": 57.17,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/gitleaks-inventory.log"
+    },
+    {
+      "label": "graph-final",
+      "command": "graphify update .",
+      "exit": 0,
+      "seconds": 9.26,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/graph-final.log"
+    },
+    {
+      "label": "graph-update",
+      "command": "graphify update .",
+      "exit": 0,
+      "seconds": 17.32,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/graph-update.log"
+    },
+    {
+      "label": "identity",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/testing exec vitest run src/identity-adapters.test.ts src/better-auth.integration.test.ts",
+      "exit": 0,
+      "seconds": 40.19,
+      "tests": {
+        "passed": 65,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/identity.log"
+    },
+    {
+      "label": "identity-foreign-subject",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/testing exec vitest run src/identity-adapters.test.ts src/better-auth.integration.test.ts",
+      "exit": 0,
+      "seconds": 36.35,
+      "tests": {
+        "passed": 65,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/identity-foreign-subject.log"
+    },
+    {
+      "label": "identity-mail-final",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/testing exec vitest run src/identity-adapters.test.ts src/better-auth.integration.test.ts",
+      "exit": 0,
+      "seconds": 30.93,
+      "tests": {
+        "passed": 65,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/identity-mail-final.log"
+    },
+    {
+      "label": "install",
+      "command": "pnpm install --frozen-lockfile",
+      "exit": 0,
+      "seconds": 0.77,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/install.log"
+    },
+    {
+      "label": "isolation",
+      "command": "pnpm db:ephemeral -- env ISOLATION_FUZZ_SEED=20261111 node packages/testing/scripts/isolation-proof.mjs",
+      "exit": 0,
+      "seconds": 218.66,
+      "tests": {
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/isolation.log"
+    },
+    {
+      "label": "matrix",
+      "command": "pnpm quality:matrix",
+      "exit": 0,
+      "seconds": 2.27,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/matrix.log"
+    },
+    {
+      "label": "migrations",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/migrations test",
+      "exit": 0,
+      "seconds": 70.42,
+      "tests": {
+        "passed": 175,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/migrations.log"
+    },
+    {
+      "label": "prod-tinypool",
+      "command": "pnpm why -r --prod tinypool",
+      "exit": 0,
+      "seconds": 0.56,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/prod-tinypool.log"
+    },
+    {
+      "label": "provisioning",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/provisioning.integration.test.ts lib/provisioning-postgres.integration.test.ts",
+      "exit": 0,
+      "seconds": 17.32,
+      "tests": {
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/provisioning.log"
+    },
+    {
+      "label": "provisioning-final",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/provisioning.integration.test.ts lib/provisioning-postgres.integration.test.ts",
+      "exit": 0,
+      "seconds": 15.32,
+      "tests": {
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/provisioning-final.log"
+    },
+    {
+      "label": "quality",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 1,
+      "seconds": 17.2,
+      "tests": {
+        "passed": 114,
+        "failed": 0,
+        "skipped": 12
+      },
+      "log": "/tmp/opentenant-round3-evidence/quality.log"
+    },
+    {
+      "label": "quality-final",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 0,
+      "seconds": 155.71,
+      "tests": {
+        "passed": 2009,
+        "failed": 0,
+        "skipped": 51
+      },
+      "log": "/tmp/opentenant-round3-evidence/quality-final.log"
+    },
+    {
+      "label": "quality-retry",
+      "command": "pnpm turbo typecheck lint test --force --concurrency=2",
+      "exit": 0,
+      "seconds": 139.71,
+      "tests": {
+        "passed": 2009,
+        "failed": 0,
+        "skipped": 51
+      },
+      "log": "/tmp/opentenant-round3-evidence/quality-retry.log"
+    },
+    {
+      "label": "regression-index",
+      "command": "pnpm --filter @opentenant/testing exec vitest run src/r11-regressions.test.ts",
+      "exit": 0,
+      "seconds": 1.4,
+      "tests": {
+        "passed": 20,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/regression-index.log"
+    },
+    {
+      "label": "residual-db",
+      "command": "pnpm db:ephemeral -- sh -c 'CUSTOM_DOMAINS_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" pnpm --filter @opentenant/platform exec vitest run lib/custom-domains.integration.test.ts && KEY_ROTATION_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" pnpm --filter @opentenant/database exec vitest run src/credential-cipher-rotation.postgres.test.ts && pnpm --filter @opentenant/usage-export test'",
+      "exit": 0,
+      "seconds": 18.05,
+      "tests": {
+        "passed": 22,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/residual-db.log"
+    },
+    {
+      "label": "ripwire-contract",
+      "command": "ripwire . --edit-check=apps/platform/lib/session.ts:currentSession --legend=compact",
+      "exit": 0,
+      "seconds": 0.18,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/ripwire-contract.log"
+    },
+    {
+      "label": "ripwire-quality",
+      "command": "ripwire . --quality-delta --legend=compact",
+      "exit": 0,
+      "seconds": 4.66,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/ripwire-quality.log"
+    },
+    {
+      "label": "rls",
+      "command": "pnpm db:ephemeral -- pnpm rls:proof",
+      "exit": 0,
+      "seconds": 11.69,
+      "tests": {
+        "passed": 314,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/rls.log",
+      "countUnit": "checks"
+    },
+    {
+      "label": "security-gitleaks",
+      "command": "gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 1,
+      "seconds": 55.19,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/security-gitleaks.log"
+    },
+    {
+      "label": "security-gitleaks-final",
+      "command": "cd /tmp/opentenant-round3-source && gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 0,
+      "seconds": 1.42,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/security-gitleaks-final.log"
+    },
+    {
+      "label": "security-gitleaks-source",
+      "command": "cd /tmp/opentenant-round3-source && gitleaks dir . --redact --no-banner --config .gitleaks.toml",
+      "exit": 0,
+      "seconds": 0.9,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/security-gitleaks-source.log"
+    },
+    {
+      "label": "security-semgrep",
+      "command": "EIO_BACKEND=posix semgrep scan --jobs 1 --timeout 30 --config packages/usage-export/testing/security-rules.yml --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --error --exclude graphify-out --exclude node_modules --exclude .next --exclude .agents .",
+      "exit": 0,
+      "seconds": 8.9,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/security-semgrep.log"
+    },
+    {
+      "label": "security-semgrep-final",
+      "command": "EIO_BACKEND=posix semgrep scan --jobs 1 --timeout 30 --config packages/usage-export/testing/security-rules.yml --config packages/auth-better-auth/semgrep.yml --metrics=off --disable-version-check --error --exclude graphify-out --exclude node_modules --exclude .next --exclude .agents .",
+      "exit": 0,
+      "seconds": 9.75,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/security-semgrep-final.log"
+    },
+    {
+      "label": "security-trivy",
+      "command": "trivy fs --offline-scan --skip-db-update --skip-check-update --skip-version-check --scanners vuln,misconfig --severity HIGH,CRITICAL --exit-code 1 --skip-dirs node_modules --skip-dirs .git --skip-dirs graphify-out --skip-dirs apps/platform/.next .",
+      "exit": 1,
+      "seconds": 2.54,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/security-trivy.log"
+    },
+    {
+      "label": "smoke",
+      "command": "SMOKE_APP_PORT=3393 SMOKE_POSTGRES_PORT=55493 node scripts/smoke-deploy.mjs",
+      "exit": 1,
+      "seconds": 272.96,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/smoke.log"
+    },
+    {
+      "label": "smoke-final",
+      "command": "SMOKE_BUILD_NETWORK=host SMOKE_APP_PORT=3393 SMOKE_POSTGRES_PORT=55493 node scripts/smoke-deploy.mjs",
+      "exit": 0,
+      "seconds": 442.6,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/smoke-final.log"
+    },
+    {
+      "label": "smoke-retry",
+      "command": "SMOKE_BUILD_NETWORK=host SMOKE_APP_PORT=3393 SMOKE_POSTGRES_PORT=55493 node scripts/smoke-deploy.mjs",
+      "exit": 0,
+      "seconds": 400.93,
+      "tests": {
+        "passed": 0,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/smoke-retry.log"
+    },
+    {
+      "label": "stores",
+      "command": "pnpm db:ephemeral -- pnpm database:store-proof",
+      "exit": 0,
+      "seconds": 42.35,
+      "tests": {
+        "passed": 40,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/stores.log",
+      "countUnit": "assertions"
+    },
+    {
+      "label": "telemetry-db",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/rate-limit.integration.test.ts",
+      "exit": 1,
+      "seconds": 19.23,
+      "tests": {
+        "passed": 2,
+        "failed": 1,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/telemetry-db.log"
+    },
+    {
+      "label": "telemetry-db-retry",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/rate-limit.integration.test.ts",
+      "exit": 1,
+      "seconds": 15.97,
+      "tests": {
+        "passed": 2,
+        "failed": 1,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/telemetry-db-retry.log"
+    },
+    {
+      "label": "telemetry-db-static",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/rate-limit.integration.test.ts",
+      "exit": 0,
+      "seconds": 13.35,
+      "tests": {
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/telemetry-db-static.log"
+    },
+    {
+      "label": "telemetry-diagnostic",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/rate-limit.integration.test.ts",
+      "exit": 1,
+      "seconds": 13.7,
+      "tests": {
+        "passed": 2,
+        "failed": 1,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/telemetry-diagnostic.log"
+    },
+    {
+      "label": "tracing-db",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/observability test",
+      "exit": 0,
+      "seconds": 15.12,
+      "tests": {
+        "passed": 33,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/tracing-db.log"
+    },
+    {
+      "label": "worker",
+      "command": "pnpm db:ephemeral -- pnpm --filter @opentenant/platform exec vitest run lib/tenant-worker.integration.test.ts",
+      "exit": 0,
+      "seconds": 17.72,
+      "tests": {
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0
+      },
+      "log": "/tmp/opentenant-round3-evidence/worker.log"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+# Gitleaks configuration for OpenTenant.
+# Extends the default ruleset; allowlists below suppress known false
+# positives. Never allowlist a real credential; rotate it instead.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Assessment browser storage keys in the state coordinator"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(?:^|/)modules/assessment/src/store\.tsx$''']
+regexes = ['''^assessment_(?:session_v26|respondents_v26|engagement_v1)$''']
+
+[[allowlists]]
+description = "Assessment browser storage keys in the repository and its tests"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(?:^|/)modules/assessment/src/persistence/assessment-repository(?:\.test)?\.ts$''']
+regexes = ['''^assessment_(?:session_v26|respondents_v26|engagement_v1|legacy_claim_v1|engagement_v2:tenant-a(?::backup)?)$''']
+
+[[rules]]
+id = "deployment-host"
+description = "Installation-specific deployment hostname"
+regex = '''(?i)\b[a-z0-9][a-z0-9-]*(?:\.[a-z0-9-]+)*\.(?:vercel\.app|ts\.net|convex\.cloud|supabase\.co|clerk\.accounts\.dev)\b'''
+
+[[rules]]
+id = "developer-home-path"
+description = "Absolute development machine home path"
+regex = '''(?:^|[\s"'\x60:=])(/(?:home|Users)/[a-zA-Z0-9._-]+/[^\s"'\x60]*)'''
+secretGroup = 1
+
+[[rules.allowlists]]
+description = "Documented synthetic paths and the E2B sandbox's conventional home"
+regexTarget = "secret"
+regexes = ['''^/(?:home|Users)/(?:example|synthetic)/''']
+
+[[rules.allowlists]]
+description = "E2B adapter runs commands inside its sandbox user's home"
+condition = "AND"
+paths = ['''(?:^|/)packages/sandbox/src/providers/e2b/adapter\.ts$''']
+regexes = ['''^/home/user/\$\{''']

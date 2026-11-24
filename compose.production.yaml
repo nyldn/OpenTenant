@@ -1,0 +1,76 @@
+# Project names namespace containers, volumes and networks. Set COMPOSE_PROJECT_NAME
+# for each installation; smoke-deploy.mjs always generates a unique name.
+services:
+  postgres:
+    image: pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+    environment:
+      POSTGRES_DB: opentenant
+      POSTGRES_USER: opentenant
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Supply a runtime database password}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-55435}:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "opentenant", "-d", "opentenant"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  migrate:
+    image: ${OPENTENANT_MIGRATION_IMAGE:-opentenant-migrate:local}
+    build:
+      context: .
+      dockerfile: apps/platform/Dockerfile
+      target: migrator
+    environment:
+      CONTROL_PLANE_DATABASE_URL: ${MIGRATION_DATABASE_URL:?Supply the owner database URL at postgres:5432}
+    # The confirmed host must equal the URL's host:port, or the runner refuses.
+    command: ["control-plane", "--target", "${MIGRATION_TARGET_HOST:-postgres:5432}"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no"
+
+  app:
+    image: ${OPENTENANT_IMAGE:-opentenant:local}
+    build:
+      context: .
+      dockerfile: apps/platform/Dockerfile
+      target: runner
+    environment:
+      CONTROL_PLANE_DATABASE_URL: ${CONTROL_PLANE_DATABASE_URL:?Supply the runtime database URL at postgres:5432}
+      IDENTITY_PROVIDER: ${IDENTITY_PROVIDER:?Select workos or clerk}
+      PLATFORM_PUBLIC_ORIGIN: ${PLATFORM_PUBLIC_ORIGIN:?Supply the public origin}
+      PLATFORM_ADMIN_HOST: ${PLATFORM_ADMIN_HOST:-admin.localhost}
+      MODULE_ACCESS_SECRET: ${MODULE_ACCESS_SECRET:?Supply a runtime module secret}
+      CONNECTIONS_STATE_SECRET: ${CONNECTIONS_STATE_SECRET:?Supply a separate runtime connections secret}
+      OPENTENANT_TENANT_BASE_DOMAIN: ${OPENTENANT_TENANT_BASE_DOMAIN:?Supply the tenant base domain}
+      # Supply either the legacy single key or a keyring with its active key ID.
+      TENANT_DB_ENCRYPTION_KEY: ${TENANT_DB_ENCRYPTION_KEY:-}
+      TENANT_DB_ENCRYPTION_KEYS: ${TENANT_DB_ENCRYPTION_KEYS:-}
+      TENANT_DB_ENCRYPTION_ACTIVE_KEY_ID: ${TENANT_DB_ENCRYPTION_ACTIVE_KEY_ID:-}
+      PROVISIONING_PROVIDER: postgres
+      POSTGRES_ADMIN_DATABASE_URL: ${POSTGRES_ADMIN_DATABASE_URL:?Supply the operator database URL}
+      POSTGRES_TENANT_REGION: ${POSTGRES_TENANT_REGION:-operator}
+      MODULE_SIGNING_PRIVATE_KEY: ${MODULE_SIGNING_PRIVATE_KEY:-}
+      MODULE_SIGNING_PUBLIC_KEY: ${MODULE_SIGNING_PUBLIC_KEY:-}
+      WORKOS_API_KEY: ${WORKOS_API_KEY:-}
+      WORKOS_CLIENT_ID: ${WORKOS_CLIENT_ID:-}
+      WORKOS_COOKIE_PASSWORD: ${WORKOS_COOKIE_PASSWORD:-}
+      WORKOS_REDIRECT_URI: ${WORKOS_REDIRECT_URI:-}
+      CLERK_PUBLISHABLE_KEY: ${CLERK_PUBLISHABLE_KEY:-}
+      CLERK_SECRET_KEY: ${CLERK_SECRET_KEY:-}
+      CLERK_JWT_ISSUER: ${CLERK_JWT_ISSUER:-}
+      CLERK_AUTHORIZED_PARTIES: ${CLERK_AUTHORIZED_PARTIES:-}
+      CLERK_JWT_AUDIENCE: ${CLERK_JWT_AUDIENCE:-}
+    ports:
+      - "127.0.0.1:${APP_PORT:-3300}:3000"
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  postgres-data:

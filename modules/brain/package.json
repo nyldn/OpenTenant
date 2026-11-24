@@ -1,0 +1,54 @@
+{
+  "name": "@opentenant/brain",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./manifest": {
+      "types": "./dist/manifest.d.ts",
+      "import": "./dist/manifest.js",
+      "default": "./dist/manifest.js"
+    },
+    "./surface": {
+      "types": "./dist/BrainSurface.d.ts",
+      "import": "./dist/BrainSurface.js",
+      "default": "./dist/BrainSurface.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "dependencies": {
+    "@opentenant/database": "workspace:*",
+    "@opentenant/design-system": "workspace:*",
+    "@opentenant/module-sdk": "workspace:*",
+    "@opentenant/security": "workspace:*",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "@opentenant/auth": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "sql"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,306 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Tailwind v4 source detection: the Assessment module and design-system live
+   outside this app directory. */
+@source "../../../modules/*/src";
+@source "../../../packages/design-system/src";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Base tenant theme. Tenant policy resolves the public brand values; these
+   variables provide safe, accessible defaults for standalone rendering. */
+:root {
+  --radius: 0.625rem;
+  --background: #ffffff;
+  --foreground: #000000;
+  --background-foreground: #000000;
+  --card: #f5f5f5;
+  --card-foreground: #000000;
+  --popover: #f5f5f5;
+  --popover-foreground: #000000;
+  --primary: #ea580c;
+  --primary-foreground: #000000;
+  --primary-text: #c2490a;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #000000;
+  --muted: #f5f5f5;
+  --muted-foreground: #4d4d4d;
+  --accent: #f5f5f5;
+  --accent-foreground: #000000;
+  --accent-text: #c2490a;
+  --border: #cccccc;
+  --input: #8d8d8d;
+  --ring: #ea580c;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #ea580c;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #f5f5f5;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #8d8d8d;
+  --sidebar-ring: #ea580c;
+  --brand-accent: #ea580c;
+  --chart-1: #ea580c;
+  --chart-2: #73d100;
+  --chart-3: #8400ff;
+  --chart-4: #fb4671;
+  --chart-5: #0047ff;
+  --purple-text: #8400ff;
+  --success: #f5f5f5;
+  --success-foreground: #3d7000;
+  --success-text: #3d7000;
+  --warning: #f5f5f5;
+  --warning-foreground: #a34b00;
+  --warning-text: #a34b00;
+  --danger: #f5f5f5;
+  --danger-foreground: #c01744;
+  --danger-text: #c01744;
+  --info: #f5f5f5;
+  --info-foreground: #0047ff;
+  --info-text: #0047ff;
+  --destructive: #c01744;
+  --destructive-foreground: #ffffff;
+}
+
+.dark {
+  --radius: 0.625rem;
+  --background: #0a1628;
+  --foreground: #ffffff;
+  --background-foreground: #ffffff;
+  --card: #141f31;
+  --card-foreground: #ffffff;
+  --popover: #141f31;
+  --popover-foreground: #ffffff;
+  --primary: #ea580c;
+  --primary-foreground: #000000;
+  --primary-text: #ea580c;
+  --secondary: #141f31;
+  --secondary-foreground: #ffffff;
+  --muted: #141f31;
+  --muted-foreground: #b6b9bf;
+  --accent: #141f31;
+  --accent-foreground: #ffffff;
+  --accent-text: #ea580c;
+  --border: #3b4553;
+  --input: #626a74;
+  --ring: #ea580c;
+  --sidebar: #0a1628;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ea580c;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #141f31;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #626a74;
+  --sidebar-ring: #ea580c;
+  --brand-accent: #ea580c;
+  --chart-1: #ea580c;
+  --chart-2: #73d100;
+  --chart-3: #8400ff;
+  --chart-4: #fb4671;
+  --chart-5: #0047ff;
+  --purple-text: #b05cff;
+  --success: #141f31;
+  --success-foreground: #6a913b;
+  --success-text: #6a913b;
+  --warning: #141f31;
+  --warning-foreground: #b9763d;
+  --warning-text: #b9763d;
+  --danger: #141f31;
+  --danger-foreground: #d45f7e;
+  --danger-text: #d45f7e;
+  --info: #141f31;
+  --info-foreground: #4d7eff;
+  --info-text: #4d7eff;
+  --destructive: #c52a53;
+  --destructive-foreground: #ffffff;
+}
+
+/* ── Step 2: map variables to Tailwind utilities ────────────────────── */
+@theme inline {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-display: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-primary-text: var(--primary-text);
+  --color-brand-accent: var(--brand-accent);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-text: var(--warning-text);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-text: var(--info-text);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-accent-text: var(--accent-text);
+  --color-success-text: var(--success-text);
+  --color-danger-text: var(--danger-text);
+  --color-purple-text: var(--purple-text);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Stable palette utilities used by the generic example modules. */
+  --color-platform-ink: #000017;
+  --color-platform-teal: #00CCCC;
+  --color-platform-green: #73D100;
+  --color-platform-purple: #8400FF;
+  --color-platform-pink: #FB4671;
+  --color-platform-blue: #0047FF;
+  --color-platform-lime: #E9FF6E;
+  --color-platform-amber: #F5A623;
+  --color-platform-logo-navy: #021F62;
+  --color-platform-logo-green: #95BC46;
+}
+
+/* ── Step 3: base styles (root level, unwrapped variables) ──────────── */
+* { border-color: var(--border); }
+/* larger base so the whole UI scales up for screen-share legibility (rem-based) */
+html { font-size: 18px; }
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, .font-display { font-family: var(--font-display); }
+
+/* Compact operational controls. The app root is enlarged for screen-share
+   legibility, so controls need an explicit smaller scale to avoid oversized
+   toolbars, embedded editors, and workflow pills. */
+.platform-ui-control-text {
+  font-size: 0.72rem;
+  line-height: 1.15;
+}
+.platform-ui-editor-text {
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+.platform-tour-accent-bar {
+  background: linear-gradient(90deg, var(--primary), color-mix(in oklab, var(--primary) 22%, transparent));
+}
+.platform-tour-spotlight {
+  box-shadow:
+    0 0 0 2px var(--primary),
+    0 0 0 9999px color-mix(in oklab, var(--background) 56%, transparent),
+    0 0 24px color-mix(in oklab, var(--primary) 28%, transparent);
+}
+
+/* ── Provenance Spine + motion beats (Direction 1 + 2) ──────────────── */
+.spine { position: relative; }
+.spine::before {
+  content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px;
+  width: 1px; background: var(--border);
+}
+.spine-card { position: relative; }
+.spine-tick {
+  position: absolute; left: -13px; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 18px; border-radius: 2px; background: var(--primary);
+}
+@keyframes platform-rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.platform-rise { opacity: 0; animation: platform-rise .42s cubic-bezier(0.4,0,0.2,1) forwards; }
+@keyframes platform-route-enter {
+  from { opacity: .82; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.platform-route-enter { animation: platform-route-enter .22s cubic-bezier(0.4,0,0.2,1); }
+.platform-route-enter .platform-deal-chrome { animation: platform-route-enter .18s cubic-bezier(0.4,0,0.2,1); }
+.platform-route-enter .platform-deal-panel { animation: platform-route-enter .26s cubic-bezier(0.4,0,0.2,1); }
+@keyframes platform-pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(0,204,204,.5); }
+  100% { box-shadow: 0 0 0 7px rgba(0,204,204,0); }
+}
+.platform-pulse { animation: platform-pulse-ring .9s ease-out 1; }
+@keyframes platform-inbox-sweep {
+  0% { opacity: 0; transform: translateX(-110%); }
+  18% { opacity: .75; }
+  60% { opacity: .45; }
+  100% { opacity: 0; transform: translateX(110%); }
+}
+.platform-inbox-poll-card {
+  overflow: hidden;
+  position: relative;
+}
+.platform-inbox-poll-card::after {
+  animation: platform-inbox-sweep 2.2s cubic-bezier(0.4,0,0.2,1) .25s infinite;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  content: "";
+  height: 3px;
+  inset: 0 0 auto;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-110%);
+}
+@keyframes platform-inbox-live-row {
+  0%, 100% { border-color: color-mix(in oklab, var(--primary) 28%, transparent); box-shadow: 0 0 0 0 rgba(0,204,204,0); }
+  50% { border-color: color-mix(in oklab, var(--primary) 70%, transparent); box-shadow: 0 0 0 3px rgba(0,204,204,.12); }
+}
+.platform-inbox-live-row {
+  animation: platform-inbox-live-row 1.8s ease-in-out infinite;
+}
+@keyframes platform-inbox-wave {
+  0% { opacity: .32; transform: scale(.72); }
+  100% { opacity: 0; transform: scale(1.9); }
+}
+.platform-inbox-radio {
+  position: relative;
+}
+.platform-inbox-radio::before {
+  animation: platform-inbox-wave 1.9s ease-out infinite;
+  border: 1px solid var(--primary);
+  border-radius: inherit;
+  content: "";
+  inset: 1px;
+  pointer-events: none;
+  position: absolute;
+}
+@keyframes platform-inbox-dot {
+  0%, 100% { opacity: .45; transform: scale(.86); }
+  50% { opacity: 1; transform: scale(1); }
+}
+.platform-inbox-dot {
+  animation: platform-inbox-dot 1.35s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .platform-rise, .platform-route-enter, .platform-route-enter .platform-deal-chrome, .platform-route-enter .platform-deal-panel, .platform-pulse, .platform-inbox-poll-card::after, .platform-inbox-live-row, .platform-inbox-radio::before, .platform-inbox-dot, [data-flip] > span { animation: none !important; opacity: 1 !important; }
+  .platform-rise, .platform-route-enter { transform: none !important; }
+  .platform-inbox-poll-card::after, .platform-inbox-radio::before { display: none !important; }
+}

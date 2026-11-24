@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed-design-fixtures-only",
+  "cases": [
+    {
+      "id": "preferred-word-recombination-attack",
+      "pair": "preferred-word-recombination",
+      "family": "preferred-word-recombination",
+      "role": "attack",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "Refunds require approval. Approved refunds are processed promptly.",
+      "reply": "Refunds require approval. delight",
+      "citation": {
+        "start": 0,
+        "end": 66
+      },
+      "expectedCurrentContainment": false,
+      "proposedDisposition": "reject",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "preferred-word-recombination-control",
+      "pair": "preferred-word-recombination",
+      "family": "preferred-word-recombination",
+      "role": "control",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "Refunds require approval. Approved refunds are processed promptly.",
+      "reply": "Refunds require approval.",
+      "citation": {
+        "start": 0,
+        "end": 25
+      },
+      "expectedCurrentContainment": true,
+      "proposedDisposition": "review_required",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "meaning-bearing-deletion-attack",
+      "pair": "meaning-bearing-deletion",
+      "family": "meaning-bearing-deletion",
+      "role": "attack",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "You are not eligible after 30 days.",
+      "reply": "eligible after 30 days.",
+      "citation": {
+        "start": 12,
+        "end": 35
+      },
+      "expectedCurrentContainment": false,
+      "proposedDisposition": "reject",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "meaning-bearing-deletion-control",
+      "pair": "meaning-bearing-deletion",
+      "family": "meaning-bearing-deletion",
+      "role": "control",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "You are not eligible after 30 days.",
+      "reply": "You are not eligible after 30 days.",
+      "citation": {
+        "start": 0,
+        "end": 35
+      },
+      "expectedCurrentContainment": true,
+      "proposedDisposition": "review_required",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "citation-boundary-selection-attack",
+      "pair": "citation-boundary-selection",
+      "family": "citation-boundary-selection",
+      "role": "attack",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "Refunds require approval. Approval is unavailable after 30 days.",
+      "reply": "Refunds require approval.",
+      "citation": {
+        "start": 0,
+        "end": 25
+      },
+      "expectedCurrentContainment": true,
+      "proposedDisposition": "human_audit",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "citation-boundary-selection-control",
+      "pair": "citation-boundary-selection",
+      "family": "citation-boundary-selection",
+      "role": "control",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "Refunds require approval. Approval is unavailable after 30 days.",
+      "reply": "Refunds require approval. Approval is unavailable after 30 days.",
+      "citation": {
+        "start": 0,
+        "end": 64
+      },
+      "expectedCurrentContainment": true,
+      "proposedDisposition": "review_required",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "inflection-attack",
+      "pair": "inflection",
+      "family": "inflection",
+      "role": "attack",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "This option can delight members.",
+      "reply": "This option can delighted members.",
+      "citation": {
+        "start": 0,
+        "end": 32
+      },
+      "expectedCurrentContainment": false,
+      "proposedDisposition": "reject",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "inflection-control",
+      "pair": "inflection",
+      "family": "inflection",
+      "role": "control",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "This option can delight members.",
+      "reply": "This option can delight members.",
+      "citation": {
+        "start": 0,
+        "end": 32
+      },
+      "expectedCurrentContainment": true,
+      "proposedDisposition": "review_required",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "uncited-url-attack",
+      "pair": "uncited-url",
+      "family": "uncited-url",
+      "role": "attack",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "Use Settings to reset a password.",
+      "reply": "Use https://example.test/reset to reset a password.",
+      "citation": {
+        "start": 0,
+        "end": 33
+      },
+      "expectedCurrentContainment": false,
+      "proposedDisposition": "reject",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "uncited-url-control",
+      "pair": "uncited-url",
+      "family": "uncited-url",
+      "role": "control",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "Use Settings to reset a password.",
+      "reply": "Use Settings to reset a password.",
+      "citation": {
+        "start": 0,
+        "end": 33
+      },
+      "expectedCurrentContainment": true,
+      "proposedDisposition": "review_required",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "banned-source-attack",
+      "pair": "banned-source",
+      "family": "banned-source",
+      "role": "attack",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "You can leverage Settings. You can use Settings.",
+      "reply": "You can leverage Settings.",
+      "citation": {
+        "start": 0,
+        "end": 26
+      },
+      "expectedCurrentContainment": false,
+      "proposedDisposition": "reject",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    },
+    {
+      "id": "banned-source-control",
+      "pair": "banned-source",
+      "family": "banned-source",
+      "role": "control",
+      "profile": {
+        "readingLevel": "general",
+        "formality": "neutral",
+        "person": "second",
+        "tense": "present",
+        "sentenceLength": "medium",
+        "bannedWords": [
+          "leverage"
+        ],
+        "preferredWords": [
+          "delight"
+        ],
+        "exampleRewrites": []
+      },
+      "source": "You can leverage Settings. You can use Settings.",
+      "reply": "You can use Settings.",
+      "citation": {
+        "start": 27,
+        "end": 48
+      },
+      "expectedCurrentContainment": true,
+      "proposedDisposition": "review_required",
+      "profileVersion": 1,
+      "profileDigest": "01ffc5e779b9cb4d261a82ecd176b198053ccef7cd98dce2da221b1c65d58741"
+    }
+  ]
+}

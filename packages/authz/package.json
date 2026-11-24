@@ -1,0 +1,51 @@
+{
+  "name": "@opentenant/authz",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./openfga": {
+      "types": "./dist/adapters/openfga.d.ts",
+      "import": "./dist/adapters/openfga.js",
+      "default": "./dist/adapters/openfga.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "import": "./dist/testing/index.js",
+      "default": "./dist/testing/index.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:integration": "vitest run src/openfga.integration.test.ts",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "dependencies": {
+    "@opentenant/module-sdk": "workspace:*",
+    "@openfga/sdk": "0.9.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.1",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7",
+    "@openfga/syntax-transformer": "0.2.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vitest": "^3.2.7 || ^4.1.12"
+  }
+}

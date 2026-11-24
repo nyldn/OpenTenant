@@ -1,0 +1,35 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Dependencies, caches, and generated output
+node_modules/
+.pnpm-store/
+.turbo/
+.next/
+dist/
+coverage/
+graphify-out/
+
+# Local assistant and browser state
+.agents/
+.claude/skills/
+.claude-octopus/
+.claude/settings*.json
+.codex/
+.playwright-mcp/
+*.log
+
+# OS and Git internals
+.DS_Store
+.git/
+
+.local/
+.t3/
+.uat/
+.vercel/
+playwright-report/
+test-results/
+output/
+.uat-audit/

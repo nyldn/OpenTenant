@@ -1,0 +1,4 @@
+# Keep project documentation current alongside the code graph after commits.
+semantic_update=on_commit
+semantic_backend=gemini
+semantic_env_file=.env

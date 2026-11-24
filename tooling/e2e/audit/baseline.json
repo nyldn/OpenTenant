@@ -1,0 +1,6977 @@
+{
+  "version": 2,
+  "cells": [
+    {
+      "id": "signed-out|home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "signed-out|home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "signed-out|home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "tenant-owner|home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "tenant-owner|home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "tenant-owner|home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "signed-out|tenants|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|tenants|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|tenants|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|tenants|390x844",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "installation-owner|tenants|768x1024",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "installation-owner|tenants|1440x900",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "tenant-owner|tenants|390x844",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "tenant-owner|tenants|768x1024",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "tenant-owner|tenants|1440x900",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "admin|tenants|390x844",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "admin|tenants|768x1024",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "admin|tenants|1440x900",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "member|tenants|390x844",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "member|tenants|768x1024",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "member|tenants|1440x900",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "managed-support|tenants|390x844",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "managed-support|tenants|768x1024",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "managed-support|tenants|1440x900",
+      "status": 200,
+      "final": "/tenants",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Your tenants"
+      ]
+    },
+    {
+      "id": "signed-out|sign-in|390x844",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|sign-in|768x1024",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|sign-in|1440x900",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|sign-in|390x844",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|sign-in|768x1024",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|sign-in|1440x900",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|sign-in|390x844",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|sign-in|768x1024",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|sign-in|1440x900",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|sign-in|390x844",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|sign-in|768x1024",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|sign-in|1440x900",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|sign-in|390x844",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|sign-in|768x1024",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|sign-in|1440x900",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|sign-in|390x844",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|sign-in|768x1024",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|sign-in|1440x900",
+      "status": 404,
+      "final": "/sign-in",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|sign-up|390x844",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|sign-up|768x1024",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|sign-up|1440x900",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|sign-up|390x844",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|sign-up|768x1024",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|sign-up|1440x900",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|sign-up|390x844",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|sign-up|768x1024",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|sign-up|1440x900",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|sign-up|390x844",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|sign-up|768x1024",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|sign-up|1440x900",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|sign-up|390x844",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|sign-up|768x1024",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|sign-up|1440x900",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|sign-up|390x844",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|sign-up|768x1024",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|sign-up|1440x900",
+      "status": 404,
+      "final": "/sign-up",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|settings|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings|390x844",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|settings|768x1024",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|settings|1440x900",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings|390x844",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings|768x1024",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings|1440x900",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|settings|390x844",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|settings|768x1024",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|settings|1440x900",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings|390x844",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings|768x1024",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings|1440x900",
+      "status": 200,
+      "final": "/settings",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "signed-out|settings-activity|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-activity|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-activity|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-activity|390x844",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-activity|768x1024",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-activity|1440x900",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-activity|390x844",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-activity|768x1024",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-activity|1440x900",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "admin|settings-activity|390x844",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "admin|settings-activity|768x1024",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "admin|settings-activity|1440x900",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Recent activity"
+      ]
+    },
+    {
+      "id": "member|settings-activity|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-activity|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-activity|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-activity|390x844",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|settings-activity|768x1024",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|settings-activity|1440x900",
+      "status": 200,
+      "final": "/settings/activity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "signed-out|settings-branding|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-branding|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-branding|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-branding|390x844",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-branding|768x1024",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-branding|1440x900",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-branding|390x844",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-branding|768x1024",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-branding|1440x900",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "admin|settings-branding|390x844",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "admin|settings-branding|768x1024",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "admin|settings-branding|1440x900",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "member|settings-branding|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-branding|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-branding|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-branding|390x844",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "managed-support|settings-branding|768x1024",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "managed-support|settings-branding|1440x900",
+      "status": 200,
+      "final": "/settings/branding",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Branding"
+      ]
+    },
+    {
+      "id": "signed-out|settings-connections|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-connections|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-connections|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-connections|390x844",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-connections|768x1024",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-connections|1440x900",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-connections|390x844",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-connections|768x1024",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-connections|1440x900",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "admin|settings-connections|390x844",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "admin|settings-connections|768x1024",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "admin|settings-connections|1440x900",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "member|settings-connections|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-connections|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-connections|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-connections|390x844",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "managed-support|settings-connections|768x1024",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "managed-support|settings-connections|1440x900",
+      "status": 200,
+      "final": "/settings/connections",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Connections"
+      ]
+    },
+    {
+      "id": "signed-out|settings-domains|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-domains|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-domains|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-domains|390x844",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-domains|768x1024",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-domains|1440x900",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-domains|390x844",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-domains|768x1024",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-domains|1440x900",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "admin|settings-domains|390x844",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "admin|settings-domains|768x1024",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "admin|settings-domains|1440x900",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "member|settings-domains|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-domains|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-domains|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-domains|390x844",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "managed-support|settings-domains|768x1024",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "managed-support|settings-domains|1440x900",
+      "status": 200,
+      "final": "/settings/domains",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Domains"
+      ]
+    },
+    {
+      "id": "signed-out|settings-identity|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-identity|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-identity|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-identity|390x844",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-identity|768x1024",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-identity|1440x900",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-identity|390x844",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-identity|768x1024",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-identity|1440x900",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "admin|settings-identity|390x844",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "admin|settings-identity|768x1024",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "admin|settings-identity|1440x900",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Identity"
+      ]
+    },
+    {
+      "id": "member|settings-identity|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-identity|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-identity|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-identity|390x844",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|settings-identity|768x1024",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|settings-identity|1440x900",
+      "status": 200,
+      "final": "/settings/identity",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "signed-out|settings-members|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-members|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-members|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-members|390x844",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-members|768x1024",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-members|1440x900",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-members|390x844",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-members|768x1024",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-members|1440x900",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "admin|settings-members|390x844",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "admin|settings-members|768x1024",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "admin|settings-members|1440x900",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Members"
+      ]
+    },
+    {
+      "id": "member|settings-members|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-members|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-members|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-members|390x844",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|settings-members|768x1024",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|settings-members|1440x900",
+      "status": 200,
+      "final": "/settings/members",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "signed-out|settings-modules|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-modules|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-modules|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-modules|390x844",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-modules|768x1024",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-modules|1440x900",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-modules|390x844",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-modules|768x1024",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-modules|1440x900",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "admin|settings-modules|390x844",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "admin|settings-modules|768x1024",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "admin|settings-modules|1440x900",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "member|settings-modules|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-modules|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-modules|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-modules|390x844",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "managed-support|settings-modules|768x1024",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "managed-support|settings-modules|1440x900",
+      "status": 200,
+      "final": "/settings/modules",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Modules"
+      ]
+    },
+    {
+      "id": "signed-out|settings-navigation|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-navigation|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|settings-navigation|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-navigation|390x844",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-navigation|768x1024",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "installation-owner|settings-navigation|1440x900",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-navigation|390x844",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-navigation|768x1024",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "tenant-owner|settings-navigation|1440x900",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "admin|settings-navigation|390x844",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "admin|settings-navigation|768x1024",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "admin|settings-navigation|1440x900",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "member|settings-navigation|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-navigation|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|settings-navigation|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|settings-navigation|390x844",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "managed-support|settings-navigation|768x1024",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "managed-support|settings-navigation|1440x900",
+      "status": 200,
+      "final": "/settings/navigation",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Navigation"
+      ]
+    },
+    {
+      "id": "signed-out|admin|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|admin|390x844",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Tenants"
+      ]
+    },
+    {
+      "id": "installation-owner|admin|768x1024",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Tenants"
+      ]
+    },
+    {
+      "id": "installation-owner|admin|1440x900",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Tenants"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin|390x844",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin|768x1024",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin|1440x900",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin|390x844",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin|768x1024",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin|1440x900",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin|390x844",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin|768x1024",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin|1440x900",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin|390x844",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Tenants"
+      ]
+    },
+    {
+      "id": "managed-support|admin|768x1024",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Tenants"
+      ]
+    },
+    {
+      "id": "managed-support|admin|1440x900",
+      "status": 200,
+      "final": "/admin",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Tenants"
+      ]
+    },
+    {
+      "id": "signed-out|admin-audit|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-audit|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-audit|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-audit|390x844",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Audit log"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-audit|768x1024",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Audit log"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-audit|1440x900",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Audit log"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-audit|390x844",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-audit|768x1024",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-audit|1440x900",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-audit|390x844",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-audit|768x1024",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-audit|1440x900",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-audit|390x844",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-audit|768x1024",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-audit|1440x900",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin-audit|390x844",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Audit log"
+      ]
+    },
+    {
+      "id": "managed-support|admin-audit|768x1024",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Audit log"
+      ]
+    },
+    {
+      "id": "managed-support|admin-audit|1440x900",
+      "status": 200,
+      "final": "/admin/audit",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Audit log"
+      ]
+    },
+    {
+      "id": "signed-out|admin-helpdesk|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-helpdesk|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-helpdesk|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-helpdesk|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Helpdesk"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-helpdesk|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Helpdesk"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-helpdesk|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Helpdesk"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-helpdesk|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-helpdesk|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-helpdesk|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-helpdesk|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-helpdesk|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-helpdesk|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-helpdesk|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-helpdesk|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-helpdesk|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin-helpdesk|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Helpdesk"
+      ]
+    },
+    {
+      "id": "managed-support|admin-helpdesk|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Helpdesk"
+      ]
+    },
+    {
+      "id": "managed-support|admin-helpdesk|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Helpdesk"
+      ]
+    },
+    {
+      "id": "signed-out|admin-support|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-support|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-support|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-support|390x844",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Enter Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-support|768x1024",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Enter Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-support|1440x900",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Enter Example Organisation"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-support|390x844",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-support|768x1024",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-support|1440x900",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-support|390x844",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-support|768x1024",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-support|1440x900",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-support|390x844",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-support|768x1024",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-support|1440x900",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin-support|390x844",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Enter Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|admin-support|768x1024",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Enter Example Alpha"
+      ]
+    },
+    {
+      "id": "managed-support|admin-support|1440x900",
+      "status": 200,
+      "final": "/admin/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Enter Example Alpha"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-new|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-new|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-new|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-new|390x844",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Create tenant"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-new|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Create tenant"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-new|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Create tenant"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-new|390x844",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-new|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-new|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-new|390x844",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-new|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-new|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-new|390x844",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-new|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-new|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-new|390x844",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Create tenant"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-new|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Create tenant"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-new|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/new",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Create tenant"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}|390x844",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}|768x1024",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}|1440x900",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "workspace"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "workspace"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "workspace"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}|390x844",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}|768x1024",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}|1440x900",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}|390x844",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}|768x1024",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}|1440x900",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}|390x844",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}|768x1024",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}|1440x900",
+      "status": 404,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "alpha"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "alpha"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "alpha"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}-brand-proposals|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to continue"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}-brand-proposals|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to continue"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}-brand-proposals|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to continue"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}-brand-proposals|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}-brand-proposals|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}-brand-proposals|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example Organisation"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}-brand-proposals|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}-brand-proposals|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}-brand-proposals|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}-brand-proposals|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}-brand-proposals|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}-brand-proposals|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Example Alpha"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}-brand-proposals|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}-brand-proposals|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}-brand-proposals|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}-brand-proposals|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}-brand-proposals|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}-brand-proposals|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/brand-proposals",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}-owner-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}-owner-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "signed-out|admin-tenants-{tenant}-owner-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}-owner-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}-owner-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "installation-owner|admin-tenants-{tenant}-owner-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}-owner-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}-owner-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "tenant-owner|admin-tenants-{tenant}-owner-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}-owner-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}-owner-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "admin|admin-tenants-{tenant}-owner-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}-owner-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}-owner-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "member|admin-tenants-{tenant}-owner-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}-owner-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}-owner-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "managed-support|admin-tenants-{tenant}-owner-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_e2e_alpha/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "signed-out|assessment|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "managed-support|assessment|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|assessment|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|assessment|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment-dimensions|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment-dimensions|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment-dimensions|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment-dimensions|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment-dimensions|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment-dimensions|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment-dimensions|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment-dimensions|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment-dimensions|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment-dimensions|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment-dimensions|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment-dimensions|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment-dimensions|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment-dimensions|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment-dimensions|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "managed-support|assessment-dimensions|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|assessment-dimensions|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|assessment-dimensions|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment-results|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment-results|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|assessment-results|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment-results|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment-results|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|assessment-results|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment-results|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment-results|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|assessment-results|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment-results|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment-results|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|assessment-results|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment-results|390x844",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment-results|768x1024",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|assessment-results|1440x900",
+      "status": 200,
+      "final": "/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "managed-support|assessment-results|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|assessment-results|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|assessment-results|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|knowledge|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|knowledge|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|knowledge|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|knowledge|390x844",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "installation-owner|knowledge|768x1024",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "installation-owner|knowledge|1440x900",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "tenant-owner|knowledge|390x844",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "tenant-owner|knowledge|768x1024",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "tenant-owner|knowledge|1440x900",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "admin|knowledge|390x844",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "admin|knowledge|768x1024",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "admin|knowledge|1440x900",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "member|knowledge|390x844",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "member|knowledge|768x1024",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "member|knowledge|1440x900",
+      "status": 200,
+      "final": "/brain",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Brain browser tools unavailable"
+      ]
+    },
+    {
+      "id": "managed-support|knowledge|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|knowledge|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|knowledge|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|support|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|support|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|support|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|support|390x844",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "installation-owner|support|768x1024",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "installation-owner|support|1440x900",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "tenant-owner|support|390x844",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "tenant-owner|support|768x1024",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "tenant-owner|support|1440x900",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "admin|support|390x844",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "admin|support|768x1024",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "admin|support|1440x900",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "member|support|390x844",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "member|support|768x1024",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "member|support|1440x900",
+      "status": 200,
+      "final": "/support",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Support"
+      ]
+    },
+    {
+      "id": "managed-support|support|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|support|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|support|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|support-ticket|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|support-ticket|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|support-ticket|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|support-ticket|390x844",
+      "status": 200,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Invite email did not arrive"
+      ]
+    },
+    {
+      "id": "installation-owner|support-ticket|768x1024",
+      "status": 200,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Invite email did not arrive"
+      ]
+    },
+    {
+      "id": "installation-owner|support-ticket|1440x900",
+      "status": 200,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Invite email did not arrive"
+      ]
+    },
+    {
+      "id": "tenant-owner|support-ticket|390x844",
+      "status": 200,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Invite email did not arrive"
+      ]
+    },
+    {
+      "id": "tenant-owner|support-ticket|768x1024",
+      "status": 200,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Invite email did not arrive"
+      ]
+    },
+    {
+      "id": "tenant-owner|support-ticket|1440x900",
+      "status": 200,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Invite email did not arrive"
+      ]
+    },
+    {
+      "id": "admin|support-ticket|390x844",
+      "status": 404,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|support-ticket|768x1024",
+      "status": 404,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|support-ticket|1440x900",
+      "status": 404,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|support-ticket|390x844",
+      "status": 404,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|support-ticket|768x1024",
+      "status": 404,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|support-ticket|1440x900",
+      "status": 404,
+      "final": "/support/{uuid}",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|support-ticket|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|support-ticket|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|support-ticket|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|access-assessment|390x844",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "signed-out|access-assessment|768x1024",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "signed-out|access-assessment|1440x900",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|access-assessment|390x844",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|access-assessment|768x1024",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "installation-owner|access-assessment|1440x900",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|access-assessment|390x844",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|access-assessment|768x1024",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "tenant-owner|access-assessment|1440x900",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|access-assessment|390x844",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|access-assessment|768x1024",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "admin|access-assessment|1440x900",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|access-assessment|390x844",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|access-assessment|768x1024",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "member|access-assessment|1440x900",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "managed-support|access-assessment|390x844",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "managed-support|access-assessment|768x1024",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "managed-support|access-assessment|1440x900",
+      "status": 200,
+      "final": "/access/assessment",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "AI Maturity Assessment"
+      ]
+    },
+    {
+      "id": "signed-out|remote-fixture|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|remote-fixture|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|remote-fixture|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|remote-fixture|390x844",
+      "status": 200,
+      "final": "/m/e2e-stub",
+      "kind": "fixture",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example local module"
+      ]
+    },
+    {
+      "id": "installation-owner|remote-fixture|768x1024",
+      "status": 200,
+      "final": "/m/e2e-stub",
+      "kind": "fixture",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example local module"
+      ]
+    },
+    {
+      "id": "installation-owner|remote-fixture|1440x900",
+      "status": 200,
+      "final": "/m/e2e-stub",
+      "kind": "fixture",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Example local module"
+      ]
+    },
+    {
+      "id": "tenant-owner|remote-fixture|390x844",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "tenant-owner|remote-fixture|768x1024",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "tenant-owner|remote-fixture|1440x900",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "admin|remote-fixture|390x844",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "admin|remote-fixture|768x1024",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "admin|remote-fixture|1440x900",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "member|remote-fixture|390x844",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "member|remote-fixture|768x1024",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "member|remote-fixture|1440x900",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|remote-fixture|390x844",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|remote-fixture|768x1024",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|remote-fixture|1440x900",
+      "status": 404,
+      "final": "/m/e2e-stub",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "signed-out|mcp-authorize|390x844",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e",
+      "headings": []
+    },
+    {
+      "id": "signed-out|mcp-authorize|768x1024",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e",
+      "headings": []
+    },
+    {
+      "id": "signed-out|mcp-authorize|1440x900",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e",
+      "headings": []
+    },
+    {
+      "id": "installation-owner|mcp-authorize|390x844",
+      "status": 200,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Authorize Developer MCP"
+      ]
+    },
+    {
+      "id": "installation-owner|mcp-authorize|768x1024",
+      "status": 200,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Authorize Developer MCP"
+      ]
+    },
+    {
+      "id": "installation-owner|mcp-authorize|1440x900",
+      "status": 200,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Authorize Developer MCP"
+      ]
+    },
+    {
+      "id": "tenant-owner|mcp-authorize|390x844",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "tenant-owner|mcp-authorize|768x1024",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "tenant-owner|mcp-authorize|1440x900",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "admin|mcp-authorize|390x844",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "admin|mcp-authorize|768x1024",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "admin|mcp-authorize|1440x900",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "member|mcp-authorize|390x844",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "member|mcp-authorize|768x1024",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "member|mcp-authorize|1440x900",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|mcp-authorize|390x844",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|mcp-authorize|768x1024",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|mcp-authorize|1440x900",
+      "status": 403,
+      "final": "/api/mcp/developer/authorize",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "signed-out|mcp-confirm|390x844",
+      "status": 403,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e",
+      "headings": []
+    },
+    {
+      "id": "signed-out|mcp-confirm|768x1024",
+      "status": 403,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e",
+      "headings": []
+    },
+    {
+      "id": "signed-out|mcp-confirm|1440x900",
+      "status": 403,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e",
+      "headings": []
+    },
+    {
+      "id": "installation-owner|mcp-confirm|390x844",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "installation-owner|mcp-confirm|768x1024",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "installation-owner|mcp-confirm|1440x900",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "tenant-owner|mcp-confirm|390x844",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "tenant-owner|mcp-confirm|768x1024",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "tenant-owner|mcp-confirm|1440x900",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "admin|mcp-confirm|390x844",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "admin|mcp-confirm|768x1024",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "admin|mcp-confirm|1440x900",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "member|mcp-confirm|390x844",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "member|mcp-confirm|768x1024",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "member|mcp-confirm|1440x900",
+      "status": 200,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Confirm workspace creation"
+      ]
+    },
+    {
+      "id": "managed-support|mcp-confirm|390x844",
+      "status": 403,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|mcp-confirm|768x1024",
+      "status": 403,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "managed-support|mcp-confirm|1440x900",
+      "status": 403,
+      "final": "/api/mcp/developer/confirm",
+      "kind": "api-denial",
+      "tenant": "tenant_e2e_alpha",
+      "headings": []
+    },
+    {
+      "id": "signed-out|beta-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "signed-out|beta-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "signed-out|beta-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "installation-owner|beta-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "installation-owner|beta-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "installation-owner|beta-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "tenant-owner|beta-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "tenant-owner|beta-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "tenant-owner|beta-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "admin|beta-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "admin|beta-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "admin|beta-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "member|beta-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "member|beta-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "member|beta-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "managed-support|beta-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "managed-support|beta-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "managed-support|beta-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_beta",
+      "headings": [
+        "Example Beta"
+      ]
+    },
+    {
+      "id": "signed-out|hostile-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "signed-out|hostile-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "signed-out|hostile-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "installation-owner|hostile-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "installation-owner|hostile-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "installation-owner|hostile-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "tenant-owner|hostile-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "tenant-owner|hostile-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "tenant-owner|hostile-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "admin|hostile-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "admin|hostile-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "admin|hostile-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "member|hostile-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "member|hostile-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "member|hostile-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "managed-support|hostile-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "managed-support|hostile-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "managed-support|hostile-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_e2e_hostile",
+      "headings": [
+        "Example Hostile"
+      ]
+    },
+    {
+      "id": "signed-out|fresh-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "signed-out|fresh-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "signed-out|fresh-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "installation-owner|fresh-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "installation-owner|fresh-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "installation-owner|fresh-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "tenant-owner|fresh-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "tenant-owner|fresh-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "tenant-owner|fresh-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "admin|fresh-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "admin|fresh-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "admin|fresh-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "member|fresh-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "member|fresh-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "member|fresh-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "managed-support|fresh-home|390x844",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "managed-support|fresh-home|768x1024",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "managed-support|fresh-home|1440x900",
+      "status": 200,
+      "final": "/",
+      "kind": "product",
+      "tenant": "tenant_uat_fresh",
+      "headings": [
+        "Example Fresh"
+      ]
+    },
+    {
+      "id": "signed-out|pending-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "signed-out|pending-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "signed-out|pending-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "installation-owner|pending-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "installation-owner|pending-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "installation-owner|pending-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "tenant-owner|pending-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "tenant-owner|pending-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "tenant-owner|pending-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "admin|pending-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "admin|pending-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "admin|pending-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "member|pending-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "member|pending-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "member|pending-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "managed-support|pending-claim|390x844",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "managed-support|pending-claim|768x1024",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "managed-support|pending-claim|1440x900",
+      "status": 200,
+      "final": "/admin/tenants/tenant_uat_pending/owner-claim",
+      "kind": "product",
+      "tenant": "tenant_uat_pending",
+      "headings": [
+        "Claim tenant ownership"
+      ]
+    },
+    {
+      "id": "signed-out|helpdesk-workspace-ticket|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|helpdesk-workspace-ticket|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|helpdesk-workspace-ticket|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|helpdesk-workspace-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "installation-owner|helpdesk-workspace-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "installation-owner|helpdesk-workspace-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|helpdesk-workspace-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|helpdesk-workspace-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|helpdesk-workspace-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|helpdesk-workspace-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|helpdesk-workspace-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|helpdesk-workspace-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|helpdesk-workspace-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|helpdesk-workspace-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|helpdesk-workspace-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|helpdesk-workspace-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|helpdesk-workspace-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|helpdesk-workspace-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "signed-out|helpdesk-alpha-ticket|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|helpdesk-alpha-ticket|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|helpdesk-alpha-ticket|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|helpdesk-alpha-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "installation-owner|helpdesk-alpha-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "installation-owner|helpdesk-alpha-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|helpdesk-alpha-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|helpdesk-alpha-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "tenant-owner|helpdesk-alpha-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|helpdesk-alpha-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|helpdesk-alpha-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "admin|helpdesk-alpha-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|helpdesk-alpha-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|helpdesk-alpha-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "member|helpdesk-alpha-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|helpdesk-alpha-ticket|390x844",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|helpdesk-alpha-ticket|768x1024",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "managed-support|helpdesk-alpha-ticket|1440x900",
+      "status": 200,
+      "final": "/admin/helpdesk/tenant_e2e_alpha/SUP-000001",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Access denied"
+      ]
+    },
+    {
+      "id": "signed-out|access-remote-fixture|390x844",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|access-remote-fixture|768x1024",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|access-remote-fixture|1440x900",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|access-remote-fixture|390x844",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|access-remote-fixture|768x1024",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "installation-owner|access-remote-fixture|1440x900",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|access-remote-fixture|390x844",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|access-remote-fixture|768x1024",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "tenant-owner|access-remote-fixture|1440x900",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|access-remote-fixture|390x844",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|access-remote-fixture|768x1024",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "admin|access-remote-fixture|1440x900",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|access-remote-fixture|390x844",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|access-remote-fixture|768x1024",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "member|access-remote-fixture|1440x900",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|access-remote-fixture|390x844",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|access-remote-fixture|768x1024",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "managed-support|access-remote-fixture|1440x900",
+      "status": 404,
+      "final": "/access/e2e-stub",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "404"
+      ]
+    },
+    {
+      "id": "signed-out|auth-login|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|auth-login|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "signed-out|auth-login|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|auth-login|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|auth-login|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "installation-owner|auth-login|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "tenant-owner|auth-login|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "tenant-owner|auth-login|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "tenant-owner|auth-login|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "admin|auth-login|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "admin|auth-login|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "admin|auth-login|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "member|auth-login|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "member|auth-login|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "member|auth-login|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|auth-login|390x844",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|auth-login|768x1024",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    },
+    {
+      "id": "managed-support|auth-login|1440x900",
+      "status": 200,
+      "final": "/auth/better-auth/login",
+      "kind": "product",
+      "tenant": "tenant_e2e_alpha",
+      "headings": [
+        "Sign in to OpenTenant"
+      ]
+    }
+  ],
+  "violations": [],
+  "counts": {
+    "cells": 702,
+    "productDocuments": 666,
+    "outcomes": {
+      "content": 462,
+      "redirected": 135,
+      "denied": 105
+    },
+    "impact": {
+      "critical": 0,
+      "serious": 0,
+      "moderate": 0,
+      "minor": 0
+    },
+    "rule": {},
+    "nodes": 0
+  }
+}

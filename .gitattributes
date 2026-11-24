@@ -1,0 +1,5 @@
+graphify-out/graph.json merge=graphify
+docs/LICENSE -whitespace
+# Append-only logs: parallel branches add entries, so keep both sides.
+docs/SHIPLOG.md merge=union
+CHANGELOG.md merge=union

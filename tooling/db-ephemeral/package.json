@@ -1,0 +1,19 @@
+{
+  "name": "@opentenant/db-ephemeral",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": "./postgres.mjs",
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --allowJs --checkJs --skipLibCheck --module nodenext --moduleResolution nodenext --target es2022 --types node *.mjs",
+    "test": "node --test *.test.mjs"
+  },
+  "devDependencies": {
+    "@testcontainers/postgresql": "12.2.1",
+    "pg": "8.23.1",
+    "testcontainers": "12.2.1",
+    "@types/pg": "8.20.0"
+  }
+}

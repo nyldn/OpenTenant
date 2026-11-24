@@ -1,0 +1,644 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  ENV_INVENTORY_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before || github.sha }}
+
+jobs:
+  repository-privacy:
+    name: Repository privacy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - name: Install pinned Gitleaks
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          base=https://github.com/gitleaks/gitleaks/releases/download/v8.30.1
+          curl --fail --silent --show-error --location "$base/gitleaks_8.30.1_linux_x64.tar.gz" -o gitleaks_8.30.1_linux_x64.tar.gz
+          curl --fail --silent --show-error --location "$base/gitleaks_8.30.1_checksums.txt" -o gitleaks-checksums.txt
+          grep -E '  gitleaks_8[.]30[.]1_linux_x64[.]tar[.]gz$' gitleaks-checksums.txt | sha256sum --check
+          tar -xzf gitleaks_8.30.1_linux_x64.tar.gz gitleaks
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Scan Git history and tracked paths
+        run: node tooling/ci/repository-privacy.mjs --history
+
+  a11y-ratchet:
+    name: Persona accessibility baseline comparison
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 127.0.0.1:55433:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 20
+    env:
+      E2E_USE_POSTGRES_SERVICE: '1'
+      E2E_POSTGRES_PORT: '55433'
+      E2E_SERVICE_PASSWORD: postgres
+      A11Y_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before || github.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Load immutable local fixture images
+        run: |
+          docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+          docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+          docker pull axllent/mailpit:v1.27.8@sha256:6abc8e633df15eaf785cfcf38bae48e66f64beecdc03121e249d0f9ec15f0707
+      - run: pnpm --filter @opentenant/e2e exec playwright install --with-deps chromium
+      - name: Verify complete persona matrix and comparison contract
+        run: node --test tooling/e2e/audit/*.test.mjs
+      - run: pnpm a11y:scan
+      - name: Remove worktree-owned services even after failure
+        if: always()
+        run: pnpm uat:down
+      - name: Upload sanitized matrix, comparison and batch measurements
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: a11y-ratchet
+          path: |
+            tooling/e2e/test-results/a11y/matrix.json
+            tooling/e2e/test-results/a11y/comparison.json
+          retention-days: 7
+          if-no-files-found: error
+
+  production-budgets:
+    name: Built production budgets and download proofs
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Load immutable local fixture images
+        run: |
+          docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+          docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+          docker pull axllent/mailpit:v1.27.8@sha256:6abc8e633df15eaf785cfcf38bae48e66f64beecdc03121e249d0f9ec15f0707
+      - run: pnpm --filter @opentenant/e2e exec playwright install --with-deps chromium
+      - name: Collect exactly six production cases without a stack
+        run: |
+          pnpm --filter @opentenant/e2e exec playwright test --config production/config.ts --list | grep -qx 'Total: 6 tests in 1 file'
+      - name: Build, start and measure the owned production stack
+        run: node tooling/e2e/production/run.mjs --build
+      - name: Remove worktree-owned services even after failure
+        if: always()
+        run: pnpm uat:down
+      - name: Upload measurements, profile and teardown receipt
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: production-budgets
+          path: |
+            tooling/e2e/test-results/production/results.json
+            tooling/e2e/test-results/production/measurements.jsonl
+            tooling/e2e/test-results/production/profile.json
+            tooling/e2e/test-results/production/teardown.json
+          retention-days: 7
+          if-no-files-found: error
+  smtp-proof:
+    name: Real SMTP application paths with Mailpit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      mailpit:
+        image: axllent/mailpit:v1.27.8@sha256:6abc8e633df15eaf785cfcf38bae48e66f64beecdc03121e249d0f9ec15f0707
+        env:
+          MP_SMTP_AUTH_ACCEPT_ANY: "1"
+          MP_SMTP_AUTH_ALLOW_INSECURE: "1"
+        ports:
+          - 127.0.0.1:11026:1025
+          - 127.0.0.1:18026:8025
+        options: >-
+          --health-cmd "/mailpit readyz"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 20
+    env:
+      MAILPIT_REQUIRED: '1'
+      MAILPIT_HTTP_URL: http://127.0.0.1:18026
+      MAILPIT_SMTP_PORT: '11026'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+      # The harness looks up the compose tag but uses this exact pre-pulled image.
+      - run: docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+      - name: Require exact SMTP transport and PostgreSQL application cases
+        env:
+          DATABASE_STORE_REPORT_DIRECTORY: ${{ runner.temp }}/smtp-reports
+        run: node tooling/ci/db-sequence-smtp-proof.mjs
+      - name: Upload SMTP proof receipts
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: smtp-reports
+          path: ${{ runner.temp }}/smtp-reports
+          if-no-files-found: error
+          retention-days: 14
+
+  microvm-proof:
+    name: Real microVM isolation (owner must confirm hosted runner KVM support)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      # GitHub-hosted Linux KVM udev setup, used by android-emulator-runner.
+      # Keep this job required/failing on unavailable KVM. Do not convert to skip.
+      - name: Grant runner access to KVM using udev
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          test -r /dev/kvm && test -w /dev/kvm
+      - run: pnpm sandbox:microvm-proof
+
+  docs-links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - name: Check documentation files and anchors without external URL requests
+        run: pnpm docs:links
+
+  restore-drill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Cache the exact disposable database and client image
+        run: |
+          docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+          docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+      - name: Back up, destroy, restore and verify synthetic databases
+        env:
+          RESTORE_DRILL_REPORT: ${{ runner.temp }}/restore-drill.json
+        run: pnpm restore:drill
+      - name: Upload synthetic recovery measurements
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: restore-drill
+          path: ${{ runner.temp }}/restore-drill.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  developer-mcp-brain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Cache the exact disposable database and client image
+        run: |
+          docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+          docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+      - name: Verify exact MCP and Brain test counts with canonical migrations
+        run: pnpm db:ephemeral -- node tooling/ci/mcp-brain-proof.mjs
+
+  create-opentenant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        identity: [local, better-auth]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Cache the exact disposable database and client image
+        run: |
+          docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+          docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+      - run: docker pull node:22-bookworm@sha256:e13726ca604184d7a91fcacab1fc09eefd642dc28e79ac34e85540dd93b78cfb
+      - name: Scaffold from packs in a clean Node 22 container within ten minutes
+        env:
+          DX_IDENTITY: ${{ matrix.identity }}
+          DX_TIMED_REPORT: ${{ runner.temp }}/dx-timed.json
+        run: pnpm dx:timed
+      - name: Upload measured duration
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
+        with:
+          name: dx-timed-${{ matrix.identity }}
+          path: ${{ runner.temp }}/dx-timed.json
+          if-no-files-found: error
+
+  package-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm turbo build --filter='./packages/*' --filter='./modules/*' --filter='./examples/*' --filter=@opentenant/migrations --filter=@opentenant/provisioning
+      - name: Install pinned package secret scanner
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=https://github.com/gitleaks/gitleaks/releases/download/v8.30.1
+          curl --fail --silent --show-error --location "$base/gitleaks_8.30.1_linux_x64.tar.gz" -o "$RUNNER_TEMP/gitleaks_8.30.1_linux_x64.tar.gz"
+          curl --fail --silent --show-error --location "$base/gitleaks_8.30.1_checksums.txt" -o "$RUNNER_TEMP/gitleaks-checksums.txt"
+          (cd "$RUNNER_TEMP" && sha256sum --check --ignore-missing gitleaks-checksums.txt)
+          tar -xzf "$RUNNER_TEMP/gitleaks_8.30.1_linux_x64.tar.gz" -C "$RUNNER_TEMP" gitleaks
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - run: pnpm package:check
+      - name: Restore generated package assets from the local Turbo cache
+        run: node tooling/build/check-cache-restore.mjs
+      - run: pnpm module:audit
+      - name: Cache pinned database for packed adopter proof
+        run: |
+          docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+          docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+      - name: Install packed third-party module into an unchanged host copy
+        run: pnpm module:adopter-proof
+      - run: pnpm audit --audit-level high
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: package-sbom
+          path: dist/packages.spdx.json
+
+  release-local-proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm turbo build --filter='./packages/*' --filter='./modules/*' --filter='./examples/*' --filter=@opentenant/migrations --filter=@opentenant/provisioning
+      - name: Install pinned package secret scanner
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=https://github.com/gitleaks/gitleaks/releases/download/v8.30.1
+          curl --fail --silent --show-error --location "$base/gitleaks_8.30.1_linux_x64.tar.gz" -o "$RUNNER_TEMP/gitleaks_8.30.1_linux_x64.tar.gz"
+          curl --fail --silent --show-error --location "$base/gitleaks_8.30.1_checksums.txt" -o "$RUNNER_TEMP/gitleaks-checksums.txt"
+          (cd "$RUNNER_TEMP" && sha256sum --check --ignore-missing gitleaks-checksums.txt)
+          tar -xzf "$RUNNER_TEMP/gitleaks_8.30.1_linux_x64.tar.gz" -C "$RUNNER_TEMP" gitleaks
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - run: docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+      # db:ephemeral looks up the compose tag but uses this exact pre-pulled image.
+      - run: docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+      - run: docker pull node:22-bookworm@sha256:e13726ca604184d7a91fcacab1fc09eefd642dc28e79ac34e85540dd93b78cfb
+      - name: Publish only to disposable Verdaccio and prove clean adopter startup
+        env:
+          RELEASE_LOCAL_REPORT: ${{ runner.temp }}/release-local.json
+        run: pnpm release:local-proof
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        if: always()
+        with:
+          name: release-local-proof
+          path: ${{ runner.temp }}/release-local.json
+          if-no-files-found: error
+
+  deployment-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+      - name: Build and smoke the disposable self-hosted stack
+        run: node scripts/smoke-deploy.mjs
+
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit production dependencies
+        run: pnpm audit --prod --audit-level high
+
+      - name: Validate quality task matrix
+        run: pnpm quality:matrix
+
+      - name: Validate tenant starter dependency graph
+        run: |
+          pnpm --dir templates/tenant-module-nextjs install --lockfile-only --frozen-lockfile
+          pnpm --dir templates/tenant-module-nextjs audit --prod --audit-level high
+
+      - name: Lint, typecheck, test
+        run: pnpm run check
+
+      - name: Check property-test dependency licenses and write SBOM
+        run: node packages/testing/scripts/dependency-proof.mjs "${{ runner.temp }}/property-test.cdx.json"
+
+      - name: Upload property-test SBOM
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: property-test-sbom
+          path: ${{ runner.temp }}/property-test.cdx.json
+          if-no-files-found: error
+
+      - name: Validate R11 regression index
+        run: pnpm --filter @opentenant/testing exec vitest run src/r11-regressions.test.ts src/dependency-security.test.ts
+
+      - name: Build platform
+        run: pnpm turbo build --filter=@opentenant/platform
+
+  rls-proof:
+    # Provider-neutral fail-closed RLS proof against local PostgreSQL.
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+        env:
+          POSTGRES_DB: opentenant_ci
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d opentenant_ci"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run RLS proof
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/opentenant_ci
+        run: node tooling/ci/rls-proof.mjs
+
+  database-store-proof:
+    # Each destructive store suite receives its own synthetic database.
+    # The helper verifies exact suite and assertion counts from JSON reports.
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 127.0.0.1:55433:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify database and environment inventories
+        working-directory: tooling/ci
+        run: node --test db-sequence*.test.mjs runtime-env*.test.mjs
+
+      - name: Run the canonical database job sequence
+        env:
+          ADMIN_DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:55433/postgres
+          DATABASE_STORE_REPORT_DIRECTORY: ${{ runner.temp }}/database-store-reports
+        run: pnpm ci:db-sequence
+
+      - name: Load immutable database harness image
+        run: |
+          docker pull pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+          docker tag pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966 pgvector/pgvector:0.8.2-pg17-bookworm
+
+      - name: Verify database harness lifecycle and restricted controller
+        env:
+          DATABASE_STORE_REPORT_DIRECTORY: ${{ runner.temp }}/database-store-reports
+        run: node tooling/ci/db-sequence-node-proofs.mjs
+
+      - name: Upload database store reports
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: database-store-reports
+          path: ${{ runner.temp }}/database-store-reports
+          if-no-files-found: error
+          retention-days: 14
+
+  migration-execution:
+    # Executes every migration against a real server.
+    #
+    # `rls-proof` applies tenant-core, tenant-brain and tenant-support only, so
+    # no job had ever run a control-plane migration. The four integration suites
+    # that do exist were unreachable: they read environment variables no
+    # workflow set, and the two control-plane ones demanded different database
+    # names from the same variable. Migration 0018 shipped as invalid
+    # PostgreSQL through a green pipeline because the only check on it matched
+    # the file as text.
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Create integration databases
+        env:
+          ADMIN_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
+        run: node tooling/ci/create-integration-databases.mjs
+
+      - name: Run migration suites against PostgreSQL
+        env:
+          CONTROL_PLANE_INTEGRATION_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/opentenant_it_control_plane
+          TENANT_CORE_INTEGRATION_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/opentenant_it_tenant_core
+          TENANT_SUPPORT_INTEGRATION_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/opentenant_it_tenant_support
+        run: pnpm --filter @opentenant/migrations test
+
+  e2e:
+    runs-on: ubuntu-latest
+    # Separate local and Better Auth phases each provision fresh tenant databases.
+    timeout-minutes: 30
+    services:
+      postgres:
+        image: pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 55433:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 2s
+          --health-timeout 3s
+          --health-retries 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Cache Chromium
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install Chromium and system libraries
+        run: pnpm --filter @opentenant/e2e exec playwright install --with-deps chromium
+
+      # The Mailpit fixture starts with --pull=never; load the pinned image first.
+      - run: docker pull axllent/mailpit:v1.27.8@sha256:6abc8e633df15eaf785cfcf38bae48e66f64beecdc03121e249d0f9ec15f0707
+      # developer-mcp.spec.ts runs the real route proof: it never pulls, so cache
+      # the reviewed Node guest image, and it needs KVM like microvm-proof.
+      # Keep both mandatory; a runner without KVM must fail, never skip.
+      - run: docker pull node:22-bookworm@sha256:e13726ca604184d7a91fcacab1fc09eefd642dc28e79ac34e85540dd93b78cfb
+      - name: Grant runner access to KVM using udev
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+          test -r /dev/kvm && test -w /dev/kvm
+      - name: Run local browser journeys
+        env:
+          E2E_USE_POSTGRES_SERVICE: '1'
+          E2E_POSTGRES_PORT: '55433'
+          E2E_SERVICE_PASSWORD: postgres
+        run: pnpm e2e
+
+      - name: Upload browser results and failure traces
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: e2e-browser-evidence
+          path: |
+            tooling/e2e/test-results/
+            tooling/e2e/playwright-report/
+          if-no-files-found: warn
+          retention-days: 7

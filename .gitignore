@@ -1,0 +1,87 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.envrc
+.npmrc
+.netrc
+credentials*.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.dump
+*.backup
+*.sqlite
+*.sqlite3
+*.db
+
+# OS
+.DS_Store
+
+# Dependencies and build output
+node_modules/
+.turbo/
+.next/
+dist/
+coverage/
+/output/
+
+# Local workspace, provider links, and tool state
+.local/
+.claude/
+.codex/
+.t3/
+.vercel/
+.ssh/
+.aws/
+.gcloud/
+.direnv/
+config/deploy.yml
+*.log
+*.tsbuildinfo
+.claude-octopus/
+.pnpm-store/
+.opentenant/
+
+# Rebuildable graph and diagram output
+graphify-out/
+/docs/architecture/archify/*.html
+/docs/architecture/archify/*.visual-check.*
+
+# Editor and agent session scratch. These are rewritten at unpredictable times
+# by session tooling, which dirties any worktree the unattended controller is
+# using and fails its scope check for reasons unrelated to the agent under test.
+.octo-continue.md
+.octo/
+
+# Browser test evidence can contain synthetic session cookies.
+playwright-report/
+test-results/
+
+# Module SQL assets copied from the canonical immutable migration sources.
+/modules/brain/sql/
+/modules/support/sql/
+
+# Host-specific handoffs and local tools
+/docs/REMOTE-DEVELOPMENT.md
+/docs/FABLE5-HANDOFF.md
+/docs/OPUS5-HANDOFF.md
+/docs/tooling/fable5-optimizer.md
+/docs/tooling/marketing-sync.md
+/docs/reviews/2026-09-29-public-history-audit.md
+
+# Persistent synthetic UAT session manifest and lifecycle lock.
+.uat/
+
+# Ad hoc UAT build output and exported data.
+.uat-audit/
+*.csv
+*.ndjson
+*.jsonl
+*.har
+*.zip
+*.tgz
+*.tar
+*.tar.gz

@@ -1,0 +1,49 @@
+{
+  "name": "@opentenant/testing",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "fast-check": "4.3.0",
+    "@types/pg": "^8.11.0",
+    "better-auth": "1.7.21"
+  },
+  "dependencies": {
+    "@opentenant/auth": "workspace:*",
+    "@opentenant/database": "workspace:*",
+    "@opentenant/platform-core": "workspace:*",
+    "@opentenant/migrations": "workspace:*",
+    "@opentenant/provisioning": "workspace:*",
+    "@opentenant/security": "workspace:*",
+    "@opentenant/support": "workspace:*",
+    "pg": "^8.13.0",
+    "@opentenant/auth-better-auth": "workspace:*"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vitest": "^3.2.7 || ^4.1.12"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "@opentenant/migrations",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./tenant-core": {
+      "types": "./dist/tenant-core.d.ts",
+      "import": "./dist/tenant-core.js",
+      "default": "./dist/tenant-core.js"
+    },
+    "./tenant-modules": {
+      "types": "./dist/tenant-modules.d.ts",
+      "import": "./dist/tenant-modules.js",
+      "default": "./dist/tenant-modules.js"
+    },
+    "./control-plane": {
+      "types": "./dist/control-plane.d.ts",
+      "import": "./dist/control-plane.js",
+      "default": "./dist/control-plane.js"
+    }
+  },
+  "scripts": {
+    "local:migrate": "node --experimental-strip-types src/local.mjs",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --configLoader runner",
+    "migrate:hosted": "node --experimental-strip-types src/hosted.mjs",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0",
+    "@types/pg": "^8.20.3",
+    "@example/module-hello": "workspace:*"
+  },
+  "dependencies": {
+    "pg": "^8.13.0",
+    "@opentenant/assessment": "workspace:*",
+    "@opentenant/brain": "workspace:*",
+    "@opentenant/support": "workspace:*",
+    "@opentenant/module-sdk": "workspace:*",
+    "@opentenant/platform-core": "workspace:*"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "sql"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

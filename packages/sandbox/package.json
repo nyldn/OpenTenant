@@ -1,0 +1,56 @@
+{
+  "name": "@opentenant/sandbox",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "import": "./dist/testing/index.js",
+      "default": "./dist/testing/index.js"
+    },
+    "./providers/e2b": {
+      "types": "./dist/providers/e2b/adapter.d.ts",
+      "import": "./dist/providers/e2b/adapter.js",
+      "default": "./dist/providers/e2b/adapter.js"
+    },
+    "./providers/microsandbox": {
+      "types": "./dist/providers/microsandbox/adapter.d.ts",
+      "import": "./dist/providers/microsandbox/adapter.js",
+      "default": "./dist/providers/microsandbox/adapter.js"
+    },
+    "./providers/configured": {
+      "types": "./dist/providers/configured.d.ts",
+      "import": "./dist/providers/configured.js",
+      "default": "./dist/providers/configured.js"
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsdown",
+    "dev": "tsdown --watch --no-clean"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "e2b": "2.63.0",
+    "microsandbox": "0.7.13"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "code_revision": "76f7594e6dc8440e15f4f124e8c9ac9ac303fbb7",
+  "runtime": {
+    "node": "22.23.2",
+    "pnpm": "11.13.1"
+  },
+  "quality_environment": {
+    "VITEST_MAX_FORKS": "2",
+    "VITEST_MIN_FORKS": "1"
+  },
+  "results": [
+    {
+      "run": "frozen-final",
+      "command": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "exit": 0,
+      "seconds": 0.44
+    },
+    {
+      "run": "audit-final",
+      "command": [
+        "pnpm",
+        "audit",
+        "--prod",
+        "--audit-level",
+        "high"
+      ],
+      "exit": 0,
+      "seconds": 1.05
+    },
+    {
+      "run": "quality",
+      "command": [
+        "pnpm",
+        "turbo",
+        "typecheck",
+        "lint",
+        "test",
+        "--force",
+        "--concurrency=2"
+      ],
+      "exit": 1,
+      "seconds": 64.88,
+      "tests": {
+        "passed": 1062,
+        "failed": 3,
+        "skipped": 41
+      }
+    },
+    {
+      "run": "quality-retry",
+      "command": [
+        "pnpm",
+        "turbo",
+        "typecheck",
+        "lint",
+        "test",
+        "--force",
+        "--concurrency=2"
+      ],
+      "exit": 2,
+      "seconds": 139.45,
+      "tests": {
+        "passed": 1793,
+        "failed": 0,
+        "skipped": 42
+      }
+    },
+    {
+      "run": "quality-final",
+      "command": [
+        "pnpm",
+        "turbo",
+        "typecheck",
+        "lint",
+        "test",
+        "--force",
+        "--concurrency=2"
+      ],
+      "exit": 0,
+      "seconds": 173.84,
+      "tests": {
+        "passed": 1939,
+        "failed": 0,
+        "skipped": 48
+      }
+    },
+    {
+      "run": "matrix",
+      "command": [
+        "pnpm",
+        "quality:matrix"
+      ],
+      "exit": 0,
+      "seconds": 2.49
+    },
+    {
+      "run": "build",
+      "command": [
+        "pnpm",
+        "turbo",
+        "build",
+        "--filter=@opentenant/platform"
+      ],
+      "exit": 1,
+      "seconds": 53.5
+    },
+    {
+      "run": "build-retry",
+      "command": [
+        "pnpm",
+        "turbo",
+        "build",
+        "--filter=@opentenant/platform"
+      ],
+      "exit": 0,
+      "seconds": 101.4
+    },
+    {
+      "run": "rls",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "rls:proof"
+      ],
+      "exit": 0,
+      "seconds": 15.64,
+      "tests": {
+        "passed": 314,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "stores",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "database:store-proof"
+      ],
+      "exit": 0,
+      "seconds": 54.74,
+      "tests": {
+        "passed": 40,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "migrations",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "--filter",
+        "@opentenant/migrations",
+        "test"
+      ],
+      "exit": 0,
+      "seconds": 93.72,
+      "tests": {
+        "passed": 175,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "provisioning",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "--filter",
+        "@opentenant/platform",
+        "exec",
+        "vitest",
+        "run",
+        "lib/provisioning.integration.test.ts"
+      ],
+      "exit": 0,
+      "seconds": 25.01,
+      "tests": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "worker",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "--filter",
+        "@opentenant/platform",
+        "exec",
+        "vitest",
+        "run",
+        "lib/tenant-worker.integration.test.ts"
+      ],
+      "exit": 0,
+      "seconds": 31.06,
+      "tests": {
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "worker-usage",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "--filter",
+        "@opentenant/platform",
+        "exec",
+        "vitest",
+        "run",
+        "lib/tenant-worker.integration.test.ts"
+      ],
+      "exit": 0,
+      "seconds": 18.79,
+      "tests": {
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "isolation",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "env",
+        "ISOLATION_FUZZ_SEED=20261111",
+        "node",
+        "packages/testing/scripts/isolation-proof.mjs"
+      ],
+      "exit": 1,
+      "seconds": 22.08
+    },
+    {
+      "run": "isolation-retry",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "env",
+        "ISOLATION_FUZZ_SEED=20261111",
+        "node",
+        "packages/testing/scripts/isolation-proof.mjs"
+      ],
+      "exit": 0,
+      "seconds": 209.81,
+      "tests": {
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "usage-db",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "pnpm",
+        "--filter",
+        "@opentenant/usage-export",
+        "test"
+      ],
+      "exit": 0,
+      "seconds": 16.14,
+      "tests": {
+        "passed": 14,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "identity",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@opentenant/testing",
+        "exec",
+        "vitest",
+        "run",
+        "src/identity-adapters.test.ts"
+      ],
+      "exit": 0,
+      "seconds": 3.48,
+      "tests": {
+        "passed": 39,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "authz",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@opentenant/authz",
+        "test"
+      ],
+      "exit": 0,
+      "seconds": 5.83,
+      "tests": {
+        "passed": 38,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "e2e",
+      "command": [
+        "pnpm",
+        "e2e"
+      ],
+      "exit": 0,
+      "seconds": 91.09,
+      "tests": {
+        "passed": 8,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "custom-domains",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "sh",
+        "-c",
+        "CUSTOM_DOMAINS_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" exec pnpm --filter @opentenant/platform exec vitest run lib/custom-domains.integration.test.ts"
+      ],
+      "exit": 0,
+      "seconds": 19.2,
+      "tests": {
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "key-rotation",
+      "command": [
+        "pnpm",
+        "db:ephemeral",
+        "--",
+        "sh",
+        "-c",
+        "KEY_ROTATION_DATABASE_URL=\"$CONTROL_PLANE_INTEGRATION_DATABASE_URL\" exec pnpm --filter @opentenant/database exec vitest run src/credential-cipher-rotation.postgres.test.ts"
+      ],
+      "exit": 0,
+      "seconds": 17.88,
+      "tests": {
+        "passed": 2,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "run": "gitleaks",
+      "command": [
+        "gitleaks",
+        "dir",
+        "/tmp/opentenant-wave2-source-scan",
+        "--redact",
+        "--no-banner",
+        "--config",
+        ".gitleaks.toml"
+      ],
+      "exit": 1,
+      "seconds": 1.72
+    },
+    {
+      "run": "gitleaks-final",
+      "command": [
+        "gitleaks",
+        "dir",
+        ".",
+        "--redact",
+        "--no-banner",
+        "--config",
+        ".gitleaks.toml"
+      ],
+      "exit": 0,
+      "seconds": 1.87
+    },
+    {
+      "run": "semgrep-final",
+      "command": [
+        "semgrep",
+        "scan",
+        "--jobs",
+        "2",
+        "--timeout",
+        "15",
+        "--config",
+        "packages/usage-export/testing/security-rules.yml",
+        "--metrics=off",
+        "--disable-version-check",
+        "--error",
+        "--exclude",
+        "graphify-out",
+        "--exclude",
+        "node_modules",
+        "--exclude",
+        ".next",
+        "."
+      ],
+      "exit": 0,
+      "seconds": 19.38
+    },
+    {
+      "run": "trivy-final",
+      "command": [
+        "trivy",
+        "fs",
+        "--offline-scan",
+        "--skip-db-update",
+        "--skip-check-update",
+        "--skip-version-check",
+        "--scanners",
+        "vuln,misconfig",
+        "--severity",
+        "HIGH,CRITICAL",
+        "--skip-dirs",
+        "node_modules",
+        "--skip-dirs",
+        ".git",
+        "--skip-dirs",
+        "graphify-out",
+        "--skip-dirs",
+        "apps/platform/.next",
+        "."
+      ],
+      "exit": 0,
+      "seconds": 1.75
+    }
+  ],
+  "not_verified": [
+    "Real microsandbox lifecycle: no approved cached image configured; no image pull authorized.",
+    "Mailpit SMTP delivery: local Mailpit service unavailable."
+  ],
+  "open_findings": [
+    "R11-12: AP production provisioning unsupported.",
+    "R11-18: production configuration requires NEON_API_KEY and NEON_ORG_ID for self-hosted installs."
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "OpenTenant runtime architecture",
+    "output": "open-tenant-runtime.architecture.html",
+    "quality_profile": "showcase",
+    "views": [
+      {
+        "id": "request-path",
+        "label": "Tenant request path",
+        "focus": [
+          "user",
+          "platform-ui",
+          "platform-api",
+          "tenant-context",
+          "module-broker",
+          "tenant-db"
+        ],
+        "note": "Follow a tenant request from the platform UI through resolution, authorization, and persistence."
+      },
+      {
+        "id": "module-boundary",
+        "label": "Module boundary",
+        "focus": [
+          "tenant-context",
+          "module-broker",
+          "modules",
+          "audit"
+        ],
+        "note": "See how module access is mediated and recorded without exposing control-plane credentials."
+      },
+      {
+        "id": "evidence-path",
+        "label": "Evidence path",
+        "focus": [
+          "platform-api",
+          "audit",
+          "tenant-db"
+        ],
+        "note": "Isolate the API, audit evidence, and tenant-scoped persistence relationship."
+      }
+    ]
+  },
+  "components": [
+    {
+      "id": "user",
+      "type": "external",
+      "label": "Tenant user",
+      "sublabel": "Browser request",
+      "pos": [
+        40,
+        300
+      ],
+      "size": [
+        150,
+        68
+      ]
+    },
+    {
+      "id": "platform-ui",
+      "type": "frontend",
+      "label": "Platform UI",
+      "sublabel": "Next.js application",
+      "pos": [
+        250,
+        300
+      ],
+      "size": [
+        170,
+        68
+      ]
+    },
+    {
+      "id": "platform-api",
+      "type": "backend",
+      "label": "Platform API routes",
+      "sublabel": "tenant-aware handlers",
+      "pos": [
+        480,
+        300
+      ],
+      "size": [
+        185,
+        68
+      ]
+    },
+    {
+      "id": "tenant-context",
+      "type": "security",
+      "label": "Tenant context",
+      "sublabel": "identity, admission, policy",
+      "tag": "tenant boundary",
+      "pos": [
+        725,
+        300
+      ],
+      "size": [
+        190,
+        68
+      ]
+    },
+    {
+      "id": "module-broker",
+      "type": "backend",
+      "label": "Module capability broker",
+      "sublabel": "bounded module access",
+      "pos": [
+        965,
+        300
+      ],
+      "size": [
+        195,
+        68
+      ]
+    },
+    {
+      "id": "tenant-db",
+      "type": "database",
+      "label": "Tenant data stores",
+      "sublabel": "repositories and persistence",
+      "pos": [
+        965,
+        500
+      ],
+      "size": [
+        195,
+        68
+      ]
+    },
+    {
+      "id": "modules",
+      "type": "external",
+      "label": "Tenant modules",
+      "sublabel": "native or remote consumers",
+      "pos": [
+        725,
+        500
+      ],
+      "size": [
+        190,
+        68
+      ]
+    },
+    {
+      "id": "audit",
+      "type": "backend",
+      "label": "Audit evidence",
+      "sublabel": "activity and policy record",
+      "pos": [
+        480,
+        500
+      ],
+      "size": [
+        185,
+        68
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "security-group",
+      "label": "OpenTenant control plane",
+      "wraps": [
+        "platform-ui",
+        "platform-api",
+        "tenant-context",
+        "module-broker",
+        "audit"
+      ],
+      "pad": 28
+    },
+    {
+      "kind": "security-group",
+      "label": "Tenant-scoped persistence",
+      "wraps": [
+        "tenant-db"
+      ],
+      "pad": 24
+    }
+  ],
+  "connections": [
+    {
+      "id": "user-ui",
+      "from": "user",
+      "to": "platform-ui",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "ui-api",
+      "from": "platform-ui",
+      "to": "platform-api",
+      "label": "route request",
+      "labelDy": -28
+    },
+    {
+      "id": "api-context",
+      "from": "platform-api",
+      "to": "tenant-context",
+      "label": "resolve tenant + identity",
+      "variant": "security",
+      "labelDy": -28
+    },
+    {
+      "id": "context-broker",
+      "from": "tenant-context",
+      "to": "module-broker",
+      "label": "authorize capability",
+      "variant": "security",
+      "labelDy": -28
+    },
+    {
+      "id": "broker-modules",
+      "from": "module-broker",
+      "to": "modules",
+      "label": "bounded module context",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top"
+    },
+    {
+      "id": "broker-db",
+      "from": "module-broker",
+      "to": "tenant-db",
+      "label": "tenant-scoped data",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDx": 70,
+      "labelDy": 24
+    },
+    {
+      "id": "api-audit",
+      "from": "platform-api",
+      "to": "audit",
+      "label": "record evidence",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "labelDy": 24
+    },
+    {
+      "id": "modules-audit",
+      "from": "modules",
+      "to": "audit",
+      "label": "activity signal",
+      "variant": "dashed",
+      "fromSide": "left",
+      "toSide": "right",
+      "labelDy": 58
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Request path",
+      "items": [
+        "The platform UI hands requests to tenant-aware API routes.",
+        "Tenant context resolves identity, admission, and policy before module access."
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Module boundary",
+      "items": [
+        "The capability broker mediates native and remote module access.",
+        "Modules consume OpenTenant contracts without control-plane credentials."
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Evidence and state",
+      "items": [
+        "Tenant-scoped repositories provide persistence.",
+        "Audit helpers keep activity and policy evidence on the platform side."
+      ]
+    }
+  ]
+}

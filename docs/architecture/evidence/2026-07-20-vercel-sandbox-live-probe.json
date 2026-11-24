@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-07-20",
+  "source": "https://openapi.vercel.sh/",
+  "redaction": "Only HTTP statuses, counts, and booleans are retained. Secrets and provider identifiers were discarded.",
+  "accountProbe": {
+    "authenticationStatus": 200,
+    "identityPresent": true,
+    "teamListStatus": 200,
+    "configuredTeamAccessible": true,
+    "projectListStatus": 200,
+    "visibleProjectCount": 2,
+    "linkedOpenTenantProjectCount": 0
+  },
+  "attempts": [
+    {
+      "name": "projectless-create",
+      "sandboxCreateStatus": 400,
+      "resourceCreated": false
+    },
+    {
+      "name": "non-persistent-lifecycle",
+      "projectCreateStatus": 200,
+      "sandboxCreateStatus": 200,
+      "requestedRuntime": "node22",
+      "requestedVcpus": 1,
+      "requestedMemoryMb": 2048,
+      "requestedNetworkMode": "deny-all",
+      "runtimeEgressEnforcementTested": false,
+      "commandStatus": 200,
+      "expectedSyntheticMarkerObserved": true,
+      "stopStatus": 200,
+      "namedDeleteStatus": 400,
+      "namedDeleteCause": "undetermined",
+      "projectDeleteStatus": 204
+    },
+    {
+      "name": "persistent-delete-follow-up",
+      "projectCreateStatus": 200,
+      "sandboxCreateStatus": 400,
+      "resourceCreated": false,
+      "projectDeleteStatus": 204
+    }
+  ],
+  "finalReadback": {
+    "projectListStatus": 200,
+    "residualTestProjectCount": 0,
+    "teamSandboxListStatus": 400,
+    "residualSandboxCountVerified": false
+  }
+}

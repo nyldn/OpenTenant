@@ -1,0 +1,2505 @@
+{
+  "base": "9e5a0fb216acc68397c7c200db079893db87df77",
+  "profile": {
+    "node": "v22.23.2",
+    "cpu": "AMD Ryzen 5 6600H with Radeon Graphics",
+    "logicalCpuCount": 12,
+    "hostMemoryBytes": 31775150080,
+    "cgroupMemoryMax": "6442450944",
+    "cgroupCpuMax": "400000 100000",
+    "mode": "next start",
+    "identity": "Better Auth database fixtures; persona GET, no identity form POST/sign-out",
+    "startedAt": "2026-11-17T16:33:42.211Z"
+  },
+  "collection": "warm/cold from complete timing run; mobile/downloads from corrected collector on identical built application and machine profile",
+  "records": [
+    {
+      "kind": "browser",
+      "version": "149.0.7827.55",
+      "desktop": "1440x900, DPR 1, CPU/network unthrottled",
+      "mobile": "390x844, DPR 1, CPU 4x slowdown, 150ms latency, 1.6Mbps down/750Kbps up"
+    },
+    {
+      "kind": "warm",
+      "route": "home",
+      "path": "/",
+      "host": "alpha",
+      "role": "tenant-owner",
+      "samples": [
+        145.40000009536743,
+        113.09999990463257,
+        114.40000009536743,
+        130.2999997138977,
+        114.09999990463257,
+        113.90000009536743,
+        113.89999961853027,
+        97.90000009536743,
+        128.80000019073486,
+        112.19999980926514,
+        96.90000009536743,
+        114.59999990463257,
+        112.90000009536743,
+        97.90000009536743,
+        114.69999980926514,
+        114.39999961853027,
+        96.19999980926514,
+        98.09999990463257,
+        98,
+        113.7000002861023
+      ],
+      "p95Ms": 130.2999997138977,
+      "gzipBytes": 340030,
+      "chunks": [
+        {
+          "path": "/_next/static/chunks/webpack-8f2ad5ea57bb458a.js",
+          "gzipBytes": 1883
+        },
+        {
+          "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+          "gzipBytes": 54245
+        },
+        {
+          "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+          "gzipBytes": 46341
+        },
+        {
+          "path": "/_next/static/chunks/main-app-4ac61ecd2cca6692.js",
+          "gzipBytes": 231
+        },
+        {
+          "path": "/_next/static/chunks/app/global-error-231c2de3eba6807b.js",
+          "gzipBytes": 377
+        },
+        {
+          "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+          "gzipBytes": 153382
+        },
+        {
+          "path": "/_next/static/chunks/927-f5f89a3f7b25f455.js",
+          "gzipBytes": 41162
+        },
+        {
+          "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+          "gzipBytes": 21736
+        },
+        {
+          "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+          "gzipBytes": 17975
+        },
+        {
+          "path": "/_next/static/chunks/app/page-47ba872de26dc1c3.js",
+          "gzipBytes": 2314
+        },
+        {
+          "path": "/_next/static/chunks/app/error-2eef798094c2defc.js",
+          "gzipBytes": 384
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "warm:home",
+      "appPeak": 681828352,
+      "totalPeak": 1788936192
+    },
+    {
+      "kind": "warm",
+      "route": "settings",
+      "path": "/settings",
+      "host": "alpha",
+      "role": "tenant-owner",
+      "samples": [
+        195.5,
+        163.80000019073486,
+        180.39999961853027,
+        130.19999980926514,
+        196.19999980926514,
+        237.90000009536743,
+        164,
+        146.69999980926514,
+        114.40000009536743,
+        161.80000019073486,
+        114.09999990463257,
+        130.2999997138977,
+        143.40000009536743,
+        147,
+        131.30000019073486,
+        113.90000009536743,
+        131,
+        148.09999990463257,
+        163.59999990463257,
+        122.19999980926514
+      ],
+      "p95Ms": 196.19999980926514,
+      "gzipBytes": 340604,
+      "chunks": [
+        {
+          "path": "/_next/static/chunks/webpack-8f2ad5ea57bb458a.js",
+          "gzipBytes": 1883
+        },
+        {
+          "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+          "gzipBytes": 54245
+        },
+        {
+          "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+          "gzipBytes": 46341
+        },
+        {
+          "path": "/_next/static/chunks/main-app-4ac61ecd2cca6692.js",
+          "gzipBytes": 231
+        },
+        {
+          "path": "/_next/static/chunks/app/global-error-231c2de3eba6807b.js",
+          "gzipBytes": 377
+        },
+        {
+          "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+          "gzipBytes": 153382
+        },
+        {
+          "path": "/_next/static/chunks/927-f5f89a3f7b25f455.js",
+          "gzipBytes": 41162
+        },
+        {
+          "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+          "gzipBytes": 21736
+        },
+        {
+          "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+          "gzipBytes": 17975
+        },
+        {
+          "path": "/_next/static/chunks/6457-aab07ba53baea5c4.js",
+          "gzipBytes": 2248
+        },
+        {
+          "path": "/_next/static/chunks/app/settings/layout-6f262fefbd7b3f31.js",
+          "gzipBytes": 139
+        },
+        {
+          "path": "/_next/static/chunks/app/settings/page-e95de788c79ff482.js",
+          "gzipBytes": 501
+        },
+        {
+          "path": "/_next/static/chunks/app/error-2eef798094c2defc.js",
+          "gzipBytes": 384
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "warm:settings",
+      "appPeak": 713433088,
+      "totalPeak": 1856053248
+    },
+    {
+      "kind": "warm",
+      "route": "navigation",
+      "path": "/settings/navigation",
+      "host": "alpha",
+      "role": "tenant-owner",
+      "samples": [
+        174,
+        163.5,
+        129.90000009536743,
+        145.09999990463257,
+        147.30000019073486,
+        113.5,
+        130.7000002861023,
+        147.40000009536743,
+        163.09999990463257,
+        113.19999980926514,
+        146.5,
+        130.40000009536743,
+        176.60000038146973,
+        114.40000009536743,
+        293.69999980926514,
+        130.40000009536743,
+        130.40000009536743,
+        128.2000002861023,
+        130.30000019073486,
+        113.80000019073486
+      ],
+      "p95Ms": 176.60000038146973,
+      "gzipBytes": 342069,
+      "chunks": [
+        {
+          "path": "/_next/static/chunks/webpack-8f2ad5ea57bb458a.js",
+          "gzipBytes": 1883
+        },
+        {
+          "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+          "gzipBytes": 54245
+        },
+        {
+          "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+          "gzipBytes": 46341
+        },
+        {
+          "path": "/_next/static/chunks/main-app-4ac61ecd2cca6692.js",
+          "gzipBytes": 231
+        },
+        {
+          "path": "/_next/static/chunks/app/global-error-231c2de3eba6807b.js",
+          "gzipBytes": 377
+        },
+        {
+          "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+          "gzipBytes": 153382
+        },
+        {
+          "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+          "gzipBytes": 17975
+        },
+        {
+          "path": "/_next/static/chunks/app/settings/navigation/page-eb5bef2fb6c34c58.js",
+          "gzipBytes": 1966
+        },
+        {
+          "path": "/_next/static/chunks/927-f5f89a3f7b25f455.js",
+          "gzipBytes": 41162
+        },
+        {
+          "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+          "gzipBytes": 21736
+        },
+        {
+          "path": "/_next/static/chunks/6457-aab07ba53baea5c4.js",
+          "gzipBytes": 2248
+        },
+        {
+          "path": "/_next/static/chunks/app/settings/layout-6f262fefbd7b3f31.js",
+          "gzipBytes": 139
+        },
+        {
+          "path": "/_next/static/chunks/app/error-2eef798094c2defc.js",
+          "gzipBytes": 384
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "warm:navigation",
+      "appPeak": 726503424,
+      "totalPeak": 1878097920
+    },
+    {
+      "kind": "warm",
+      "route": "admin",
+      "path": "/admin",
+      "host": "admin",
+      "role": "installation-owner",
+      "samples": [
+        130.7999997138977,
+        130.40000009536743,
+        227.2000002861023,
+        142.80000019073486,
+        180.09999990463257,
+        147.69999980926514,
+        126.5,
+        161.60000038146973,
+        129.09999990463257,
+        145.69999980926514,
+        125.19999980926514,
+        97.90000009536743,
+        130.59999990463257,
+        129.39999961853027,
+        95.90000009536743,
+        112.09999990463257,
+        125.19999980926514,
+        114.40000009536743,
+        114.40000009536743,
+        114.2999997138977
+      ],
+      "p95Ms": 180.09999990463257,
+      "gzipBytes": 341174,
+      "chunks": [
+        {
+          "path": "/_next/static/chunks/webpack-8f2ad5ea57bb458a.js",
+          "gzipBytes": 1883
+        },
+        {
+          "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+          "gzipBytes": 54245
+        },
+        {
+          "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+          "gzipBytes": 46341
+        },
+        {
+          "path": "/_next/static/chunks/main-app-4ac61ecd2cca6692.js",
+          "gzipBytes": 231
+        },
+        {
+          "path": "/_next/static/chunks/app/global-error-231c2de3eba6807b.js",
+          "gzipBytes": 377
+        },
+        {
+          "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+          "gzipBytes": 153382
+        },
+        {
+          "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+          "gzipBytes": 17975
+        },
+        {
+          "path": "/_next/static/chunks/app/admin/page-1f9e37e0840540c8.js",
+          "gzipBytes": 1144
+        },
+        {
+          "path": "/_next/static/chunks/927-f5f89a3f7b25f455.js",
+          "gzipBytes": 41162
+        },
+        {
+          "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+          "gzipBytes": 21736
+        },
+        {
+          "path": "/_next/static/chunks/app/page-47ba872de26dc1c3.js",
+          "gzipBytes": 2314
+        },
+        {
+          "path": "/_next/static/chunks/app/error-2eef798094c2defc.js",
+          "gzipBytes": 384
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "warm:admin",
+      "appPeak": 724951040,
+      "totalPeak": 1904066560
+    },
+    {
+      "kind": "warm",
+      "route": "support",
+      "path": "/support",
+      "host": "alpha",
+      "role": "tenant-owner",
+      "samples": [
+        296.90000009536743,
+        114.69999980926514,
+        129.5,
+        129.30000019073486,
+        162.90000009536743,
+        130.90000009536743,
+        121.30000019073486,
+        114,
+        112.2999997138977,
+        127.30000019073486,
+        98,
+        110.7999997138977,
+        131.40000009536743,
+        158.09999990463257,
+        143.19999980926514,
+        149,
+        128.90000009536743,
+        180.90000009536743,
+        203.30000019073486,
+        144.5
+      ],
+      "p95Ms": 203.30000019073486,
+      "gzipBytes": 340030,
+      "chunks": [
+        {
+          "path": "/_next/static/chunks/webpack-8f2ad5ea57bb458a.js",
+          "gzipBytes": 1883
+        },
+        {
+          "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+          "gzipBytes": 54245
+        },
+        {
+          "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+          "gzipBytes": 46341
+        },
+        {
+          "path": "/_next/static/chunks/main-app-4ac61ecd2cca6692.js",
+          "gzipBytes": 231
+        },
+        {
+          "path": "/_next/static/chunks/app/global-error-231c2de3eba6807b.js",
+          "gzipBytes": 377
+        },
+        {
+          "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+          "gzipBytes": 153382
+        },
+        {
+          "path": "/_next/static/chunks/927-f5f89a3f7b25f455.js",
+          "gzipBytes": 41162
+        },
+        {
+          "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+          "gzipBytes": 21736
+        },
+        {
+          "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+          "gzipBytes": 17975
+        },
+        {
+          "path": "/_next/static/chunks/app/page-47ba872de26dc1c3.js",
+          "gzipBytes": 2314
+        },
+        {
+          "path": "/_next/static/chunks/app/error-2eef798094c2defc.js",
+          "gzipBytes": 384
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "warm:support",
+      "appPeak": 752648192,
+      "totalPeak": 1900232704
+    },
+    {
+      "kind": "warm",
+      "route": "assessment",
+      "path": "/assessment",
+      "host": "alpha",
+      "role": "tenant-owner",
+      "samples": [
+        363.30000019073486,
+        429.19999980926514,
+        414.2000002861023,
+        429.40000009536743,
+        430.1000003814697,
+        413.5,
+        446.90000009536743,
+        446.80000019073486,
+        379.2999997138977,
+        413.80000019073486,
+        410.7999997138977,
+        376.80000019073486,
+        378.90000009536743,
+        429.30000019073486,
+        414.2999997138977,
+        413.8999996185303,
+        447.2000002861023,
+        430.7000002861023,
+        393.90000009536743,
+        430
+      ],
+      "p95Ms": 446.90000009536743,
+      "gzipBytes": 495378,
+      "chunks": [
+        {
+          "path": "/_next/static/chunks/webpack-8f2ad5ea57bb458a.js",
+          "gzipBytes": 1883
+        },
+        {
+          "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+          "gzipBytes": 54245
+        },
+        {
+          "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+          "gzipBytes": 46341
+        },
+        {
+          "path": "/_next/static/chunks/main-app-4ac61ecd2cca6692.js",
+          "gzipBytes": 231
+        },
+        {
+          "path": "/_next/static/chunks/app/global-error-231c2de3eba6807b.js",
+          "gzipBytes": 377
+        },
+        {
+          "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+          "gzipBytes": 153382
+        },
+        {
+          "path": "/_next/static/chunks/927-f5f89a3f7b25f455.js",
+          "gzipBytes": 41162
+        },
+        {
+          "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+          "gzipBytes": 21736
+        },
+        {
+          "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+          "gzipBytes": 17975
+        },
+        {
+          "path": "/_next/static/chunks/app/page-47ba872de26dc1c3.js",
+          "gzipBytes": 2314
+        },
+        {
+          "path": "/_next/static/chunks/app/error-2eef798094c2defc.js",
+          "gzipBytes": 384
+        },
+        {
+          "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+          "gzipBytes": 111837
+        },
+        {
+          "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+          "gzipBytes": 43511
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "warm:assessment",
+      "appPeak": 775950336,
+      "totalPeak": 2029195264
+    },
+    {
+      "kind": "rss",
+      "label": "repeat:0",
+      "appPeak": 789979136,
+      "totalPeak": 1853313024
+    },
+    {
+      "kind": "rss",
+      "label": "repeat:1",
+      "appPeak": 801366016,
+      "totalPeak": 1870651392
+    },
+    {
+      "kind": "rss",
+      "label": "repeat:2",
+      "appPeak": 805728256,
+      "totalPeak": 1879375872
+    },
+    {
+      "kind": "rss",
+      "label": "cold:home",
+      "appPeak": 805302272,
+      "totalPeak": 1682477056
+    },
+    {
+      "kind": "cold",
+      "route": "home",
+      "samples": [
+        510.40000009536743,
+        502.1000003814697,
+        547.8999996185303,
+        530.3000001907349,
+        536.3000001907349
+      ],
+      "maxMs": 547.8999996185303,
+      "freshStarts": 5
+    },
+    {
+      "kind": "rss",
+      "label": "cold:settings",
+      "appPeak": 682962944,
+      "totalPeak": 1710096384
+    },
+    {
+      "kind": "cold",
+      "route": "settings",
+      "samples": [
+        530.5999999046326,
+        610.5,
+        582.2999997138977,
+        570.4000000953674,
+        525.2000002861023
+      ],
+      "maxMs": 610.5,
+      "freshStarts": 5
+    },
+    {
+      "kind": "rss",
+      "label": "cold:navigation",
+      "appPeak": 683196416,
+      "totalPeak": 1627422720
+    },
+    {
+      "kind": "cold",
+      "route": "navigation",
+      "samples": [
+        498.90000009536743,
+        523.3000001907349,
+        544.7999997138977,
+        675.1999998092651,
+        529.0999999046326
+      ],
+      "maxMs": 675.1999998092651,
+      "freshStarts": 5
+    },
+    {
+      "kind": "rss",
+      "label": "cold:admin",
+      "appPeak": 683409408,
+      "totalPeak": 1593282560
+    },
+    {
+      "kind": "cold",
+      "route": "admin",
+      "samples": [
+        534.5,
+        510.19999980926514,
+        516.9000000953674,
+        519.8000001907349,
+        529.5
+      ],
+      "maxMs": 534.5,
+      "freshStarts": 5
+    },
+    {
+      "kind": "rss",
+      "label": "cold:support",
+      "appPeak": 687230976,
+      "totalPeak": 1607348224
+    },
+    {
+      "kind": "cold",
+      "route": "support",
+      "samples": [
+        621.4000000953674,
+        731.7999997138977,
+        609,
+        555.6999998092651,
+        628.1999998092651
+      ],
+      "maxMs": 731.7999997138977,
+      "freshStarts": 5
+    },
+    {
+      "kind": "rss",
+      "label": "cold:assessment",
+      "appPeak": 688758784,
+      "totalPeak": 1595596800
+    },
+    {
+      "kind": "cold",
+      "route": "assessment",
+      "samples": [
+        1184.1999998092651,
+        815.9000000953674,
+        765.8000001907349,
+        778.5,
+        817.5999999046326
+      ],
+      "maxMs": 1184.1999998092651,
+      "freshStarts": 5
+    },
+    {
+      "kind": "mobile",
+      "route": "home",
+      "samples": [
+        {
+          "lcp": 648,
+          "cls": 0,
+          "maxInteraction": 112,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 596,
+          "cls": 0,
+          "maxInteraction": 160,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 612,
+          "cls": 0,
+          "maxInteraction": 120,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 600,
+          "cls": 0,
+          "maxInteraction": 96,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 600,
+          "cls": 0,
+          "maxInteraction": 120,
+          "interactions": 8,
+          "shifts": []
+        }
+      ],
+      "lcpMs": 648,
+      "cls": 0,
+      "interactionMs": 160
+    },
+    {
+      "kind": "rss",
+      "label": "mobile:home",
+      "appPeak": 664436736,
+      "totalPeak": 1673515008
+    },
+    {
+      "kind": "mobile",
+      "route": "settings",
+      "samples": [
+        {
+          "lcp": 620,
+          "cls": 0,
+          "maxInteraction": 96,
+          "interactions": 7,
+          "shifts": []
+        },
+        {
+          "lcp": 612,
+          "cls": 0,
+          "maxInteraction": 104,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 600,
+          "cls": 0,
+          "maxInteraction": 96,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 604,
+          "cls": 0,
+          "maxInteraction": 112,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 612,
+          "cls": 0,
+          "maxInteraction": 104,
+          "interactions": 8,
+          "shifts": []
+        }
+      ],
+      "lcpMs": 620,
+      "cls": 0,
+      "interactionMs": 112
+    },
+    {
+      "kind": "rss",
+      "label": "mobile:settings",
+      "appPeak": 634695680,
+      "totalPeak": 1611624448
+    },
+    {
+      "kind": "mobile",
+      "route": "navigation",
+      "samples": [
+        {
+          "lcp": 604,
+          "cls": 0,
+          "maxInteraction": 88,
+          "interactions": 13,
+          "shifts": []
+        },
+        {
+          "lcp": 628,
+          "cls": 0,
+          "maxInteraction": 112,
+          "interactions": 19,
+          "shifts": []
+        },
+        {
+          "lcp": 628,
+          "cls": 0,
+          "maxInteraction": 96,
+          "interactions": 15,
+          "shifts": []
+        },
+        {
+          "lcp": 916,
+          "cls": 0,
+          "maxInteraction": 80,
+          "interactions": 12,
+          "shifts": []
+        },
+        {
+          "lcp": 636,
+          "cls": 0,
+          "maxInteraction": 104,
+          "interactions": 20,
+          "shifts": []
+        }
+      ],
+      "lcpMs": 916,
+      "cls": 0,
+      "interactionMs": 112
+    },
+    {
+      "kind": "rss",
+      "label": "mobile:navigation",
+      "appPeak": 644157440,
+      "totalPeak": 1640214528
+    },
+    {
+      "kind": "mobile",
+      "route": "admin",
+      "samples": [
+        {
+          "lcp": 652,
+          "cls": 0,
+          "maxInteraction": 72,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 624,
+          "cls": 0,
+          "maxInteraction": 88,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 644,
+          "cls": 0,
+          "maxInteraction": 72,
+          "interactions": 8,
+          "shifts": []
+        },
+        {
+          "lcp": 628,
+          "cls": 0,
+          "maxInteraction": 96,
+          "interactions": 7,
+          "shifts": []
+        },
+        {
+          "lcp": 604,
+          "cls": 0,
+          "maxInteraction": 72,
+          "interactions": 8,
+          "shifts": []
+        }
+      ],
+      "lcpMs": 652,
+      "cls": 0,
+      "interactionMs": 96
+    },
+    {
+      "kind": "rss",
+      "label": "mobile:admin",
+      "appPeak": 649080832,
+      "totalPeak": 1644457984
+    },
+    {
+      "kind": "mobile",
+      "route": "support",
+      "samples": [
+        {
+          "lcp": 636,
+          "cls": 0,
+          "maxInteraction": 88,
+          "interactions": 12,
+          "shifts": []
+        },
+        {
+          "lcp": 604,
+          "cls": 0,
+          "maxInteraction": 88,
+          "interactions": 12,
+          "shifts": []
+        },
+        {
+          "lcp": 596,
+          "cls": 0,
+          "maxInteraction": 88,
+          "interactions": 15,
+          "shifts": []
+        },
+        {
+          "lcp": 620,
+          "cls": 0,
+          "maxInteraction": 96,
+          "interactions": 13,
+          "shifts": []
+        },
+        {
+          "lcp": 672,
+          "cls": 0,
+          "maxInteraction": 112,
+          "interactions": 18,
+          "shifts": []
+        }
+      ],
+      "lcpMs": 672,
+      "cls": 0,
+      "interactionMs": 112
+    },
+    {
+      "kind": "rss",
+      "label": "mobile:support",
+      "appPeak": 655654912,
+      "totalPeak": 1646583808
+    },
+    {
+      "kind": "mobile",
+      "route": "assessment",
+      "samples": [
+        {
+          "lcp": 3668,
+          "cls": 0.7476928022730845,
+          "maxInteraction": 112,
+          "interactions": 18,
+          "shifts": [
+            {
+              "time": 3434.199999809265,
+              "value": 0.002432138765975607,
+              "sources": [
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    333.96875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 3650.300000190735,
+              "value": 0.745260663507109,
+              "sources": [
+                {
+                  "node": "div#.",
+                  "previous": [
+                    0,
+                    306.96875,
+                    390,
+                    22.5
+                  ],
+                  "current": [
+                    0,
+                    215,
+                    390,
+                    629
+                  ]
+                },
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lcp": 3640,
+          "cls": 0.7476928022730845,
+          "maxInteraction": 88,
+          "interactions": 18,
+          "shifts": [
+            {
+              "time": 3370.300000190735,
+              "value": 0.002432138765975607,
+              "sources": [
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    333.96875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 3628.0999999046326,
+              "value": 0.745260663507109,
+              "sources": [
+                {
+                  "node": "div#.",
+                  "previous": [
+                    0,
+                    306.96875,
+                    390,
+                    22.5
+                  ],
+                  "current": [
+                    0,
+                    215,
+                    390,
+                    629
+                  ]
+                },
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lcp": 3592,
+          "cls": 0.7476928022730845,
+          "maxInteraction": 112,
+          "interactions": 17,
+          "shifts": [
+            {
+              "time": 3385.1000003814697,
+              "value": 0.002432138765975607,
+              "sources": [
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    333.96875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 3580.1000003814697,
+              "value": 0.745260663507109,
+              "sources": [
+                {
+                  "node": "div#.",
+                  "previous": [
+                    0,
+                    306.96875,
+                    390,
+                    22.5
+                  ],
+                  "current": [
+                    0,
+                    215,
+                    390,
+                    629
+                  ]
+                },
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lcp": 3524,
+          "cls": 0.7476928022730845,
+          "maxInteraction": 112,
+          "interactions": 20,
+          "shifts": [
+            {
+              "time": 3342,
+              "value": 0.002432138765975607,
+              "sources": [
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    333.96875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 3512,
+              "value": 0.745260663507109,
+              "sources": [
+                {
+                  "node": "div#.",
+                  "previous": [
+                    0,
+                    306.96875,
+                    390,
+                    22.5
+                  ],
+                  "current": [
+                    0,
+                    215,
+                    390,
+                    629
+                  ]
+                },
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "lcp": 3588,
+          "cls": 0.7476928022730845,
+          "maxInteraction": 104,
+          "interactions": 18,
+          "shifts": [
+            {
+              "time": 3353.5999999046326,
+              "value": 0.002432138765975607,
+              "sources": [
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    333.96875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ]
+                }
+              ]
+            },
+            {
+              "time": 3574.5,
+              "value": 0.745260663507109,
+              "sources": [
+                {
+                  "node": "div#.",
+                  "previous": [
+                    0,
+                    306.96875,
+                    390,
+                    22.5
+                  ],
+                  "current": [
+                    0,
+                    215,
+                    390,
+                    629
+                  ]
+                },
+                {
+                  "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                  "previous": [
+                    0,
+                    356.46875,
+                    390,
+                    54.984375
+                  ],
+                  "current": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "lcpMs": 3668,
+      "cls": 0.7476928022730845,
+      "interactionMs": 112
+    },
+    {
+      "kind": "rss",
+      "label": "mobile:assessment",
+      "appPeak": 656523264,
+      "totalPeak": 1670733824
+    },
+    {
+      "kind": "artifact",
+      "width": 1440,
+      "format": "json",
+      "bytes": 20475,
+      "sha256": "3397e555d1c7d7e09dd037eee4b0269b6c3c838c716b30868732cd7f72d03f47"
+    },
+    {
+      "kind": "artifact",
+      "width": 1440,
+      "format": "csv",
+      "bytes": 2246,
+      "sha256": "d31ee6268e89f10189db19ef8031b9648124f842f7268bbbb1fd7b112196ba74"
+    },
+    {
+      "kind": "artifact",
+      "width": 1440,
+      "format": "pdf",
+      "bytes": 36150,
+      "sha256": "650a5ac58abd1ad741454a007766905ec125f5221dd5aed963529a372bdd0f66"
+    },
+    {
+      "kind": "pdf-render",
+      "width": 1440,
+      "pages": [
+        {
+          "number": 1,
+          "width": 596,
+          "height": 842,
+          "ink": 49704
+        }
+      ]
+    },
+    {
+      "kind": "downloads",
+      "width": 1440,
+      "lcp": 348,
+      "cls": 0.6659583333333333,
+      "maxInteraction": 48,
+      "interactions": 115,
+      "shifts": [
+        {
+          "time": 301,
+          "value": 0.0010694444444444445,
+          "sources": [
+            {
+              "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+              "previous": [
+                288,
+                234.984375,
+                1152,
+                54.984375
+              ],
+              "current": [
+                288,
+                257.484375,
+                1152,
+                54.984375
+              ]
+            }
+          ]
+        },
+        {
+          "time": 337.19999980926514,
+          "value": 0.6648888888888889,
+          "sources": [
+            {
+              "node": "div#.",
+              "previous": [
+                288,
+                207.984375,
+                1152,
+                22.5
+              ],
+              "current": [
+                288,
+                152,
+                1152,
+                748
+              ]
+            },
+            {
+              "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+              "previous": [
+                288,
+                257.484375,
+                1152,
+                54.984375
+              ],
+              "current": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "downloads:1440",
+      "appPeak": 657707008,
+      "totalPeak": 1915068416
+    },
+    {
+      "kind": "artifact",
+      "width": 390,
+      "format": "json",
+      "bytes": 20475,
+      "sha256": "a61473dfa10089592deeea1c8f8739bc79b3f94a3ee7790606d5861fc18fd9a3"
+    },
+    {
+      "kind": "artifact",
+      "width": 390,
+      "format": "csv",
+      "bytes": 2246,
+      "sha256": "d31ee6268e89f10189db19ef8031b9648124f842f7268bbbb1fd7b112196ba74"
+    },
+    {
+      "kind": "artifact",
+      "width": 390,
+      "format": "pdf",
+      "bytes": 36150,
+      "sha256": "12a0749d481bb01fd965ab596d74c22a236f780d3426af18d13094d188a496fd"
+    },
+    {
+      "kind": "pdf-render",
+      "width": 390,
+      "pages": [
+        {
+          "number": 1,
+          "width": 596,
+          "height": 842,
+          "ink": 49704
+        }
+      ]
+    },
+    {
+      "kind": "downloads",
+      "width": 390,
+      "lcp": 464,
+      "cls": 0.7476928022730845,
+      "maxInteraction": 40,
+      "interactions": 107,
+      "shifts": [
+        {
+          "time": 410.90000009536743,
+          "value": 0.002432138765975607,
+          "sources": [
+            {
+              "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+              "previous": [
+                0,
+                333.96875,
+                390,
+                54.984375
+              ],
+              "current": [
+                0,
+                356.46875,
+                390,
+                54.984375
+              ]
+            }
+          ]
+        },
+        {
+          "time": 456.40000009536743,
+          "value": 0.745260663507109,
+          "sources": [
+            {
+              "node": "div#.",
+              "previous": [
+                0,
+                306.96875,
+                390,
+                22.5
+              ],
+              "current": [
+                0,
+                215,
+                390,
+                629
+              ]
+            },
+            {
+              "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+              "previous": [
+                0,
+                356.46875,
+                390,
+                54.984375
+              ],
+              "current": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "rss",
+      "label": "downloads:390",
+      "appPeak": 657846272,
+      "totalPeak": 1897865216
+    }
+  ],
+  "verification": {
+    "command": "node tooling/e2e/production/run.mjs",
+    "stats": {
+      "startTime": "2026-11-17T16:44:20.642Z",
+      "duration": 724319.022,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "teardown": {
+      "stopped": true,
+      "ports": [
+        46561,
+        44561,
+        33921,
+        33920,
+        33125
+      ],
+      "openPorts": []
+    },
+    "records": [
+      {
+        "kind": "warm",
+        "route": "home",
+        "p95Ms": 115.39999961853027,
+        "gzipBytes": 340014
+      },
+      {
+        "kind": "warm",
+        "route": "settings",
+        "p95Ms": 146.09999990463257,
+        "gzipBytes": 340602
+      },
+      {
+        "kind": "warm",
+        "route": "navigation",
+        "p95Ms": 163.40000009536743,
+        "gzipBytes": 342068
+      },
+      {
+        "kind": "warm",
+        "route": "admin",
+        "p95Ms": 196.40000009536743,
+        "gzipBytes": 341240
+      },
+      {
+        "kind": "warm",
+        "route": "support",
+        "p95Ms": 213.10000038146973,
+        "gzipBytes": 340014
+      },
+      {
+        "kind": "warm",
+        "route": "assessment",
+        "p95Ms": 430.2000002861023,
+        "gzipBytes": 495362
+      },
+      {
+        "kind": "cold",
+        "route": "home",
+        "samples": [
+          573.2000002861023,
+          557.1000003814697,
+          524,
+          538.6999998092651,
+          605.6000003814697
+        ],
+        "maxMs": 605.6000003814697,
+        "freshStarts": 5
+      },
+      {
+        "kind": "cold",
+        "route": "settings",
+        "samples": [
+          519,
+          521.5999999046326,
+          590.6999998092651,
+          564,
+          567.5999999046326
+        ],
+        "maxMs": 590.6999998092651,
+        "freshStarts": 5
+      },
+      {
+        "kind": "cold",
+        "route": "navigation",
+        "samples": [
+          566,
+          573.2999997138977,
+          577.1999998092651,
+          583.4000000953674,
+          599.5
+        ],
+        "maxMs": 599.5,
+        "freshStarts": 5
+      },
+      {
+        "kind": "cold",
+        "route": "admin",
+        "samples": [
+          592.9000000953674,
+          512.3000001907349,
+          487.6000003814697,
+          518.0999999046326,
+          511.40000009536743
+        ],
+        "maxMs": 592.9000000953674,
+        "freshStarts": 5
+      },
+      {
+        "kind": "cold",
+        "route": "support",
+        "samples": [
+          549,
+          532.7999997138977,
+          482.09999990463257,
+          587,
+          514.7999997138977
+        ],
+        "maxMs": 587,
+        "freshStarts": 5
+      },
+      {
+        "kind": "cold",
+        "route": "assessment",
+        "samples": [
+          759.1000003814697,
+          810.7000002861023,
+          722.7000002861023,
+          719.2000002861023,
+          700.5
+        ],
+        "maxMs": 810.7000002861023,
+        "freshStarts": 5
+      },
+      {
+        "kind": "artifact",
+        "width": 1440,
+        "format": "json",
+        "bytes": 20475,
+        "sha256": "008a8bd8fc92b76e1bf7dc9d61f0cde44d569f74c1462328e5c63e3b5ea4d90a"
+      },
+      {
+        "kind": "artifact",
+        "width": 1440,
+        "format": "csv",
+        "bytes": 2246,
+        "sha256": "d31ee6268e89f10189db19ef8031b9648124f842f7268bbbb1fd7b112196ba74"
+      },
+      {
+        "kind": "artifact",
+        "width": 1440,
+        "format": "pdf",
+        "bytes": 36150,
+        "sha256": "5c954dfda551e8406563c7f893d1bc97c9fdf688c73d0076f35158fa56e27a66"
+      },
+      {
+        "kind": "pdf-render",
+        "width": 1440,
+        "pages": [
+          {
+            "number": 1,
+            "width": 596,
+            "height": 842,
+            "ink": 49704
+          }
+        ]
+      },
+      {
+        "kind": "downloads",
+        "width": 1440,
+        "lcp": 352,
+        "cls": 0.6659583333333333,
+        "maxInteraction": 48,
+        "interactions": 110,
+        "shifts": [
+          {
+            "time": 301.6000003814697,
+            "value": 0.0010694444444444445,
+            "sources": [
+              {
+                "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                "previous": [
+                  288,
+                  234.984375,
+                  1152,
+                  54.984375
+                ],
+                "current": [
+                  288,
+                  257.484375,
+                  1152,
+                  54.984375
+                ]
+              }
+            ]
+          },
+          {
+            "time": 340.80000019073486,
+            "value": 0.6648888888888889,
+            "sources": [
+              {
+                "node": "div#.",
+                "previous": [
+                  288,
+                  207.984375,
+                  1152,
+                  22.5
+                ],
+                "current": [
+                  288,
+                  152,
+                  1152,
+                  748
+                ]
+              },
+              {
+                "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                "previous": [
+                  288,
+                  257.484375,
+                  1152,
+                  54.984375
+                ],
+                "current": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "profile": {
+          "ttfbMs": 32.5,
+          "domContentLoadedMs": 69.80000019073486,
+          "lastScriptResponseMs": 2520.5,
+          "scripts": [
+            {
+              "path": "/_next/static/chunks/webpack-bc027558dbd024e5.js",
+              "responseEndMs": 36.80000019073486,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+              "responseEndMs": 36.90000009536743,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+              "responseEndMs": 36.90000009536743,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/main-app-23acf0aa3a770fd6.js",
+              "responseEndMs": 37,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/app/global-error-77d9e1340737d58f.js",
+              "responseEndMs": 37.10000038146973,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+              "responseEndMs": 37.200000286102295,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/927-131cce1914468fe1.js",
+              "responseEndMs": 37.200000286102295,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+              "responseEndMs": 37.30000019073486,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+              "responseEndMs": 37.40000009536743,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/app/page-db14d5560036f5e5.js",
+              "responseEndMs": 37.5,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/app/error-4e4ffa0b2d67e3e9.js",
+              "responseEndMs": 37.5,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+              "responseEndMs": 120.60000038146973,
+              "durationMs": 40.60000038146973,
+              "transferBytes": 112356
+            },
+            {
+              "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+              "responseEndMs": 111.90000009536743,
+              "durationMs": 31.59999990463257,
+              "transferBytes": 43896
+            },
+            {
+              "path": "/_next/static/chunks/304d2e99.3da1408b9ba55627.js",
+              "responseEndMs": 2408.2000002861023,
+              "durationMs": 33.700000286102295,
+              "transferBytes": 341846
+            },
+            {
+              "path": "/_next/static/chunks/60ceb002.5e2c2c8ee17b49b9.js",
+              "responseEndMs": 2520.5,
+              "durationMs": 24.699999809265137,
+              "transferBytes": 465480
+            }
+          ]
+        }
+      },
+      {
+        "kind": "artifact",
+        "width": 390,
+        "format": "json",
+        "bytes": 20475,
+        "sha256": "39f7716e8539821072c685843dbd8c58be3a84529498d971e29e698792cfe857"
+      },
+      {
+        "kind": "artifact",
+        "width": 390,
+        "format": "csv",
+        "bytes": 2246,
+        "sha256": "d31ee6268e89f10189db19ef8031b9648124f842f7268bbbb1fd7b112196ba74"
+      },
+      {
+        "kind": "artifact",
+        "width": 390,
+        "format": "pdf",
+        "bytes": 36150,
+        "sha256": "0e71d90355c05f6f47bc64ed4c5320db12bfea2e285679e29ec1faf62e824914"
+      },
+      {
+        "kind": "pdf-render",
+        "width": 390,
+        "pages": [
+          {
+            "number": 1,
+            "width": 596,
+            "height": 842,
+            "ink": 49704
+          }
+        ]
+      },
+      {
+        "kind": "downloads",
+        "width": 390,
+        "lcp": 420,
+        "cls": 0.7476928022730845,
+        "maxInteraction": 32,
+        "interactions": 107,
+        "shifts": [
+          {
+            "time": 381,
+            "value": 0.002432138765975607,
+            "sources": [
+              {
+                "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                "previous": [
+                  0,
+                  333.96875,
+                  390,
+                  54.984375
+                ],
+                "current": [
+                  0,
+                  356.46875,
+                  390,
+                  54.984375
+                ]
+              }
+            ]
+          },
+          {
+            "time": 413.30000019073486,
+            "value": 0.745260663507109,
+            "sources": [
+              {
+                "node": "div#.",
+                "previous": [
+                  0,
+                  306.96875,
+                  390,
+                  22.5
+                ],
+                "current": [
+                  0,
+                  215,
+                  390,
+                  629
+                ]
+              },
+              {
+                "node": "footer#.mt-6.flex.flex-wrap.justify-between",
+                "previous": [
+                  0,
+                  356.46875,
+                  390,
+                  54.984375
+                ],
+                "current": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            ]
+          }
+        ],
+        "profile": {
+          "ttfbMs": 26.300000190734863,
+          "domContentLoadedMs": 63.69999980926514,
+          "lastScriptResponseMs": 2480.4000000953674,
+          "scripts": [
+            {
+              "path": "/_next/static/chunks/webpack-bc027558dbd024e5.js",
+              "responseEndMs": 32.30000019073486,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+              "responseEndMs": 32.40000009536743,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+              "responseEndMs": 32.5,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/main-app-23acf0aa3a770fd6.js",
+              "responseEndMs": 32.5,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/app/global-error-77d9e1340737d58f.js",
+              "responseEndMs": 32.59999990463257,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+              "responseEndMs": 32.69999980926514,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/927-131cce1914468fe1.js",
+              "responseEndMs": 32.90000009536743,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+              "responseEndMs": 32.90000009536743,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+              "responseEndMs": 33,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/app/page-db14d5560036f5e5.js",
+              "responseEndMs": 33.09999990463257,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/app/error-4e4ffa0b2d67e3e9.js",
+              "responseEndMs": 33.19999980926514,
+              "durationMs": 0,
+              "transferBytes": 0
+            },
+            {
+              "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+              "responseEndMs": 101.59999990463257,
+              "durationMs": 22.90000009536743,
+              "transferBytes": 112356
+            },
+            {
+              "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+              "responseEndMs": 97.90000009536743,
+              "durationMs": 18.90000009536743,
+              "transferBytes": 43896
+            },
+            {
+              "path": "/_next/static/chunks/304d2e99.3da1408b9ba55627.js",
+              "responseEndMs": 2372.800000190735,
+              "durationMs": 24.100000381469727,
+              "transferBytes": 341846
+            },
+            {
+              "path": "/_next/static/chunks/60ceb002.5e2c2c8ee17b49b9.js",
+              "responseEndMs": 2480.4000000953674,
+              "durationMs": 25.59999990463257,
+              "transferBytes": 465480
+            }
+          ]
+        }
+      },
+      {
+        "kind": "rss-summary",
+        "appPeak": 693919744,
+        "totalPeak": 1948168192,
+        "repeated": [
+          {
+            "kind": "rss",
+            "label": "repeat:0",
+            "appPeak": 686940160,
+            "totalPeak": 1783009280
+          },
+          {
+            "kind": "rss",
+            "label": "repeat:1",
+            "appPeak": 693252096,
+            "totalPeak": 1800585216
+          },
+          {
+            "kind": "rss",
+            "label": "repeat:2",
+            "appPeak": 693334016,
+            "totalPeak": 1789870080
+          }
+        ]
+      }
+    ],
+    "mobile": [
+      {
+        "route": "home",
+        "lcpMs": 624,
+        "cls": 0,
+        "interactionMs": 128
+      },
+      {
+        "route": "settings",
+        "lcpMs": 624,
+        "cls": 0,
+        "interactionMs": 96
+      },
+      {
+        "route": "navigation",
+        "lcpMs": 636,
+        "cls": 0,
+        "interactionMs": 80
+      },
+      {
+        "route": "admin",
+        "lcpMs": 640,
+        "cls": 0,
+        "interactionMs": 88
+      },
+      {
+        "route": "support",
+        "lcpMs": 640,
+        "cls": 0,
+        "interactionMs": 104
+      },
+      {
+        "route": "assessment",
+        "lcpMs": 3612,
+        "cls": 0.7476928022730845,
+        "interactionMs": 104,
+        "profile": [
+          {
+            "ttfbMs": 50.299999713897705,
+            "domContentLoadedMs": 623.2999997138977,
+            "lastScriptResponseMs": 3227.8999996185303,
+            "scripts": [
+              {
+                "path": "/_next/static/chunks/webpack-bc027558dbd024e5.js",
+                "responseEndMs": 392.59999990463257,
+                "durationMs": 213,
+                "transferBytes": 2182
+              },
+              {
+                "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+                "responseEndMs": 1622.3999996185303,
+                "durationMs": 1442.6999998092651,
+                "transferBytes": 54662
+              },
+              {
+                "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+                "responseEndMs": 1480.3999996185303,
+                "durationMs": 1300.5,
+                "transferBytes": 46749
+              },
+              {
+                "path": "/_next/static/chunks/main-app-23acf0aa3a770fd6.js",
+                "responseEndMs": 378,
+                "durationMs": 197.90000009536743,
+                "transferBytes": 826
+              },
+              {
+                "path": "/_next/static/chunks/app/global-error-77d9e1340737d58f.js",
+                "responseEndMs": 521.5,
+                "durationMs": 341.30000019073486,
+                "transferBytes": 885
+              },
+              {
+                "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+                "responseEndMs": 2177.3999996185303,
+                "durationMs": 1996.8999996185303,
+                "transferBytes": 153861
+              },
+              {
+                "path": "/_next/static/chunks/927-131cce1914468fe1.js",
+                "responseEndMs": 1600.3999996185303,
+                "durationMs": 1419.7999997138977,
+                "transferBytes": 41502
+              },
+              {
+                "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+                "responseEndMs": 1322.6999998092651,
+                "durationMs": 1142,
+                "transferBytes": 22078
+              },
+              {
+                "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+                "responseEndMs": 1338.5,
+                "durationMs": 1157.8000001907349,
+                "transferBytes": 18335
+              },
+              {
+                "path": "/_next/static/chunks/app/page-db14d5560036f5e5.js",
+                "responseEndMs": 1548.2999997138977,
+                "durationMs": 1367.5999999046326,
+                "transferBytes": 2611
+              },
+              {
+                "path": "/_next/static/chunks/app/error-4e4ffa0b2d67e3e9.js",
+                "responseEndMs": 1526.1999998092651,
+                "durationMs": 1344.9000000953674,
+                "transferBytes": 855
+              },
+              {
+                "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+                "responseEndMs": 3227.8999996185303,
+                "durationMs": 965.7999997138977,
+                "transferBytes": 112356
+              },
+              {
+                "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+                "responseEndMs": 2882.8999996185303,
+                "durationMs": 619.3999996185303,
+                "transferBytes": 43896
+              }
+            ]
+          },
+          {
+            "ttfbMs": 57.60000038146973,
+            "domContentLoadedMs": 605.9000000953674,
+            "lastScriptResponseMs": 3251.1000003814697,
+            "scripts": [
+              {
+                "path": "/_next/static/chunks/webpack-bc027558dbd024e5.js",
+                "responseEndMs": 400.30000019073486,
+                "durationMs": 215.09999990463257,
+                "transferBytes": 2182
+              },
+              {
+                "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+                "responseEndMs": 1638.3000001907349,
+                "durationMs": 1452.8000001907349,
+                "transferBytes": 54662
+              },
+              {
+                "path": "/_next/static/chunks/main-app-23acf0aa3a770fd6.js",
+                "responseEndMs": 378.40000009536743,
+                "durationMs": 192.7999997138977,
+                "transferBytes": 826
+              },
+              {
+                "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+                "responseEndMs": 1502.6000003814697,
+                "durationMs": 1317,
+                "transferBytes": 46749
+              },
+              {
+                "path": "/_next/static/chunks/app/global-error-77d9e1340737d58f.js",
+                "responseEndMs": 528,
+                "durationMs": 342.2999997138977,
+                "transferBytes": 885
+              },
+              {
+                "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+                "responseEndMs": 2185.9000000953674,
+                "durationMs": 1999.4000000953674,
+                "transferBytes": 153861
+              },
+              {
+                "path": "/_next/static/chunks/927-131cce1914468fe1.js",
+                "responseEndMs": 1608,
+                "durationMs": 1421.2999997138977,
+                "transferBytes": 41502
+              },
+              {
+                "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+                "responseEndMs": 1338.2000002861023,
+                "durationMs": 1151.0999999046326,
+                "transferBytes": 22078
+              },
+              {
+                "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+                "responseEndMs": 1323.6000003814697,
+                "durationMs": 1136.4000000953674,
+                "transferBytes": 18335
+              },
+              {
+                "path": "/_next/static/chunks/app/error-4e4ffa0b2d67e3e9.js",
+                "responseEndMs": 1534.4000000953674,
+                "durationMs": 1347.1999998092651,
+                "transferBytes": 855
+              },
+              {
+                "path": "/_next/static/chunks/app/page-db14d5560036f5e5.js",
+                "responseEndMs": 1548.3000001907349,
+                "durationMs": 1361.0999999046326,
+                "transferBytes": 2611
+              },
+              {
+                "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+                "responseEndMs": 3251.1000003814697,
+                "durationMs": 972,
+                "transferBytes": 112356
+              },
+              {
+                "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+                "responseEndMs": 2905.800000190735,
+                "durationMs": 624.9000000953674,
+                "transferBytes": 43896
+              }
+            ]
+          },
+          {
+            "ttfbMs": 44.60000038146973,
+            "domContentLoadedMs": 621.4000000953674,
+            "lastScriptResponseMs": 3228.800000190735,
+            "scripts": [
+              {
+                "path": "/_next/static/chunks/webpack-bc027558dbd024e5.js",
+                "responseEndMs": 394.1000003814697,
+                "durationMs": 215.30000019073486,
+                "transferBytes": 2182
+              },
+              {
+                "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+                "responseEndMs": 1503.3000001907349,
+                "durationMs": 1324,
+                "transferBytes": 46749
+              },
+              {
+                "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+                "responseEndMs": 1623.1000003814697,
+                "durationMs": 1443.8000001907349,
+                "transferBytes": 54662
+              },
+              {
+                "path": "/_next/static/chunks/main-app-23acf0aa3a770fd6.js",
+                "responseEndMs": 371.5,
+                "durationMs": 191.7999997138977,
+                "transferBytes": 826
+              },
+              {
+                "path": "/_next/static/chunks/app/global-error-77d9e1340737d58f.js",
+                "responseEndMs": 521.5,
+                "durationMs": 341.7999997138977,
+                "transferBytes": 885
+              },
+              {
+                "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+                "responseEndMs": 1323.6000003814697,
+                "durationMs": 1143.8000001907349,
+                "transferBytes": 22078
+              },
+              {
+                "path": "/_next/static/chunks/927-131cce1914468fe1.js",
+                "responseEndMs": 1608.3000001907349,
+                "durationMs": 1428.5,
+                "transferBytes": 41502
+              },
+              {
+                "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+                "responseEndMs": 2178.4000000953674,
+                "durationMs": 1998.5999999046326,
+                "transferBytes": 153861
+              },
+              {
+                "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+                "responseEndMs": 1331.2000002861023,
+                "durationMs": 1151.3000001907349,
+                "transferBytes": 18335
+              },
+              {
+                "path": "/_next/static/chunks/app/page-db14d5560036f5e5.js",
+                "responseEndMs": 1549.2000002861023,
+                "durationMs": 1369.3000001907349,
+                "transferBytes": 2611
+              },
+              {
+                "path": "/_next/static/chunks/app/error-4e4ffa0b2d67e3e9.js",
+                "responseEndMs": 1526.6000003814697,
+                "durationMs": 1345.9000000953674,
+                "transferBytes": 855
+              },
+              {
+                "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+                "responseEndMs": 3228.800000190735,
+                "durationMs": 966.3000001907349,
+                "transferBytes": 112356
+              },
+              {
+                "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+                "responseEndMs": 2883.9000000953674,
+                "durationMs": 620.5999999046326,
+                "transferBytes": 43896
+              }
+            ]
+          },
+          {
+            "ttfbMs": 36.30000019073486,
+            "domContentLoadedMs": 589,
+            "lastScriptResponseMs": 3225,
+            "scripts": [
+              {
+                "path": "/_next/static/chunks/webpack-bc027558dbd024e5.js",
+                "responseEndMs": 398.09999990463257,
+                "durationMs": 221,
+                "transferBytes": 2182
+              },
+              {
+                "path": "/_next/static/chunks/main-app-23acf0aa3a770fd6.js",
+                "responseEndMs": 382.5,
+                "durationMs": 205.2999997138977,
+                "transferBytes": 826
+              },
+              {
+                "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+                "responseEndMs": 1477.0999999046326,
+                "durationMs": 1299.8999996185303,
+                "transferBytes": 46749
+              },
+              {
+                "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+                "responseEndMs": 1619.5,
+                "durationMs": 1442.2999997138977,
+                "transferBytes": 54662
+              },
+              {
+                "path": "/_next/static/chunks/app/global-error-77d9e1340737d58f.js",
+                "responseEndMs": 525.5999999046326,
+                "durationMs": 347.69999980926514,
+                "transferBytes": 885
+              },
+              {
+                "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+                "responseEndMs": 2175.0999999046326,
+                "durationMs": 1997.0999999046326,
+                "transferBytes": 153861
+              },
+              {
+                "path": "/_next/static/chunks/927-131cce1914468fe1.js",
+                "responseEndMs": 1597.5,
+                "durationMs": 1419.0999999046326,
+                "transferBytes": 41502
+              },
+              {
+                "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+                "responseEndMs": 1296.9000000953674,
+                "durationMs": 1118.4000000953674,
+                "transferBytes": 18335
+              },
+              {
+                "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+                "responseEndMs": 1334.8000001907349,
+                "durationMs": 1156.3000001907349,
+                "transferBytes": 22078
+              },
+              {
+                "path": "/_next/static/chunks/app/page-db14d5560036f5e5.js",
+                "responseEndMs": 1514.5,
+                "durationMs": 1336,
+                "transferBytes": 2611
+              },
+              {
+                "path": "/_next/static/chunks/app/error-4e4ffa0b2d67e3e9.js",
+                "responseEndMs": 1522.7000002861023,
+                "durationMs": 1344.2000002861023,
+                "transferBytes": 855
+              },
+              {
+                "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+                "responseEndMs": 3225,
+                "durationMs": 966.9000000953674,
+                "transferBytes": 112356
+              },
+              {
+                "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+                "responseEndMs": 2872.0999999046326,
+                "durationMs": 613,
+                "transferBytes": 43896
+              }
+            ]
+          },
+          {
+            "ttfbMs": 29.799999713897705,
+            "domContentLoadedMs": 581.2999997138977,
+            "lastScriptResponseMs": 3222.7999997138977,
+            "scripts": [
+              {
+                "path": "/_next/static/chunks/webpack-bc027558dbd024e5.js",
+                "responseEndMs": 395,
+                "durationMs": 217,
+                "transferBytes": 2182
+              },
+              {
+                "path": "/_next/static/chunks/f4a971a7-6ad353abdc50b261.js",
+                "responseEndMs": 1617,
+                "durationMs": 1439,
+                "transferBytes": 54662
+              },
+              {
+                "path": "/_next/static/chunks/6334-afb883e07e4cf9ea.js",
+                "responseEndMs": 1497.6999998092651,
+                "durationMs": 1318.9000000953674,
+                "transferBytes": 46749
+              },
+              {
+                "path": "/_next/static/chunks/main-app-23acf0aa3a770fd6.js",
+                "responseEndMs": 387.59999990463257,
+                "durationMs": 208.40000009536743,
+                "transferBytes": 826
+              },
+              {
+                "path": "/_next/static/chunks/app/global-error-77d9e1340737d58f.js",
+                "responseEndMs": 523.0999999046326,
+                "durationMs": 343.80000019073486,
+                "transferBytes": 885
+              },
+              {
+                "path": "/_next/static/chunks/4657-98410cbb394b22ca.js",
+                "responseEndMs": 2172.2999997138977,
+                "durationMs": 1993,
+                "transferBytes": 153861
+              },
+              {
+                "path": "/_next/static/chunks/927-131cce1914468fe1.js",
+                "responseEndMs": 1602.1999998092651,
+                "durationMs": 1422.0999999046326,
+                "transferBytes": 41502
+              },
+              {
+                "path": "/_next/static/chunks/5315-212bcd2fb90059fb.js",
+                "responseEndMs": 1332.0999999046326,
+                "durationMs": 1151.9000000953674,
+                "transferBytes": 22078
+              },
+              {
+                "path": "/_next/static/chunks/4295-ae1ac7bc08630a31.js",
+                "responseEndMs": 1294.5999999046326,
+                "durationMs": 1114.0999999046326,
+                "transferBytes": 18335
+              },
+              {
+                "path": "/_next/static/chunks/app/page-db14d5560036f5e5.js",
+                "responseEndMs": 1519.7999997138977,
+                "durationMs": 1339.2999997138977,
+                "transferBytes": 2611
+              },
+              {
+                "path": "/_next/static/chunks/app/error-4e4ffa0b2d67e3e9.js",
+                "responseEndMs": 1528.0999999046326,
+                "durationMs": 1347.5,
+                "transferBytes": 855
+              },
+              {
+                "path": "/_next/static/chunks/5974.9aa49108f54a8965.js",
+                "responseEndMs": 3222.7999997138977,
+                "durationMs": 970.5999999046326,
+                "transferBytes": 112356
+              },
+              {
+                "path": "/_next/static/chunks/3602.9ec3d7ce2c089ab8.js",
+                "responseEndMs": 2877.8999996185303,
+                "durationMs": 624.1999998092651,
+                "transferBytes": 43896
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

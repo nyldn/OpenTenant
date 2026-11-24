@@ -1,0 +1,9 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Existing Assessment localStorage keys, emitted unchanged into ESM"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''/package/dist/persistence/assessment-repository\.js$''']
+regexes = ['''^assessment_(?:session_v26|respondents_v26|engagement_v1|legacy_claim_v1)$''']
