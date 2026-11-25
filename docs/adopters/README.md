@@ -3,7 +3,7 @@
 Start with a local, synthetic installation. OpenTenant is pre-1.0; a passing
 local check does not establish production readiness or a recovery SLA.
 
-- [Getting started](getting-started.md): five commands, your first tenant and module.
+- [Getting started](getting-started.md). Run the platform, provision a tenant, and add a module.
 - [Concepts](concepts.md): how requests, tenant data and module authority fit together.
 - [Providers](providers.md): choose identity, authorization, provisioning and integrations.
 - [Operations](operations.md): deploy, migrate, rotate, restore and observe.

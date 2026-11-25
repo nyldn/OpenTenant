@@ -18,5 +18,6 @@ Git checks. The scans cover their configured patterns. Source and fixture
 provenance, tenant data, and asset licensing need maintainer review.
 
 The existing private development repository has pull request refs and Actions
-records. Publish the import to a fresh repository after the [owner
-tasks](../OWNER-TASKS.md#before-making-the-repository-public) are complete.
+records. The owner approved publication of the clean import on November 24.
+The development archive remains private. Track contribution and release
+approvals in the [owner tasks](../OWNER-TASKS.md#before-accepting-external-contributions-or-publishing-releases).

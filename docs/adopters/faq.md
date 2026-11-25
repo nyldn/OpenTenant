@@ -2,7 +2,7 @@
 
 ## Do I need Neon, WorkOS or a model key to try it?
 
-No. The [five-command setup](getting-started.md#local-setup-in-five-commands)
+No. The [local quick start](getting-started.md#try-the-full-platform-locally)
 uses local identity and Postgres. Durable tenant provisioning can use operator
 Postgres. Better Auth is the self-hosted organization-capable identity choice.
 External model providers are not required for the local platform core.

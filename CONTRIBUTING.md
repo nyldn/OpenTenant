@@ -1,8 +1,8 @@
 # Contributing to OpenTenant
 
-OpenTenant is not currently accepting external code, documentation, design,
-or asset contributions. Issues and discussion may inform the project, but do
-not submit material that requires incorporation into the repository.
+OpenTenant’s source is public. External code, documentation, design, and asset
+contributions are currently closed while the project finalizes its stewardship
+and contribution agreement. Use issues for general project feedback.
 
 This temporary gate protects contributors and the project while the legal
 project steward, provenance review, and contributor agreement are completed.
@@ -20,9 +20,6 @@ Before external contributions open, the project will publish:
 Submitting a pull request does not by itself grant the project permission to
 merge, relicense, or distribute the contribution. Unsolicited pull requests
 will remain unmerged until the contribution process is approved.
-
-Security reports must not be filed publicly. A private reporting route will be
-published in `SECURITY.md` before the repository becomes public.
 
 ## Preparing a change locally
 

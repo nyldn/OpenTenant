@@ -1,88 +1,27 @@
 # Getting started
 
-Use a checkout of OpenTenant with Node 22.23.2, pnpm 11.13.1, Docker and Docker
-Compose installed. These versions come from [package.json](../../package.json)
-and [.nvmrc](../../.nvmrc). Use synthetic data only.
+## Try the full platform locally
 
-## Scaffold a host from packed packages
+Follow the [README quick start](../../README.md#run-it-locally) for the
+supported Node and pnpm versions, the local database, and the command that
+starts the app.
 
-`create-opentenant` creates a minimal synthetic host using built package exports,
-typed configuration, an installation composition, Compose and placeholder env
-settings. It applies canonical migrations and uses the Postgres provisioner to
-seed one tenant database with a restricted RLS login. This package is unpublished.
-Use real local `pnpm pack` artifacts until an owner approves publication.
+`pnpm local:setup` starts PostgreSQL 17 with pgvector on loopback port 55432,
+runs the control-plane migrations, and seeds the synthetic `tenant_local`
+tenant, developer user, and module entitlements. You can repeat it. Use this
+database only for development.
 
-```sh
-pnpm install --frozen-lockfile
-pnpm turbo build
-mkdir -p /tmp/opentenant-packs
-pnpm -r --filter './packages/*' --filter './modules/*' --filter @opentenant/migrations --filter @opentenant/provisioning pack --pack-destination /tmp/opentenant-packs
-# Supply POSTGRES_ADMIN_DATABASE_URL for a disposable pgvector Postgres 17 server.
-node packages/create-opentenant/dist/cli.js --name example-app --identity local --provisioning postgres --tarballs /tmp/opentenant-packs --yes
-pnpm --dir example-app start
-```
-
-Use `--identity better-auth` for the self-hosted adapter. The synthetic owner
-credentials are written to the ignored, mode-0600 `.opentenant-demo-identity.json`,
-never printed. Keep both generated identity and runtime binding files private.
-The welcome page is public synthetic content. Authenticated module-host ports,
-production credential custody and deployment belong to the full platform below.
-The starter binds loopback and does not authorize production use.
-
-`pnpm dx:timed` builds and packs the packages, creates a fresh `node:22` container
-without host node_modules or cache mounts, installs the packs, migrates and seeds
-Postgres, typechecks and starts the host, and asserts home returns HTTP 200.
-It fails above 600 seconds and writes a JSON duration report. Set
-`DX_TIMED_REPORT` to choose its path and `DX_IDENTITY=better-auth` to select that
-adapter. CI runs both identity choices. The full platform checkout remains the
-path for the complete application.
-
-## Local setup in five commands
-
-Run these five commands from the repository root. The third command writes
-local settings to an ignored Next.js environment file without printing them.
-Keep any existing environment file before replacing it.
-
-```sh
-pnpm install --frozen-lockfile
-cp .env.example apps/platform/.env.local
-node --input-type=module <<'JS'
-import { appendFileSync } from 'node:fs';
-appendFileSync('apps/platform/.env.local', '\n' + [
-  'IDENTITY_PROVIDER=local',
-  'LOCAL_PUBLIC_ORIGIN=http://localhost:3000',
-  'CONTROL_PLANE_DATABASE_URL=postgresql://opentenant:opentenant-local@localhost:55432/opentenant',
-  'PLATFORM_DEFAULT_TENANT_ID=tenant_local',
-].join('\n') + '\n');
-JS
-pnpm local:setup
-pnpm dev
-```
-
-`local:setup` starts the Postgres 17/pgvector service at loopback port 55432,
-applies canonical control-plane migrations, and seeds `tenant_local`,
-`user_local` and module entitlements. It is repeatable. It does not provision a
-tenant database. Source: [root scripts](../../package.json),
-[Compose](../../compose.yaml), [local migrations and seed](../../tooling/migrations/src/local.mjs).
-
-Next reads `apps/platform/.env.local` when started through `pnpm dev`. Other
-operator commands need their environment supplied separately; they do not
-implicitly load that file. Configuration names and validation live in
-[server-config.ts](../../apps/platform/lib/server-config.ts).
+The quick start passes settings to the dev process for that run. Put
+persistent Next.js settings in the ignored `apps/platform/.env.local`. The root `.env`
+is used for Docker Compose interpolation. CLI and worker processes need their
+environment supplied separately. See the [workspace guide](../tooling/local-workspace.md).
 
 ## Your first tenant and module
 
-Open `http://localhost:3000/auth/local?return=/assessment`. The local login route
-sets the development session cookie and redirects to the Assessment example.
-The development host fallback selects the seeded `tenant_local`. Assessment's
-basic questionnaire and results run with synthetic browser-local state. This
-is the first-module walkthrough; Support and Knowledge persistence need a
-provisioned tenant database.
-
-Source: [local login](../../apps/platform/app/auth/local/route.ts),
-[local identity defaults](../../packages/auth/src/local/gateway.ts),
-[tenant resolution](../../apps/platform/lib/tenant.ts),
-[Assessment page](../../modules/assessment/src/host-page.tsx).
+Open the [local Assessment sign-in](http://localhost:3000/auth/local?return=/assessment).
+The development session opens the Assessment questionnaire for `tenant_local`.
+Answer a few questions to try the synthetic browser-local workflow.
+For durable Support and Knowledge data, provision a tenant database below.
 
 ## Your first provisioned tenant
 
@@ -128,16 +67,49 @@ installation approval gates; no one-command public registry install is claimed.
 The [registry](../../apps/platform/lib/module-registry.ts) and
 [module UI guide](../product/module-ui.md) describe current integration points.
 
+## Scaffold a host from packed packages
+
+`create-opentenant` creates a minimal synthetic host using built package exports,
+typed configuration, an installation composition, Compose and placeholder env
+settings. It applies canonical migrations and uses the Postgres provisioner to
+seed one tenant database with a restricted RLS login. This package is unpublished.
+Use real local `pnpm pack` artifacts until an owner approves publication.
+
+```sh
+pnpm install --frozen-lockfile
+pnpm turbo build
+mkdir -p /tmp/opentenant-packs
+pnpm -r --filter './packages/*' --filter './modules/*' --filter @opentenant/migrations --filter @opentenant/provisioning pack --pack-destination /tmp/opentenant-packs
+# Supply POSTGRES_ADMIN_DATABASE_URL for a disposable pgvector Postgres 17 server.
+node packages/create-opentenant/dist/cli.js --name example-app --identity local --provisioning postgres --tarballs /tmp/opentenant-packs --yes
+pnpm --dir example-app start
+```
+
+Use `--identity better-auth` for the self-hosted adapter. The synthetic owner
+credentials are written to the ignored, mode-0600 `.opentenant-demo-identity.json`,
+never printed. Keep both generated identity and runtime binding files private.
+The welcome page is public synthetic content. Authenticated module-host ports,
+production credential custody and deployment belong to the full platform below.
+The starter binds loopback and does not authorize production use.
+
+`pnpm dx:timed` builds and packs the packages, creates a fresh `node:22` container
+without host node_modules or cache mounts, installs the packs, migrates and seeds
+Postgres, typechecks and starts the host, and asserts home returns HTTP 200.
+It fails above 600 seconds and writes a JSON duration report. Set
+`DX_TIMED_REPORT` to choose its path and `DX_IDENTITY=better-auth` to select that
+adapter. CI runs both identity choices. The full platform checkout remains the
+path for the complete application.
+
 ## Verify and stop
 
 ```sh
-pnpm restore:drill
 pnpm docs:links
 docker compose stop postgres
 ```
 
-The restore drill uses disposable databases independent of the seeded local
-installation. It needs Linux Docker host networking and the CI pgvector image
+Use Ctrl+C to stop the dev server before stopping PostgreSQL.
+
+The optional `pnpm restore:drill` uses its own disposable databases. It needs Linux Docker host networking and the CI pgvector image
 already cached. See [the restore procedure](../runbooks/backup-restore.md).
 Stopping the development service keeps its named volume. Deleting that volume
 would discard the local database.

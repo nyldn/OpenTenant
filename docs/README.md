@@ -1,55 +1,33 @@
 # OpenTenant documentation
 
-This index is the stable entry point for repository knowledge. Documents are
-grouped by the question they answer rather than by the tool that created them.
-
-## Adopter guides
-
-[Adopting OpenTenant](adopters/README.md) covers local setup, first tenant and
-module, concepts, provider choices, operations, security and FAQ. Start there
-when evaluating or installing the platform.
-
-The [E11 reconciliation ledger](plans/2026-11-17-e11-reconciliation.md) indexes
-current committed wave-5/6 evidence and its limits. It leaves wave-7 UAT/ECS
-results pending integrator receipts. The
-[wave 4b integration record](reviews/2026-11-11-integration-wave4b.md) retains
-historical package, browser, database and timed-adopter results for its revision.
-
-## Internal and reference documentation
-
-The sections below retain architecture decisions, runbooks, delivery plans,
-reviews and handoffs. Plans and historical verification records describe their
-own revision; they are not adopter setup instructions.
-
 ## Choose your route
 
-| If you want to understand… | Start with |
-|---|---|
-| What OpenTenant does and what is ready | [Platform capabilities](product/platform-capabilities.md) |
-| What changed over time | [Human-readable changelog](../CHANGELOG.md) |
-| How requests, identity, data, and modules fit together | [Platform architecture](architecture/platform-architecture.md) |
-| How an owner manages tenants, support, modules, and compliance | [Multi-tenant operations](architecture/multi-tenant-operations.md) |
-| The exact current branch, checks, and next step | [Agent handoff](HANDOFF.md) |
-| Detailed delivery and verification evidence | [Ship log](SHIPLOG.md) |
-| Decisions or external actions still needed | [Owner tasks](OWNER-TASKS.md) |
-| How to run or operate the platform | [Operations](#operations) |
+| I want to… | Start with |
+| --- | --- |
+| Run the framework with synthetic data | [Local quick start](../README.md#run-it-locally) |
+| Provision a tenant or add a module | [Getting started](adopters/getting-started.md) |
+| Understand what is implemented and how it was verified | [Platform capabilities](product/platform-capabilities.md) |
+| Choose identity and database adapters | [Providers](adopters/providers.md) |
+| Understand the request path and tenant boundary | [Architecture](architecture/platform-architecture.md) |
+| Run, migrate, or restore an installation | [Adopter operations](adopters/operations.md) |
+| See what changed | [Changelog](../CHANGELOG.md) |
 
-## Start here
+The [adopter guides](adopters/README.md) also cover
+[concepts](adopters/concepts.md), the [security model](adopters/security-model.md),
+and [setup questions](adopters/faq.md).
 
-- [Platform capabilities](product/platform-capabilities.md): human-readable
-  feature map, maturity, provider choices, and current limits.
-- [Product requirement status](plans/product-requirements-status.md): local
-  composition and remaining outcomes, with receipt-backed limits.
-- [E11 reconciliation ledger](plans/2026-11-17-e11-reconciliation.md): stale
-  claims, corrected scope and current evidence references.
-- [Changelog](../CHANGELOG.md): the product story across development
-  iterations.
-- [Agent handoff](HANDOFF.md): current delivery state, priority, and verified
-  next step.
-- [Ship log](SHIPLOG.md): exact delivered capabilities and evidence by date.
-- [Owner tasks](OWNER-TASKS.md): decisions and externally controlled actions.
-- [Platform architecture](architecture/platform-architecture.md): accepted
-  system boundary and end-to-end design.
+## Development and verification
+
+- [Local developer workspace](tooling/local-workspace.md)
+- [Delivery contract](DELIVERY.md)
+- [Current handoff](HANDOFF.md)
+- [Ship log](SHIPLOG.md)
+- [Owner decisions](OWNER-TASKS.md)
+- [Product requirement status](plans/product-requirements-status.md)
+
+Dated verification records describe the revision tested. Use the
+[evidence ledger](plans/2026-11-17-e11-reconciliation.md) and the
+[verification records](reviews/) to trace results.
 
 ## Architecture and decisions
 
@@ -96,8 +74,6 @@ plan.
 
 ## Operations
 
-- [Local developer workspace](tooling/local-workspace.md)
-
 - [Local and hosted deployment runbooks](runbooks/)
 - [Reproducible containers, Vercel REST and optional Kamal](runbooks/deploy.md)
 - [Hosted preview and per-deployment identity selection](runbooks/deploy-preview.md)
@@ -112,8 +88,8 @@ plan.
 
 ## Security
 
+- [Vulnerability reporting](../SECURITY.md)
 - [Audit checkpoint operations and key rotation](security/audit-checkpoints.md)
-
 - [Developer MCP threat model](security/developer-mcp-threat-model.md)
 
 ## Licensing and participation

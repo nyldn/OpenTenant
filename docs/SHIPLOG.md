@@ -1,5 +1,18 @@
 # OpenTenant ship log
 
+## 2026-11-24 · Public source and onboarding
+
+- Published the verified clean import and enabled GitHub secret scanning and
+  push protection.
+- Put the synthetic local setup in the root README, with an explicit loopback
+  bind and a direct route to Assessment.
+- Reorganized the docs index around reader tasks and recorded the reference
+  projects in the [onboarding review](reviews/2026-11-24-docs-onboarding.md).
+- External contributions, package releases, and production approval remain
+  separate. This update changes documentation and source availability.
+  Marketing impact is truth.
+
+
 ## 2026-11-24 — clean contribution checkout
 
 - Prepared a clean-history import with local development files ignored.

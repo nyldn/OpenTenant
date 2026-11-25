@@ -59,20 +59,18 @@ They do not imply hidden autonomous tasks and do not authorize genuine tenant
 data or production changes. The 53-task statement applies to the legacy
 controller ledger, not completion of the later UX wave plan.
 
-## GitHub protections unavailable on the current plan
+## GitHub protections
 
-- [x] Enable the available repository protections: template mode, web commit
-      signoff, merged-branch deletion, dependency alerts/security updates,
-      curated Actions, and read-only default workflow permissions.
-- [ ] Before public contributions or production releases, either make the
-      repository public or upgrade the user-owned private repository to a plan
-      that supports branch protection/rulesets. Then require pull requests,
-      strict `check` and `rls-proof` status checks, conversation resolution,
-      and blocked force-push/deletion on `main`. GitHub currently returns HTTP
-      403 for both protection APIs.
-- [ ] Enable GitHub repository secret scanning and push protection when the
-      repository visibility or plan makes them available. GitHub currently
-      returns HTTP 422; the pinned Gitleaks CI scan remains the local gate.
+The public repository starts from the verified clean import. GitHub billing
+blocked its first hosted CI runs before any job steps started.
+
+- [x] Publish the clean import to a fresh GitHub repository and retain the
+      private development archive.
+- [x] Enable secret scanning and push protection on the public repository.
+- [ ] Enable branch protection or a ruleset for `main`. Require pull requests,
+      maintainer review, conversation resolution, and blocked force-push and
+      deletion. Require Repository privacy, `check`, and `rls-proof` after
+      hosted CI can provide those statuses.
 - [ ] Before enabling a scheduled GitHub-hosted coding agent, provide branch or
       ruleset protection and approve a pinned Public Preview toolchain whose
       agent job is read-only and secret-free and whose PR-only output is applied
@@ -110,7 +108,7 @@ controller ledger, not completion of the later UX wave plan.
 - [ ] Do not delete shared WorkOS organisations unless each is proved exclusive
       to the retired application.
 
-## Before making the repository public
+## Before accepting external contributions or publishing releases
 
 - [x] Adopt `AGPL-3.0-only` for the core, `Apache-2.0` for the module
       SDK, and `CC-BY-SA-4.0` for documentation.
@@ -127,11 +125,6 @@ controller ledger, not completion of the later UX wave plan.
 - [ ] Approve the contributor licence agreement, `SECURITY.md`, code of
       conduct, and final trademark-clearance position before accepting public
       contributions.
-- [ ] Approve a fresh GitHub destination for the independently verified clean
-  checkout. Keep the development archive private. Confirm the destination has
-  no inherited pull requests, Actions records, or private refs.
-- [ ] Require the Repository privacy check and maintainer review. Enable secret
-  scanning and push protection when the destination supports them.
 - [ ] Approve the private vulnerability reporting channel in SECURITY.md and
   complete the final source and fixture provenance review.
 

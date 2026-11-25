@@ -27,8 +27,11 @@ receipts for these waves; OWNER-KVM-CI-01 still requires actual runner proof.
 
 V3 passes six frozen no-regression tests. Assessment still misses the LCP/CLS
 product targets and the shared shell misses its initial-JS target. UAT-015 stays
-open. Current wave-7 UAT pass rate and ECS are **PENDING integrator receipts**.
-Earlier counts and timings below are evidence for their dated revisions.
+open. Wave-7 UAT recorded 4 passing, 2 failing, and 24 blocked journey-width
+checks. The wave-7 fixes have not been rerun through that matrix. The recorded
+engineering score is 4.25. See the [UAT findings](../reviews/uat-2026-11-17/q1-findings-r1.md)
+and [score assessment](../reviews/2026-11-17-ecs-wave7.md).
+Earlier counts and timings below apply to their dated revisions.
 
 ## Historical wave 4b local evidence
 

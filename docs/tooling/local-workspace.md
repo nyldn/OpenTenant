@@ -12,10 +12,10 @@ git check-ignore .env .local/workspace
 ```
 
 Follow [the quick start](../../README.md#run-it-locally) for PostgreSQL and the
-application. Keep scratch files and machine-specific setup in
-`.local/workspace/`, and put local logs and test evidence in
-`.local/evidence/`. Use the ignored root `.env` for local settings.
-Keep `.env.example` synthetic. Use only synthetic accounts and data.
+application. Put local notes in `.local/workspace/` and evidence in
+`.local/evidence/`. Use the ignored root `.env` for Docker Compose, and
+`apps/platform/.env.local` for persistent Next.js settings. Supply the
+environment separately for CLI and worker processes. Keep examples synthetic.
 
 The pre-commit hook scans staged content and blocks local workspace paths,
 credential files, exports, and generated artifacts even if they were
@@ -39,10 +39,9 @@ exports, provider responses, and agent transcripts in the local workspace.
 
 Maintainers should require the **Repository privacy** status check and review
 of changes to the workflow, hooks, scanner configuration, and ignore rules.
-Enable secret scanning and push protection on the contribution repository.
+GitHub secret scanning and push protection are enabled on the public repository.
 If a credential was committed, revoke or rotate it and report the incident
 privately. Coordinate cleanup of every affected ref and copy.
 
-Use a fresh remote for the clean import. The development archive contains
-historical pull request refs and Actions records. Keep it private and use
-reviewed patches when porting work from it.
+Use a checkout of the [public repository](https://github.com/nyldn/OpenTenant)
+for new development. Port work from the private archive as reviewed patches.

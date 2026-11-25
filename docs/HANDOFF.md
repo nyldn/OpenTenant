@@ -3,6 +3,17 @@
 Use the [developer workspace guide](tooling/local-workspace.md) for local setup
 and the repository privacy check. Keep machine-specific evidence in `.local/`.
 
+## Public source and documentation, 2026-11-24
+
+Use a checkout of the [public repository](https://github.com/nyldn/OpenTenant)
+for new work. Its first commit is the clean import. The development archive
+stays private. GitHub secret scanning and push protection are enabled.
+Hosted CI failed to start because of billing.
+
+Start with the [README quick start](../README.md#run-it-locally) and
+[documentation index](README.md). External contributions, package releases,
+and production activation retain their separate [owner gates](OWNER-TASKS.md).
+
 ## UAT operator controls, 2026-11-17
 
 `pnpm uat:control` now supports guarded local provisioning conflicts, safe
