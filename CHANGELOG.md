@@ -1,5 +1,18 @@
 # OpenTenant changelog
 
+This log tracks development snapshots and changes users can see. For test
+results and implementation details, see the [ship log](docs/SHIPLOG.md).
+
+## 2026-11-24 · Public source and local quick start
+
+- Published a clean source snapshot on GitHub. The project is pre-1.0.
+  Public packages and external contributions still have separate approvals.
+- Updated the [quick start](README.md#run-it-locally) to launch the synthetic
+  tenant and open Assessment with local identity and PostgreSQL.
+- Added routes through the [documentation](docs/README.md) for trying the app,
+  adding a module, and operating an installation.
+
+
 ## 2026-11-17: Audit filters
 
 Platform administrators can filter the bounded audit log by tenant, exact action
@@ -39,14 +52,6 @@ sink by default. The obsolete Workflow build wrapper is removed. Shared
 disposable database verification now covers the merged worker and usage jobs.
 See [verification and remaining limits](docs/reviews/2026-11-11-integration-wave2.md).
 Marketing impact: truth.
-
-This changelog explains OpenTenant's development in product terms. OpenTenant
-has not published a versioned release, so the entries below are development
-iterations rather than release notes.
-
-Newest iterations appear first. For exact implementation evidence, test counts,
-provider probes, and CI runs, see the [ship log](docs/SHIPLOG.md). For the
-current branch and next action, see the [handoff](docs/HANDOFF.md).
 
 ## 2026-11-11 — Module authorization adapters
 

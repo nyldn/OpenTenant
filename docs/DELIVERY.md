@@ -62,5 +62,6 @@ provider identifiers, real email addresses, deployment URLs, tenant data, and
 security boundaries separately; a passing secret scan does not cover them.
 Include public-facing GitHub PR, issue, comment, and Actions records in the
 review. Repeat the checks on the final revision after any history cleanup.
-Record the result in a dated review and keep the visibility change blocked
-until every gate in `docs/OWNER-TASKS.md` is resolved.
+Record the result in a dated review and obtain explicit owner approval for
+the visibility change. Track contribution, release, and provenance decisions
+in [owner tasks](OWNER-TASKS.md).
