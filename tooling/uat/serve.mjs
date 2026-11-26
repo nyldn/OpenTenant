@@ -1,6 +1,7 @@
 import { spawn } from "node:child_process";
 import { randomBytes, createHash, generateKeyPairSync } from "node:crypto";
 import { mkdir, mkdtemp, readFile, writeFile, rm } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { resolve, join } from "node:path";
 import { createRequire } from "node:module";
@@ -9,7 +10,7 @@ import { freePort, hostEnvironment } from "../e2e/safety.mjs";
 import { startModuleStub } from "../e2e/upstream.mjs";
 import { dnsControl } from "../e2e/dns-control.mjs";
 import { startServicePostgres } from "./service-postgres.mjs";
-import { startMailpit, captureMailSeed, verifyPostgresImage } from "./mailpit.mjs";
+import { startMailpit, captureMailSeed, prepareDemoImages, verifyPostgresImage } from "./mailpit.mjs";
 import { processTreeRss } from "./metrics.mjs";
 import { fixtureSnapshot } from "./snapshot.mjs";
 import { runOperatorControl } from "./operator.mjs";
@@ -18,6 +19,7 @@ import { childProcess, gateway, manifestFor, resources, waitFor } from "./runtim
 
 const root = resolve(import.meta.dirname, "../..");
 const state = join(root, ".uat");
+const platformDirectory = join(root, "apps/platform");
 const workspaceLabel = `opentenant.uat.workspace=${createHash("sha256").update(root).digest("hex").slice(0, 20)}`;
 const runId = randomBytes(12).toString("hex");
 const owned = resources();
@@ -26,12 +28,22 @@ const stop = () => controller.abort();
 process.once("SIGINT", stop);
 process.once("SIGTERM", stop);
 let stage = "configuration";
+let failureHint = "Inspect the local service log for details.";
 try {
   if (process.versions.node.split(".")[0] !== "22") throw new Error("Node 22 required");
   const flags = process.argv.slice(2).filter(a => a !== "--");
-  if (flags.some(a => !["--start", "--build", "--better-auth", "--audit"].includes(a))) throw new Error("Usage: pnpm uat:serve [--start] [--build] [--better-auth]");
+  const demo = flags.length === 1 && flags[0] === "--demo";
+  if (!demo && flags.some(flag => !["--start", "--build", "--better-auth", "--audit"].includes(flag))) {
+    throw new Error("Usage: pnpm uat:serve [--start] [--build] [--better-auth] or pnpm local:demo");
+  }
+  if (demo && [".env", ".env.local", ".env.development", ".env.development.local"].some(
+    name => existsSync(join(platformDirectory, name)),
+  )) {
+    failureHint = "Run pnpm local:demo from a checkout without app dotenv files.";
+    throw new Error("Next.js would load local platform configuration");
+  }
   const mode = flags.includes("--start") ? "start" : "dev";
-  const identityProvider = mode === "start" || flags.includes("--better-auth") ? "better-auth" : "local";
+  const identityProvider = demo || mode === "start" || flags.includes("--better-auth") ? "better-auth" : "local";
   if (flags.includes("--build") && mode !== "start") throw new Error("--build requires --start");
   await mkdir(state, { recursive: true, mode: 0o700 });
   // An atomic lock prevents two launchers overwriting the same manifest.
@@ -45,6 +57,11 @@ try {
   await new Promise((resolve, reject) => { guardian.once("spawn", resolve); guardian.once("error", reject); });
   owned.add(async () => { guardian.stdin.end(); await new Promise(resolve => guardian.once("exit", resolve)); });
   const ledger = guardian.stdin;
+  if (demo) {
+    stage = "pinned demo images";
+    await prepareDemoImages(controller.signal);
+  }
+  controller.signal.throwIfAborted();
   const appPort = await freePort();
   const nextPort = await freePort();
   const dnsPort = await freePort();
@@ -103,7 +120,7 @@ try {
   appEnv.NODE_OPTIONS = `--import=${JSON.stringify(join(root, "tooling/e2e/local-fetch.mjs"))}`;
   if (flags.includes("--build")) {
     stage = "Next build";
-    const build = childProcess(process.execPath, [nextBin, "build"], { cwd: join(root, "apps/platform"), env: appEnv, ledger });
+    const build = childProcess(process.execPath, [nextBin, "build"], { cwd: platformDirectory, env: appEnv, ledger });
     owned.add(() => build.dispose());
     const cancelBuild = () => { void build.dispose(); };
     controller.signal.addEventListener("abort", cancelBuild, { once: true });
@@ -112,8 +129,8 @@ try {
   }
   controller.signal.throwIfAborted();
   stage = "Next startup";
-  if (mode === "dev") await rm(join(root, "apps/platform/.next"), { recursive: true, force: true });
-  const startPlatform = () => childProcess(process.execPath, [nextBin, mode, "--hostname", "127.0.0.1", "--port", String(nextPort)], { cwd: join(root, "apps/platform"), env: appEnv, ledger });
+  if (mode === "dev") await rm(join(platformDirectory, ".next"), { recursive: true, force: true });
+  const startPlatform = () => childProcess(process.execPath, [nextBin, mode, "--hostname", "127.0.0.1", "--port", String(nextPort)], { cwd: platformDirectory, env: appEnv, ledger });
   let platform = startPlatform();
   owned.add(() => platform.dispose());
   let peakRssBytes = 0;
@@ -134,7 +151,7 @@ try {
       resetStage = "mail"; await mailSeed.restore();
       resetStage = "verify"; const verified = await snapshot.verify();
       await resetControlState(root);
-      if (mode === "dev") await rm(join(root, "apps/platform/.next"), { recursive: true, force: true });
+      if (mode === "dev") await rm(join(platformDirectory, ".next"), { recursive: true, force: true });
       resetStage = "restart"; platform = startPlatform(); worker = startWorker();
       for (const runtime of [platform, worker]) void runtime.exited.then(() => {
         if (!resetting && !controller.signal.aborted) { process.exitCode = 1; console.error("UAT runtime exited unexpectedly after reset."); stop(); }
@@ -155,7 +172,7 @@ try {
     try { return await runOperatorControl({ root, runId, database: { ...database, controlUrl: env.CONTROL_PLANE_DATABASE_URL } }, input); }
     finally { controlling = false; }
   };
-  const front = gateway({ appPort, nextPort, users, tenants, documents, mode, identityProvider, stopToken, stop, reset, operator, revision: () => `${runId}:${revision}` });
+  const front = gateway({ appPort, nextPort, users, tenants, documents, mode, identityProvider, demo, stopToken, stop, reset, operator, revision: () => `${runId}:${revision}` });
   await new Promise((resolve, reject) => { front.server.once("error", reject); front.server.listen(appPort, "127.0.0.1", resolve); });
   owned.add(() => front.dispose());
   const manifest = manifestFor({ runId, worktree: root, appPort, nextPort, mailPort, smtpPort, postgresPort: database.port, dnsPort, upstreamPort, users, tenants, mode, identityProvider });
@@ -163,13 +180,20 @@ try {
   await writeFile(join(state, "manifest.json"), JSON.stringify(manifest, null, 2) + "\n", { mode: 0o600 });
   await writeFile(join(state, "active", "control.json"), JSON.stringify({ worktree: root, runId, appPort, stopToken }), { mode: 0o600 });
   owned.add(() => rm(join(state, "manifest.json"), { force: true }));
+  if (demo) {
+    const owner = manifest.personas.find(persona => persona.id === "alpha-owner");
+    if (!owner) throw new Error("Demo owner is unavailable");
+    await writeFile(join(state, "active", "demo-url"), owner.signInUrl + "\n", { mode: 0o600 });
+    console.log("Demo ready. Open the private URL in .uat/active/demo-url to try Support.");
+    console.log("Save a sample ticket and reload to see it persist. Press Ctrl+C to stop.");
+  }
   console.log(`UAT ready (${identityProvider}); private manifest: ${join(state, "manifest.json")}`);
   stage = "serving";
   if (!controller.signal.aborted) await new Promise(resolve => controller.signal.addEventListener("abort", resolve, { once: true }));
 } catch (error) {
   if (!controller.signal.aborted) {
     // Do not expose driver errors or subprocess environments containing run credentials.
-    console.error(`UAT failed during ${stage}. ${error.code === "EEXIST" ? "Run pnpm uat:down to clear the workspace lock." : "Inspect the local service log for details."}`);
+    console.error(`UAT failed during ${stage}. ${error.code === "EEXIST" ? "Run pnpm uat:down to clear the workspace lock." : failureHint}`);
     process.exitCode = 1;
   }
 } finally {

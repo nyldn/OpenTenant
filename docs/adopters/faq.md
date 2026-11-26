@@ -3,15 +3,15 @@
 ## Do I need Neon, WorkOS or a model key to try it?
 
 No. The [local quick start](getting-started.md#try-the-full-platform-locally)
-uses local identity and Postgres. Durable tenant provisioning can use operator
+uses Better Auth and Postgres. The control-plane setup uses local identity. Durable tenant provisioning can use operator
 Postgres. Better Auth is the self-hosted organization-capable identity choice.
 External model providers are not required for the local platform core.
 See [providers](providers.md).
 
 ## Why does Assessment work while Support has no database?
 
-Local setup seeds the control-plane tenant and entitlements, not its tenant
-database. Assessment's basic example keeps synthetic browser-local state.
+The control-plane setup seeds the tenant and its entitlements. Run
+`pnpm local:demo` to try Support with a provisioned tenant database. Assessment's basic example keeps synthetic browser-local state.
 Support persistence requires provisioning and an encrypted runtime connection
 record. Follow [first provisioned tenant](getting-started.md#your-first-provisioned-tenant).
 

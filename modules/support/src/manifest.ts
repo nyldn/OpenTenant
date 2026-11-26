@@ -38,30 +38,45 @@ import migration7 from "../../../tooling/migrations/sql/tenant-support/0009_supp
 import migration8 from "../../../tooling/migrations/sql/tenant-support/0010_support_ai_review_guards.sql";
 import migration6 from "../../../tooling/migrations/sql/tenant-support/0007_durable_email.sql";
 
-export const SUPPORT_MODULE = defineModule({
-  tenantSchemas: ["support"],
-  services: { helpdesk: helpdeskSource },
-  manifest: SUPPORT_MANIFEST,
-  routes: [{ path: "/support", requiredPermission: "support.use", render: async context => (await import("./host-page")).createSupportPage(context.services as ModuleHostServices)() }, { path: "/support/:id", requiredPermission: "support.use", render: async context => (await import("./host-ticket")).createTicketPage(context.services as ModuleHostServices)({ params: Promise.resolve({ id: context.params!.id! }) }) }],
-  apiRoutes: [
-    { path: "/api/support/tickets", rateLimitClass: "support", handle: async (request, services) => (await import("./host-api")).createSupportApi(services as ModuleHostServices)(request) },
-    // Each handler requires the explicit staff permission plus read_tenant and reply.
-    { path: "/api/support/ai/suggestions", rateLimitClass: "support", handle: async (request, services) => (await import("./support-ai-api")).createSupportAiApi(services as ModuleHostServices)(request) },
-    { path: "/api/support/ai/suggestions/reviews", rateLimitClass: "support", handle: async (request, services) => (await import("./support-ai-api")).createSupportAiApi(services as ModuleHostServices)(request) },
-  ],
-  adminPages: [],
-  settingsPanels: [],
-  migrations: { controlPlane: [], tenant: [
-    { id: "tenant-support/0001_init", sql: migration0 },
-    { id: "tenant-support/0002_ticket_summary_index", sql: migration1 },
-    { id: "tenant-support/0003_ticket_version_outbox", sql: migration2 },
-    { id: "tenant-support/0004_support_depth", sql: migration3 },
-    { id: "tenant-support/0005_slack_app_contracts", sql: migration4 },
-    { id: "tenant-support/0006_audit_truncate", sql: migration5 },
-    { id: "tenant-support/0007_durable_email", sql: migration6 },
-    { id: "tenant-support/0009_support_ai_review", sql: migration7 },
-    { id: "tenant-support/0010_support_ai_review_guards", sql: migration8 },
-  ] },
-  permissions: { declared: SUPPORT_MANIFEST.permissions, roles: SUPPORT_MANIFEST.rolePermissions!, },
-  catalog: { displayName: "Support", enabledByDefault: true },
-});
+export interface SupportModuleOptions {
+  handleAiRequest?: (request: Request, host: ModuleHostServices) => Promise<Response>;
+}
+
+export function createSupportModule({ handleAiRequest }: SupportModuleOptions = {}) {
+  const handleSuggestions = async (request: Request, services: unknown) => {
+    const host = services as ModuleHostServices;
+    if (handleAiRequest) return handleAiRequest(request, host);
+    const { createSupportAiApi } = await import("./support-ai-api");
+    return createSupportAiApi(host)(request);
+  };
+
+  return defineModule({
+    tenantSchemas: ["support"],
+    services: { helpdesk: helpdeskSource },
+    manifest: SUPPORT_MANIFEST,
+    routes: [{ path: "/support", requiredPermission: "support.use", render: async context => (await import("./host-page")).createSupportPage(context.services as ModuleHostServices)() }, { path: "/support/:id", requiredPermission: "support.use", render: async context => (await import("./host-ticket")).createTicketPage(context.services as ModuleHostServices)({ params: Promise.resolve({ id: context.params!.id! }) }) }],
+    apiRoutes: [
+      { path: "/api/support/tickets", rateLimitClass: "support", handle: async (request, services) => (await import("./host-api")).createSupportApi(services as ModuleHostServices)(request) },
+      // Each handler requires the explicit staff permission plus read_tenant and reply.
+      { path: "/api/support/ai/suggestions", rateLimitClass: "support", handle: handleSuggestions },
+      { path: "/api/support/ai/suggestions/reviews", rateLimitClass: "support", handle: handleSuggestions },
+    ],
+    adminPages: [],
+    settingsPanels: [],
+    migrations: { controlPlane: [], tenant: [
+      { id: "tenant-support/0001_init", sql: migration0 },
+      { id: "tenant-support/0002_ticket_summary_index", sql: migration1 },
+      { id: "tenant-support/0003_ticket_version_outbox", sql: migration2 },
+      { id: "tenant-support/0004_support_depth", sql: migration3 },
+      { id: "tenant-support/0005_slack_app_contracts", sql: migration4 },
+      { id: "tenant-support/0006_audit_truncate", sql: migration5 },
+      { id: "tenant-support/0007_durable_email", sql: migration6 },
+      { id: "tenant-support/0009_support_ai_review", sql: migration7 },
+      { id: "tenant-support/0010_support_ai_review_guards", sql: migration8 },
+    ] },
+    permissions: { declared: SUPPORT_MANIFEST.permissions, roles: SUPPORT_MANIFEST.rolePermissions!, },
+    catalog: { displayName: "Support", enabledByDefault: true },
+  });
+}
+
+export const SUPPORT_MODULE = createSupportModule();

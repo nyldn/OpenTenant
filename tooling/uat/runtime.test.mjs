@@ -46,16 +46,22 @@ test("sign-in is loopback-only, host-only, no-store and rejects unknown tokens a
   await new Promise(resolve => app.server.listen(0, "127.0.0.1", resolve));
   const port = app.server.address().port;
   await app.dispose();
-  const bound = gateway({ appPort: port, nextPort: 1, users: [user], tenants, documents: {}, mode: "dev", stopToken: "stop", stop() {} });
+  const bound = gateway({ appPort: port, nextPort: 1, users: [user], tenants, documents: {}, mode: "dev", demo: true, stopToken: "stop", stop() {} });
   await new Promise(resolve => bound.server.listen(port, "127.0.0.1", resolve));
   const get = (token, host = `alpha.localhost:${port}`, origin) => new Promise((resolve, reject) => {
-    const req = request(`http://127.0.0.1:${port}/__uat/sign-in?token=${token}`, { headers: { host, ...(origin ? { origin } : {}) } }, res => { res.resume(); resolve(res); });
+    const req = request(`http://127.0.0.1:${port}/__uat/sign-in?token=${token}`, { headers: { host, ...(origin ? { origin } : {}) } }, res => {
+      const chunks = [];
+      res.on("data", chunk => chunks.push(chunk));
+      res.on("end", () => resolve({ statusCode: res.statusCode, headers: res.headers, body: Buffer.concat(chunks).toString("utf8") }));
+    });
     req.once("error", reject); req.end();
   });
   try {
     assert.equal(bound.server.address().address, "127.0.0.1");
     const response = await get(user.token);
     assert.equal(response.statusCode, 200);
+    assert.match(response.body, /location\.replace\("\/support"\)/u);
+    assert.match((await get(user.token, "fresh.localhost:" + port)).body, /location\.replace\("\/"\)/u);
     assert.match(response.headers["set-cookie"][0], /HttpOnly; SameSite=Lax/);
     assert.doesNotMatch(response.headers["set-cookie"][0], /Domain=/);
     assert.equal(response.headers["cache-control"], "no-store");

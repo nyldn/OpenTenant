@@ -3,6 +3,18 @@
 This log tracks development snapshots and changes users can see. For test
 results and implementation details, see the [ship log](docs/SHIPLOG.md).
 
+## 2026-11-26 · Local tenant demo and native module bindings
+
+- Run `pnpm local:demo` to open a synthetic tenant with Support data in its
+  own PostgreSQL database. Write a ticket and reload to see it persist.
+- Configure Brain and Support through their native module factories. The
+  installed modules own their routes and the host supplies the server bindings.
+
+See the [demo walkthrough](docs/adopters/getting-started.md#try-the-full-platform-locally)
+for setup and cleanup, the [native module guide](docs/adopters/getting-started.md#add-a-native-module)
+for a binding example, and the [verification record](docs/reviews/2026-11-26-local-demo-module-bindings.md)
+for the desktop, mobile, and packed-module checks.
+
 ## 2026-11-24 · Public source and local quick start
 
 - Published a clean source snapshot on GitHub. The project is pre-1.0.

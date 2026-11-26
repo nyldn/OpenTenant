@@ -3,6 +3,16 @@
 Use the [developer workspace guide](tooling/local-workspace.md) for local setup
 and the repository privacy check. Keep machine-specific evidence in `.local/`.
 
+## Local tenant demo and module bindings, 2026-11-26
+
+Run `pnpm local:demo` from a checkout without platform dotenv files.
+The local worker provisions synthetic tenants and writes a private link
+that opens Support. Ctrl+C removes the demo resources. See the
+[adopter guide](adopters/getting-started.md#try-the-full-platform-locally).
+
+Brain and Support expose typed factories at their existing manifest entry
+points. Keep binding implementations in the host composition.
+
 ## Public source and documentation, 2026-11-24
 
 Use a checkout of the [public repository](https://github.com/nyldn/OpenTenant)

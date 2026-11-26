@@ -86,7 +86,7 @@ export async function waitFor(url, signal, acceptedStatuses = [200]) {
 
 export const docker = args => execFileSync("docker", args, { encoding: "utf8", timeout: 30_000, stdio: ["ignore", "pipe", "pipe"] }).trim();
 
-export function gateway({ appPort, nextPort, users, tenants: _tenants, documents, mode, identityProvider = mode === "start" ? "better-auth" : "local", stopToken, stop, reset, operator, revision = () => "0" }) {
+export function gateway({ appPort, nextPort, users, tenants: _tenants, documents, mode, identityProvider = mode === "start" ? "better-auth" : "local", demo = false, stopToken, stop, reset, operator, revision = () => "0" }) {
   const allowedHost = host => typeof host === "string" && new RegExp(`^[a-z0-9](?:[a-z0-9-]{0,38}[a-z0-9])?\\.localhost:${appPort}$`, "u").test(host);
   const server = createServer((req, res) => {
     res.setHeader("Cache-Control", "no-store");
@@ -117,7 +117,8 @@ export function gateway({ appPort, nextPort, users, tenants: _tenants, documents
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       const document = documents[user.tenant];
       const data = JSON.stringify(document ? { key: `assessment_engagement_v2:${encodeURIComponent(user.tenant)}`, value: JSON.stringify(document) } : null).replaceAll("<", "\\u003c");
-      const target = host.startsWith("admin.") ? "/admin" : user.id === "managed-support" ? "/admin/support" : user.id === "no-memberships" ? "/tenants" : "/";
+      const home = demo && user.id === "alpha-owner" && host === "alpha.localhost:" + appPort ? "/support" : "/";
+      const target = host.startsWith("admin.") ? "/admin" : user.id === "managed-support" ? "/admin/support" : user.id === "no-memberships" ? "/tenants" : home;
       res.end(`<!doctype html><title>UAT sign-in</title><script>const rev=${JSON.stringify(revision())};if(localStorage.getItem("__uat_revision")!==rev){for(const k of Object.keys(localStorage)){if(k.startsWith("assessment_"))localStorage.removeItem(k)}localStorage.setItem("__uat_revision",rev)}const seed=${data};if(seed&&!localStorage.getItem(seed.key))localStorage.setItem(seed.key,seed.value);location.replace(${JSON.stringify(target)})</script>`);
       return;
     }
