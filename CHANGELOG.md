@@ -10,6 +10,11 @@ results and implementation details, see the [ship log](docs/SHIPLOG.md).
 - Configure Brain and Support through their native module factories. The
   installed modules own their routes and the host supplies the server bindings.
 
+See the [demo walkthrough](docs/adopters/getting-started.md#try-the-full-platform-locally)
+for setup and cleanup, the [native module guide](docs/adopters/getting-started.md#add-a-native-module)
+for a binding example, and the [verification record](docs/reviews/2026-11-26-local-demo-module-bindings.md)
+for the desktop, mobile, and packed-module checks.
+
 ## 2026-11-24 · Public source and local quick start
 
 - Published a clean source snapshot on GitHub. The project is pre-1.0.

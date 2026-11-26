@@ -28,13 +28,13 @@ pnpm install --frozen-lockfile
 pnpm local:demo
 ```
 
-Open the private URL in `.uat/active/demo-url` to sign in to the synthetic
-Alpha tenant. Create a Support ticket and reload to see it saved. The demo
-runs on loopback and uses local PostgreSQL and Better Auth. Press Ctrl+C to
-stop it and remove its disposable data.
+Wait for **Demo ready**, then copy the URL from `.uat/active/demo-url` into
+your browser. It signs you in to the synthetic Alpha tenant and opens Support.
+Create a ticket and reload to see it saved in PostgreSQL. Keep the link private.
 
-See the [adopter guide](docs/adopters/getting-started.md) for a quick start with
-a local control plane, durable tenant provisioning, and module installation.
+The demo uses Better Auth and disposable databases on loopback. Press Ctrl+C
+to stop the demo and remove its data. See the [demo guide](docs/adopters/getting-started.md#try-the-full-platform-locally)
+for setup requirements and troubleshooting.
 
 ## What OpenTenant provides
 
@@ -57,8 +57,10 @@ and [provider guide](docs/adopters/providers.md).
 | I want to… | Start here |
 | --- | --- |
 | Evaluate the framework and its limits | [Platform capabilities](docs/product/platform-capabilities.md) |
-| Provision a tenant or add my own module | [Getting started](docs/adopters/getting-started.md) |
+| Provision a tenant for longer-lived development | [Tenant provisioning](docs/adopters/getting-started.md#your-first-provisioned-tenant) |
+| Add a native module or reuse a host binding | [Native modules](docs/adopters/getting-started.md#add-a-native-module) |
 | Build a remote module UI | [Module starter](templates/tenant-module-nextjs/README.md) |
+| Scaffold a host from local packages | [Packed-package workflow](docs/adopters/getting-started.md#scaffold-a-host-from-packed-packages) |
 | Set up a development checkout and Git hooks | [Local workspace](docs/tooling/local-workspace.md) |
 | Plan a deployment, migration, or restore | [Operations](docs/adopters/operations.md) |
 | Review the trust boundaries or report a vulnerability | [Security policy](SECURITY.md) · [Security model](docs/adopters/security-model.md) |

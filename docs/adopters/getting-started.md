@@ -9,12 +9,19 @@ the pinned PostgreSQL and Mailpit Docker images if they are missing.
 Use a checkout without app dotenv files so Next.js cannot load provider
 configuration into the demo.
 
-Open the private link in `.uat/active/demo-url`. It signs in as the Alpha
-owner and opens Support. Enter a subject and a description, select
-**Open ticket**, and reload the ticket page. Each tenant has its own database,
-and the ticket persists until you stop the demo with Ctrl+C. To compare
-tenants, open the Beta persona link from the private `.uat/manifest.json`
-in a separate browser session. Restarting the demo creates fresh fixtures.
+1. Wait for **Demo ready** and copy the URL from `.uat/active/demo-url` into
+   your browser. The private link signs you in as the Alpha owner and opens Support.
+2. Enter a subject and a description, select **Open ticket**, then reload the
+   ticket page. The saved ticket lives in Alpha's database.
+3. To try Beta, open its persona link from the private `.uat/manifest.json` in
+   a separate browser session.
+4. Press Ctrl+C in the demo terminal to stop the demo. The next run creates
+   fresh fixtures.
+
+If the launcher reports app dotenv files, use a fresh checkout. If a demo or
+UAT session already owns this checkout, stop it from its terminal or run the
+demo from another checkout. The startup checks keep the current run and its
+private sign-in files intact.
 
 ## Run with a local control plane
 
@@ -82,23 +89,42 @@ Source: [creation route](../../apps/platform/app/api/admin/tenants/route.ts),
 
 ## Adding your own module
 
-Read the [module contracts](../../packages/platform-core/src/modules.ts) and
-[SDK](../../packages/module-sdk/src/index.ts), then use
-[the remote Next.js starter](../../templates/tenant-module-nextjs/README.md).
-Register a reviewed manifest, bind its version in the tenant entitlement and
-grant only the permissions it needs. Enabling a navigation item does not grant
-a data capability. Remote publication and hosted sandbox execution still have
-installation approval gates; no one-command public registry install is claimed.
+### Add a native module
 
-Use the [host composition](../../apps/platform/opentenant-modules.ts) for
-trusted native modules. Brain and Support export module factories from their
-`/manifest` package entry points. Supply optional server bindings there.
-The module definition owns its route list. The host owns credentials,
-configuration, and service implementations. Import the existing
-`BRAIN_MODULE` or `SUPPORT_MODULE` definition when you need the defaults.
+Add trusted modules to the [host composition](../../apps/platform/opentenant-modules.ts).
+Each module owns its routes, permissions, and migrations. The host supplies
+credentials, configuration, and service implementations.
 
-The [registry](../../apps/platform/lib/module-registry.ts) and
-[module UI guide](../product/module-ui.md) describe current integration points.
+For example, the platform passes its embedding configuration to Brain
+through the factory at the package's manifest entry point.
+
+```ts
+import { createBrainModule } from "@opentenant/brain/manifest";
+
+const brain = createBrainModule({
+  resolveEmbedding: async () => (await import("./lib/server-config")).brainEmbeddingConfig(),
+});
+```
+
+Register the returned definition in the existing `installedModules` list and
+preserve the established migration order. Support uses
+`createSupportModule({ handleAiRequest })` for its host-side AI handler.
+Use the `BRAIN_MODULE` or `SUPPORT_MODULE` exports for default definitions.
+
+Run `pnpm module:audit` to check module boundaries and
+`pnpm module:adopter-proof` to exercise a packed module's installation,
+navigation, entitlement checks, and migrations.
+
+### Register a remote module
+
+Start with the [SDK](../../packages/module-sdk/src/index.ts) and
+[remote Next.js starter](../../templates/tenant-module-nextjs/README.md).
+Register a reviewed manifest, bind its version in the tenant entitlement, and
+grant the required permissions. Review the
+[module contracts](../../packages/platform-core/src/modules.ts),
+[registry](../../apps/platform/lib/module-registry.ts), and
+[module UI guide](../product/module-ui.md) for the available integration points.
+Publication and hosted sandbox execution require installation approval.
 
 ## Scaffold a host from packed packages
 

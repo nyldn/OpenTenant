@@ -4,8 +4,10 @@
 
 | I want to… | Start with |
 | --- | --- |
-| Run the framework with synthetic data | [Local quick start](../README.md#run-it-locally) |
-| Provision a tenant or add a module | [Getting started](adopters/getting-started.md) |
+| Try Support with synthetic tenant data | [Local demo](adopters/getting-started.md#try-the-full-platform-locally) |
+| Provision a tenant | [Tenant setup](adopters/getting-started.md#your-first-provisioned-tenant) |
+| Add or reuse a module | [Native and remote module guides](adopters/getting-started.md#adding-your-own-module) |
+| Build a host from local packages | [Packed-package workflow](adopters/getting-started.md#scaffold-a-host-from-packed-packages) |
 | Understand what is implemented and how it was verified | [Platform capabilities](product/platform-capabilities.md) |
 | Choose identity and database adapters | [Providers](adopters/providers.md) |
 | Understand the request path and tenant boundary | [Architecture](architecture/platform-architecture.md) |
