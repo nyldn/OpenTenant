@@ -6,6 +6,7 @@ vi.mock("@opentenant/support", async original => ({ ...await original<typeof imp
 vi.mock("@opentenant/database", async original => ({ ...await original<typeof import("@opentenant/database")>(), PgTenantVoiceProfileStore: class { getCurrent = state.currentVoice; } }));
 vi.mock("./control-plane", () => ({ controlPlanePool: () => ({}) }));
 import { handleSupportAiRequest, supportAiDependencies } from "./support-ai-composition";
+import { installedModules } from "../opentenant-modules";
 const host = () => ({ currentTenant: vi.fn(async () => ({ tenantId: "tenant_a" })), currentSession: vi.fn(async () => ({ userId: "user_a", activeTenantId: "tenant_a", isPlatformAdmin: false })), resolvePermissions: vi.fn(async () => ["support.ai.suggest"]), withTenantDb: vi.fn(async () => false), modelRouter: vi.fn(() => ({ resolve: vi.fn(async () => ({})), prepareStream: vi.fn(), complete: vi.fn() })) } as unknown as ModuleHostServices);
 const request = { tenant_id: "tenant_a" } as AiRequest;
 beforeEach(() => { vi.clearAllMocks(); state.factory.mockReturnValue(async () => new Response(null, { status: 200 })); });
@@ -49,3 +50,15 @@ it("returns fixed uncached errors without dependency secrets or logs", async () 
   expect(response.status).toBe(503); expect(response.headers.get("Cache-Control")).toBe("no-store");
   expect(await response.text()).not.toContain("secret-canary"); expect(log).not.toHaveBeenCalled(); log.mockRestore();
 });
+
+it.each(["/api/support/ai/suggestions", "/api/support/ai/suggestions/reviews"])(
+  "registers the host-bound Support handler for %s",
+  async path => {
+    const services = host();
+    const httpRequest = new Request("https://tenant.example.test" + path);
+    const response = await installedModules.apiRoute(path)!.handle(httpRequest, services);
+    expect(response.status).toBe(200);
+    expect(services.withTenantDb).toHaveBeenCalledWith("tenant_a", expect.any(Function));
+    expect(state.factory).toHaveBeenCalledWith(services, expect.objectContaining({ loadVoice: expect.any(Function) }));
+  },
+);

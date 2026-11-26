@@ -1,4 +1,6 @@
 import { createElement } from "react";
+import type { ModuleHostServices } from "@opentenant/database/module-host";
+import type { BrainCallOptions } from "./service";
 import { defineModule, type ModulePageContext, type ModuleManifest } from "@opentenant/module-sdk";
 
 export const BRAIN_API_PATH = "/api/mcp/brain";
@@ -48,18 +50,36 @@ export async function renderBrainRoute(context: ModulePageContext) {
   return createElement<import("./BrainSurface").BrainSurfaceProps>(BrainSurface, { availability, apiPath: BRAIN_API_PATH });
 }
 
-export const BRAIN_MODULE = defineModule({
-  environmentKeys: ["MODULE_SIGNING_PUBLIC_KEY", "NODE_ENV"],
-  tenantSchemas: ["brain"],
-  manifest: BRAIN_MANIFEST,
-  routes: [{ path: "/brain", requiredPermission: "brain.use", render: renderBrainRoute }],
-  apiRoutes: [{ path: BRAIN_API_PATH, handle: async (request, services) => (await import("./host-api")).handleBrainRequest(request, services as import("@opentenant/database/module-host").ModuleHostServices) }],
-  adminPages: [],
-  settingsPanels: [],
-  migrations: { controlPlane: [], tenant: [
-    { id: "tenant-brain/0001_init", sql: migration0 },
-    { id: "tenant-brain/0002_audit_truncate", sql: migration1 },
-  ] },
-  permissions: { declared: BRAIN_MANIFEST.permissions, roles: BRAIN_MANIFEST.rolePermissions!, },
-  catalog: { displayName: "Brain", enabledByDefault: false },
-});
+export interface BrainModuleOptions {
+  resolveEmbedding?: () => BrainCallOptions["embedding"] | Promise<BrainCallOptions["embedding"]>;
+}
+
+export function createBrainModule({ resolveEmbedding }: BrainModuleOptions = {}) {
+  return defineModule({
+    environmentKeys: ["MODULE_SIGNING_PUBLIC_KEY", "NODE_ENV"],
+    tenantSchemas: ["brain"],
+    manifest: BRAIN_MANIFEST,
+    routes: [{ path: "/brain", requiredPermission: "brain.use", render: renderBrainRoute }],
+    apiRoutes: [{
+      path: BRAIN_API_PATH,
+      handle: async (request, services) => {
+        const { handleBrainRequest } = await import("./host-api");
+        const embedding = await resolveEmbedding?.();
+        return handleBrainRequest(request, services as ModuleHostServices, {
+          ...(embedding ? { embedding } : {}),
+          signal: request.signal,
+        });
+      },
+    }],
+    adminPages: [],
+    settingsPanels: [],
+    migrations: { controlPlane: [], tenant: [
+      { id: "tenant-brain/0001_init", sql: migration0 },
+      { id: "tenant-brain/0002_audit_truncate", sql: migration1 },
+    ] },
+    permissions: { declared: BRAIN_MANIFEST.permissions, roles: BRAIN_MANIFEST.rolePermissions! },
+    catalog: { displayName: "Brain", enabledByDefault: false },
+  });
+}
+
+export const BRAIN_MODULE = createBrainModule();
