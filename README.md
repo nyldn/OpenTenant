@@ -19,30 +19,22 @@ permissions, and gives your modules a tenant-scoped way to access data.
 
 ## Run it locally
 
-Use Node.js 22.23.2 or later in the 22.x line, pnpm 11.13.1, and Docker with
-Compose. The example uses loopback ports 3000 and 55432 and needs no cloud
-accounts or API keys.
+Use Node.js 22.23.2 or later in the 22.x line, pnpm 11.13.1, and Docker.
 
 ```sh
 git clone https://github.com/nyldn/OpenTenant.git
 cd OpenTenant
 pnpm install --frozen-lockfile
-pnpm local:setup
-
-IDENTITY_PROVIDER=local \
-CONTROL_PLANE_DATABASE_URL=postgresql://opentenant:opentenant-local@127.0.0.1:55432/opentenant \
-LOCAL_PUBLIC_ORIGIN=http://localhost:3000 \
-PLATFORM_DEFAULT_TENANT_ID=tenant_local \
-pnpm --filter @opentenant/platform dev --hostname 127.0.0.1
+pnpm local:demo
 ```
 
-[Open the Assessment example](http://localhost:3000/auth/local?return=/assessment).
-The local sign-in route starts a synthetic session and opens the questionnaire.
-Keep the dev server bound to loopback.
+Open the private URL in `.uat/active/demo-url` to sign in to the synthetic
+Alpha tenant. Create a Support ticket and reload to see it saved. The demo
+runs on loopback and uses local PostgreSQL and Better Auth. Press Ctrl+C to
+stop it and remove its disposable data.
 
-The setup seeds a tenant in the control plane. Follow the
-[adopter guide](docs/adopters/getting-started.md) to provision a tenant database
-for durable Support and Knowledge data, or to stop the local service.
+See the [adopter guide](docs/adopters/getting-started.md) for a quick start with
+a local control plane, durable tenant provisioning, and module installation.
 
 ## What OpenTenant provides
 

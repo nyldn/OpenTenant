@@ -10,6 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --filter=@opentenant/platform... --concurrency=32 --env-mode=loose",
     "local:setup": "docker compose up -d --wait --wait-timeout 60 postgres && pnpm --filter @opentenant/migrations local:migrate",
+    "local:demo": "node tooling/uat/serve.mjs --demo",
     "local:migrate": "pnpm --filter @opentenant/migrations local:migrate",
     "unattended:status": "node tooling/unattended/src/cli.mjs status",
     "unattended:preflight": "node tooling/unattended/src/cli.mjs preflight",

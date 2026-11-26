@@ -1,4 +1,5 @@
-import { execFileSync } from "node:child_process";
+import { execFile, execFileSync } from "node:child_process";
+import { promisify } from "node:util";
 import { waitFor } from "./runtime.mjs";
 export const MAILPIT_IMAGE = "axllent/mailpit:v1.27.8@sha256:6abc8e633df15eaf785cfcf38bae48e66f64beecdc03121e249d0f9ec15f0707";
 export const POSTGRES_IMAGE = "pgvector/pgvector:0.8.2-pg17-bookworm@sha256:feb68f4f15446397d8cac7f4fe48fe4586de83160d1fc48b46283312d1a33966";
@@ -8,6 +9,24 @@ export function verifyPostgresImage() {
   const image = JSON.parse(docker(["image", "inspect", POSTGRES_IMAGE.split("@")[0]]))[0];
   if (!image.RepoDigests.includes(POSTGRES_IMAGE.replace(":0.8.2-pg17-bookworm", ""))) throw new Error("Load the pinned pgvector image documented in docs/tooling/e2e.md");
 }
+const pullImage = promisify(execFile);
+
+/** The demo can fetch the same immutable images that UAT expects in its cache. */
+export async function prepareDemoImages(signal) {
+  try {
+    verifyPostgresImage();
+  } catch {
+    await pullImage("docker", ["pull", POSTGRES_IMAGE], { signal, timeout: 300_000 });
+    docker(["tag", POSTGRES_IMAGE, POSTGRES_IMAGE.split("@")[0]]);
+    verifyPostgresImage();
+  }
+  try {
+    docker(["image", "inspect", MAILPIT_IMAGE]);
+  } catch {
+    await pullImage("docker", ["pull", MAILPIT_IMAGE], { signal, timeout: 300_000 });
+  }
+}
+
 export async function startMailpit({ name, labels = {}, signal } = {}) {
   const dispose = async () => {
     if (docker(["ps", "-aq", "--filter", `name=^/${name}$`])) docker(["rm", "-fv", name]);

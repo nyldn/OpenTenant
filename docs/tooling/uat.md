@@ -2,8 +2,10 @@
 
 Use Node 22, pnpm 11.13.1, Docker, and the installed workspace dependencies.
 Load `pgvector/pgvector:0.8.2-pg17-bookworm` and
-`axllent/mailpit:v1.27.8` into Docker first. The runner never pulls images.
-All accounts and content are synthetic. Use the exact image pull commands in
+`axllent/mailpit:v1.27.8` into Docker first. The UAT commands expect these images in the local cache.
+All accounts and content are synthetic. The [local demo](../adopters/getting-started.md#try-the-full-platform-locally)
+uses this launcher and loads the pinned images when needed. For UAT, use the
+exact image pull commands in
 [the E2E prerequisites](e2e.md) so the cached image digests match the harness.
 
 ```sh

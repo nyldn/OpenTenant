@@ -2,16 +2,42 @@
 
 ## Try the full platform locally
 
-Follow the [README quick start](../../README.md#run-it-locally) for the
-supported Node and pnpm versions, the local database, and the command that
-starts the app.
+Follow the [README quick start](../../README.md#run-it-locally). After
+installing dependencies, `pnpm local:demo` starts the app, runs migrations,
+and provisions synthetic tenants on random loopback ports. It fetches
+the pinned PostgreSQL and Mailpit Docker images if they are missing.
+Use a checkout without app dotenv files so Next.js cannot load provider
+configuration into the demo.
+
+Open the private link in `.uat/active/demo-url`. It signs in as the Alpha
+owner and opens Support. Enter a subject and a description, select
+**Open ticket**, and reload the ticket page. Each tenant has its own database,
+and the ticket persists until you stop the demo with Ctrl+C. To compare
+tenants, open the Beta persona link from the private `.uat/manifest.json`
+in a separate browser session. Restarting the demo creates fresh fixtures.
+
+## Run with a local control plane
+
+Use this setup for the browser-local Assessment example or when you want to
+keep the control-plane database between runs. Run it from the repository
+root after installing dependencies.
+
+```sh
+pnpm local:setup
+
+IDENTITY_PROVIDER=local \
+CONTROL_PLANE_DATABASE_URL=postgresql://opentenant:opentenant-local@127.0.0.1:55432/opentenant \
+LOCAL_PUBLIC_ORIGIN=http://localhost:3000 \
+PLATFORM_DEFAULT_TENANT_ID=tenant_local \
+pnpm --filter @opentenant/platform dev --hostname 127.0.0.1
+```
 
 `pnpm local:setup` starts PostgreSQL 17 with pgvector on loopback port 55432,
 runs the control-plane migrations, and seeds the synthetic `tenant_local`
 tenant, developer user, and module entitlements. You can repeat it. Use this
 database only for development.
 
-The quick start passes settings to the dev process for that run. Put
+This command passes settings to the dev process for that run. Put
 persistent Next.js settings in the ignored `apps/platform/.env.local`. The root `.env`
 is used for Docker Compose interpolation. CLI and worker processes need their
 environment supplied separately. See the [workspace guide](../tooling/local-workspace.md).
@@ -63,6 +89,13 @@ Register a reviewed manifest, bind its version in the tenant entitlement and
 grant only the permissions it needs. Enabling a navigation item does not grant
 a data capability. Remote publication and hosted sandbox execution still have
 installation approval gates; no one-command public registry install is claimed.
+
+Use the [host composition](../../apps/platform/opentenant-modules.ts) for
+trusted native modules. Brain and Support export module factories from their
+`/manifest` package entry points. Supply optional server bindings there.
+The module definition owns its route list. The host owns credentials,
+configuration, and service implementations. Import the existing
+`BRAIN_MODULE` or `SUPPORT_MODULE` definition when you need the defaults.
 
 The [registry](../../apps/platform/lib/module-registry.ts) and
 [module UI guide](../product/module-ui.md) describe current integration points.

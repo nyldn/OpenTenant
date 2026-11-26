@@ -1,5 +1,16 @@
 # OpenTenant ship log
 
+## 2026-11-26 · Provisioned local demo and native module bindings
+
+- Added a demo entry point over the isolated UAT launcher. The same worker
+  provisions synthetic tenants. The new private sign-in shortcut opens Support.
+- Brain and Support now declare their own API routes and receive typed server
+  bindings from the host during installation.
+- See the [adopter guide](adopters/getting-started.md) and
+  [verification record](reviews/2026-11-26-local-demo-module-bindings.md).
+  Marketing impact is truth.
+
+
 ## 2026-11-24 · Public source and onboarding
 
 - Published the verified clean import and enabled GitHub secret scanning and
